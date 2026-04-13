@@ -178,6 +178,7 @@
   },
   "active": "88553cb704117af1",
   "lastOpenFiles": [
+    "wiki/sources/arona-system.md",
     "wiki/sources/rag-recommendation.md",
     "wiki/sources/stateless-rag-explained.md",
     "wiki/sources/sellsuki-rag-analysis.md",
@@ -203,7 +204,6 @@
     "raw/notes/LangChain/step3-rag-tutorial.md",
     "raw/notes/LangChain/advanced-rag-deep-dive.md",
     "raw/notes/LangChain/step4-langgraph-tutorial.md",
-    "raw/notes/LangChain/step7-evaluation-tutorial.md",
     "raw/notes/liamaindex",
     "raw/notes/LangChain",
     "raw/notes/Hetstack",
