@@ -14,6 +14,7 @@ local-valut/
 ├── index.md           ← content catalog (LLM updates on every ingest)
 ├── log.md             ← append-only operation log
 ├── raw/               ← source documents — NEVER modify these
+│   ├── inbox/         ← drop new files here (auto-categorized on /ingest)
 │   ├── clips/         ← web articles clipped via Obsidian Web Clipper or /clip
 │   ├── books/         ← book files, PDFs, or chapter notes
 │   ├── notes/         ← manual notes typed by the user
@@ -26,6 +27,8 @@ local-valut/
     ├── canvas/        ← visual knowledge maps (.canvas files)
     └── bases/         ← Obsidian Bases database views (.base files)
 ```
+
+**Important workflow change**: When adding new source files, place them in `raw/inbox/`. Running `/ingest` will automatically categorize and move them to the appropriate folder (clips/books/notes/assets) before processing.
 
 ---
 
@@ -209,8 +212,15 @@ The following skills are available to Claude for use in all workflows:
 
 When the user says "ingest [filename]" or provides a path to `raw/`:
 
-1. Read the source file in full. If a folder is given, Glob all `.md` files and process each sequentially.
-2. Create a **source summary page** in `wiki/sources/` using **obsidian-markdown** syntax (wikilinks, callouts, proper frontmatter).
+**NEW WORKFLOW**: Files should be placed in `raw/inbox/` first. `/ingest` will:
+
+1. **Categorize and move files** from `raw/inbox/` to appropriate folders:
+   - Has `url:` OR `type: clip` → `raw/clips/`
+   - Has `author:` OR `type: book` → `raw/books/`
+   - Has `type: note` OR no frontmatter → `raw/notes/`
+   - Image files → `raw/assets/`
+2. Read the source file in full. If a folder is given, Glob all `.md` files and process each sequentially.
+3. Create a **source summary page** in `wiki/sources/` using **obsidian-markdown** syntax (wikilinks, callouts, proper frontmatter).
 3. Identify concepts mentioned — for each:
    - `obsidian search query="[concept]"` to check for duplicates; if it fails, Glob `wiki/concepts/` as fallback.
    - If a concept page exists → update it with new info, note if it contradicts previous claims.

@@ -4,6 +4,16 @@
 
 ---
 
+## [2026-04-14] ingest | raw/inbox/hr-policy.md — Sellsuki Corp HR Policy
+
+- **Categorize & Move**: hr-policy.md → raw/notes/policy/
+- สร้าง source pages: sellsuki-hr-policy (1 ไฟล์)
+- สร้าง concept pages: work-from-anywhere, existential-crisis-leave, meeting-combat-resolution, breakup-relief-fund, holographic-dress-code, pet-ceo-day, quantum-nap-time (7 ไฟล์)
+- ครอบคลุมเนื้อหา: Work From Anywhere (999 ปี/ปี), Existential Crisis Leave (42 วัน/ปี), Pet-CEO Day (วันที่ 9 ของเดือน), Pink Friday, Quantum Nap Time (15 นาที = 8 ชั่วโมง), Meeting Combat Resolution (เป่ายิ้งฉุบ/Mario Kart), Holographic Dress Code, Breakup Relief Fund, Alien Abduction Compensation
+- อัปเดต index.md (1 source, 7 concepts ใหม่)
+
+---
+
 ## [2026-04-13] query | central-component คืออะไร — Sellsuki Web Components Library
 
 - ตอบคำถามจาก: wiki/concepts/web-components-lit, wiki/concepts/design-tokens, wiki/sources/sellsuki-components-docs

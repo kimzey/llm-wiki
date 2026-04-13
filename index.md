@@ -1,6 +1,6 @@
 # Index
 
-วันที่อัปเดตล่าสุด: 2026-04-14 (14 — post-lint fixes)
+วันที่อัปเดตล่าสุด: 2026-04-14 (15 — HR Policy added)
 
 ---
 
@@ -104,6 +104,7 @@
 | [[wiki/sources/vector-db-comparison-research\|Vector Database Comparison Research 2026]] | Benchmark pgvector/Qdrant/Pinecone/ChromaDB: latency, QPS, scalability limits, pgvector ขีดจำกัด 1M vectors, pgvector 0.7.0 improvements, decision matrix | [[wiki/sources/vector-db-comparison-research]] | 2026-04-14 |
 | [[wiki/sources/docling-deep-dive-research\|Docling Deep Dive — Granite-Docling & Benchmarks]] | Granite-Docling-258M (March 2025): DocTags markup, vision+language model, benchmark vs LlamaParse/Unstructured, LangChain/LlamaIndex integrations | [[wiki/sources/docling-deep-dive-research]] | 2026-04-14 |
 | [[wiki/sources/open-source-rag-platforms-research\|Open Source RAG Platforms Research 2026]] | เปรียบเทียบ RAGFlow vs Dify vs AnythingLLM vs Flowise: RAG sophistication, ease of use, agent support, complex docs, decision guide | [[wiki/sources/open-source-rag-platforms-research]] | 2026-04-14 |
+| [[wiki/sources/sellsuki-hr-policy\|Sellsuki Corp HR Policy]] | นโยบายฝ่ายทรัพยากรบุคคล: WFA, ECL, Pet-CEO Day, Quantum Nap Time, Meeting Combat Resolution, Holographic Dress Code, Breakup Relief Fund | [[wiki/sources/sellsuki-hr-policy]] | 2026-04-14 |
 
 ---
 
@@ -164,6 +165,13 @@
 | [[wiki/concepts/prompt-engineering\|Prompt Engineering]] | ออกแบบ prompt ให้ LLM: zero-shot, few-shot, Chain-of-Thought, role prompting, constraint prompting, output format control | prompt-engineering, llm, few-shot, chain-of-thought, rag |
 | [[wiki/concepts/api-design\|API Design]] | ออกแบบ REST API สำหรับ RAG Agent: FastAPI endpoints, authentication, error format, streaming, health check | api, rest, fastapi, design, http, endpoints |
 | [[wiki/concepts/api-integration\|API Integration]] | เชื่อม RAG Agent กับ 14 channels: LINE, Slack, Web, Mobile, Discord, Teams, MCP — 1 Agent N Channels pattern | api-integration, line, slack, webhook, rest-api, channels |
+| [[wiki/concepts/work-from-anywhere\|Work From Anywhere (WFA)]] | นโยบายการทำงานจากที่ไหนก็ได้ในกาแล็กซี่ โควต้า 999 ปีต่อปี (ไม่รวมวันหยุด) | remote-work, hr-policy, flexible-work |
+| [[wiki/concepts/existential-crisis-leave\|Existential Crisis Leave (ECL)]] | สิทธิ์การลาค้นหาความหมายของชีวิต 42 วัน/ปี ไม่ต้องมีใบรับรองแพทย์ (แต่ต้องแนบภาพถ่าย) | leave, hr-policy, mental-health, work-life-balance |
+| [[wiki/concepts/meeting-combat-resolution\|Meeting Combat Resolution]] | กลไกตัดสินปัญหาการประชุมที่ยืดเยื้อ: เป่ายิ้งฉุบ Best of 5 หรือแข่ง Mario Kart | meetings, productivity, decision-making, hr-policy |
+| [[wiki/concepts/breakup-relief-fund\|Breakup Relief Fund]] | สวัสดิการพนักงานอกหัก: ทิชชู่พรีเมียม 1 ลัง + อโลเวร่าฟรี + งบ 5,000 บาท | employee-benefits, hr-policy, mental-health, breakup |
+| [[wiki/concepts/holographic-dress-code\|Holographic Dress Code]] | ใส่ชุดนอนมาทำงาน แล้วใช้เครื่องฉายโฮโลแกรมฉายเป็นชุดสูท (ต้องชาร์จแบตเตอรี่ให้เต็ม!) | dress-code, workplace-culture, technology, hr-policy |
+| [[wiki/concepts/pet-ceo-day\|Pet-CEO Day]] | ทุกวันที่ 9 ของเดือน สัตว์เลี้ยงบริหารงาน 1 ชั่วโมง (เลือกสีโลโก้, อนุมัติงบด้วยการเห่า) | pets, workplace-culture, decision-making, hr-policy |
+| [[wiki/concepts/quantum-nap-time\|Quantum Nap Time]] | งีบหลับ 15 นาทีในแคปซูลจำศีลควอนตัม รู้สึกเหมือนนอน 8 ชั่วโมง (พร้อมความเสี่ยงหลุดไป timeline คู่ขนาน) | rest, workplace-facilities, science-fiction, hr-policy |
 
 ---
 
