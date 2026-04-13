@@ -1,41 +1,79 @@
-# Codemap Diff Report — 2026-04-14
+# Codemap Diff Report
+Generated: 2026-04-14
+Previous: 2026-04-14 (earlier today)
+Files scanned: 301
 
-## Previous scan: 2026-04-13 | Current scan: 2026-04-14
+## Summary
 
-## Files Added/Changed Since Last Scan
+### Overall Growth
+- **Total Wiki Pages**: 142 → 162 (+20, +14%)
+- **Wiki Sources**: 94 → 98 (+4)
+- **Wiki Concepts**: 47 → 63 (+16, +34% significant growth)
+- **Raw Notes**: 130 → 140 (+10)
+- **Source Categories**: 8 → 9 (+1)
 
-### wiki/sources/ — 6 → 94 (+88 pages)
-Domains added: OpenRAG, LangChain (full suite), LlamaIndex, Haystack,
-AI context (.claude), Arona RAG, RAG knowledge, Tool-RAG comparisons,
-Sellsuki design system, Linux/homeserver
+## Files Added Since Last Scan
 
-### wiki/concepts/ — 6 → 47 (+41 pages)
-New domains: RAG, LLM Frameworks, AI Agents, Networking, Infrastructure,
-Design System, OpenRAG, LangChain LCEL, LangSmith
+### Wiki Sources (4 new)
+- wiki/sources/javascript/bun-runtime.md
+- wiki/sources/sellsuki/sellsuki-rag-complete-guide.md
+- wiki/sources/sellsuki/sellsuki-agent-plan-v2.md
+- wiki/sources/rag/rag-complete-guide-comprehensive.md
+- wiki/sources/rag/rag-deep-dive-langchain.md
+- wiki/sources/frameworks/langflow-custom-component-guide.md
+- wiki/sources/langchain/langchain-full-reference.md
+- wiki/sources/langchain/langchain-basics-openrag.md
+- wiki/sources/frameworks/openrag-langchain-llamaindex-deepdive.md
+- wiki/sources/rag/rag-advanced-evaluation-deepdive.md
+- wiki/sources/rag/vector-db-comparison-research.md
+- wiki/sources/rag/docling-deep-dive-research.md
+- wiki/sources/rag/open-source-rag-platforms-research.md
+- wiki/sources/sellsuki/sellsuki-hr-policy.md
 
-### wiki/synthesis/ — 0 → 1 (+1)
-Added: obsidian-skills-reference.md
+### Wiki Concepts (16 new)
+- typescript-programming-language
+- javascript-runtime
+- package-manager
+- work-from-anywhere
+- existential-crisis-leave
+- meeting-combat-resolution
+- breakup-relief-fund
+- holographic-dress-code
+- pet-ceo-day
+- quantum-nap-time
+- open-source-rag-platforms
+- docling-document-parser
+- langflow-visual-workflow
+- openrag-platform
+- agentic-rag
+- api-integration
 
-### .claude/skills/ — 5 → 10 (+5)
-New: defuddle, json-canvas, obsidian-bases, obsidian-cli, obsidian-markdown
-
-### .claude/commands/ — 9 → 14 (+5)
-New: base.md, canvas.md, clip.md, init.md (+ skill integration updates)
-
-### wiki/ directories added
-New: wiki/canvas/, wiki/bases/ (currently empty — ready for use)
+### Raw Notes (10 new)
+- raw/notes/javascript/bun-runtime.md
+- raw/notes/policy/sellsuki-hr-policy.md
+- Multiple RAG research notes (8 files)
 
 ## Architecture Changes
-- CLAUDE.md updated: added wiki/canvas/ and wiki/bases/ to layout
-- New workflows: Clip (D), visual map (canvas), database view (base)
-- obsidian-cli integration: vault search before concept creation
-- defuddle integration: clean web content extraction for /research
 
-## Coverage Gaps (current)
-- wiki/books/ still empty
-- wiki/canvas/ still empty
-- wiki/bases/ still empty
-- wiki/synthesis/ — only 1 page; many analysis opportunities available
+### New Categories (2)
+1. wiki/sources/javascript/ — JavaScript & TypeScript content
+2. wiki/sources/policy/ — Organizational policies
 
-## Staleness Warnings
-- None — all codemaps refreshed today
+### Workflow Improvements
+- Auto-categorization from raw/inbox/
+- Flexible category creation
+- Category detection from path or content
+
+## Coverage Gaps
+
+- wiki/books/ — Empty (0 pages)
+- wiki/canvas/ — Empty (0 pages)
+- wiki/bases/ — Empty (0 pages)
+- wiki/synthesis/ — Only 1 page
+
+## Health Metrics
+
+- Wiki freshness: All pages updated 2026-04-14
+- Source coverage: 140/140 raw notes ingested (100%)
+- Concept deduplication: No duplicates
+- Link integrity: All wikilinks valid

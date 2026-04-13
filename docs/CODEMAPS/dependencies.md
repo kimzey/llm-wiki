@@ -1,4 +1,4 @@
-<!-- Generated: 2026-04-14 | Files scanned: 271 | Token estimate: ~450 -->
+<!-- Generated: 2026-04-14 | Files scanned: 301 | Token estimate: ~500 -->
 
 # Dependencies — LLM Wiki
 
@@ -51,11 +51,32 @@
 
 | Format | Ingestion path |
 |--------|---------------|
-| `.md` (Obsidian Web Clipper) | `raw/clips/` |
-| `.md` (manual notes) | `raw/notes/<topic>/` |
-| `.pdf` / book chapter `.md` | `raw/books/` |
+| `.md` (Obsidian Web Clipper) | `raw/clips/` → `wiki/sources/<category>/` |
+| `.md` (manual notes) | `raw/notes/<topic>/` → `wiki/sources/<category>/` |
+| `.md` (from inbox) | `raw/inbox/` → auto-categorize → `raw/<type>/<category>/` → `wiki/sources/<category>/` |
+| `.pdf` / book chapter `.md` | `raw/books/` → `wiki/books/` |
 | Images (`.png`, `.jpg`) | `raw/assets/` — LLM reads text first, then images |
 | Web URL | defuddle → `raw/clips/[slug].md` via /clip |
+
+## Auto-Categorization Rules (NEW)
+
+When ingesting from `raw/inbox/`:
+
+1. **Determine type**:
+   - Has `url:` or `type: clip` → `raw/clips/`
+   - Has `author:` or `type: book` → `raw/books/`
+   - Has `type: note` or no frontmatter → `raw/notes/`
+   - Image files → `raw/assets/`
+
+2. **Determine subfolder** (AI analysis):
+   - Check content topics, title, domain
+   - Examples: `javascript/`, `policy/`, `tech/`, `hr/`
+   - Ask user if unclear
+
+3. **Move and process**:
+   - Create path: `mkdir -p raw/<type>/<category>/`
+   - Move file: `mv raw/inbox/<file> raw/<type>/<category>/<file>`
+   - Ingest to matching `wiki/sources/<category>/`
 
 ## Web / Search Services
 

@@ -1,4 +1,4 @@
-<!-- Generated: 2026-04-14 | Files scanned: 271 | Token estimate: ~700 -->
+<!-- Generated: 2026-04-14 | Files scanned: 301 | Token estimate: ~800 -->
 
 # Operations — LLM Wiki
 
@@ -6,7 +6,7 @@
 
 | Command | Trigger | Core Action |
 |---------|---------|-------------|
-| `ingest.md` | `/ingest <path>` | Read raw → source page → concept pages → index + log |
+| `ingest.md` | `/ingest <path>` | Categorize raw → source page → concept pages → index + log |
 | `query.md` | `/query <question>` | index → relevant pages → synthesize → optionally save synthesis |
 | `research.md` | `/research <topic>` | WebSearch gaps → summarize → optionally update wiki + log |
 | `lint.md` | `/lint` | Health check: orphans, contradictions, missing pages, stale index |
@@ -21,11 +21,11 @@
 | `base.md` | `/base <title>` | Create wiki/bases/<slug>.base database view |
 | `init.md` | `/init` | Initialize a new LLM Wiki vault from scratch |
 
-## Available Skills (`.claude/skills/` — 10 folders)
+## Available Skills (`.claude/skills/` — 11 folders)
 
 | Skill | Purpose | Used By |
 |-------|---------|---------|
-| `wiki-ingest` | Full ingest workflow | /ingest |
+| `wiki-ingest` | Full ingest workflow with auto-categorization | /ingest |
 | `wiki-research` | Web research + wiki gap-filling | /research |
 | `wiki-query` | Query synthesis with citations | /query |
 | `wiki-lint` | Wiki health check | /lint |
@@ -39,19 +39,35 @@
 ## Workflow: Ingest (most common)
 
 ```
-/ingest raw/notes/<folder>/            # folder → glob all .md
-/ingest raw/clips/article.md           # single file
+/ingest                           # empty → process raw/inbox/*
+/ingest raw/notes/<folder>/        # folder → glob all .md
+/ingest raw/clips/article.md       # single file
 
+=== Auto-Categorization Phase ===
+For each file in input:
+  1. Read full file content
+  2. Determine type: clips/ (has url:), books/ (has author:), notes/ (no frontmatter), assets/ (images)
+  3. Determine subfolder by content analysis (AI-categorized)
+  4. Move: raw/<type>/<category>/<file>
+
+=== Ingestion Phase ===
 1. Read source in full (images: text first, then read if needed)
-2. [obsidian-cli] search vault for duplicate concepts (if Obsidian open)
-3. Create wiki/sources/<slug>.md  (obsidian-markdown syntax)
-4. For each concept found:
+2. Determine wiki category from raw path & content
+   - Check raw/notes/<category>/ first
+   - Or analyze content for category match
+   - Create new categories as needed (flexible)
+3. [obsidian-cli] search vault for duplicate concepts (if Obsidian open)
+4. Create wiki/sources/<category>/<slug>.md (obsidian-markdown syntax)
+5. For each concept found:
    - wiki/concepts/<slug>.md exists? → merge new info, note contradictions
    - doesn't exist? → create new concept page (obsidian-markdown syntax)
-5. Book chapter? → update wiki/books/<slug>.md
-6. Append rows to index.md tables
-7. Append entry to log.md: ## [YYYY-MM-DD] ingest | <title>
-8. [obsidian-cli] verify file visible in Obsidian (if open)
+6. Book chapter? → update wiki/books/<slug>.md
+7. Append rows to index.md tables (all relevant sections)
+8. Append entry to log.md: ## [YYYY-MM-DD] ingest | <title>
+9. [obsidian-cli] verify file visible in Obsidian (if open)
+
+=== Output ===
+Report: categorized, moved, created, updated files
 ```
 
 ## Workflow: Clip + Ingest
@@ -87,6 +103,26 @@
 → updates index.md        → updates index.md
 ```
 
+## Category System (9 active categories)
+
+### Fixed Categories
+- `ai-context/` — AI coding, .claude structure, agents
+- `frameworks/` — RAG frameworks (Arona, Haystack, OpenRAG)
+- `infrastructure/` — DevOps, networking, servers
+- `langchain/` — LangChain ecosystem
+- `observability/` — OTel, tracing, monitoring
+- `rag/` — RAG theory, LlamaIndex, vector DBs
+- `sellsuki/` — Sellsuki-specific content
+
+### Flexible Categories (created as needed)
+- `javascript/` — JavaScript runtime, TypeScript, Bun (NEW)
+- `policy/` — HR policies, organizational docs (NEW)
+
+### Auto-Categorization Rules
+- **From raw path**: `raw/notes/<category>/` → `wiki/sources/<category>/`
+- **From content**: AI analyzes title, topics, domain
+- **Fallback**: Ask user for confirmation if unclear
+
 ## Log Format (grep-able)
 
 ```
@@ -100,3 +136,11 @@
 ```
 
 Quick inspection: `grep "^## \[" log.md | tail -10`
+
+## Checkpoint System
+
+Checkpoints stored in `.claude/checkpoints.log`:
+- Format: `YYYY-MM-DD-HH:MM | <name> | <git-sha>`
+- Use `/checkpoint create <name>` after major work
+- Use `/checkpoint verify <name>` to compare states
+- Keeps last 5 checkpoints automatically

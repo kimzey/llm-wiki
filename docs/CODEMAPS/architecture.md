@@ -1,4 +1,4 @@
-<!-- Generated: 2026-04-14 | Files scanned: 271 | Token estimate: ~650 -->
+<!-- Generated: 2026-04-14 | Files scanned: 301 | Token estimate: ~700 -->
 
 # Architecture — LLM Wiki
 
@@ -13,14 +13,14 @@ No runtime processes. No database. No API. Pure file system.
 │  Layer 3 — Schema / Config                          │
 │  CLAUDE.md          ← master schema + workflows     │
 │  .claude/commands/  ← slash command triggers (14)   │
-│  .claude/skills/    ← reusable skill impls (10)     │
+│  .claude/skills/    ← reusable skill impls (11)     │
 │  docs/CODEMAPS/     ← this file + 4 others          │
 └──────────────────────┬──────────────────────────────┘
                        │ LLM reads schema → operates on ↓
 ┌──────────────────────▼──────────────────────────────┐
 │  Layer 2 — Wiki (LLM-owned, human-read)             │
-│  wiki/concepts/  (47)  ← principle/theory pages     │
-│  wiki/sources/   (94)  ← per-source summary pages   │
+│  wiki/concepts/  (63)  ← principle/theory pages     │
+│  wiki/sources/   (98)  ← per-source summary pages   │
 │  wiki/books/     (0)   ← book summary pages         │
 │  wiki/synthesis/ (1)   ← analyses, comparisons      │
 │  wiki/canvas/    (0)   ← visual maps (.canvas)      │
@@ -33,7 +33,7 @@ No runtime processes. No database. No API. Pure file system.
 │  Layer 1 — Raw Sources (immutable, human-curated)   │
 │  raw/clips/         ← Obsidian Web Clipper articles │
 │  raw/books/         ← PDFs / book chapter notes     │
-│  raw/notes/  (130)  ← manual notes by topic folder  │
+│  raw/notes/  (140)  ← manual notes by topic folder  │
 │  raw/assets/        ← locally downloaded images     │
 └─────────────────────────────────────────────────────┘
 ```
@@ -41,21 +41,27 @@ No runtime processes. No database. No API. Pure file system.
 ## Data Flow — Ingest Operation
 
 ```
-human drops file → raw/notes/<topic>/
+human drops file → raw/inbox/
     ↓
-/ingest <path>
+/ingest
+    ↓
+auto-categorize: clips/ or notes/ or books/ or assets/
+    ↓
+move to destination: raw/<type>/<category>/<file>
     ↓
 LLM reads raw file(s)
     ↓  [obsidian-cli: search for duplicates if Obsidian open]
-creates wiki/sources/<slug>.md
+create wiki/sources/<category>/<slug>.md
     ↓
-identifies concepts → creates/updates wiki/concepts/<slug>.md
+identify concepts → create/merge wiki/concepts/<slug>.md
     ↓
-if book chapter → creates/updates wiki/books/<slug>.md
+if book chapter → update wiki/books/<slug>.md
     ↓
-updates index.md (new rows in relevant tables)
+update index.md (new rows in all tables)
     ↓
-appends to log.md
+append to log.md
+    ↓
+verify with obsidian-cli (if open)
 ```
 
 ## Link Hierarchy (strict — never skip layers)
@@ -63,12 +69,26 @@ appends to log.md
 ```
 index.md
     ↓ Obsidian [[links]] only
-wiki/sources/  wiki/concepts/  wiki/books/  wiki/synthesis/  wiki/canvas/  wiki/bases/
+wiki/sources/<category>/  wiki/concepts/  wiki/books/  wiki/synthesis/  wiki/canvas/  wiki/bases/
     ↓ "Full source" link (sources only)
 raw/clips/  raw/notes/  raw/books/
 ```
 
 **Rule**: Only `wiki/sources/` pages may link to `raw/`. index.md never links to raw directly.
+
+## Source Categories (9 total)
+
+| Category | Files | Purpose |
+|----------|-------|---------|
+| `ai-context/` | 8 | AI coding context, .claude structure, agents, commands, skills |
+| `frameworks/` | 14 | Arona, Haystack, OpenRAG, LangFlow |
+| `infrastructure/` | 2 | Network fundamentals, home server admin |
+| `javascript/` | 1 | Bun runtime (NEW) |
+| `langchain/` | 16 | Step-by-step tutorials, deep dives, LangGraph, LangSmith |
+| `observability/` | 6 | Distributed tracing, OTel, context propagation |
+| `policy/` | 1 | HR policy |
+| `rag/` | 30 | RAG theory, LlamaIndex, chunking, evaluation, vector DBs |
+| `sellsuki/` | 20 | Design tokens, components, RAG guides, agent plans |
 
 ## Tooling Stack
 

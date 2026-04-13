@@ -1,4 +1,4 @@
-<!-- Generated: 2026-04-14 | Files scanned: 271 | Token estimate: ~750 -->
+<!-- Generated: 2026-04-14 | Files scanned: 301 | Token estimate: ~800 -->
 
 # Schema — LLM Wiki
 
@@ -33,7 +33,8 @@ Book pages also have: `author`, `year`
 ## Source Page Structure
 
 ```markdown
-> **Full source**: [[../../raw/notes/folder/file.md|Original file]]
+> **Full source**: [[../../../raw/path/to/file.md|Original file]]
+  (note: extra ../ for categorized sources)
   (or external URL: **Full source**: [Title](https://...))
 
 ## สรุป          — what does this article cover?
