@@ -387,6 +387,31 @@ for node in response.source_nodes:
 - [[wiki/concepts/hybrid-search-bm25-vector|Hybrid Search]] — LlamaIndex PGVectorStore รองรับ ParadeDB
 - [[wiki/concepts/semantic-caching|Semantic Caching]] — LlamaIndex RedisKVStore ใช้กับ Dragonfly ได้
 
+## จาก OpenRAG LangChain & LlamaIndex Deep Dive
+
+### Query Engine Types เพิ่มเติม
+
+| QueryEngine | ใช้เมื่อ |
+|-------------|---------|
+| `RetrieverQueryEngine` | custom retriever + synthesizer |
+| `SubQuestionQueryEngine` | คำถามซับซ้อน แยกเป็น sub-questions |
+| `RouterQueryEngine` | มีหลาย index เลือก index ที่เหมาะ |
+| `TransformQueryEngine` | ปรับ query ก่อน retrieve (HyDE) |
+
+### Postprocessors เพิ่มเติม
+
+```python
+from llama_index.core.postprocessor import (
+    SimilarityPostprocessor,          # กรอง score ต่ำออก
+    MetadataReplacementPostProcessor, # แทน leaf ด้วย parent
+    SentenceTransformerRerank,        # rerank ด้วย cross-encoder
+)
+```
+
+`SentenceTransformerRerank` ใช้ `cross-encoder/ms-marco-MiniLM-L-6-v2` — ดึงมา 10 candidates → rerank เหลือ 3 ที่ดีที่สุด
+
+- [[wiki/sources/openrag-langchain-llamaindex-deepdive|OpenRAG LangChain & LlamaIndex Deep Dive]]
+
 ## แหล่งที่มา
 
 - [[wiki/sources/llamaindex-deep-dive|LlamaIndex & RAG Deep Dive]]

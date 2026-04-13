@@ -1,6 +1,6 @@
 # Index
 
-วันที่อัปเดตล่าสุด: 2026-04-13 (7)
+วันที่อัปเดตล่าสุด: 2026-04-14 (13)
 
 ---
 
@@ -92,6 +92,16 @@
 | [[wiki/sources/openrag-organization-deployment\|OpenRAG — Organization Deployment Guide]] | 3-step setup, .env, Onboarding Wizard, role-based access patterns, maintenance schedule, go-live checklist | [[wiki/sources/openrag-organization-deployment]] | 2026-04-13 |
 | [[wiki/sources/openrag-sdk-reference\|OpenRAG SDK Reference]] | TypeScript/Python SDK 0.2.0 — OpenRAGClient sub-clients (chat/search/documents/settings/models/knowledgeFilters), streaming, update patterns | [[wiki/sources/openrag-sdk-reference]] | 2026-04-13 |
 | [[wiki/sources/open-source-rag-platforms-comparison\|Open Source RAG Platforms — Deep Dive Comparison]] | RAGFlow/Dify/AnythingLLM/Danswer/PrivateGPT/Kotaemon/Verba/Flowise/Langflow comparison: chunking, retrieval, architecture, decision guide | [[wiki/sources/open-source-rag-platforms-comparison]] | 2026-04-13 |
+| [[wiki/sources/sellsuki-rag-complete-guide\|Sellsuki RAG Agent - Complete Implementation Guide]] | คู่มือ RAG Agent สำหรับ Sellsuki ครบวงจร: Data Prep, Chunking/Embedding, pgvector, LangChain/LlamaIndex/ADK/DIY, FastAPI Agent, Deployment, 6-week timeline, cost ~$20-70/เดือน | [[wiki/sources/sellsuki-rag-complete-guide]] | 2026-04-14 |
+| [[wiki/sources/sellsuki-agent-guide-06\|Sellsuki RAG Agent Guide (06)]] | สำเนาของ Sellsuki RAG Complete Guide — เนื้อหาเหมือนกันทุกประการ | [[wiki/sources/sellsuki-agent-guide-06]] | 2026-04-14 |
+| [[wiki/sources/sellsuki-agent-plan-v2\|Sellsuki RAG Agent Plan v2 (Optimized)]] | Plan v2 อ้างอิง Elysia case: 3 strategies (Enterprise/Balanced/Cost Killer), hybrid search BM25+Vector, semantic cache, diff-based indexing, multi-provider LLM fallback, ลด cost เหลือ $12-25/เดือน | [[wiki/sources/sellsuki-agent-plan-v2]] | 2026-04-14 |
+| [[wiki/sources/rag-complete-guide-comprehensive\|RAG คู่มือฉบับสมบูรณ์]] | RAG pipeline 8 ขั้นตอน, chunking 7 แบบ, embedding models, vector stores, retrieval methods, framework comparison (LangChain/LlamaIndex/Haystack), deployment, RAGAS evaluation, แนะนำตามสถานการณ์ | [[wiki/sources/rag-complete-guide-comprehensive]] | 2026-04-14 |
+| [[wiki/sources/rag-deep-dive-langchain\|RAG Deep Dive — LangChain]] | Deep dive RAG ด้วย LangChain: Document Loaders, Chunking strategies, Embedding, Vector Stores, Advanced Retrievers (Multi-Query/ParentDoc/SelfQuery/Reranking/Ensemble), Conversational RAG, RAG Agent ด้วย LangGraph, Evaluation LangSmith | [[wiki/sources/rag-deep-dive-langchain]] | 2026-04-14 |
+| [[wiki/sources/langflow-custom-component-guide\|LangFlow Custom Component — คู่มืออธิบายละเอียด]] | อธิบาย LangFlow Component lifecycle: auto-binding inputs→self, Input types, Redis Cache + OpenRouter integration | [[wiki/sources/langflow-custom-component-guide]] | 2026-04-14 |
+| [[wiki/sources/langchain-full-reference\|LangChain คู่มือสมบูรณ์ — ทุก Syntax ทุก Import]] | Reference ครบทุก API: Messages, LLM methods, PromptTemplate, LCEL Runnables, Output Parsers, Memory backends, Document Loaders, Caching | [[wiki/sources/langchain-full-reference]] | 2026-04-14 |
+| [[wiki/sources/langchain-basics-openrag\|LangChain พื้นฐาน — คู่มือฉบับสมบูรณ์]] | Tutorial มือใหม่ครบ 10 บท: LLM, Prompt, Chain, Parser, Memory, Document Loader, Vector Store+RAG, Tools+Agent, Callbacks, Cache | [[wiki/sources/langchain-basics-openrag]] | 2026-04-14 |
+| [[wiki/sources/openrag-langchain-llamaindex-deepdive\|LangChain & LlamaIndex — Deep Dive (OpenRAG)]] | Deep dive เปรียบเทียบ LangChain vs LlamaIndex 10 Building Blocks แต่ละ framework, IngestionPipeline+cache, Retrievers+Reranking, QueryEngine types | [[wiki/sources/openrag-langchain-llamaindex-deepdive]] | 2026-04-14 |
+| [[wiki/sources/rag-advanced-evaluation-deepdive\|Advanced Evaluation Deep Dive — LLM-as-Judge]] | LLM-as-Judge pattern ครบ: Single/Multi-dimension grading, Pairwise comparison, RAG Triad, Agent evaluators, LangSmith integration, CI/CD pipeline, Pitfalls+Best Practices | [[wiki/sources/rag-advanced-evaluation-deepdive]] | 2026-04-14 |
 
 ---
 
@@ -143,6 +153,9 @@
 | [[wiki/concepts/docling-document-parser\|Docling Document Parser]] | AI Document Parser จาก IBM Research: DocLayNet layout analysis, TableFormer table recognition, OCR หลายภาษา | docling, document-parser, ocr, pdf, ibm-research |
 | [[wiki/concepts/langflow-visual-workflow\|Langflow Visual Workflow Builder]] | Open-Source Visual AI Workflow Builder: Drag-and-Drop pipeline, export เป็น API, built on LangChain, MCP integration | langflow, visual-workflow, pipeline, no-code, rag |
 | [[wiki/concepts/open-source-rag-platforms\|Open Source RAG Platforms]] | 3 ประเภท: Application (RAGFlow/Dify/AnythingLLM), Low-Code Builder (Flowise/Langflow), Framework (LangChain/LlamaIndex/Haystack) — comparison tables + decision guide | rag, open-source, ragflow, dify, anythingllm, comparison |
+| [[wiki/concepts/pgvector\|pgvector — Vector Search บน PostgreSQL]] | PostgreSQL extension สำหรับ vector search: HNSW/IVFFlat index, cosine/L2/dot distance, metadata filtering ด้วย SQL WHERE, เทียบกับ Pinecone/ChromaDB/Qdrant | pgvector, vector-database, postgresql, embeddings, rag |
+| [[wiki/concepts/lcel-langchain-expression-language\|LCEL — LangChain Expression Language]] | Syntax `|` เชื่อม components แบบ pipe: Runnable interface, RunnablePassthrough/Lambda/Parallel, .assign(), .bind() | langchain, lcel, chain, pipe-operator, runnable, composability |
+| [[wiki/concepts/langsmith-tracing-evaluation\|LangSmith — Tracing & Evaluation Platform]] | Observability + Evaluation platform ของ LangChain: automatic tracing, evaluator contract, dataset management, CI/CD integration | langsmith, observability, tracing, evaluation, llm-judge, ci-cd |
 
 ---
 

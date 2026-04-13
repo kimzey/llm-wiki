@@ -107,3 +107,81 @@ Langfuse ทำ tracing + evaluation รวมกัน:
 
 - [[wiki/sources/haystack-phase5-production.md|Haystack Phase 5 — Custom Components, Production & Integrations]]
 - [[wiki/sources/haystack-phase6-observability.md|Haystack Phase 6 — API, Auth & Observability]]
+
+## จาก RAG คู่มือฉบับสมบูรณ์
+
+### 4 RAGAS Metrics สรุปสั้น
+
+| ตัววัด | วัดอะไร | ถ้าต่ำ → ปรับอะไร |
+|--------|--------|-----------------|
+| Faithfulness | คำตอบตรงกับ source ไหม? | ปรับ prompt, top_k |
+| Answer Relevancy | คำตอบตรงคำถามไหม? | ปรับ system prompt |
+| Context Precision | ดึง context ถูกต้องไหม? | ปรับ retrieval strategy |
+| Context Recall | ดึง context มาครบไหม? | เพิ่ม top_k, ปรับ chunking |
+
+### Minimal RAGAS Example
+
+```python
+from llama_index.core.evaluation import FaithfulnessEvaluator, RelevancyEvaluator
+
+faith_eval = FaithfulnessEvaluator()
+result = faith_eval.evaluate_response(response=response)
+print(f"Faithful: {result.passing}")  # True/False
+```
+
+- [[wiki/sources/rag-complete-guide-comprehensive|RAG คู่มือฉบับสมบูรณ์]]
+
+## จาก Advanced Evaluation Deep Dive — LLM-as-Judge
+
+### เมื่อไหร่ใช้ LLM-as-Judge vs Rule-based
+
+| Rule-based | LLM-as-Judge |
+|------------|-------------|
+| Exact match (รหัส, ตัวเลข) | คุณภาพการเขียน |
+| Format check (JSON valid) | ความเกี่ยวข้อง (relevance) |
+| Length check / keyword | ความครบถ้วน (completeness) |
+| ถูก/ผิด ชัดเจน | Hallucination detection / Tone |
+
+### Judge Prompt Design ที่ดี
+
+โครงสร้างที่ต้องมี: **Role + Criteria + Scale (rubric) + Input + Output format**
+
+```
+# ❌ ไม่ดี
+"คำตอบนี้ดีไหม? ให้คะแนน 1-10"
+
+# ✅ ดี
+"""เกณฑ์ "ความเกี่ยวข้อง":
+  5 = ตอบตรงคำถาม ครบถ้วน
+  4 = ตอบตรงแต่ขาดรายละเอียดเล็กน้อย
+  ...
+SCORE: <1-5>
+REASON: <เหตุผล>"""
+```
+
+### RAG Triad — 3 มิติหลัก
+
+```python
+def rag_triad_judge(run, example):
+    # 1. CONTEXT_RELEVANCE: Context ที่ดึงมาเกี่ยวข้องกับคำถามไหม?
+    # 2. FAITHFULNESS: คำตอบ AI มาจาก Context จริงไหม (ไม่ hallucinate)?
+    # 3. ANSWER_RELEVANCE: คำตอบตอบคำถามได้ถูกต้องไหม?
+```
+
+### Multi-Dimension Grading (ประหยัด cost)
+
+ให้คะแนน 4 มิติ (relevance/completeness/clarity/accuracy) ใน **1 LLM call** แทนที่จะ call แยก 4 ครั้ง
+
+### Pitfalls ของ LLM-as-Judge
+
+- **Position Bias**: LLM ให้คะแนน "คำตอบแรก" สูงกว่า → แก้: สลับตำแหน่ง A/B
+- **Verbosity Bias**: LLM ให้คะแนน "คำตอบยาว" สูงกว่า → แก้: ระบุใน criteria ว่าความยาวไม่ใช่เกณฑ์
+- **Self-preference Bias**: LLM ให้คะแนน output ของ model เดียวกันสูงกว่า → แก้: ใช้ judge model คนละตัว
+- **Inconsistency**: รัน 2 ครั้งได้คะแนนต่างกัน → แก้: ใช้ `temperature=0` + รันหลายครั้งแล้วเฉลี่ย
+
+### Agent-specific Evaluators
+
+- **Tool Selection**: exact match — `expected_tool in tool_calls` → score 1.0/0.0
+- **Task Completion**: LLM-as-Judge ตรวจว่า agent ทำ task สำเร็จตาม expected outcome ไหม
+
+- [[wiki/sources/rag-advanced-evaluation-deepdive|Advanced Evaluation Deep Dive — LLM-as-Judge]]

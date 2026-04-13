@@ -325,3 +325,31 @@ CharacterTextSplitter(
 - [[wiki/sources/openrag-chunking-ingestion|OpenRAG — Chunking System & Document Ingestion]]
 - [[wiki/sources/openrag-rag-spike-research|RAG Spike Research]]
 - [[wiki/sources/openrag-ingestion-paths|OpenRAG — Ingestion Paths & Chunking Analysis]]
+
+## จาก Sellsuki RAG Agent - Complete Implementation Guide
+
+### Chunk Size Guidelines (Practical)
+
+| ขนาด | เหมาะกับ | หมายเหตุ |
+|------|---------|---------|
+| 200-500 chars | FAQ, ข้อมูลสั้น | precision สูง |
+| 500-1000 chars | เอกสารทั่วไป | **แนะนำเริ่มต้น** |
+| 1000-2000 chars | Technical docs ยาว | context ครบ แต่ noise มากขึ้น |
+
+**Overlap แนะนำ: 100-200 characters** (หรือ ~15-20% ของ chunk size)
+
+**Sellsuki แนะนำ default:** `chunk_size=800, chunk_overlap=150`
+
+### Recursive Chunking สำหรับภาษาไทย
+
+เพิ่ม separator ภาษาไทย/ญี่ปุ่น:
+
+```python
+splitter = RecursiveCharacterTextSplitter(
+    chunk_size=1000,
+    chunk_overlap=200,
+    separators=["\n\n", "\n", "。", ".", " ", ""],  # "。" ครอบคลุมภาษาไทย
+)
+```
+
+- [[wiki/sources/sellsuki-rag-complete-guide|Sellsuki RAG Agent - Complete Implementation Guide]]

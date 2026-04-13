@@ -4,17 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "0f46147c401c0a55",
+        "id": "fd97c8baf324e064",
         "type": "tabs",
         "children": [
           {
-            "id": "71ceb54c5a9a8cb2",
+            "id": "1a2f7f1206ce13f4",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "type": "markdown",
+              "state": {
+                "file": "2026-04-14.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "2026-04-14"
             }
           }
         ]
@@ -49,7 +53,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "tag:rag",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -70,7 +74,8 @@
               "title": "Bookmarks"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -164,16 +169,16 @@
             "state": {
               "type": "git-view",
               "state": {},
-              "icon": "lucide-ghost",
-              "title": "git-view"
+              "icon": "git-pull-request",
+              "title": "Source Control"
             }
           }
-        ]
+        ],
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -188,44 +193,43 @@
       "remotely-save:Remotely Save": false
     }
   },
-  "active": "71ceb54c5a9a8cb2",
+  "active": "1a2f7f1206ce13f4",
   "lastOpenFiles": [
-    "raw/notes/rag-knowledge/07-sellsuki-agent-plan-v2.md",
-    "raw/notes/openrag/langchain_component_explained.md",
-    "wiki/concepts/open-source-rag-platforms.md",
-    "raw/notes/LangChain/rag-deep-dive.md",
-    "wiki/sources/open-source-rag-platforms-comparison.md",
-    "wiki/sources/openrag-sdk-reference.md",
-    "wiki/sources/openrag-organization-deployment.md",
-    "wiki/sources/openrag-flow-payloads.md",
-    "wiki/sources/openrag-data-ingestion-channels.md",
-    "wiki/sources/openrag-access-control-rbac.md",
-    "wiki/sources/openrag-ingestion-paths.md",
-    "wiki/sources/openrag-document-update-guide.md",
-    "wiki/concepts/langflow-visual-workflow.md",
-    "wiki/concepts/docling-document-parser.md",
-    "wiki/concepts/openrag-platform.md",
-    "wiki/sources/openrag-rag-spike-research.md",
-    "wiki/sources/openrag-cache-analysis.md",
-    "wiki/sources/openrag-chunking-ingestion.md",
-    "wiki/sources/openrag-config-cost-models.md",
-    "wiki/sources/openrag-integration-scenarios.md",
-    "wiki/sources/openrag-langflow-workflow.md",
-    "wiki/sources/openrag-opensearch-vector-db.md",
     "Untitled.canvas",
-    "wiki/sources/openrag-docling-parser.md",
-    "wiki/sources/openrag-platform-overview.md",
-    "wiki/concepts/reverse-proxy.md",
-    "wiki/concepts/ssl-tls.md",
-    "docs/CODEMAPS",
-    "docs",
-    "raw/notes/arona/learn",
-    "raw/notes/arona/deepdive",
-    "raw/notes/arona",
-    "raw/notes/tool-rag",
-    "raw/notes/rag-knowledge",
-    "raw/notes/otel",
-    "raw/notes/openrag/docs-lean",
-    "raw/notes/openrag"
+    "2026-04-14.md",
+    "wiki/concepts/langsmith-tracing-evaluation.md",
+    "wiki/sources/rag-advanced-evaluation-deepdive.md",
+    "wiki/sources/openrag-langchain-llamaindex-deepdive.md",
+    "wiki/sources/langchain-basics-openrag.md",
+    "wiki/concepts/lcel-langchain-expression-language.md",
+    "wiki/sources/langchain-full-reference.md",
+    "wiki/sources/langflow-custom-component-guide.md",
+    "wiki/sources/rag-deep-dive-langchain.md",
+    "wiki/sources/rag-complete-guide-comprehensive.md",
+    "wiki/sources/sellsuki-agent-plan-v2.md",
+    "wiki/sources/sellsuki-agent-guide-06.md",
+    "wiki/concepts/pgvector.md",
+    "wiki/sources/sellsuki-rag-complete-guide.md",
+    "wiki/synthesis/obsidian-skills-reference.md",
+    "obsidian-skills/skills/obsidian-markdown/references/PROPERTIES.md",
+    "obsidian-skills/skills/obsidian-markdown/references/EMBEDS.md",
+    "obsidian-skills/skills/obsidian-markdown/references/CALLOUTS.md",
+    "obsidian-skills/skills/obsidian-bases/references/FUNCTIONS_REFERENCE.md",
+    "obsidian-skills/skills/json-canvas/references/EXAMPLES.md",
+    "obsidian-skills/skills/obsidian-markdown/references",
+    "obsidian-skills/skills/obsidian-markdown/SKILL.md",
+    "obsidian-skills/skills/obsidian-cli/SKILL.md",
+    "obsidian-skills/skills/obsidian-bases/references",
+    "obsidian-skills/skills/obsidian-bases/SKILL.md",
+    "obsidian-skills/skills/json-canvas/references",
+    "obsidian-skills/skills/json-canvas/SKILL.md",
+    "obsidian-skills/skills/defuddle/SKILL.md",
+    "obsidian-skills/skills/obsidian-markdown",
+    "obsidian-skills/skills/obsidian-cli",
+    "obsidian-skills/skills/obsidian-bases",
+    "obsidian-skills/skills/json-canvas",
+    "obsidian-skills/skills/defuddle",
+    "obsidian-skills/skills",
+    "obsidian-skills/LICENSE"
   ]
 }

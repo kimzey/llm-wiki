@@ -53,3 +53,59 @@ Langflow ทำงานแบบ flow-based:
 ## แหล่งที่มา
 - phase4-langflow.md (OpenRAG Phase 4 documentation)
 - openrag-backend-vs-langflow.md (Architecture separation)
+
+## จาก LangFlow Custom Component Guide
+
+### Component Lifecycle (Detailed)
+
+```
+User กรอก UI
+      ↓
+LangFlow เก็บค่าใน Input objects
+      ↓
+Component.__init__() bind ค่าเข้า self.xxx
+      ↓
+LangFlow เรียก build_model()
+      ↓
+คุณใช้ self.api_key, self.model_name ฯลฯ ได้เลย
+      ↓
+return ChatOpenAI(...)  ← ส่งออกไปที่ Output port
+```
+
+### Auto-binding Rule
+
+**กฎหลัก**: `name=` ใน `inputs = [...]` → กลายเป็น `self.<name>` เสมอ — ไม่มีข้อยกเว้น
+
+```python
+inputs = [
+    SecretStrInput(name="api_key", ...),   # → self.api_key
+    DropdownInput(name="model_name", ...),  # → self.model_name
+]
+```
+
+### Input Types ทั้งหมด
+
+| Class | ชนิดข้อมูล | พิเศษ |
+|---|---|---|
+| `StrInput` | `str` | ธรรมดา |
+| `SecretStrInput` | `str` | ซ่อนใน UI (password field) |
+| `IntInput` | `int` | ตัวเลขจำนวนเต็ม |
+| `DropdownInput` | `str` | Dropdown ให้เลือก |
+| `BoolInput` | `bool` | True/False |
+| `FloatInput` | `float` | ทศนิยม |
+| `MessageTextInput` | `str` | รับข้อความจาก Chat |
+
+### Debug Tips
+
+- ใช้ `self.log()` แทน `print()` เสมอ
+- `advanced=True` ซ่อน input ไว้ใน Advanced section เพื่อไม่รก UI
+- `method=` ใน outputs ต้องชี้ไปหา method ที่มีใน class
+
+### Integration กับ OpenRouter + Redis Cache
+
+Custom Component สามารถ:
+1. รับ API key ผ่าน `SecretStrInput`
+2. เชื่อม Redis Cache แบบ global ผ่าน `langchain.llm_cache = RedisCache(...)`
+3. ใช้ `openai_api_base="https://openrouter.ai/api/v1"` เพื่อ route ไป OpenRouter
+
+- [[wiki/sources/langflow-custom-component-guide|LangFlow Custom Component Guide]]

@@ -200,3 +200,40 @@ Phase 2: Agentic RAG (สัปดาห์ 5-6)
 
 - Complete RAG & Agent Knowledge Base
 - RAG vs Agent — Explained
+
+## จาก RAG Deep Dive (LangChain)
+
+### RAG Agent Pattern ด้วย LangGraph
+
+```python
+# Pattern: StateGraph + domain-specific tools
+@tool
+def search_hr_docs(query: str) -> str:
+    """ค้นหาข้อมูลจากเอกสาร HR เช่น นโยบายลา สวัสดิการ"""
+    # filter ตาม department
+    ...
+
+@tool
+def search_it_docs(query: str) -> str:
+    """ค้นหาข้อมูลจากเอกสาร IT"""
+    ...
+
+@tool
+def calculate(expression: str) -> str:
+    """คำนวณตัวเลข"""
+    ...
+
+# StateGraph: agent → tools → agent (loop)
+builder = StateGraph(RAGAgentState)
+builder.add_conditional_edges("agent", tools_condition)
+```
+
+Agent เลือก tool ตามประเภทคำถาม (HR, IT, คำนวณ) โดยอัตโนมัติ และยังสามารถ combine หลาย tools เช่น ค้นหา HR ข้อมูลค่าอาหาร แล้ว calculate รวม
+
+### ทำไม Tool-per-Domain ดีกว่า Single Search Tool
+
+- Single retriever ค้นทั้งหมด → อาจได้ chunks ที่ไม่เกี่ยวข้อง
+- แยก HR tool, IT tool → LLM เลือก scope ที่ถูกต้อง → precision สูงขึ้น
+- ทำได้โดย metadata filter: `filter={"department": "HR"}`
+
+- [[wiki/sources/rag-deep-dive-langchain|RAG Deep Dive — LangChain]]

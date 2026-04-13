@@ -137,5 +137,40 @@ pipeline.add_component("joiner", DocumentJoiner(
 
 - [[wiki/sources/arona-overview.md|Arona System Overview]]
 - [[wiki/sources/arona-rag-techniques.md|RAG Techniques & Comparison]]
+
+## จาก Sellsuki RAG Agent Plan v2
+
+### ทำไม Hybrid Search ดีกว่า Vector อย่างเดียว
+
+- Vector-only: เข้าใจ paraphrase ได้ แต่ค้นคำเฉพาะทางไม่ดี
+- BM25-only: แม่นสำหรับ exact keyword แต่ไม่เข้าใจ synonyms
+- **Hybrid: ได้ทั้งสอง** — งานวิจัยปี 2024-2025 ยืนยันว่าดีกว่า vector อย่างเดียวอย่างมีนัยสำคัญ
+
+### ParadeDB สำหรับ Hybrid Search
+
+ParadeDB = PostgreSQL ที่มี pgvector + `pg_search` (BM25 จริง) built-in พร้อมใช้งาน ต่างจาก PostgreSQL ปกติที่มีแค่ `ts_vector` (ไม่ใช่ BM25 จริง)
+
+```sql
+-- BM25 index ใน ParadeDB
+CALL paradedb.create_bm25_index(
+    index_name => 'idx_docs_bm25',
+    table_name => 'documents',
+    key_field => 'id',
+    text_fields => paradedb.field('content') || paradedb.field('title') || paradedb.field('summary')
+);
+```
+
+### Reciprocal Rank Fusion (RRF) Implementation
+
+```python
+# alpha = 0.5 (balanced), k = 60
+for rank, row in enumerate(bm25_results):
+    scores[doc_id]["score"] += (1 - alpha) * (1 / (k + rank + 1))
+
+for rank, row in enumerate(vec_results):
+    scores[doc_id]["score"] += alpha * (1 / (k + rank + 1))
+```
+
+- [[wiki/sources/sellsuki-agent-plan-v2|Sellsuki RAG Agent Plan v2]]
 - [[wiki/sources/arona-vs-langchain.md|Arona vs LangChain]]
 - [[wiki/sources/haystack-phase3-retrieval.md|Haystack Phase 3 — Embedding & Retrieval]]

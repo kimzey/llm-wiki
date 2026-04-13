@@ -149,3 +149,66 @@
   - openrag-organization-deployment.md (เพิ่ม 5 ingestion methods, permissions table, LLM/embedding selection, backup, security checklist, scaling, enterprise use cases)
   - openrag-access-control-rbac.md (เพิ่ม Google Admin API code, Workspace integration steps, RBAC checklist)
 - ไม่ต้องอัปเดต index.md (ไม่มี page ใหม่ — เป็นการอัปเดต page ที่มีอยู่แล้ว)
+
+## [2026-04-14] ingest | Sellsuki RAG Agent - Complete Implementation Guide
+
+- สร้าง: wiki/sources/sellsuki-rag-complete-guide.md
+- สร้าง concept ใหม่: wiki/concepts/pgvector.md
+- อัปเดต concepts: rag-retrieval-augmented-generation.md, rag-chunking-strategies.md
+- Concepts: pgvector, RAG pipeline, chunking, embedding, pgvector indexes (HNSW/IVFFlat), LangChain, LlamaIndex, FastAPI Agent, deployment, cost estimation
+
+## [2026-04-14] ingest | 06-sellsuki-agent-guide.md
+
+- สร้าง: wiki/sources/sellsuki-agent-guide-06.md
+- หมายเหตุ: ไฟล์นี้มีเนื้อหาเหมือนกันกับ sellsuki-rag-complete-guide ทุกประการ
+- ไม่มี concept ใหม่หรืออัปเดตเพิ่มเติม
+
+## [2026-04-14] ingest | 07-sellsuki-agent-plan-v2.md
+
+- สร้าง: wiki/sources/sellsuki-agent-plan-v2.md
+- อัปเดต concepts: hybrid-search-bm25-vector.md, semantic-caching.md
+- Concepts: cost optimization (3 strategies), semantic cache 0.95 threshold, diff-based incremental indexing, ParadeDB (BM25+pgvector), Dragonfly cache, multi-provider LLM fallback (Groq→Gemini→GPT), co-location strategy, anti-abuse (PoW)
+
+## [2026-04-14] ingest | rag-complete-guide.md
+
+- สร้าง: wiki/sources/rag-complete-guide-comprehensive.md
+- อัปเดต concepts: rag-evaluation.md
+- Concepts: RAG pipeline 8 ขั้นตอน, chunking 7 strategies spectrum, retrieval methods (vector/BM25/hybrid/reranking/multi-query), RAGAS 4 metrics, deployment options (no-code/low-code/framework/DIY), framework comparison (LangChain/LlamaIndex/Haystack)
+
+## [2026-04-14] ingest | rag-deep-dive.md (LangChain)
+
+- สร้าง: wiki/sources/rag-deep-dive-langchain.md
+- อัปเดต concepts: langchain-framework.md, agentic-rag.md
+- Concepts: LangChain document loaders, advanced retrievers (Multi-Query/ContextualCompression/ParentDocument/SelfQuery/CrossEncoderReranker/EnsembleRetriever), MMR search, Conversational RAG pattern, RAG Agent ด้วย LangGraph, LangSmith evaluation, FAQ ห้าม split, Gemini embedding ฟรี
+
+## [2026-04-14] ingest | langchain_component_explained.md (LangFlow Custom Component Guide)
+
+- สร้าง: wiki/sources/langflow-custom-component-guide.md
+- อัปเดต concepts: langflow-visual-workflow.md (เพิ่ม Component Lifecycle detail, auto-binding rule, Input types table, debug tips, OpenRouter+Redis integration)
+- Concepts touched: langflow-visual-workflow, langchain-framework, semantic-caching
+
+## [2026-04-14] ingest | langchain_full.md (LangChain คู่มือสมบูรณ์)
+
+- สร้าง: wiki/sources/langchain-full-reference.md
+- สร้าง concept ใหม่: wiki/concepts/lcel-langchain-expression-language.md
+- อัปเดต concepts: langchain-framework.md (เพิ่ม Package structure, LLM methods table, Output Parsers table, Memory options, Document Loaders)
+- Concepts: LCEL (RunnablePassthrough/Lambda/Parallel/.assign()/.bind()), Output Parser types, Memory backends (InMemory/Redis/SQL)
+
+## [2026-04-14] ingest | langchain_basics.md (LangChain พื้นฐาน)
+
+- สร้าง: wiki/sources/langchain-basics-openrag.md
+- Concepts updated: langchain-framework (via LCEL concept cross-link), lcel-langchain-expression-language (added as source)
+- Concepts touched: langchain-framework, lcel-langchain-expression-language, rag-retrieval-augmented-generation, ai-agent
+
+## [2026-04-14] ingest | langchain-llamaindex-deep-dive.md (OpenRAG version)
+
+- สร้าง: wiki/sources/openrag-langchain-llamaindex-deepdive.md
+- อัปเดต concepts: llamaindex-framework.md (เพิ่ม QueryEngine types table, Postprocessors เพิ่มเติม, SentenceTransformerRerank)
+- Concepts touched: langchain-framework, llamaindex-framework, lcel-langchain-expression-language, rag-chunking-strategies
+
+## [2026-04-14] ingest | advanced-evaluation-deep-dive.md (LangChain/LangSmith)
+
+- สร้าง: wiki/sources/rag-advanced-evaluation-deepdive.md
+- สร้าง concept ใหม่: wiki/concepts/langsmith-tracing-evaluation.md
+- อัปเดต concepts: rag-evaluation.md (เพิ่ม LLM-as-Judge section: Rule-based vs LLM-as-Judge, Judge Prompt Design, RAG Triad, Multi-dimension grading, Pitfalls, Agent evaluators)
+- Concepts: LLM-as-Judge, RAG Triad (Context Relevance + Faithfulness + Answer Relevance), Pairwise Comparison, Position/Verbosity/Self-preference bias, CI/CD eval pipeline, LangSmith evaluator contract

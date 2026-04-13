@@ -135,3 +135,35 @@ Arona ใช้ DragonflyDB แทน Redis ปกติเพราะ:
 - [[wiki/sources/arona-rag-techniques|RAG Techniques & Comparison]]
 - [[wiki/sources/rag-decision-guide|RAG Framework Decision Guide — Sellsuki]]
 - [[wiki/sources/llamaindex-full-guide|LlamaIndex Full Guide — Sellsuki RAG System]]
+
+## จาก Sellsuki RAG Agent Plan v2
+
+### Semantic Cache เป็น Top-1 Cost Optimization
+
+ประหยัด 40-60% ของ LLM cost สำหรับ FAQ-style queries
+
+**Threshold แนะนำ: cosine > 0.95** (แม่นกว่า 0.9 ลด false positive)
+
+**Implementation Pattern:**
+
+```python
+async def check_semantic_cache(query, threshold=0.95):
+    query_embedding = await get_embedding_cached(query)
+    # Search ใน Dragonfly sorted set ที่เก็บ cached embeddings
+    # Return cached answer ถ้า similarity > threshold
+```
+
+**สิ่งที่ต้องระวัง:**
+- ต้องมีปุ่ม "ข้าม cache" ให้ user กรณีคำตอบไม่ตรง
+- ตั้ง TTL ให้เหมาะสม (ข้อมูลเปลี่ยนบ่อย → TTL สั้น)
+
+### Multi-layer Cache Strategy (Plan v2)
+
+1. **Semantic Cache**: cache คำตอบ (ลด LLM calls)
+2. **Embedding Cache**: cache embedding vectors (ลด embedding API calls)
+3. **DB Query Cache**: cache ผล vector search (ลด DB latency)
+4. **Summarized Content**: ลด token count ตอน generate (ลด cost per call)
+
+ใช้ Dragonfly (Redis-compatible) เป็น cache layer — 25x เร็วกว่า Redis
+
+- [[wiki/sources/sellsuki-agent-plan-v2|Sellsuki RAG Agent Plan v2]]

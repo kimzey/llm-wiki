@@ -3,7 +3,7 @@ title: "LangChain Framework"
 type: concept
 tags: [langchain, rag, llm, agent, chain, lcel, python, typescript]
 sources: [langchain-llamaindex-deep-dive.md, langchain-rag-guide.md, step1-langchain-basics.md, step2-tools-agents.md, step3-rag-tutorial.md, step4-langgraph-tutorial.md, langchain-deep-dive.md, lang-ecosystem-complete.md]
-related: [wiki/concepts/llamaindex-framework.md, wiki/concepts/rag-retrieval-augmented-generation.md, wiki/concepts/rag-chunking-strategies.md, wiki/concepts/semantic-caching.md]
+related: [wiki/concepts/llamaindex-framework.md, wiki/concepts/rag-retrieval-augmented-generation.md, wiki/concepts/rag-chunking-strategies.md, wiki/concepts/semantic-caching.md, wiki/concepts/lcel-langchain-expression-language.md, wiki/concepts/langsmith-tracing-evaluation.md]
 created: 2026-04-13
 updated: 2026-04-13
 ---
@@ -226,3 +226,94 @@ result = qa_chain({"question": "ลาพักร้อนได้กี่ว
 
 - [[wiki/sources/langchain-llamaindex-deep-dive|LangChain & LlamaIndex — Deep Dive]]
 - [[wiki/sources/langchain-rag-guide|LangChain, RAG & Sellsuki Knowledge Base]]
+
+## จาก RAG Deep Dive (LangChain)
+
+### Advanced Retrieval Techniques
+
+LangChain มี retriever ขั้นสูงที่น่าสนใจ:
+
+| Retriever | ทำอะไร | ใช้เมื่อ |
+|-----------|--------|---------|
+| **MultiQueryRetriever** | LLM สร้างคำถาม 3 มุม → ค้น 3 ครั้ง → รวม | คำถามซับซ้อน coverage กว้าง |
+| **ContextualCompression** | ตัดส่วนไม่เกี่ยวข้องออกจาก chunk | ลด token + เพิ่ม precision |
+| **ParentDocumentRetriever** | ค้นด้วย chunk เล็ก → ส่ง parent ใหญ่ | เอกสารมี sections ชัดเจน |
+| **SelfQueryRetriever** | LLM แปลงคำถาม → structured query + filter | มี metadata fields หลายแบบ |
+| **CrossEncoderReranker** | ดึงมา 10 → rerank → top 3 | ต้องการ precision สูงสุด |
+| **EnsembleRetriever** | BM25 + Semantic (Hybrid) | production, FAQ + semantic |
+
+### Search Types
+
+```python
+search_type="similarity"                     # default
+search_type="mmr"                            # แนะนำ: หลากหลายกว่า
+search_type="similarity_score_threshold"     # กรอง score ต่ำ
+```
+
+MMR (Maximal Marginal Relevance) — เลือก chunk ที่ relevant + diverse ไม่ซ้ำเนื้อหากัน เหมาะกว่า similarity ธรรมดาสำหรับ production
+
+### RAG ด้วย Gemini (ฟรี)
+
+```python
+from langchain_google_genai import ChatGoogleGenerativeAI, GoogleGenerativeAIEmbeddings
+
+model = ChatGoogleGenerativeAI(model="gemini-2.5-flash-lite", temperature=0)
+embeddings = GoogleGenerativeAIEmbeddings(model="models/text-embedding-004")
+```
+
+ใช้ Gemini embedding ฟรี 1500 req/min — เหมาะสำหรับ prototype และ cost-conscious production
+
+### FAQ ห้าม Split
+
+FAQ data (Q&A pairs) ไม่ควร split เลย — 1 Q&A = 1 chunk เพื่อให้ context ครบ
+
+- [[wiki/sources/rag-deep-dive-langchain|RAG Deep Dive — LangChain]]
+
+## จาก LangChain คู่มือสมบูรณ์ (langchain_full.md)
+
+### Package Structure ครบถ้วน
+
+```
+langchain/
+├── langchain-core          ← พื้นฐาน: Runnable, PromptTemplate, Messages
+├── langchain               ← Chains, Agents, Memory
+├── langchain-openai        ← ChatOpenAI, OpenAIEmbeddings
+├── langchain-community     ← Loaders, VectorStores, Cache (community-built)
+└── langchain-text-splitters ← ตัดข้อความเป็นชิ้น
+```
+
+### LLM Methods ที่ต้องรู้
+
+| Method | ใช้เมื่อ |
+|--------|---------|
+| `.invoke(messages)` | เรียกครั้งเดียว ได้ผลกลับมา |
+| `.stream(messages)` | ได้ทีละ token (real-time) |
+| `.batch([...])` | ส่งหลายคำถามพร้อมกัน |
+| `.ainvoke(messages)` | async version |
+
+### Output Parsers ทั้งหมด
+
+| Parser | Output Type |
+|--------|------------|
+| `StrOutputParser` | `str` |
+| `JsonOutputParser` | `dict` |
+| `PydanticOutputParser` | Pydantic model (type-safe) |
+| `CommaSeparatedListOutputParser` | `list` |
+| `XMLOutputParser` | `dict` |
+| `RetryOutputParser` | retry ถ้า parse ผิดรูปแบบ (max_retries) |
+
+### Memory Options
+
+| Class | เก็บที่ | หมายเหตุ |
+|-------|--------|---------|
+| `InMemoryChatMessageHistory` | RAM | หายเมื่อ restart |
+| `RedisChatMessageHistory` | Redis | ข้ามการ restart, มี TTL |
+| `SQLChatMessageHistory` | SQLite/PostgreSQL | persistent ระยะยาว |
+
+ทั้งหมดห่อด้วย `RunnableWithMessageHistory` + ส่ง `session_id` ผ่าน config
+
+### Document Loaders ที่ใช้บ่อย
+
+`TextLoader`, `PyPDFLoader`, `CSVLoader`, `WebBaseLoader`, `DirectoryLoader` (glob pattern), `NotionDBLoader`, `SlackDirectoryLoader`, `GitLoader`, `UnstructuredMarkdownLoader`
+
+- [[wiki/sources/langchain-full-reference|LangChain คู่มือสมบูรณ์ — ทุก Syntax ทุก Import]]
