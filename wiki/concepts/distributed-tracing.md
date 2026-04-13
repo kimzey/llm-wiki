@@ -58,5 +58,5 @@ Trace: b71df886bfbb3cca                                  total: 57ms
 
 ## แหล่งที่มา
 
-- [[wiki/sources/distributed-tracing-context-propagation|Distributed Tracing & Context Propagation]]
-- [[wiki/sources/opentelemetry-deep-dive|OpenTelemetry Deep Dive]]
+- [[wiki/sources/observability/distributed-tracing-context-propagation|Distributed Tracing & Context Propagation]]
+- [[wiki/sources/observability/opentelemetry-deep-dive|OpenTelemetry Deep Dive]]

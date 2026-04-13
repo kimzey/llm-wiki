@@ -108,4 +108,4 @@ Custom Component สามารถ:
 2. เชื่อม Redis Cache แบบ global ผ่าน `langchain.llm_cache = RedisCache(...)`
 3. ใช้ `openai_api_base="https://openrouter.ai/api/v1"` เพื่อ route ไป OpenRouter
 
-- [[wiki/sources/langflow-custom-component-guide|LangFlow Custom Component Guide]]
+- [[wiki/sources/frameworks/langflow-custom-component-guide|LangFlow Custom Component Guide]]

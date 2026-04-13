@@ -110,9 +110,9 @@ Legal docs:     split_length=300-500 words
 
 ## แหล่งที่มา
 
-- [[wiki/sources/haystack-phase1-overview|Haystack Phase 1 — Overview & Core Concepts]]
-- [[wiki/sources/haystack-phase2-indexing|Haystack Phase 2 — Document Processing & Indexing]]
-- [[wiki/sources/haystack-phase3-retrieval|Haystack Phase 3 — Embedding & Retrieval]]
-- [[wiki/sources/haystack-phase4-advanced|Haystack Phase 4 — Advanced Features]]
-- [[wiki/sources/haystack-phase5-production|Haystack Phase 5 — Production & Integrations]]
-- [[wiki/sources/haystack-phase6-observability|Haystack Phase 6 — API, Auth & Observability]]
+- [[wiki/sources/frameworks/haystack-phase1-overview|Haystack Phase 1 — Overview & Core Concepts]]
+- [[wiki/sources/frameworks/haystack-phase2-indexing|Haystack Phase 2 — Document Processing & Indexing]]
+- [[wiki/sources/frameworks/haystack-phase3-retrieval|Haystack Phase 3 — Embedding & Retrieval]]
+- [[wiki/sources/frameworks/haystack-phase4-advanced|Haystack Phase 4 — Advanced Features]]
+- [[wiki/sources/frameworks/haystack-phase5-production|Haystack Phase 5 — Production & Integrations]]
+- [[wiki/sources/frameworks/haystack-phase6-observability|Haystack Phase 6 — API, Auth & Observability]]

@@ -111,6 +111,6 @@ async def websocket_chat(ws: WebSocket):
 
 ## แหล่งที่มา
 
-- [[wiki/sources/rag-client-channels-complete|RAG Agent — ช่องทางเชื่อมต่อทั้งหมด]]
-- [[wiki/sources/rag-integration-guide-complete|RAG Agent Integration — Deploy แล้วต่ออะไรได้บ้าง]]
-- [[wiki/sources/openrag-integration-scenarios|OpenRAG — Integration Scenarios & Full Stack]]
+- [[wiki/sources/rag/rag-client-channels-complete|RAG Agent — ช่องทางเชื่อมต่อทั้งหมด]]
+- [[wiki/sources/rag/rag-integration-guide-complete|RAG Agent Integration — Deploy แล้วต่ออะไรได้บ้าง]]
+- [[wiki/sources/frameworks/openrag-integration-scenarios|OpenRAG — Integration Scenarios & Full Stack]]

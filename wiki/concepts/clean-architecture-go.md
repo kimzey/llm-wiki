@@ -105,6 +105,6 @@ TypeSpec (.tsp) → OpenAPI (openapi.yaml) → Go Fiber interface (spec.gen.go)
 
 ## แหล่งที่มา
 
-- [[wiki/sources/ai-context-phase1|Phase 1: Rules — กฎสถาปัตยกรรม]]
-- [[wiki/sources/ai-context-phase2|Phase 2: Developer Agent workflow]]
-- [[wiki/sources/ai-context-phase5|Phase 5: Source Code Map]]
+- [[wiki/sources/ai-context/ai-context-phase1|Phase 1: Rules — กฎสถาปัตยกรรม]]
+- [[wiki/sources/ai-context/ai-context-phase2|Phase 2: Developer Agent workflow]]
+- [[wiki/sources/ai-context/ai-context-phase5|Phase 5: Source Code Map]]

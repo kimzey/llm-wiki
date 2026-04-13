@@ -113,4 +113,4 @@ python eval_pipeline.py  # exit code 0=pass, 1=fail
 
 ## แหล่งที่มา
 
-- [[wiki/sources/rag-advanced-evaluation-deepdive|Advanced Evaluation Deep Dive — LLM-as-Judge]]
+- [[wiki/sources/rag/rag-advanced-evaluation-deepdive|Advanced Evaluation Deep Dive — LLM-as-Judge]]

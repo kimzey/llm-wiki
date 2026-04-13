@@ -135,8 +135,8 @@ pipeline.add_component("joiner", DocumentJoiner(
 
 ## แหล่งที่มา
 
-- [[wiki/sources/arona-overview|Arona System Overview]]
-- [[wiki/sources/arona-rag-techniques|RAG Techniques & Comparison]]
+- [[wiki/sources/frameworks/arona-overview|Arona System Overview]]
+- [[wiki/sources/frameworks/arona-rag-techniques|RAG Techniques & Comparison]]
 
 ## จาก Sellsuki RAG Agent Plan v2
 
@@ -171,6 +171,6 @@ for rank, row in enumerate(vec_results):
     scores[doc_id]["score"] += alpha * (1 / (k + rank + 1))
 ```
 
-- [[wiki/sources/sellsuki-agent-plan-v2|Sellsuki RAG Agent Plan v2]]
-- [[wiki/sources/arona-vs-langchain|Arona vs LangChain]]
-- [[wiki/sources/haystack-phase3-retrieval|Haystack Phase 3 — Embedding & Retrieval]]
+- [[wiki/sources/sellsuki/sellsuki-agent-plan-v2|Sellsuki RAG Agent Plan v2]]
+- [[wiki/sources/frameworks/arona-vs-langchain|Arona vs LangChain]]
+- [[wiki/sources/frameworks/haystack-phase3-retrieval|Haystack Phase 3 — Embedding & Retrieval]]

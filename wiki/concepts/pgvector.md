@@ -150,4 +150,4 @@ def search_similar(query, top_k=5, category=None, similarity_threshold=0.7):
 
 ## แหล่งที่มา
 
-[[wiki/sources/sellsuki-rag-complete-guide|Sellsuki RAG Agent - Complete Implementation Guide]]
+[[wiki/sources/sellsuki/sellsuki-rag-complete-guide|Sellsuki RAG Agent - Complete Implementation Guide]]

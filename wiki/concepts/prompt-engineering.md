@@ -107,6 +107,6 @@ template = """ตอบเป็น JSON เท่านั้น ตาม sche
 
 ## แหล่งที่มา
 
-- [[wiki/sources/rag-complete-knowledge|Complete RAG & Agent Knowledge Base]]
-- [[wiki/sources/step1-langchain-basics|Step 1: LangChain พื้นฐาน]]
-- [[wiki/sources/ai-context-phase8|AI Context Phase 8: Deterministic README Generator]]
+- [[wiki/sources/rag/rag-complete-knowledge|Complete RAG & Agent Knowledge Base]]
+- [[wiki/sources/langchain/steplangchain-basics|Step 1: LangChain พื้นฐาน]]
+- [[wiki/sources/ai-context/ai-context-phase8|AI Context Phase 8: Deterministic README Generator]]

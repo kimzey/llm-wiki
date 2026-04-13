@@ -75,5 +75,5 @@ return r.db.Where("tenant_id = ?", tenantId).Find(&[]Order{})
 
 ## แหล่งที่มา
 
-- [[wiki/sources/distributed-tracing-context-propagation|Distributed Tracing & Context Propagation]]
-- [[wiki/sources/settextmappropagator-explained|SetTextMapPropagator Explained]]
+- [[wiki/sources/observability/distributed-tracing-context-propagation|Distributed Tracing & Context Propagation]]
+- [[wiki/sources/observability/settextmappropagator-explained|SetTextMapPropagator Explained]]

@@ -131,10 +131,10 @@ Arona ใช้ DragonflyDB แทน Redis ปกติเพราะ:
 
 ## แหล่งที่มา
 
-- [[wiki/sources/arona-overview|Arona System Overview]]
-- [[wiki/sources/arona-rag-techniques|RAG Techniques & Comparison]]
-- [[wiki/sources/rag-decision-guide|RAG Framework Decision Guide — Sellsuki]]
-- [[wiki/sources/llamaindex-full-guide|LlamaIndex Full Guide — Sellsuki RAG System]]
+- [[wiki/sources/frameworks/arona-overview|Arona System Overview]]
+- [[wiki/sources/frameworks/arona-rag-techniques|RAG Techniques & Comparison]]
+- [[wiki/sources/rag/rag-decision-guide|RAG Framework Decision Guide — Sellsuki]]
+- [[wiki/sources/rag/llamaindex-full-guide|LlamaIndex Full Guide — Sellsuki RAG System]]
 
 ## จาก Sellsuki RAG Agent Plan v2
 
@@ -166,4 +166,4 @@ async def check_semantic_cache(query, threshold=0.95):
 
 ใช้ Dragonfly (Redis-compatible) เป็น cache layer — 25x เร็วกว่า Redis
 
-- [[wiki/sources/sellsuki-agent-plan-v2|Sellsuki RAG Agent Plan v2]]
+- [[wiki/sources/sellsuki/sellsuki-agent-plan-v2|Sellsuki RAG Agent Plan v2]]

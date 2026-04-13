@@ -93,6 +93,6 @@ routed_chain = RunnableLambda(route)
 
 ## แหล่งที่มา
 
-- [[wiki/sources/langchain-full-reference|LangChain คู่มือสมบูรณ์]] — PART 4 อธิบาย LCEL ทุก Runnable type
-- [[wiki/sources/langchain-basics-openrag|LangChain พื้นฐาน]] — บทที่ 3 Chain ด้วย LCEL
-- [[wiki/sources/openrag-langchain-llamaindex-deepdive|OpenRAG LangChain & LlamaIndex Deep Dive]] — Block 4 LCEL
+- [[wiki/sources/langchain/langchain-full-reference|LangChain คู่มือสมบูรณ์]] — PART 4 อธิบาย LCEL ทุก Runnable type
+- [[wiki/sources/langchain/langchain-basics-openrag|LangChain พื้นฐาน]] — บทที่ 3 Chain ด้วย LCEL
+- [[wiki/sources/frameworks/openrag-langchain-llamaindex-deepdive|OpenRAG LangChain & LlamaIndex Deep Dive]] — Block 4 LCEL

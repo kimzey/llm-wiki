@@ -26,7 +26,7 @@ Show the 5 most recent entries.
 Check completeness — are all wiki pages listed?
 
 ### 4. Check raw/ for un-ingested files
-For each file in `raw/`, check whether a matching `wiki/sources/` page exists.
+For each file in `raw/`, check whether a matching `wiki/sources/{category}/` page exists (note: sources are now in subdirectories by category).
 List any raw files that have not been ingested yet.
 
 ### 5. Tag stats

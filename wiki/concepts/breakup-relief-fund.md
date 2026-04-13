@@ -50,4 +50,4 @@ Breakup Relief Fund เป็นสวัสดิการพิเศษสำ
 
 ## แหล่งที่มา
 
-- [[wiki/sources/sellsuki-hr-policy|Sellsuki Corp HR Policy]]
+- [[wiki/sources/sellsuki/sellsuki-hr-policy|Sellsuki Corp HR Policy]]

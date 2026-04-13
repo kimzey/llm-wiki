@@ -105,8 +105,8 @@ Langfuse ทำ tracing + evaluation รวมกัน:
 
 ## แหล่งที่มา
 
-- [[wiki/sources/haystack-phase5-production|Haystack Phase 5 — Custom Components, Production & Integrations]]
-- [[wiki/sources/haystack-phase6-observability|Haystack Phase 6 — API, Auth & Observability]]
+- [[wiki/sources/frameworks/haystack-phase5-production|Haystack Phase 5 — Custom Components, Production & Integrations]]
+- [[wiki/sources/frameworks/haystack-phase6-observability|Haystack Phase 6 — API, Auth & Observability]]
 
 ## จาก RAG คู่มือฉบับสมบูรณ์
 
@@ -129,7 +129,7 @@ result = faith_eval.evaluate_response(response=response)
 print(f"Faithful: {result.passing}")  # True/False
 ```
 
-- [[wiki/sources/rag-complete-guide-comprehensive|RAG คู่มือฉบับสมบูรณ์]]
+- [[wiki/sources/rag/rag-complete-guide-comprehensive|RAG คู่มือฉบับสมบูรณ์]]
 
 ## จาก Advanced Evaluation Deep Dive — LLM-as-Judge
 
@@ -184,4 +184,4 @@ def rag_triad_judge(run, example):
 - **Tool Selection**: exact match — `expected_tool in tool_calls` → score 1.0/0.0
 - **Task Completion**: LLM-as-Judge ตรวจว่า agent ทำ task สำเร็จตาม expected outcome ไหม
 
-- [[wiki/sources/rag-advanced-evaluation-deepdive|Advanced Evaluation Deep Dive — LLM-as-Judge]]
+- [[wiki/sources/rag/rag-advanced-evaluation-deepdive|Advanced Evaluation Deep Dive — LLM-as-Judge]]

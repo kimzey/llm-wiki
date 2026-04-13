@@ -29,13 +29,17 @@ Follow the **wiki-ingest** skill exactly:
      - If unclear → Ask user: "ไฟล์ [filename] น่าจะอยู่ที่ [suggested_path] ถูกไหม?"
    - Track all moves for reporting
 4. Read the source file(s) in full — if processing a folder, process each file sequentially
-5. Create wiki/sources/[slug].md for each source
+5. **Determine wiki category** for the source summary page:
+   - Analyze the raw file location and content
+   - Select appropriate category: `ai-context/`, `frameworks/`, `infrastructure/`, `langchain/`, `observability/`, `policy/`, `rag/`, `sellsuki/`
+6. Create wiki/sources/[category]/[slug].md for each source
    - Use **obsidian-markdown** syntax: wikilinks `[[...]]`, callouts `> [!note]`, proper frontmatter property types
+   - Note the `[[../../../raw/...]]` link (extra `../` due to subdirectory)
 6. For each concept found:
    - Glob wiki/concepts/ + Grep wiki/concepts/ to check for duplicates
    - Update existing page OR create new one using obsidian-markdown syntax
 7. If the source is a book/chapter: update wiki/books/[slug].md
-8. Update index.md (add all new rows — links to wiki pages only, never raw/)
+8. Update index.md (add all new rows with categorized paths — links to wiki pages only, never raw/)
 9. Append to log.md with the format: `## [YYYY-MM-DD] ingest | [title]`
 10. Verify: Write tool guarantees file exists — skip unless Obsidian is open and you want to confirm vault visibility
 11. Report which files were categorized, moved, created, and updated

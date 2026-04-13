@@ -410,15 +410,15 @@ from llama_index.core.postprocessor import (
 
 `SentenceTransformerRerank` ใช้ `cross-encoder/ms-marco-MiniLM-L-6-v2` — ดึงมา 10 candidates → rerank เหลือ 3 ที่ดีที่สุด
 
-- [[wiki/sources/openrag-langchain-llamaindex-deepdive|OpenRAG LangChain & LlamaIndex Deep Dive]]
+- [[wiki/sources/frameworks/openrag-langchain-llamaindex-deepdive|OpenRAG LangChain & LlamaIndex Deep Dive]]
 
 ## แหล่งที่มา
 
-- [[wiki/sources/llamaindex-deep-dive|LlamaIndex & RAG Deep Dive]]
-- [[wiki/sources/llamaindex-full-guide|LlamaIndex Full Guide — Sellsuki RAG System]]
-- [[wiki/sources/langchain-llamaindex-deep-dive|LangChain & LlamaIndex — Deep Dive Complete Guide]]
-- [[wiki/sources/rag-decision-guide|RAG Framework Decision Guide — Sellsuki]]
-- [[wiki/sources/llamaindex-phase1-introduction|LlamaIndex Phase 1 — Introduction & Core Concepts]]
-- [[wiki/sources/llamaindex-phase2-ingestion-indexing|LlamaIndex Phase 2 — Data Ingestion & Indexing]]
-- [[wiki/sources/llamaindex-phase3-querying-rag|LlamaIndex Phase 3 — Querying, Retrieval & RAG Pipeline]]
-- [[wiki/sources/llamaindex-phase4-agents-production|LlamaIndex Phase 4 — Advanced Features, Agents & Production]]
+- [[wiki/sources/rag/llamaindex-deep-dive|LlamaIndex & RAG Deep Dive]]
+- [[wiki/sources/rag/llamaindex-full-guide|LlamaIndex Full Guide — Sellsuki RAG System]]
+- [[wiki/sources/langchain/langchain-llamaindex-deep-dive|LangChain & LlamaIndex — Deep Dive Complete Guide]]
+- [[wiki/sources/rag/rag-decision-guide|RAG Framework Decision Guide — Sellsuki]]
+- [[wiki/sources/rag/llamaindex-phase1-introduction|LlamaIndex Phase 1 — Introduction & Core Concepts]]
+- [[wiki/sources/rag/llamaindex-phase2-ingestion-indexing|LlamaIndex Phase 2 — Data Ingestion & Indexing]]
+- [[wiki/sources/rag/llamaindex-phase3-querying-rag|LlamaIndex Phase 3 — Querying, Retrieval & RAG Pipeline]]
+- [[wiki/sources/rag/llamaindex-phase4-agents-production|LlamaIndex Phase 4 — Advanced Features, Agents & Production]]

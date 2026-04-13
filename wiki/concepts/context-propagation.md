@@ -75,6 +75,6 @@ Central Control (TraceID: abc, SpanID: 111)
 
 ## แหล่งที่มา
 
-- [[wiki/sources/distributed-tracing-context-propagation|Distributed Tracing & Context Propagation]]
-- [[wiki/sources/opentelemetry-deep-dive-part2|OpenTelemetry Deep Dive Part 2]]
-- [[wiki/sources/settextmappropagator-explained|SetTextMapPropagator Explained]]
+- [[wiki/sources/observability/distributed-tracing-context-propagation|Distributed Tracing & Context Propagation]]
+- [[wiki/sources/observability/opentelemetry-deep-dive-part2|OpenTelemetry Deep Dive Part 2]]
+- [[wiki/sources/observability/settextmappropagator-explained|SetTextMapPropagator Explained]]

@@ -224,8 +224,8 @@ result = qa_chain({"question": "ลาพักร้อนได้กี่ว
 
 ## แหล่งที่มา
 
-- [[wiki/sources/langchain-llamaindex-deep-dive|LangChain & LlamaIndex — Deep Dive]]
-- [[wiki/sources/langchain-rag-guide|LangChain, RAG & Sellsuki Knowledge Base]]
+- [[wiki/sources/langchain/langchain-llamaindex-deep-dive|LangChain & LlamaIndex — Deep Dive]]
+- [[wiki/sources/langchain/langchain-rag-guide|LangChain, RAG & Sellsuki Knowledge Base]]
 
 ## จาก RAG Deep Dive (LangChain)
 
@@ -267,7 +267,7 @@ embeddings = GoogleGenerativeAIEmbeddings(model="models/text-embedding-004")
 
 FAQ data (Q&A pairs) ไม่ควร split เลย — 1 Q&A = 1 chunk เพื่อให้ context ครบ
 
-- [[wiki/sources/rag-deep-dive-langchain|RAG Deep Dive — LangChain]]
+- [[wiki/sources/rag/rag-deep-dive-langchain|RAG Deep Dive — LangChain]]
 
 ## จาก LangChain คู่มือสมบูรณ์ (langchain_full.md)
 
@@ -316,4 +316,4 @@ langchain/
 
 `TextLoader`, `PyPDFLoader`, `CSVLoader`, `WebBaseLoader`, `DirectoryLoader` (glob pattern), `NotionDBLoader`, `SlackDirectoryLoader`, `GitLoader`, `UnstructuredMarkdownLoader`
 
-- [[wiki/sources/langchain-full-reference|LangChain คู่มือสมบูรณ์ — ทุก Syntax ทุก Import]]
+- [[wiki/sources/langchain/langchain-full-reference|LangChain คู่มือสมบูรณ์ — ทุก Syntax ทุก Import]]

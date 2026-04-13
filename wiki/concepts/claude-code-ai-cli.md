@@ -76,7 +76,7 @@ Claude Code ทำงานในรูปแบบ CLI ที่อ่านไ
 
 ## แหล่งที่มา
 
-- [[wiki/sources/ai-context-phase1|Phase 1: โครงสร้าง .claude]]
-- [[wiki/sources/ai-context-phase3|Phase 3: .opencode, MCP, Security]]
-- [[wiki/sources/ai-context-phase5|Phase 5: Deep Dive]]
-- [[wiki/sources/ai-context-phase7|Phase 7: Global Agents + Practical Manual]]
+- [[wiki/sources/ai-context/ai-context-phase1|Phase 1: โครงสร้าง .claude]]
+- [[wiki/sources/ai-context/ai-context-phase3|Phase 3: .opencode, MCP, Security]]
+- [[wiki/sources/ai-context/ai-context-phase5|Phase 5: Deep Dive]]
+- [[wiki/sources/ai-context/ai-context-phase7|Phase 7: Global Agents + Practical Manual]]

@@ -124,4 +124,4 @@ Tailscale ใช้ต่างหากสำหรับ SSH และ dev wor
 
 ## แหล่งที่มา
 
-- [[wiki/sources/network-fundamentals|พื้นฐาน Network & Infrastructure]] — sections 7, 9, 14, 15
+- [[wiki/sources/infrastructure/network-fundamentals|พื้นฐาน Network & Infrastructure]] — sections 7, 9, 14, 15

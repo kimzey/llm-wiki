@@ -109,4 +109,4 @@ const color = parseVariables(
 
 ## แหล่งที่มา
 
-- [[wiki/sources/sellsuki-components-docs|Sellsuki Components — Service Documentation]]
+- [[wiki/sources/sellsuki/sellsuki-components-docs|Sellsuki Components — Service Documentation]]

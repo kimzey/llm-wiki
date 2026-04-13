@@ -106,11 +106,11 @@ Google Drive Connector เก็บ `allowed_groups` ถูกต้องตอ
 - [[wiki/concepts/semantic-caching|Semantic Caching]] — ยังขาดอยู่ใน OpenRAG (ดู openrag-cache-analysis)
 
 ## แหล่งที่มา
-- [[wiki/sources/openrag-platform-overview|OpenRAG Platform Overview]]
-- [[wiki/sources/openrag-integration-scenarios|Integration Scenarios]]
-- [[wiki/sources/openrag-data-ingestion-channels|Data Ingestion Channels]]
-- [[wiki/sources/openrag-document-update-guide|Document Update Guide]]
-- [[wiki/sources/openrag-access-control-rbac|Access Control & RBAC Analysis]]
-- [[wiki/sources/openrag-flow-payloads|Flow Payloads & Permission Architecture]]
-- [[wiki/sources/openrag-organization-deployment|Organization Deployment Guide]]
-- [[wiki/sources/openrag-sdk-reference|SDK Reference]]
+- [[wiki/sources/frameworks/openrag-platform-overview|OpenRAG Platform Overview]]
+- [[wiki/sources/frameworks/openrag-integration-scenarios|Integration Scenarios]]
+- [[wiki/sources/frameworks/openrag-data-ingestion-channels|Data Ingestion Channels]]
+- [[wiki/sources/frameworks/openrag-document-update-guide|Document Update Guide]]
+- [[wiki/sources/frameworks/openrag-access-control-rbac|Access Control & RBAC Analysis]]
+- [[wiki/sources/frameworks/openrag-flow-payloads|Flow Payloads & Permission Architecture]]
+- [[wiki/sources/frameworks/openrag-organization-deployment|Organization Deployment Guide]]
+- [[wiki/sources/frameworks/openrag-sdk-reference|SDK Reference]]

@@ -22,7 +22,15 @@ local-valut/
 └── wiki/              ← LLM-generated wiki (read by human, written by LLM)
     ├── concepts/      ← concept pages (principles, theories, ideas)
     ├── books/         ← book summary pages
-    ├── sources/       ← per-source summary pages
+    ├── sources/       ← per-source summary pages (categorized by topic)
+    │   ├── ai-context/
+    │   ├── frameworks/
+    │   ├── infrastructure/
+    │   ├── langchain/
+    │   ├── observability/
+    │   ├── policy/
+    │   ├── rag/
+    │   └── sellsuki/
     ├── synthesis/     ← analyses, comparisons, cross-cutting essays
     ├── canvas/        ← visual knowledge maps (.canvas files)
     └── bases/         ← Obsidian Bases database views (.base files)
@@ -133,6 +141,7 @@ updated: YYYY-MM-DD
 
 ### 3. Source Summary Page (`wiki/sources/`)
 For web articles, papers, or any clipped/raw source. One page per source file.
+**Files are organized into subdirectories by topic category** (e.g., `wiki/sources/rag/`, `wiki/sources/langchain/`).
 
 ```markdown
 ---
@@ -147,7 +156,7 @@ created: YYYY-MM-DD
 updated: YYYY-MM-DD
 ---
 
-> **Full source**: [[../../raw/clips/filename.md|Original file]]
+> **Full source**: [[../../../raw/clips/filename.md|Original file]]
 >
 > Or for external URL: **Full source**: [Article title](url)
 
@@ -220,15 +229,20 @@ When the user says "ingest [filename]" or provides a path to `raw/`:
    - Has `type: note` OR no frontmatter → `raw/notes/`
    - Image files → `raw/assets/`
 2. Read the source file in full. If a folder is given, Glob all `.md` files and process each sequentially.
-3. Create a **source summary page** in `wiki/sources/` using **obsidian-markdown** syntax (wikilinks, callouts, proper frontmatter).
+3. Determine the appropriate **category subdirectory** for the source summary page:
+   - Analyze the raw file location and content
+   - Create the page in the matching category: `wiki/sources/{category}/{slug}.md`
+   - Categories: `ai-context/`, `frameworks/`, `infrastructure/`, `langchain/`, `observability/`, `policy/`, `rag/`, `sellsuki/`
+4. Create a **source summary page** in the appropriate `wiki/sources/{category}/` using **obsidian-markdown** syntax (wikilinks, callouts, proper frontmatter).
+5. Identify concepts mentioned — for each:
 3. Identify concepts mentioned — for each:
    - `obsidian search query="[concept]"` to check for duplicates; if it fails, Glob `wiki/concepts/` as fallback.
    - If a concept page exists → update it with new info, note if it contradicts previous claims.
    - If no concept page exists → create one using **obsidian-markdown** syntax.
-4. If source is a book chapter → update or create the **book page** in `wiki/books/`.
-5. Update `index.md` — add new rows to all relevant tables.
-6. Append an entry to `log.md`.
-7. Verify with `obsidian read file="[slug]"`; if it fails, skip — Write tool guarantees file exists.
+5. If source is a book chapter → update or create the **book page** in `wiki/books/`.
+6. Update `index.md` — add new rows to all relevant tables with correct categorized paths.
+7. Append an entry to `log.md`.
+8. Verify with `obsidian read file="[slug]"`; if it fails, skip — Write tool guarantees file exists.
 
 A single ingest may touch 5–15 wiki pages. That is expected and correct.
 
@@ -286,7 +300,7 @@ Output a health report as a markdown checklist.
 ## Sources (`wiki/sources/`)
 | Page | Summary | Source file | Date |
 |------|---------|-------------|------|
-| [[wiki/sources/slug\|Title]] | One-line summary | [[wiki/sources/slug]] | YYYY-MM-DD |
+| [[wiki/sources/category/slug\|Title]] | One-line summary | [[wiki/sources/category/slug]] | YYYY-MM-DD |
 
 ## Concepts (`wiki/concepts/`)
 | Page | Summary | Tags |
@@ -357,12 +371,12 @@ raw/clips/*.md   raw/notes/*.md   raw/books/*.md
 - **index.md must never contain `[[raw/...]]` or `[...](raw/...)` links.**
 - Navigation path to raw: index → `wiki/sources/slug` → "Full source" → raw file.
 
-### Layer 2 — wiki/sources/*.md
+### Layer 2 — wiki/sources/{category}/*.md
 
 - Must contain exactly **one** "Full source" link pointing to the raw source file.
-  - Local file: `**Full source**: [[../../raw/path/to/file.md|Original file]]`
+  - Local file: `**Full source**: [[../../../raw/path/to/file.md|Original file]]` (note the extra `../` due to subdirectory)
   - External URL: `**Full source**: [Article title](https://...)`
-- All other links in the body must point to `wiki/concepts/` or `wiki/sources/` — not to `raw/`.
+- All other links in the body must point to `wiki/concepts/` or other `wiki/sources/{category}/` pages — not to `raw/`.
 
 ### Layer 2 — wiki/concepts/*.md
 

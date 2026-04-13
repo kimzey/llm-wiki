@@ -22,6 +22,14 @@ raw/assets/
 wiki/concepts/
 wiki/books/
 wiki/sources/
+wiki/sources/ai-context/
+wiki/sources/frameworks/
+wiki/sources/infrastructure/
+wiki/sources/langchain/
+wiki/sources/observability/
+wiki/sources/policy/
+wiki/sources/rag/
+wiki/sources/sellsuki/
 wiki/synthesis/
 wiki/canvas/
 wiki/bases/
@@ -71,7 +79,15 @@ vault/
 └── wiki/              ← LLM-generated wiki (read by human, written by LLM)
     ├── concepts/      ← concept pages (principles, theories, ideas)
     ├── books/         ← book summary pages
-    ├── sources/       ← per-source summary pages
+    ├── sources/       ← per-source summary pages (categorized by topic)
+    │   ├── ai-context/
+    │   ├── frameworks/
+    │   ├── infrastructure/
+    │   ├── langchain/
+    │   ├── observability/
+    │   ├── policy/
+    │   ├── rag/
+    │   └── sellsuki/
     └── synthesis/     ← analyses, comparisons, cross-cutting essays
 \```
 
@@ -184,7 +200,7 @@ created: YYYY-MM-DD
 updated: YYYY-MM-DD
 ---
 
-> **Full source**: [[../../raw/clips/filename.md|Original file]]
+> **Full source**: [[../../../raw/clips/filename.md|Original file]]
 
 ## สรุป
 
@@ -197,6 +213,8 @@ updated: YYYY-MM-DD
 
 ## Concepts ที่เกี่ยวข้อง
 \```
+
+**Note**: Source pages are organized into category subdirectories (ai-context/, frameworks/, infrastructure/, langchain/, observability/, policy/, rag/, sellsuki/). The Full source link uses `../../../raw/` because files are one level deeper.
 
 ### 4. Synthesis Page (`wiki/synthesis/`)
 
@@ -228,12 +246,13 @@ updated: YYYY-MM-DD
 
 ### A. Ingest (add a new source)
 
-1. Read the source file in full. If folder → Glob all .md files, process sequentially.
-2. Create `wiki/sources/<slug>.md`.
-3. For each concept: update existing page OR create new one. Note contradictions.
-4. If book chapter → update `wiki/books/<slug>.md`.
-5. Update `index.md`.
-6. Append to `log.md`.
+1. Categorize and move files from `raw/inbox/` to appropriate folders (clips/books/notes/assets).
+2. Read the source file in full. If folder → Glob all .md files, process sequentially.
+3. Determine category → Create `wiki/sources/{category}/<slug>.md`.
+4. For each concept: update existing page OR create new one. Note contradictions.
+5. If book chapter → update `wiki/books/<slug>.md`.
+6. Update `index.md`.
+7. Append to `log.md`.
 
 ### B. Query
 
@@ -270,7 +289,7 @@ Check for:
 ## Sources (`wiki/sources/`)
 | Page | Summary | Source file | Date |
 |------|---------|-------------|------|
-| [[wiki/sources/slug\|Title]] | One-line summary | [[wiki/sources/slug]] | YYYY-MM-DD |
+| [[wiki/sources/category/slug\|Title]] | One-line summary | [[wiki/sources/category/slug]] | YYYY-MM-DD |
 
 ## Concepts (`wiki/concepts/`)
 | Page | Summary | Tags |
@@ -290,8 +309,8 @@ Check for:
 
 **Rules:**
 - "Page" column = Obsidian link to a `wiki/` page only — never `raw/`
-- "Source file" column = `[[wiki/sources/slug]]` (not raw path)
-- Navigation to raw: index → wiki/sources/slug → "Full source" → raw file
+- "Source file" column = `[[wiki/sources/category/slug]]` (includes category)
+- Navigation to raw: index → wiki/sources/category/slug → "Full source" → raw file
 
 ---
 
@@ -466,7 +485,7 @@ After completing all steps, show a summary:
 
 Directory structure:
   raw/clips/   raw/books/   raw/notes/   raw/assets/
-  wiki/concepts/   wiki/books/   wiki/sources/   wiki/synthesis/
+  wiki/concepts/   wiki/books/   wiki/sources/ (with category subdirs)   wiki/synthesis/
   .claude/commands/   .claude/skills/
 
 Files created:

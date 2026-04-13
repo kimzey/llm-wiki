@@ -84,5 +84,5 @@ Search: service=api-gateway, error=true, last 1hr
 
 ## แหล่งที่มา
 
-- [[wiki/sources/opentelemetry-deep-dive|OpenTelemetry Deep Dive]]
-- [[wiki/sources/opentelemetry-deep-dive-part2|OpenTelemetry Deep Dive Part 2]]
+- [[wiki/sources/observability/opentelemetry-deep-dive|OpenTelemetry Deep Dive]]
+- [[wiki/sources/observability/opentelemetry-deep-dive-part2|OpenTelemetry Deep Dive Part 2]]

@@ -102,7 +102,7 @@ size: none | xxs | xs | sm | md | lg | xl | 2xl | ... | 15xl | full
 
 ## แหล่งที่มา
 
-- [[wiki/sources/sellsuki-design-tokens-service|Sellsuki Design Tokens Service — Complete Documentation]]
-- [[wiki/sources/sellsuki-design-tokens-flow|Sellsuki Design Tokens — Flow การทำงาน]]
-- [[wiki/sources/sellsuki-design-tokens-reference|Sellsuki Design Tokens — Spacing System Reference]]
-- [[wiki/sources/sellsuki-components-docs|Sellsuki Components — Service Documentation]]
+- [[wiki/sources/sellsuki/sellsuki-design-tokens-service|Sellsuki Design Tokens Service — Complete Documentation]]
+- [[wiki/sources/sellsuki/sellsuki-design-tokens-flow|Sellsuki Design Tokens — Flow การทำงาน]]
+- [[wiki/sources/sellsuki/sellsuki-design-tokens-reference|Sellsuki Design Tokens — Spacing System Reference]]
+- [[wiki/sources/sellsuki/sellsuki-components-docs|Sellsuki Components — Service Documentation]]

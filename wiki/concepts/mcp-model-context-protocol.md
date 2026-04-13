@@ -100,5 +100,5 @@ PO agent เรียก mcp__jira__create_issue (type: Epic)
 
 ## แหล่งที่มา
 
-- [[wiki/sources/ai-context-phase3|Phase 3: .opencode, MCP, Security]]
-- [[wiki/sources/ai-context-phase5|Phase 5: Deep Dive]]
+- [[wiki/sources/ai-context/ai-context-phase3|Phase 3: .opencode, MCP, Security]]
+- [[wiki/sources/ai-context/ai-context-phase5|Phase 5: Deep Dive]]

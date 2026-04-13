@@ -102,12 +102,21 @@ AI วิเคราะห์ว่าน่าจะเป็น: [suggested_p
 
 ### 5. Create Source Summary Page
 
-Create `wiki/sources/[slug].md` using the template in CLAUDE.md.
+Create `wiki/sources/[category]/[slug].md` using the template in CLAUDE.md.
 
 - slug = source filename or title converted to lowercase-hyphens
+- **Determine category subdirectory** by analyzing the raw file location and content:
+  - `ai-context/` — AI context, Claude Code, agents, workflows
+  - `frameworks/` — RAG frameworks (Arona, Haystack, OpenRAG, Langflow)
+  - `infrastructure/` — networking, servers, devops
+  - `langchain/` — LangChain ecosystem (LangChain, LangGraph, LangSmith)
+  - `observability/` — tracing, monitoring, OTel
+  - `policy/` — company policies, HR documents
+  - `rag/` — RAG concepts, LlamaIndex, vector DBs, chunking
+  - `sellsuki/` — Sellsuki-specific documents
 - Include full frontmatter (title, type, source_file, url, published, tags, related, created, updated)
 - **Required**: include a back-link to the raw source file at the top of the content body
-  - Local file: `**Full source**: [[../../raw/path/to/file.md|Original file]]`
+  - Local file: `**Full source**: [[../../../raw/path/to/file.md|Original file]]` (note the extra `../` due to subdirectory)
   - External URL: `**Full source**: [URL](url)`
 - Use **obsidian-markdown** syntax throughout:
   - Wikilinks: `[[wiki/concepts/slug|Title]]` for all cross-links
@@ -150,8 +159,8 @@ Add new chapter summary under the "สรุปแต่ละบท" section.
 
 Read `index.md` → add new rows to all relevant tables.
 
-- "หน้า" column = `[[wiki/sources/slug|title]]` — always links to wiki page, never to raw
-- "Source file" column = `[[wiki/sources/slug]]` — same wiki page link
+- "หน้า" column = `[[wiki/sources/category/slug|title]]` — always links to wiki page with category, never to raw
+- "Source file" column = `[[wiki/sources/category/slug]]` — same wiki page link with category
 
 ### 10. Append log.md
 

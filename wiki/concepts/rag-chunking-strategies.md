@@ -318,13 +318,13 @@ CharacterTextSplitter(
 
 ## แหล่งที่มา
 
-- [[wiki/sources/rag-decision-guide|RAG Framework Decision Guide — Sellsuki]]
-- [[wiki/sources/llamaindex-deep-dive|LlamaIndex & RAG Deep Dive]]
-- [[wiki/sources/langchain-llamaindex-deep-dive|LangChain & LlamaIndex — Deep Dive Complete Guide]]
-- [[wiki/sources/langchain-rag-guide|LangChain, RAG & Sellsuki Knowledge Base]]
-- [[wiki/sources/openrag-chunking-ingestion|OpenRAG — Chunking System & Document Ingestion]]
-- [[wiki/sources/openrag-rag-spike-research|RAG Spike Research]]
-- [[wiki/sources/openrag-ingestion-paths|OpenRAG — Ingestion Paths & Chunking Analysis]]
+- [[wiki/sources/rag/rag-decision-guide|RAG Framework Decision Guide — Sellsuki]]
+- [[wiki/sources/rag/llamaindex-deep-dive|LlamaIndex & RAG Deep Dive]]
+- [[wiki/sources/langchain/langchain-llamaindex-deep-dive|LangChain & LlamaIndex — Deep Dive Complete Guide]]
+- [[wiki/sources/langchain/langchain-rag-guide|LangChain, RAG & Sellsuki Knowledge Base]]
+- [[wiki/sources/frameworks/openrag-chunking-ingestion|OpenRAG — Chunking System & Document Ingestion]]
+- [[wiki/sources/frameworks/openrag-rag-spike-research|RAG Spike Research]]
+- [[wiki/sources/frameworks/openrag-ingestion-paths|OpenRAG — Ingestion Paths & Chunking Analysis]]
 
 ## จาก Sellsuki RAG Agent - Complete Implementation Guide
 
@@ -352,4 +352,4 @@ splitter = RecursiveCharacterTextSplitter(
 )
 ```
 
-- [[wiki/sources/sellsuki-rag-complete-guide|Sellsuki RAG Agent - Complete Implementation Guide]]
+- [[wiki/sources/sellsuki/sellsuki-rag-complete-guide|Sellsuki RAG Agent - Complete Implementation Guide]]

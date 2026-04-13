@@ -98,4 +98,4 @@ Replace {{placeholders}} with extracted data.
 
 ## แหล่งที่มา
 
-- [[wiki/sources/ai-context-phase8|Phase 8: README Generator]]
+- [[wiki/sources/ai-context/ai-context-phase8|Phase 8: README Generator]]

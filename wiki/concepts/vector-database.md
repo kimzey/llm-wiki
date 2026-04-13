@@ -99,8 +99,8 @@ Prototype/ทดสอบ → ChromaDB
 
 ## แหล่งที่มา
 
-- [[wiki/sources/pgvector|pgvector — Vector Search บน PostgreSQL]] (Sellsuki RAG Guide)
-- [[wiki/sources/openrag-rag-spike-research|RAG Spike Research — Vector DB & Chunking]]
-- [[wiki/sources/rag-glossary-data-prep|RAG Glossary & Data Preparation]]
-- [[wiki/sources/openrag-opensearch-vector-db|OpenRAG — OpenSearch Vector Database]]
-- [[wiki/sources/vector-db-comparison-research|Vector Database Comparison Research 2026]]
+- [[wiki/concepts/pgvector|pgvector — Vector Search บน PostgreSQL]] (Sellsuki RAG Guide)
+- [[wiki/sources/frameworks/openrag-rag-spike-research|RAG Spike Research — Vector DB & Chunking]]
+- [[wiki/sources/rag/rag-glossary-data-prep|RAG Glossary & Data Preparation]]
+- [[wiki/sources/frameworks/openrag-opensearch-vector-db|OpenRAG — OpenSearch Vector Database]]
+- [[wiki/sources/rag/vector-db-comparison-research|Vector Database Comparison Research 2026]]

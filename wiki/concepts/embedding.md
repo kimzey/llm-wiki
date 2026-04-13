@@ -108,7 +108,7 @@ embeddings = openai.embeddings.create(
 
 ## แหล่งที่มา
 
-- [[wiki/sources/rag-complete-knowledge|Complete RAG & Agent Knowledge Base]]
-- [[wiki/sources/rag-glossary-data-prep|RAG Glossary & Data Preparation]]
-- [[wiki/sources/chunking-deepdive-complete|Chunking Deep Dive]]
-- [[wiki/sources/rag-knowledge-overview|RAG Agent Knowledge — Overview]]
+- [[wiki/sources/rag/rag-complete-knowledge|Complete RAG & Agent Knowledge Base]]
+- [[wiki/sources/rag/rag-glossary-data-prep|RAG Glossary & Data Preparation]]
+- [[wiki/sources/rag/chunking-deepdive-complete|Chunking Deep Dive]]
+- [[wiki/sources/rag/rag-knowledge-overview|RAG Agent Knowledge — Overview]]

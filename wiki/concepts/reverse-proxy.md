@@ -114,4 +114,4 @@ Nginx Proxy Manager (port 443)
 
 ## แหล่งที่มา
 
-- [[wiki/sources/network-fundamentals|พื้นฐาน Network & Infrastructure]] — section 11
+- [[wiki/sources/infrastructure/network-fundamentals|พื้นฐาน Network & Infrastructure]] — section 11

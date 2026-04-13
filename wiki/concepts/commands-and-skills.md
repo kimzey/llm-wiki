@@ -82,6 +82,6 @@ description: Scaffold a complete new feature for the domain named $ARGUMENTS.
 
 ## แหล่งที่มา
 
-- [[wiki/sources/ai-context-phase2|Phase 2: Agents, Commands, Skills]]
-- [[wiki/sources/ai-context-phase4|Phase 4: Bindings]]
-- [[wiki/sources/ai-context-phase6|Phase 6: Dispatch System]]
+- [[wiki/sources/ai-context/ai-context-phase2|Phase 2: Agents, Commands, Skills]]
+- [[wiki/sources/ai-context/ai-context-phase4|Phase 4: Bindings]]
+- [[wiki/sources/ai-context/ai-context-phase6|Phase 6: Dispatch System]]

@@ -75,6 +75,6 @@ docker run --gpus all -p 5001:5001 quay.io/docling-project/docling-serve:latest-
 | Unstructured.io | Format support หลากหลายที่สุด |
 
 ## แหล่งที่มา
-- [[wiki/sources/openrag-docling-parser|OpenRAG — Docling AI Document Parser]]
-- [[wiki/sources/openrag-chunking-ingestion|OpenRAG — Chunking System & Document Ingestion]]
-- [[wiki/sources/docling-deep-dive-research|Docling Deep Dive Research (Granite-Docling 2025)]]
+- [[wiki/sources/frameworks/openrag-docling-parser|OpenRAG — Docling AI Document Parser]]
+- [[wiki/sources/frameworks/openrag-chunking-ingestion|OpenRAG — Chunking System & Document Ingestion]]
+- [[wiki/sources/rag/docling-deep-dive-research|Docling Deep Dive Research (Granite-Docling 2025)]]

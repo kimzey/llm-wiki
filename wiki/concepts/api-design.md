@@ -104,6 +104,6 @@ async def chat(req: ChatRequest, token: str = Depends(security)):
 
 ## แหล่งที่มา
 
-- [[wiki/sources/rag-integration-guide-complete|RAG Agent Integration — Deploy แล้วต่ออะไรได้บ้าง]]
-- [[wiki/sources/deployment-deep-dive|Deployment Deep Dive]]
-- [[wiki/sources/openrag-sdk-reference|OpenRAG SDK Reference]]
+- [[wiki/sources/rag/rag-integration-guide-complete|RAG Agent Integration — Deploy แล้วต่ออะไรได้บ้าง]]
+- [[wiki/sources/langchain/deployment-deep-dive|Deployment Deep Dive]]
+- [[wiki/sources/frameworks/openrag-sdk-reference|OpenRAG SDK Reference]]

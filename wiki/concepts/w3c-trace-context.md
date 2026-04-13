@@ -76,6 +76,6 @@ SpanID:       fa3c19e820b74a12                  ← สร้างใหม่ 
 
 ## แหล่งที่มา
 
-- [[wiki/sources/distributed-tracing-context-propagation|Distributed Tracing & Context Propagation]]
-- [[wiki/sources/settextmappropagator-explained|SetTextMapPropagator Explained]]
-- [[wiki/sources/opentelemetry-deep-dive|OpenTelemetry Deep Dive]]
+- [[wiki/sources/observability/distributed-tracing-context-propagation|Distributed Tracing & Context Propagation]]
+- [[wiki/sources/observability/settextmappropagator-explained|SetTextMapPropagator Explained]]
+- [[wiki/sources/observability/opentelemetry-deep-dive|OpenTelemetry Deep Dive]]
