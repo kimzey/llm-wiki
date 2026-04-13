@@ -15,6 +15,7 @@ Instead of RAG (re-deriving knowledge from scratch on every query), this system 
 - Every ingest makes future queries better — knowledge accumulates, never starts from zero
 
 **Three layers:**
+
 ```
 raw/          ← your curated sources (immutable — never modified)
 wiki/         ← LLM-generated pages (summaries, concepts, analyses)
@@ -86,36 +87,39 @@ vault/
 
 ## All Commands
 
-| Command | What it does |
-|---|---|
-| `/status` | Dashboard: page counts, pending raw files, recent activity |
-| `/ingest [path]` | Add a source — creates wiki pages, updates index + log |
-| `/query [question]` | Answer a question from the wiki |
-| `/research [topic]` | Web search to fill wiki gaps |
-| `/lint` | Health check: orphans, contradictions, missing concepts |
-| `/synthesis [topic]` | Deep analysis → permanent synthesis page |
-| `/new-concept [name]` | Create a concept page without a source |
-| `/new-book [title]` | Create a book summary page |
-| `/update [page] [what]` | Update an existing wiki page |
-| `/note [text]` | Save a quick note to raw/notes/ |
-| `/init [name]` | Initialize a new wiki vault from scratch |
+| Command                 | What it does                                               |
+| ----------------------- | ---------------------------------------------------------- |
+| `/status`               | Dashboard: page counts, pending raw files, recent activity |
+| `/ingest [path]`        | Add a source — creates wiki pages, updates index + log     |
+| `/query [question]`     | Answer a question from the wiki                            |
+| `/research [topic]`     | Web search to fill wiki gaps                               |
+| `/lint`                 | Health check: orphans, contradictions, missing concepts    |
+| `/synthesis [topic]`    | Deep analysis → permanent synthesis page                   |
+| `/new-concept [name]`   | Create a concept page without a source                     |
+| `/new-book [title]`     | Create a book summary page                                 |
+| `/update [page] [what]` | Update an existing wiki page                               |
+| `/note [text]`          | Save a quick note to raw/notes/                            |
+| `/init [name]`          | Initialize a new wiki vault from scratch                   |
 
 ---
 
 ## Recommended Workflows
 
 ### Every new session
+
 ```
 /status
 ```
 
 ### Clipping an article
+
 ```
 1. Use Obsidian Web Clipper → saves to raw/clips/
 2. /ingest raw/clips/article.md
 ```
 
 ### Research deep-dive (new topic folder)
+
 ```
 1. Drop notes into raw/notes/topic-name/
 2. /ingest raw/notes/topic-name/
@@ -123,16 +127,19 @@ vault/
 ```
 
 ### Fill knowledge gaps
+
 ```
 /research [topic]
 ```
 
 ### Weekly maintenance
+
 ```
 /lint
 ```
 
 ### Big question across multiple topics
+
 ```
 /synthesis [question]
 ```
@@ -192,3 +199,5 @@ Or copy the `.claude/` folder from this vault into your new directory, then run 
 - The schema lives in `CLAUDE.md` — edit it to change page formats, workflows, or conventions
 - Primary language: Thai for wiki content, English for config and code
 - See `.claude/README.md` for full command and skill documentation
+
+Ref : https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f#file-llm-wiki-md
