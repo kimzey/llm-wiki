@@ -2,8 +2,8 @@
 title: "Semantic Caching"
 type: concept
 tags: [caching, semantic, vector-search, redis, cost-optimization, rag]
-sources: [arona/README.md, arona/RAG_COMPARISON.md, arona/ARONA_GUIDE.md]
-related: [wiki/concepts/rag-retrieval-augmented-generation.md, wiki/concepts/hybrid-search-bm25-vector.md]
+sources: [arona/README.md, arona/RAG_COMPARISON.md, arona/ARONA_GUIDE.md, rag-decision-guide.md, llamaindex-full-guide.md]
+related: [wiki/concepts/rag-retrieval-augmented-generation.md, wiki/concepts/hybrid-search-bm25-vector.md, wiki/concepts/llamaindex-framework.md, wiki/concepts/langchain-framework.md]
 created: 2026-04-13
 updated: 2026-04-13
 ---
@@ -23,8 +23,9 @@ Semantic Cache แก้ปัญหาด้วยการ:
 2. เปรียบเทียบ cosine similarity กับ embeddings ของคำถามที่เคยถามก่อน
 3. ถ้า similarity ≥ threshold → ส่งคำตอบเก่ากลับไป
 
-### Arona Implementation
+### Implementations
 
+**Arona (TypeScript + DragonflyDB):**
 ```typescript
 // เก็บคำถาม + คำตอบ + embedding
 await redis.hset(key, {
@@ -41,8 +42,29 @@ const result = await redis.call(
 )
 
 // ตรวจสอบ threshold
-const similarity = 1 - parseFloat(result[2][0][1])  // score → similarity
+const similarity = 1 - parseFloat(result[2][0][1])
 return similarity >= 0.9 ? cachedResponse : null     // 90% threshold
+```
+
+**LangChain (Python + Redis/Dragonfly):**
+```python
+from langchain_community.cache import RedisSemanticCache
+
+langchain.llm_cache = RedisSemanticCache(
+    redis_url="redis://dragonfly:6379",
+    embedding=OpenAIEmbeddings(),
+    score_threshold=0.95
+)
+```
+
+**LlamaIndex (Python + RedisKVStore):**
+```python
+from llama_index.storage.kvstore.redis import RedisKVStore
+
+cache = IngestionCache(
+    cache=RedisKVStore.from_host_and_port("dragonfly", 6379),
+    collection="ingestion_cache"
+)
 ```
 
 ### Query Normalization (ก่อน Cache Lookup)
@@ -104,8 +126,12 @@ Arona ใช้ DragonflyDB แทน Redis ปกติเพราะ:
 
 - [[wiki/concepts/rag-retrieval-augmented-generation|RAG]] — ใช้ semantic cache เป็น optimization layer
 - [[wiki/concepts/hybrid-search-bm25-vector|Hybrid Search]] — vector similarity ใช้หลักการเดียวกัน
+- [[wiki/concepts/llamaindex-framework|LlamaIndex Framework]] — RedisKVStore สำหรับ IngestionCache
+- [[wiki/concepts/langchain-framework|LangChain Framework]] — RedisSemanticCache built-in
 
 ## แหล่งที่มา
 
 - [[wiki/sources/arona-overview|Arona System Overview]]
 - [[wiki/sources/arona-rag-techniques|RAG Techniques & Comparison]]
+- [[wiki/sources/rag-decision-guide|RAG Framework Decision Guide — Sellsuki]]
+- [[wiki/sources/llamaindex-full-guide|LlamaIndex Full Guide — Sellsuki RAG System]]

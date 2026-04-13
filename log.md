@@ -12,6 +12,14 @@
 - ครอบคลุมเนื้อหา: Haystack 2.x architecture (Component-Pipeline-DocumentStore), Indexing/Query Pipeline, BM25+Semantic+Hybrid Search (RRF), Cross-encoder Ranker, Custom Components, Agent Systems, Conversational RAG, Evaluation (RAGAS/Faithfulness), Hayhooks API, Langfuse/OTel observability, Production stack
 - อัปเดต index.md (6 sources, 2 concepts ใหม่)
 
+## [2026-04-13] ingest | raw/notes/tool-rag — RAG Tools & Frameworks (5 files)
+
+- สร้าง source pages: rag-decision-guide, langchain-llamaindex-deep-dive, langchain-rag-guide, llamaindex-deep-dive, llamaindex-full-guide (5 ไฟล์)
+- สร้าง concept pages: langchain-framework, llamaindex-framework, rag-chunking-strategies (3 ไฟล์)
+- อัปเดต concept pages: rag-retrieval-augmented-generation (เพิ่ษ LangChain/LlamaIndex approaches, 4 chunking strategies), semantic-caching (เพิ่ม LangChain/LlamaIndex implementations)
+- ครอบคลุมเนื้อหา: LangChain vs LlamaIndex deep comparison, RAG decision matrix (DIY vs Framework), Chunking strategies (Fixed/Semantic/Hierarchical/Sentence Window), LangChain Ecosystem (LangChain/LangGraph/LangSmith/LangServe/Hub), LlamaIndex Ecosystem (LlamaHub/LlamaParse/LlamaTrace), LCEL syntax, IngestionPipeline + Cache, QueryEngine, Metadata Filters, ParadeDB + Dragonfly architecture, Sellsuki use case
+- อัปเดต index.md (5 sources, 3 concepts ใหม่)
+
 ## [2026-04-13] ingest | raw/notes/central-component — Sellsuki Components Library (4 files)
 
 - สร้าง source pages: sellsuki-design-tokens-service, sellsuki-design-tokens-flow, sellsuki-design-tokens-reference, sellsuki-components-docs (4 ไฟล์)

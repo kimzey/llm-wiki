@@ -40,6 +40,11 @@
 | [[wiki/sources/haystack-phase4-advanced\|Haystack Phase 4 — Advanced Features (Agents, Routers, Conversational RAG)]] | Custom Components (@component), Routers, Agent+ToolInvoker loop, Conversational RAG + history, Streaming, YAML serialization | [[wiki/sources/haystack-phase4-advanced]] | 2026-04-13 |
 | [[wiki/sources/haystack-phase5-production\|Haystack Phase 5 — Custom Components, Production & Integrations]] | FastAPI integration, RAG Evaluation (RAGAS), Caching, Ollama/Bedrock/Gemini/pgvector integrations, component selection guide | [[wiki/sources/haystack-phase5-production]] | 2026-04-13 |
 | [[wiki/sources/haystack-phase6-observability\|Haystack Phase 6 — API, Auth, Observability & Ecosystem]] | Hayhooks API serving, JWT/RBAC auth, Langfuse tracing, OTel, Prometheus+Grafana, Guardrails, Haystack vs LangChain ตรงๆ | [[wiki/sources/haystack-phase6-observability]] | 2026-04-13 |
+| [[wiki/sources/rag-decision-guide\|RAG Framework Decision Guide — Sellsuki]] | คู่มือตัดสินใจเลือก RAG framework: DIY vs LangChain vs LlamaIndex vs Hybrid, พร้อม chunking strategies, ParadeDB, Dragonfly caching, incremental update | [[wiki/sources/rag-decision-guide]] | 2026-04-13 |
+| [[wiki/sources/langchain-llamaindex-deep-dive\|LangChain & LlamaIndex — Deep Dive Complete Guide]] | Deep Dive ทั้ง 2 frameworks ตั้งแต่ศูนย์: Building Blocks (LLM, Prompt, Chain, Memory, Tools, Agent), LCEL syntax, IngestionPipeline, QueryEngine | [[wiki/sources/langchain-llamaindex-deep-dive]] | 2026-04-13 |
+| [[wiki/sources/langchain-rag-guide\|LangChain, RAG & Sellsuki Knowledge Base — Deep Dive]] | LangChain Ecosystem ทั้ง 5 ตัว (LangChain, LangGraph, LangSmith, LangServe, Hub), RAG Pipeline ละเอียด, Chunking Strategies, Semantic Cache | [[wiki/sources/langchain-rag-guide]] | 2026-04-13 |
+| [[wiki/sources/llamaindex-deep-dive\|LlamaIndex & RAG Deep Dive — Sellsuki Knowledge Bot]] | LlamaIndex Ecosystem (LlamaHub, LlamaParse, LlamaTrace), 4 Chunking Strategies, Metadata Schema, ParadeDB Design, Hybrid Search | [[wiki/sources/llamaindex-deep-dive]] | 2026-04-13 |
+| [[wiki/sources/llamaindex-full-guide\|LlamaIndex Full Guide — Sellsuki RAG System]] | Full guide 7-phase checklist, Deliverables, Server Setup (FastAPI + Docker), TypeScript vs Python comparison, Full Architecture 8-step Query Flow | [[wiki/sources/llamaindex-full-guide]] | 2026-04-13 |
 
 ---
 
@@ -69,6 +74,9 @@
 | [[wiki/concepts/web-components-lit\|Web Components & Lit Framework]] | Web Standard สำหรับ custom elements ที่ใช้ได้ทุก framework: Shadow DOM, Reactive Properties, Context System, Slot Pattern | web-components, lit, shadow-dom, framework-agnostic |
 | [[wiki/concepts/haystack-framework\|Haystack Framework]] | Open-source Python framework สร้าง Production-ready AI Search & RAG Pipelines: Component-Pipeline-DocumentStore, type-safe, YAML serializable | haystack, rag, pipeline, nlp, deepset, python |
 | [[wiki/concepts/rag-evaluation\|RAG Evaluation]] | วัดคุณภาพ RAG 3 มิติ: Retrieval (Context Relevance, MRR), Generation (Faithfulness), End-to-end (Exact Match, SAS) — tools: RAGAS, Langfuse | rag, evaluation, faithfulness, ragas, llm-judge |
+| [[wiki/concepts/langchain-framework\|LangChain Framework]] | General-purpose LLM Framework: Chains, Agents, Memory, Retrievers — Ecosystem 5 ตัว (LangChain, LangGraph, LangSmith, LangServe, Hub), LCEL syntax, Redis Semantic Cache | langchain, rag, llm, agent, chain, lcel, python, typescript |
+| [[wiki/concepts/llamaindex-framework\|LlamaIndex Framework]] | Data Framework สำหรับ RAG: Index, Query, Retrieval — IngestionPipeline + Cache, LlamaParse (PDF ซับซ้อน), 300+ LlamaHub connectors | llamaindex, rag, llm, ingestion-pipeline, python, typescript, llamaparse |
+| [[wiki/concepts/rag-chunking-strategies\|RAG Chunking Strategies]] | วิธีแบ่ง chunks: Fixed-Size, Semantic, Markdown Header, Hierarchical/Parent-Child, Sentence Window — เปรียบเทียบ LangChain vs LlamaIndex | rag, chunking, llamaindex, langchain, semantic-split, hierarchical-split |
 
 ---
 
