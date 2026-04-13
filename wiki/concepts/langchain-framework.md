@@ -2,7 +2,7 @@
 title: "LangChain Framework"
 type: concept
 tags: [langchain, rag, llm, agent, chain, lcel, python, typescript]
-sources: [langchain-llamaindex-deep-dive.md, langchain-rag-guide.md]
+sources: [langchain-llamaindex-deep-dive.md, langchain-rag-guide.md, step1-langchain-basics.md, step2-tools-agents.md, step3-rag-tutorial.md, step4-langgraph-tutorial.md, langchain-deep-dive.md, lang-ecosystem-complete.md]
 related: [wiki/concepts/llamaindex-framework.md, wiki/concepts/rag-retrieval-augmented-generation.md, wiki/concepts/rag-chunking-strategies.md, wiki/concepts/semantic-caching.md]
 created: 2026-04-13
 updated: 2026-04-13

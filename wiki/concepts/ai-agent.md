@@ -2,7 +2,7 @@
 title: "AI Agent — ระบบ AI ที่ตัดสินใจเอง"
 type: concept
 tags: [agent, ai, llm, autonomous, decision-making]
-sources: [wiki/sources/rag-complete-knowledge, wiki/sources/rag-vs-agent-explained]
+sources: [wiki/sources/rag-complete-knowledge, wiki/sources/rag-vs-agent-explained, step2-tools-agents.md, step4-langgraph-tutorial.md, step6-multi-agent-tutorial.md, langgraph-deep-dive.md, multi-agent-deep-dive.md]
 related: [wiki/concepts/llm-large-language-model, wiki/concepts/rag-retrieval-augmented-generation, wiki/concepts/agentic-rag]
 created: 2026-04-13
 updated: 2026-04-13

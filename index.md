@@ -53,6 +53,22 @@
 | [[wiki/sources/sellsuki-rag-diy-guide\|DIY — สร้าง RAG ตอบคำถาม Sellsuki]] | Use case (before/after), tech stack (ParadeDB, Dragonfly), implementation guide, แนวทางการทำ | [[wiki/sources/sellsuki-rag-diy-guide]] | 2026-04-13 |
 | [[wiki/sources/rag-integration-guide-complete\|RAG Agent Integration — Deploy แล้วต่ออะไรได้บ้าง]] | API Endpoints, MCP สำหรับ Claude Code/Cursor, Open Source Tools, 14 Use Cases (Chat, Search, Form, Report, Email, etc.) | [[wiki/sources/rag-integration-guide-complete]] | 2026-04-13 |
 | [[wiki/sources/rag-client-channels-complete\|RAG Agent — ช่องทางเชื่อมต่อทั้งหมด]] | 14 ช่องทาง (LINE, Slack, Discord, Web, Messenger, Teams, Telegram, WhatsApp, Mobile, Dashboard, Email, Voice, API) พร้อม code ตัวอย่าง | [[wiki/sources/rag-client-channels-complete]] | 2026-04-13 |
+| [[wiki/sources/step1-langchain-basics\|Step 1: LangChain พื้นฐาน]] | บทช่วยสอน LangChain ตั้งแต่ศูนย์: การติดตั้ง, Model, Messages, Prompt Templates | [[wiki/sources/step1-langchain-basics]] | 2026-04-13 |
+| [[wiki/sources/step2-tools-agents\|Step 2: Tools & Agents]] | บทช่วยสอน Tools และ Agents: สร้าง Tool ด้วย @tool, bind_tools, create_agent, ReAct Loop | [[wiki/sources/step2-tools-agents]] | 2026-04-13 |
+| [[wiki/sources/step3-rag-tutorial\|Step 3: RAG — Retrieval-Augmented Generation]] | บทช่วยสอน RAG ตั้งแต่ศูนย์: Pipeline, Chunking, Embedding, Vector Store | [[wiki/sources/step3-rag-tutorial]] | 2026-04-13 |
+| [[wiki/sources/step4-langgraph-tutorial\|Step 4: LangGraph — ควบคุม Flow ด้วย Graph]] | บทช่วยสอน LangGraph: State, Nodes, Edges, Tools, Conditional Edges, Checkpointing | [[wiki/sources/step4-langgraph-tutorial]] | 2026-04-13 |
+| [[wiki/sources/step5-advanced-rag-tutorial\|Step 5: Advanced RAG]] | บทช่วยสอน Advanced RAG: Hybrid Search, Re-ranking, Multi-query, Conversational RAG | [[wiki/sources/step5-advanced-rag-tutorial]] | 2026-04-13 |
+| [[wiki/sources/step6-multi-agent-tutorial\|Step 6: Multi-Agent Systems]] | บทช่วยสอน Multi-Agent: Supervisor, Handoff, Pipeline patterns | [[wiki/sources/step6-multi-agent-tutorial]] | 2026-04-13 |
+| [[wiki/sources/step7-evaluation-tutorial\|Step 7: Evaluation & Observability]] | บทช่วยสอน Evaluation: Phoenix, LangFuse, Rule-based, LLM-as-Judge | [[wiki/sources/step7-evaluation-tutorial]] | 2026-04-13 |
+| [[wiki/sources/step8-deployment-tutorial\|Step 8: Deployment]] | บทช่วยสอน Deployment: LangServe, FastAPI, Docker, Cloud Deploy | [[wiki/sources/step8-deployment-tutorial]] | 2026-04-13 |
+| [[wiki/sources/langchain-advanced-guide\|LangChain Advanced Guide]] | LangGraph, LangSmith & RAG อย่างละเอียด | [[wiki/sources/langchain-advanced-guide]] | 2026-04-13 |
+| [[wiki/sources/langchain-deep-dive\|LangChain Deep Dive]] | ทุกสิ่งที่ต้องรู้เพื่อใช้งานจริง: package structure, models, messages, prompts, tools | [[wiki/sources/langchain-deep-dive]] | 2026-04-13 |
+| [[wiki/sources/langgraph-deep-dive\|LangGraph Deep Dive]] | ควบคุม Agent Flow อย่างละเอียด: state, nodes, edges, multi-agent | [[wiki/sources/langgraph-deep-dive]] | 2026-04-13 |
+| [[wiki/sources/langsmith-deep-dive\|LangSmith Deep Dive]] | Observability & Evaluation Platform: tracing, debugging, evaluation, monitoring | [[wiki/sources/langsmith-deep-dive]] | 2026-04-13 |
+| [[wiki/sources/lang-ecosystem-complete\|Lang Ecosystem ทั้งหมด]] | ครบทุกตัวในตระกูล Lang: LangChain, LangGraph, LangSmith, LangServe, LangChain.js | [[wiki/sources/lang-ecosystem-complete]] | 2026-04-13 |
+| [[wiki/sources/multi-agent-deep-dive\|Multi-Agent Systems Deep Dive]] | สร้าง Agent หลายตัวทำงานร่วมกัน: patterns 5 แบบ, shared state, examples | [[wiki/sources/multi-agent-deep-dive]] | 2026-04-13 |
+| [[wiki/sources/deployment-deep-dive\|Deployment Deep Dive]] | Deploy Agent ขึ้น Cloud: LangServe, LangGraph Platform, FastAPI, Docker, CI/CD | [[wiki/sources/deployment-deep-dive]] | 2026-04-13 |
+| [[wiki/sources/advanced-rag-deep-dive\|Advanced RAG Deep Dive]] | Hybrid Search, Re-ranking, Multi-query และเทคนิคขั้นสูงทั้งหมด | [[wiki/sources/advanced-rag-deep-dive]] | 2026-04-13 |
 
 ---
 

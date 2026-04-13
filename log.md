@@ -61,3 +61,11 @@
 - โดเมน: research & notes (Thai primary)
 - Page types: concepts, books, sources, synthesis
 - Sources: Obsidian Web Clipper + manual notes
+
+## [2026-04-13] ingest | raw/notes/LangChain — LangChain Complete Tutorial (17 files)
+
+- สร้าง source pages: step1-langchain-basics, step2-tools-agents, step3-rag-tutorial, step4-langgraph-tutorial, step5-advanced-rag-tutorial, step6-multi-agent-tutorial, step7-evaluation-tutorial, step8-deployment-tutorial (8 ไฟล์ — tutorial steps 1-8)
+- สร้าง source pages: langchain-advanced-guide, langchain-deep-dive, langgraph-deep-dive, langsmith-deep-dive, lang-ecosystem-complete, multi-agent-deep-dive, deployment-deep-dive, advanced-rag-deep-dive (8 ไฟล์ — deep-dive articles)
+- อัปเดต concept pages: langchain-framework, ai-agent, agentic-rag (เพิ่ม sources จาก tutorial)
+- ครอบคลุมเนื้อหา: LangChain พื้นฐาน (Model, Messages, Prompt Templates), Tools & Agents (@tool decorator, bind_tools, create_agent, ReAct Loop), RAG pipeline (Load→Split→Embed→Store→Retrieve→Generate), LangGraph (State, Nodes, Edges, Checkpointing, Human-in-the-Loop), Advanced RAG (Hybrid Search, Re-ranking, Multi-query, Conversational RAG), Multi-Agent Systems (Supervisor, Handoff, Pipeline patterns), Evaluation (Phoenix, LangFuse, Rule-based, LLM-as-Judge), Deployment (LangServe, FastAPI, Docker, Cloud Deploy), Lang Ecosystem (LangChain, LangGraph, LangSmith, LangServe, LangChain.js)
+- อัปเดต index.md (16 sources ใหม่)

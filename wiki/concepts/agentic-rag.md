@@ -2,7 +2,7 @@
 title: "Agentic RAG — Agent ที่ใช้ RAG"
 type: concept
 tags: [rag, agent, agentic-rag, decision-making, llm]
-sources: [wiki/sources/rag-complete-knowledge, wiki/sources/rag-vs-agent-explained]
+sources: [wiki/sources/rag-complete-knowledge, wiki/sources/rag-vs-agent-explained, step3-rag-tutorial.md, step5-advanced-rag-tutorial.md, advanced-rag-deep-dive.md]
 related: [wiki/concepts/rag-retrieval-augmented-generation, wiki/concepts/ai-agent]
 created: 2026-04-13
 updated: 2026-04-13
