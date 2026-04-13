@@ -46,6 +46,13 @@
 - สร้าง concept pages: distributed-tracing, context-propagation, opentelemetry, w3c-trace-context, otel-baggage, otel-go-instrumentation
 - อัปเดต index.md (6 sources, 6 concepts)
 
+## [2026-04-13] ingest | raw/notes/liamaindex — LlamaIndex Tutorial Series (4 files)
+
+- สร้าง source pages: llamaindex-phase1-introduction, llamaindex-phase2-ingestion-indexing, llamaindex-phase3-querying-rag, llamaindex-phase4-agents-production (4 ไฟล์)
+- อัปเดต concept pages: llamaindex-framework (เพิ่ม Settings object, Query/Chat/Retriever comparison, Response Modes, Postprocessors, Agents, Workflows, Multi-Modal, SQL, Fine-tuning, Production Checklist)
+- ครอบคลุมเนื้อหา: LlamaIndex vs LangChain, 5 Building Blocks (Documents/Nodes, Loaders, Indexes, Query Engines, LLMs/Embeddings), Settings object (v0.10+), RAG Hello World, Query Pipeline, LlamaHub 100+ loaders (PDF/Web/Database/Notion/Google), Node Parsers (Sentence/Semantic/Hierarchical/Markdown/SimpleFile), IngestionPipeline + Cache, Index Types (Vector/Summary/Tree/Keyword/KnowledgeGraph), Vector Stores (Chroma/Pinecone/Weaviate/Qdrant), Persist & Load, Retrievers (Vector/BM25/Hybrid/AutoMerging/Recursive), Postprocessors (Similarity/Keyword/CohereRerank/LLMRerank), Response Modes (refine/compact/tree_summarize/accumulate), Query Engines (Retriever/SubQuestion/Router/MultiStep), Chat Engines (Simple/Context/CondensePlusContext/OpenAI), Advanced RAG (HyDE/Sentence Window/RAG Fusion), Evaluation (Faithfulness/Relevancy/Correctness), Observability (Arize Phoenix/Callbacks), Agents (ReAct/OpenAI/Tools), Workflows (event-driven), Multi-Modal (รูปภาพ+ข้อความ), SQL integration, Fine-tuning Embeddings, Caching Strategies, Async & Performance, FastAPI Integration, Production Checklist
+- อัปเดต index.md (4 sources ใหม่)
+
 ## [2026-04-13] ingest | raw/notes/rag-knowledge — RAG Agent Complete Knowledge (12 files)
 
 - สร้าง source pages: rag-knowledge-overview, rag-complete-knowledge, rag-glossary-data-prep, chunking-deepdive-complete, rag-vs-agent-explained, sellsuki-rag-diy-guide, rag-integration-guide-complete, rag-client-channels-complete (8 ไฟล์)

@@ -1,6 +1,6 @@
 # Index
 
-วันที่อัปเดตล่าสุด: 2026-04-13 (2)
+วันที่อัปเดตล่าสุด: 2026-04-13 (3)
 
 ---
 
@@ -45,6 +45,10 @@
 | [[wiki/sources/langchain-rag-guide\|LangChain, RAG & Sellsuki Knowledge Base — Deep Dive]] | LangChain Ecosystem ทั้ง 5 ตัว (LangChain, LangGraph, LangSmith, LangServe, Hub), RAG Pipeline ละเอียด, Chunking Strategies, Semantic Cache | [[wiki/sources/langchain-rag-guide]] | 2026-04-13 |
 | [[wiki/sources/llamaindex-deep-dive\|LlamaIndex & RAG Deep Dive — Sellsuki Knowledge Bot]] | LlamaIndex Ecosystem (LlamaHub, LlamaParse, LlamaTrace), 4 Chunking Strategies, Metadata Schema, ParadeDB Design, Hybrid Search | [[wiki/sources/llamaindex-deep-dive]] | 2026-04-13 |
 | [[wiki/sources/llamaindex-full-guide\|LlamaIndex Full Guide — Sellsuki RAG System]] | Full guide 7-phase checklist, Deliverables, Server Setup (FastAPI + Docker), TypeScript vs Python comparison, Full Architecture 8-step Query Flow | [[wiki/sources/llamaindex-full-guide]] | 2026-04-13 |
+| [[wiki/sources/llamaindex-phase1-introduction\|LlamaIndex Phase 1 — Introduction & Core Concepts]] | บทช่วยสอน Phase 1: LlamaIndex vs LangChain, 5 Building Blocks, Documents & Nodes, Settings object, RAG 4 บรรทัด, Query Pipeline | [[wiki/sources/llamaindex-phase1-introduction]] | 2026-04-13 |
+| [[wiki/sources/llamaindex-phase2-ingestion-indexing\|LlamaIndex Phase 2 — Data Ingestion & Indexing]] | บทช่วยสอน Phase 2: LlamaHub 100+ loaders, Node Parsers, IngestionPipeline, Index Types, Vector Stores, Persist & Load | [[wiki/sources/llamaindex-phase2-ingestion-indexing]] | 2026-04-13 |
+| [[wiki/sources/llamaindex-phase3-querying-rag\|LlamaIndex Phase 3 — Querying, Retrieval & RAG Pipeline]] | บทช่วยสอน Phase 3: Retrievers, Postprocessors, Response Modes, Query Engines, Chat Engines, Advanced RAG (HyDE, Sentence Window, RAG Fusion), Evaluation | [[wiki/sources/llamaindex-phase3-querying-rag]] | 2026-04-13 |
+| [[wiki/sources/llamaindex-phase4-agents-production\|LlamaIndex Phase 4 — Advanced Features, Agents & Production]] | บทช่วยสอน Phase 4: Agents (ReAct, OpenAI), Workflows, Multi-Modal, SQL, Fine-tuning, Caching, FastAPI, Production Stack | [[wiki/sources/llamaindex-phase4-agents-production]] | 2026-04-13 |
 | [[wiki/sources/rag-knowledge-overview\|RAG Agent Knowledge — Overview & Statistics]] | ภาพรวม 12 เอกสาร RAG Agent (~300 หน้า), reading paths 4 routes, quick reference table | [[wiki/sources/rag-knowledge-overview]] | 2026-04-13 |
 | [[wiki/sources/rag-complete-knowledge\|Complete RAG & Agent Knowledge Base]] | ครบทุก LLM, Prompt Engineering, Embedding, Vector DB, RAG, Advanced RAG, Agent, Agentic Patterns, Multi-Agent, Evaluation, Production | [[wiki/sources/rag-complete-knowledge]] | 2026-04-13 |
 | [[wiki/sources/rag-glossary-data-prep\|RAG Glossary & Data Preparation — Complete Guide]] | คำศัพท์ครบ + Data Prep: Core Concepts, Search (Cosine, BM25, Hybrid, Re-rank), Chunking, Index (HNSW, IVFFlat), Caching, Anti-abuse | [[wiki/sources/rag-glossary-data-prep]] | 2026-04-13 |

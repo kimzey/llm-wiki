@@ -2,7 +2,7 @@
 title: "LlamaIndex Framework"
 type: concept
 tags: [llamaindex, rag, llm, ingestion-pipeline, python, typescript, llamaparse]
-sources: [llamaindex-deep-dive.md, llamaindex-full-guide.md, langchain-llamaindex-deep-dive.md, rag-decision-guide.md]
+sources: [llamaindex-deep-dive.md, llamaindex-full-guide.md, langchain-llamaindex-deep-dive.md, rag-decision-guide.md, llamaindex-phase1-introduction.md, llamaindex-phase2-ingestion-indexing.md, llamaindex-phase3-querying-rag.md, llamaindex-phase4-agents-production.md]
 related: [wiki/concepts/langchain-framework.md, wiki/concepts/rag-retrieval-augmented-generation.md, wiki/concepts/rag-chunking-strategies.md, wiki/concepts/hybrid-search-bm25-vector.md, wiki/concepts/semantic-caching.md]
 created: 2026-04-13
 updated: 2026-04-13
@@ -76,6 +76,21 @@ pipeline = IngestionPipeline(
 )
 ```
 
+**Settings Object (v0.10+):**
+```python
+from llama_index.core import Settings
+from llama_index.llms.openai import OpenAI
+from llama_index.embeddings.openai import OpenAIEmbedding
+
+# global config สำหรับ LLM + Embeddings
+Settings.llm = OpenAI(model="gpt-4o", temperature=0.1)
+Settings.embed_model = OpenAIEmbedding(model="text-embedding-3-small")
+Settings.chunk_size = 1024       # ขนาด chunk (tokens)
+Settings.chunk_overlap = 20      # overlap ระหว่าง chunks
+Settings.context_window = 4096
+Settings.num_output = 256
+```
+
 **IngestionCache + RedisKVStore:**
 ```python
 # Dragonfly (Redis-compatible) สำหรับ Ingestion Cache
@@ -116,6 +131,41 @@ retriever = AutoMergingRetriever(base_retriever, storage_context, verbose=True)
 # ได้ context ที่ครบกว่า โดยไม่ต้อง send tokens เยอะ
 ```
 
+**Query Engine vs Chat Engine vs Retriever:**
+
+| | Query Engine | Chat Engine | Retriever |
+|---|---|---|---|
+| **Memory** | ไม่มี (single-turn) | มี (multi-turn) | ไม่มี |
+| **Output** | Response object | Response object | List of Nodes |
+| **ใช้เมื่อ** | Q&A ธรรมดา | Chatbot | custom pipeline |
+
+**Response Modes:**
+```python
+query_engine = index.as_query_engine(response_mode="compact")  # default
+```
+
+| Mode | คำอธิบาย | เมื่อไรใช้ |
+|------|----------|----------|
+| `refine` | LLM call ทีละ node แล้ว refine | เนื้อหาซับซ้อน |
+| `compact` | รวม nodes แล้ว call ครั้งเดียว (default) | งานทั่วไป |
+| `tree_summarize` | สรุปแบบ tree (bottom-up) | summarization |
+| `simple_summarize` | ตัด nodes ให้ fit context แล้ว summarize | เร็ว |
+| `accumulate` | รวม responses จากทุก node | เปรียบเทียบ |
+
+**Postprocessors (Re-ranking & Filtering):**
+```python
+from llama_index.core.postprocessor import SimilarityPostprocessor
+from llama_index.postprocessor.cohere_rerank import CohereRerank
+
+query_engine = index.as_query_engine(
+    similarity_top_k=10,           # ดึง 10 มาก่อน
+    node_postprocessors=[
+        SimilarityPostprocessor(similarity_cutoff=0.5),  # filter
+        CohereRerank(top_n=3)      # rerank เหลือ 3
+    ]
+)
+```
+
 ### LlamaParse — รองรับภาษาไทย
 
 ```python
@@ -153,7 +203,100 @@ async def update_document(doc_id: str, new_content: str, metadata: dict):
 | PGVectorStore | ✅ | ✅ |
 | Community / examples | ✅✅✅ | ✅✅ |
 
+**LlamaIndex Agents:**
+```python
+from llama_index.core.agent import ReActAgent
+from llama_index.core.tools import FunctionTool, QueryEngineTool
+
+# สร้าง Tools
+def multiply(a: float, b: float) -> float:
+    return a * b
+
+multiply_tool = FunctionTool.from_defaults(fn=multiply)
+
+# QueryEngineTool สำหรับค้นหาใน documents
+doc_tool = QueryEngineTool.from_defaults(
+    query_engine=query_engine,
+    name="company_knowledge",
+    description="ใช้สำหรับค้นหาข้อมูลเกี่ยวกับบริษัท"
+)
+
+agent = ReActAgent.from_tools(
+    tools=[multiply_tool, doc_tool],
+    llm=llm,
+    verbose=True
+)
+response = agent.chat("20 คูณ 53 แล้วบวก 100 เท่ากับเท่าไร?")
+```
+
+**Workflows (LlamaIndex 0.10.43+):**
+```python
+from llama_index.core.workflow import Workflow, Event, StartEvent, StopEvent, step
+
+class RAGWorkflow(Workflow):
+    @step
+    async def receive_query(self, event: StartEvent) -> QueryEvent:
+        return QueryEvent(query=event.query])
+
+    @step
+    async def retrieve(self, event: QueryEvent) -> RetrieveEvent:
+        retriever = index.as_retriever(similarity_top_k=5)
+        nodes = await retriever.aretrieve(event.query)
+        return RetrieveEvent(nodes=nodes, query=event.query)
+
+    @step
+    async def synthesize(self, event: RetrieveEvent) -> StopEvent:
+        # synthesize answer from nodes
+        return StopEvent(result=str(response))
+
+workflow = RAGWorkflow(timeout=60, verbose=True)
+result = await workflow.run(query="LlamaIndex คืออะไร?")
+```
+
+**Multi-Modal Support:**
+```python
+from llama_index.core.indices.multi_modal.base import MultiModalVectorStoreIndex
+
+# โหลด documents (รวมรูปภาพ)
+documents = SimpleDirectoryReader(
+    "./data",
+    required_exts=[".pdf", ".png", ".jpg", ".txt"]
+).load_data()
+
+# สร้าง multi-modal index
+index = MultiModalVectorStoreIndex.from_documents(documents)
+query_engine = index.as_query_engine(multi_modal_llm=OpenAIMultiModal(model="gpt-4o"))
+```
+
 **แนะนำ:** Python FastAPI (RAG Core) + TypeScript Next.js (UI/API Layer)
+
+### Production Checklist
+
+**Chunking:**
+- ✅ ใช้ chunk_size=512-1024 สำหรับงานทั่วไป
+- ✅ เพิ่ม chunk_overlap=50-100 เพื่อไม่ให้ข้อมูลขาดหาย
+- ✅ ใช้ SemanticSplitter ถ้าเนื้อหามีความหลากหลายสูง
+- ✅ ใช้ HierarchicalNodeParser ถ้าต้องการ AutoMerging
+
+**Retrieval:**
+- ✅ เริ่มด้วย similarity_top_k=5-10
+- ✅ ใช้ Hybrid (Vector + BM25) สำหรับงาน production
+- ✅ เพิ่ม Reranker (Cohere/LLM) เพื่อความแม่นยำ
+- ✅ ทดสอบ SentenceWindow หากต้องการ context รอบๆ
+
+**LLM & Embedding:**
+- ✅ ใช้ temperature=0 สำหรับ factual Q&A
+- ✅ ใช้ gpt-4o-mini เพื่อประหยัดค่าใช้จ่าย
+- ✅ ใช้ text-embedding-3-small แทน ada-002
+- ✅ Cache embeddings ไว้เพื่อไม่ต้อง re-embed
+
+**Production:**
+- ✅ ใช้ persistent vector store (Chroma/Pinecone/Weaviate)
+- ✅ Implement incremental indexing
+- ✅ ใช้ async endpoints
+- ✅ Monitor ด้วย Arize Phoenix หรือ LangFuse
+- ✅ Evaluate ด้วย Faithfulness + Relevancy metrics
+- ✅ Implement rate limiting
 
 ## ข้อดี-ข้อเสีย
 
@@ -250,3 +393,7 @@ for node in response.source_nodes:
 - [[wiki/sources/llamaindex-full-guide|LlamaIndex Full Guide — Sellsuki RAG System]]
 - [[wiki/sources/langchain-llamaindex-deep-dive|LangChain & LlamaIndex — Deep Dive Complete Guide]]
 - [[wiki/sources/rag-decision-guide|RAG Framework Decision Guide — Sellsuki]]
+- [[wiki/sources/llamaindex-phase1-introduction|LlamaIndex Phase 1 — Introduction & Core Concepts]]
+- [[wiki/sources/llamaindex-phase2-ingestion-indexing|LlamaIndex Phase 2 — Data Ingestion & Indexing]]
+- [[wiki/sources/llamaindex-phase3-querying-rag|LlamaIndex Phase 3 — Querying, Retrieval & RAG Pipeline]]
+- [[wiki/sources/llamaindex-phase4-agents-production|LlamaIndex Phase 4 — Advanced Features, Agents & Production]]
