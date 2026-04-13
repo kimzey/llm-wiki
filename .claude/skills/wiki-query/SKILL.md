@@ -12,16 +12,16 @@ Vault root: `/Users/kimzey/Desktop/local-valut/`
 
 ### 1. Find relevant pages
 
-First, read `index.md` to identify pages likely relevant to the question.
+Run both in parallel:
 
-Then, if Obsidian is open, supplement with full-text search:
+1. Read `index.md` — scan titles and summaries for relevant rows
+2. Grep the vault for key terms — finds body text not in index titles:
 
 ```
-obsidian search query="[key terms from question]" limit=10 vault="local-valut"
+Grep pattern="[key terms]" path="wiki/" output_mode="files_with_matches"
 ```
 
-- obsidian search finds content not listed in index (body text, not just titles)
-- If Obsidian is not open → index.md + Grep fallback
+Use `obsidian search` only when you need Obsidian-specific features (backlinks, tag queries, Dataview metadata)
 
 ### 2. Read relevant pages
 
@@ -49,10 +49,11 @@ Priority order: concepts > synthesis > books > sources > raw
 For any non-trivial answer, ask:
 "ต้องการบันทึกคำตอบนี้เป็นหน้า synthesis ไหม?"
 If yes → create `wiki/synthesis/[slug].md` using **obsidian-markdown** syntax:
+
 - Use callouts `> [!note]` / `> [!warning]` to highlight key findings
 - Use wikilinks `[[...]]` for all cross-references
 - Fill all frontmatter fields correctly
-Then update index.md + append log.md
+  Then update index.md + append log.md
 
 ### 6. Append log.md
 
@@ -66,4 +67,5 @@ Then update index.md + append log.md
 
 - Good answers compound over time — the more things filed as synthesis, the smarter the wiki gets
 - Never hallucinate — if not in wiki, say so
-- obsidian-cli steps are **optional** — always fallback to index.md + Grep if Obsidian is not open
+- Primary search: Read `index.md` + Grep — always works, no app dependency
+- Use `obsidian search` only for backlinks, tag queries, or Dataview metadata

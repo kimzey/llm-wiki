@@ -7,9 +7,8 @@ Answer this research question using the wiki: $ARGUMENTS
 Vault: /Users/kimzey/Desktop/local-valut/
 
 Follow the **wiki-query** skill:
-1. Read index.md to identify relevant pages
-2. If Obsidian is open: `obsidian search query="[key terms]" vault="local-valut"` to find additional matches in body text
-   If Obsidian is not open: use index.md + Grep as fallback
+1. Read index.md + Grep wiki/ for key terms in parallel to identify relevant pages
+2. Use `obsidian search` only if you need backlinks, tag queries, or Dataview metadata
 3. Read those pages (prioritize: concepts → synthesis → books → sources)
 4. Follow related links if they lead to more relevant content
 5. Synthesize a Thai-primary answer with citations using [[wiki/page]] links

@@ -212,3 +212,7 @@
 - สร้าง concept ใหม่: wiki/concepts/langsmith-tracing-evaluation.md
 - อัปเดต concepts: rag-evaluation.md (เพิ่ม LLM-as-Judge section: Rule-based vs LLM-as-Judge, Judge Prompt Design, RAG Triad, Multi-dimension grading, Pitfalls, Agent evaluators)
 - Concepts: LLM-as-Judge, RAG Triad (Context Relevance + Faithfulness + Answer Relevance), Pairwise Comparison, Position/Verbosity/Self-preference bias, CI/CD eval pipeline, LangSmith evaluator contract
+
+## [2026-04-14] query | Arona คืออะไร รายละเอียดเป็นยังไง ทำอะไรได้บ้าง
+- Pages consulted: wiki/sources/arona-overview, wiki/sources/arona-tool-call-agent, wiki/sources/arona-stateless-rag
+- Synthesis created: no

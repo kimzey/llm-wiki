@@ -71,7 +71,7 @@ e.g. saying "ingest this file" → skill `wiki-ingest` activates automatically.
 Add a new source into the wiki end-to-end.
 Accepts a single file or a folder path.
 Uses **obsidian-markdown** syntax for all created pages.
-Optionally uses **obsidian-cli** to verify files if Obsidian is open.
+Uses **obsidian-cli** to verify files after creation.
 
 ```
 /ingest raw/clips/article.md
@@ -82,7 +82,7 @@ Optionally uses **obsidian-cli** to verify files if Obsidian is open.
 
 ### `/query [question]`
 Ask a research question against the accumulated wiki.
-Uses **obsidian-cli** search for full-text matching if Obsidian is open.
+Uses **obsidian-cli** search for full-text matching.
 
 ```
 /query what is cognitive load theory
@@ -122,7 +122,7 @@ Optionally uses **obsidian-cli** backlinks for more accurate orphan detection.
 
 ### `/status`
 Show a dashboard of current wiki state: page counts, raw files pending ingestion, recent activity, suggested next actions.
-Optionally shows tag stats via **obsidian-cli** if Obsidian is open.
+Shows tag stats via **obsidian-cli**.
 
 > Start every new session with `/status`.
 

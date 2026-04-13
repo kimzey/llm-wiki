@@ -34,19 +34,17 @@ Create `wiki/sources/[slug].md` using the template in CLAUDE.md.
   - Callouts: `> [!note]`, `> [!warning]`, `> [!tip]` to highlight key points
   - Frontmatter property types must be valid (text, list, date — not freeform)
 
-### 4. Check for Duplicate Concepts (obsidian-cli if available)
+### 4. Check for Duplicate Concepts
 
 Before creating/updating concept pages, check for existing coverage:
 
 ```
-If Obsidian is open:
-  obsidian search query="[concept name]" limit=5 vault="local-valut"
-  → use results to decide create vs. update
-
-If Obsidian is not open:
-  Glob wiki/concepts/ → check filenames
-  Grep wiki/concepts/ for concept name → check existing content
+Glob wiki/concepts/**/*.md → scan filenames
+Grep pattern="[concept name]" path="wiki/concepts/" → scan body text
+→ use results to decide create vs. update
 ```
+
+Use `obsidian search` only if you need Obsidian-specific metadata (tags, backlinks) that Grep can't provide.
 
 ### 5. Update Concept Pages
 
@@ -84,16 +82,10 @@ Read `index.md` → add new rows to all relevant tables.
 - Concepts: [list]
 ```
 
-### 9. Verify (obsidian-cli if available)
+### 9. Verify
 
-```
-If Obsidian is open:
-  obsidian read file="[slug]" vault="local-valut"
-  → confirm Obsidian sees the new page correctly
-
-If Obsidian is not open:
-  skip — Write tool guarantees file exists at absolute path
-```
+Write tool guarantees file exists at absolute path — no extra verification needed.
+Optionally run `obsidian read file="[slug]"` if Obsidian is open and you want to confirm the vault sees it.
 
 ### 10. Report results
 
@@ -116,4 +108,5 @@ All touched files: [list]
   - Use a blockquote or first heading after frontmatter
   - Format: `**Full source**: [[../../raw/path/to/file.md|Original file]]` or `[title](url)`
 - Use **obsidian-markdown** syntax for all wiki pages — wikilinks, callouts, proper frontmatter
-- obsidian-cli steps are **optional** — always fallback to Glob/Grep/Read if Obsidian is not open
+- Primary: Glob + Grep + Read — always works, no app dependency
+- obsidian-cli: use only for backlinks, tag queries, or Dataview metadata

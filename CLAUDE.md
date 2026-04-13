@@ -212,14 +212,13 @@ When the user says "ingest [filename]" or provides a path to `raw/`:
 1. Read the source file in full. If a folder is given, Glob all `.md` files and process each sequentially.
 2. Create a **source summary page** in `wiki/sources/` using **obsidian-markdown** syntax (wikilinks, callouts, proper frontmatter).
 3. Identify concepts mentioned — for each:
-   - If Obsidian is open: `obsidian search query="[concept]"` to check for duplicates.
-   - If Obsidian is not open: Glob `wiki/concepts/` to check.
+   - `obsidian search query="[concept]"` to check for duplicates; if it fails, Glob `wiki/concepts/` as fallback.
    - If a concept page exists → update it with new info, note if it contradicts previous claims.
    - If no concept page exists → create one using **obsidian-markdown** syntax.
 4. If source is a book chapter → update or create the **book page** in `wiki/books/`.
 5. Update `index.md` — add new rows to all relevant tables.
 6. Append an entry to `log.md`.
-7. Optionally verify with `obsidian read file="[slug]"` if Obsidian is open.
+7. Verify with `obsidian read file="[slug]"`; if it fails, skip — Write tool guarantees file exists.
 
 A single ingest may touch 5–15 wiki pages. That is expected and correct.
 
@@ -228,7 +227,7 @@ A single ingest may touch 5–15 wiki pages. That is expected and correct.
 When the user asks a question:
 
 1. Read `index.md` to find relevant pages.
-2. If Obsidian is open: `obsidian search query="[terms]"` for full-text search across the vault.
+2. `obsidian search query="[terms]"` for full-text search across the vault; if it fails, use index.md + Grep as fallback.
 3. Read those pages in full.
 4. Synthesize an answer with citations (link to wiki pages).
 5. Ask: "Would you like to save this answer as a synthesis page?" — if yes, file it using **obsidian-markdown** syntax.

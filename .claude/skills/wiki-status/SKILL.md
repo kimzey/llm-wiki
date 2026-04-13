@@ -29,15 +29,18 @@ Check completeness — are all wiki pages listed?
 For each file in `raw/`, check whether a matching `wiki/sources/` page exists.
 List any raw files that have not been ingested yet.
 
-### 5. Tag stats (obsidian-cli if available)
+### 5. Tag stats
+```bash
+obsidian tags sort=count counts vault="local-valut"
+→ show top 10 tags in the vault
 ```
-If Obsidian is open:
-  obsidian tags sort=count counts vault="local-valut"
-  → show top 10 tags in the vault
 
-If Obsidian is not open:
-  skip tag section
+Fallback (if Obsidian is not open):
 ```
+Grep pattern="^tags:" path="wiki/" output_mode="content" → parse manually
+```
+
+Note: obsidian tags handles both frontmatter tags and inline #tags correctly in one command.
 
 ### 6. Output Dashboard
 
@@ -61,7 +64,7 @@ If Obsidian is not open:
 | Notes  | N     |
 
 ## Top Tags (if available)
-[from obsidian-cli tags — only shown if Obsidian is open]
+[from obsidian-cli tags]
 
 ## Recent Activity (5 entries)
 [from log.md]

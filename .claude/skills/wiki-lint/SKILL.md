@@ -21,17 +21,17 @@ Compare → find pages missing from index
 
 #### A. Orphan Pages — pages with no inbound links
 
-Preferred (if Obsidian is open):
-```
+```bash
 obsidian backlinks file="[slug]" vault="local-valut"
 → pages with 0 backlinks = orphans
 ```
 
 Fallback (if Obsidian is not open):
 ```
-Grep pattern \[\[.*slug.*\]\] across all wiki pages
-→ which pages are never mentioned?
+Grep pattern="\[\[wiki/[type]/[slug]" path="wiki/" → count matches per page
 ```
+
+Note: obsidian backlinks is more accurate — resolves aliases and all wikilink variants that Grep can miss.
 
 #### B. Broken Links — links pointing to non-existent files
 Grep pattern `\[\[wiki/.*\]\]` in all pages → verify target files exist via Glob
@@ -92,4 +92,5 @@ Analyze concept pages → any concept with fewer than 2 sources → suggest what
 "Which issues would you like to fix now?"
 
 ## Notes
-- obsidian-cli backlinks step is **optional** — fallback to Grep if Obsidian is not open
+- Primary: Glob + Grep — always works, no app dependency
+- obsidian-cli: use only when you need native backlinks or tag data beyond what Grep can provide
