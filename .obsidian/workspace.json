@@ -1,0 +1,218 @@
+{
+  "main": {
+    "id": "12dec1aaed8c757b",
+    "type": "split",
+    "children": [
+      {
+        "id": "83831d105a5440cd",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "88553cb704117af1",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "2d2c5a083cbc6749",
+    "type": "split",
+    "children": [
+      {
+        "id": "b39351e069ec9d91",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "3aae71f76096ace5",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "9e3a1bd44087fc72",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "bc65f229ebed953d",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "33687e4eba571919",
+    "type": "split",
+    "children": [
+      {
+        "id": "b6b5324f64da70e1",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "a7aed7e1bdb20ea9",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks"
+            }
+          },
+          {
+            "id": "97a126c1458f12bf",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links"
+            }
+          },
+          {
+            "id": "cb32044da34669cf",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "fed27a730ce52661",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "4ca956c8a77eae27",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "88553cb704117af1",
+  "lastOpenFiles": [
+    "wiki/sources/rag-recommendation.md",
+    "wiki/sources/stateless-rag-explained.md",
+    "wiki/sources/sellsuki-rag-analysis.md",
+    "wiki/sources/rag-comprehensive-guide.md",
+    "wiki/sources/rag-comparison.md",
+    "wiki/sources/arona-tool-call-agent-loop.md",
+    "wiki/sources/arona-vs-langchain.md",
+    "wiki/sources/arona-guide.md",
+    "raw/notes/liamaindex/llamaindex-phase4-agents-production.md",
+    "raw/notes/liamaindex/llamaindex-phase2-ingestion-indexing.md",
+    "raw/notes/liamaindex/llamaindex-phase1-introduction.md",
+    "raw/notes/liamaindex/llamaindex-phase3-querying-rag.md",
+    "raw/notes/LangChain/step5-advanced-rag-tutorial.md",
+    "raw/notes/LangChain/advanced-evaluation-deep-dive.md",
+    "raw/notes/LangChain/langgraph-deep-dive.md",
+    "raw/notes/LangChain/step6-multi-agent-tutorial.md",
+    "raw/notes/LangChain/deployment-deep-dive.md",
+    "raw/notes/LangChain/multi-agent-deep-dive.md",
+    "raw/notes/LangChain/step1-langchain-basics.md",
+    "raw/notes/LangChain/lang-ecosystem-complete.md",
+    "raw/notes/LangChain/step8-deployment-tutorial.md",
+    "raw/notes/LangChain/rag-deep-dive.md",
+    "raw/notes/LangChain/step3-rag-tutorial.md",
+    "raw/notes/LangChain/advanced-rag-deep-dive.md",
+    "raw/notes/LangChain/step4-langgraph-tutorial.md",
+    "raw/notes/LangChain/step7-evaluation-tutorial.md",
+    "raw/notes/liamaindex",
+    "raw/notes/LangChain",
+    "raw/notes/Hetstack",
+    "raw/notes/Learn/liamaindex",
+    "raw/notes/Learn/Hetstack",
+    "raw/notes/Learn/LangChain",
+    "raw/notes/Learn",
+    "raw/notes/openrag/docs-lean",
+    "raw/notes/arona/learn",
+    "raw/notes/arona/deepdive"
+  ]
+}
