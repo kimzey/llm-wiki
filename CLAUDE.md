@@ -141,6 +141,10 @@ created: YYYY-MM-DD
 updated: YYYY-MM-DD
 ---
 
+> **อ่านเต็ม**: [[../../raw/clips/filename.md|ไฟล์ต้นฉบับ]]
+>
+> หรือถ้าเป็น external URL: **อ่านเต็ม**: [URL](url)
+
 ## สรุป
 (สั้นๆ — บทความนี้พูดถึงอะไร)
 

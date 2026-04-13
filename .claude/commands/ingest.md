@@ -7,9 +7,10 @@ Ingest the following source into the wiki: $ARGUMENTS
 Vault: /Users/kimzey/Desktop/local-valut/
 
 Follow the **wiki-ingest** skill exactly:
+
 1. Read CLAUDE.md for schema and templates
 2. Read the source file in full
-3. Present 3–5 key takeaways and ask if there's a specific focus area
+3. Present 3–5 key takeaways
 4. Create wiki/sources/[slug].md
 5. For each concept found: check if a concept page exists → update or create
 6. If the source is a book/chapter: update wiki/books/[slug].md
