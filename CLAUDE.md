@@ -19,8 +19,8 @@ local-valut/
 │   ├── notes/         ← manual notes typed by the user
 │   └── assets/        ← locally downloaded images
 └── wiki/              ← LLM-generated wiki (read by human, written by LLM)
-    ├── concepts/      ← concept pages (หลักการ, ทฤษฎี, ไอเดีย)
-    ├── books/         ← book summary pages (สรุปหนังสือ)
+    ├── concepts/      ← concept pages (principles, theories, ideas)
+    ├── books/         ← book summary pages
     ├── sources/       ← per-source summary pages
     └── synthesis/     ← analyses, comparisons, cross-cutting essays
 ```
@@ -31,10 +31,11 @@ local-valut/
 
 - **Wiki content**: Thai as the primary language. Use English for technical terms,
   proper nouns, titles, and citations where Thai translation would be awkward.
-- **Headings**: Thai preferred.
+- **Headings in wiki pages**: Thai preferred, English acceptable for technical headings.
 - **Code/data**: English only.
 - **Frontmatter fields**: English keys, Thai/English values.
-- **This file (CLAUDE.md)**: English (instructions for the LLM).
+- **This file (CLAUDE.md)**: English only — instructions for the LLM.
+- **`.claude/` config files**: English only — commands, skills, README.
 
 ---
 
@@ -44,7 +45,7 @@ Every wiki page must start with YAML frontmatter:
 
 ```yaml
 ---
-title: "ชื่อหน้า"
+title: "Page title"
 type: concept | book | source | synthesis
 tags: [tag1, tag2]
 sources: [filename1.md, filename2.md]   # raw sources this page draws from
@@ -63,7 +64,7 @@ For ideas, theories, frameworks, terms that appear across multiple sources.
 
 ```markdown
 ---
-title: "ชื่อ Concept"
+title: "Concept name"
 type: concept
 tags: []
 sources: []
@@ -73,10 +74,10 @@ updated: YYYY-MM-DD
 ---
 
 ## สรุปสั้น
-(1-3 ประโยค — ตอบว่า concept นี้คืออะไร)
+(1–3 sentences — what is this concept?)
 
 ## อธิบาย
-(อธิบายลึกขึ้น)
+(deeper explanation)
 
 ## ประเด็นสำคัญ
 - bullet points
@@ -84,10 +85,10 @@ updated: YYYY-MM-DD
 ## ตัวอย่าง / กรณีศึกษา
 
 ## ความสัมพันธ์กับ concept อื่น
-(link ไปหน้าที่เกี่ยวข้อง)
+(link to related pages)
 
 ## แหล่งที่มา
-(cite ชื่อ source ที่ใช้)
+(cite source names used)
 ```
 
 ### 2. Book Summary Page (`wiki/books/`)
@@ -95,7 +96,7 @@ For books — one page per book.
 
 ```markdown
 ---
-title: "ชื่อหนังสือ"
+title: "Book title"
 type: book
 author: ""
 year: 
@@ -107,17 +108,17 @@ updated: YYYY-MM-DD
 ---
 
 ## ภาพรวม
-(หนังสือเกี่ยวกับอะไร — 1 ย่อหน้า)
+(what the book is about — 1 paragraph)
 
 ## ประเด็นหลัก
-(bullet points ของ key arguments/ideas)
+(bullet points of key arguments/ideas)
 
 ## สรุปแต่ละบท
-### บทที่ 1 — ชื่อบท
+### Chapter 1 — Chapter title
 ...
 
 ## Concepts ที่เกี่ยวข้อง
-(link ไปที่ wiki/concepts/)
+(link to wiki/concepts/)
 
 ## คำคมที่น่าจดจำ
 > quote (p.XX)
@@ -130,7 +131,7 @@ For web articles, papers, or any clipped/raw source. One page per source file.
 
 ```markdown
 ---
-title: "ชื่อบทความ"
+title: "Article title"
 type: source
 source_file: raw/clips/filename.md
 url: ""
@@ -141,12 +142,12 @@ created: YYYY-MM-DD
 updated: YYYY-MM-DD
 ---
 
-> **อ่านเต็ม**: [[../../raw/clips/filename.md|ไฟล์ต้นฉบับ]]
+> **Full source**: [[../../raw/clips/filename.md|Original file]]
 >
-> หรือถ้าเป็น external URL: **อ่านเต็ม**: [URL](url)
+> Or for external URL: **Full source**: [Article title](url)
 
 ## สรุป
-(สั้นๆ — บทความนี้พูดถึงอะไร)
+(brief — what does this article cover?)
 
 ## ประเด็นสำคัญ
 - 
@@ -156,7 +157,7 @@ updated: YYYY-MM-DD
 ## สิ่งที่ขัดแย้งกับที่รู้อยู่แล้ว
 
 ## Concepts ที่เกี่ยวข้อง
-(link ไปที่ wiki/concepts/)
+(link to wiki/concepts/)
 ```
 
 ### 4. Synthesis Page (`wiki/synthesis/`)
@@ -164,7 +165,7 @@ For analyses, comparisons, or answers to big questions — filed as permanent wi
 
 ```markdown
 ---
-title: "ชื่อการวิเคราะห์"
+title: "Analysis title"
 type: synthesis
 tags: []
 sources: []
@@ -188,42 +189,51 @@ updated: YYYY-MM-DD
 
 ## Workflows
 
-### A. Ingest (เพิ่ม source ใหม่)
+### A. Ingest (add a new source)
 
-When the user says "ingest [filename]" or drops a file into `raw/`:
+When the user says "ingest [filename]" or provides a path to `raw/`:
 
-1. Read the source file in full.
-2. Briefly discuss key takeaways with the user (2-4 bullet points, ask if focus area needed).
-3. Create a **source summary page** in `wiki/sources/`.
-4. Identify concepts mentioned — for each:
-   - If a concept page exists → update it with new info, note if contradicts previous claims.
+1. Read the source file in full. If a folder is given, Glob all `.md` files and process each sequentially.
+2. Create a **source summary page** in `wiki/sources/`.
+3. Identify concepts mentioned — for each:
+   - If a concept page exists → update it with new info, note if it contradicts previous claims.
    - If no concept page exists → create one.
-5. If source is a book chapter → update or create the **book page** in `wiki/books/`.
-6. Update `index.md` — add the new source and any new/updated pages.
-7. Append an entry to `log.md`.
+4. If source is a book chapter → update or create the **book page** in `wiki/books/`.
+5. Update `index.md` — add new rows to all relevant tables.
+6. Append an entry to `log.md`.
 
 A single ingest may touch 5–15 wiki pages. That is expected and correct.
 
-### B. Query (ถามคำถาม)
+### B. Query (answer a research question)
 
 When the user asks a question:
 
 1. Read `index.md` to find relevant pages.
 2. Read those pages in full.
-3. Synthesize an answer with citations (link to wiki pages and raw sources).
-4. Ask: "ต้องการบันทึกคำตอบนี้เป็นหน้า synthesis ไหม?" — if yes, file it.
+3. Synthesize an answer with citations (link to wiki pages).
+4. Ask: "Would you like to save this answer as a synthesis page?" — if yes, file it.
 
-### C. Lint (ตรวจสุขภาพ wiki)
+### C. Research (fill gaps via web search)
 
-When the user says "lint" or "ตรวจ wiki":
+When the user says "research [topic]" or runs `/research`:
+
+1. Check `index.md` for existing coverage of the topic.
+2. Use WebSearch to find authoritative sources filling the gap.
+3. Summarize findings (2–5 points) and note conflicts with existing wiki content.
+4. Ask: "Would you like to update the wiki with this information?" — if yes, update relevant concept pages.
+5. Append an entry to `log.md`.
+
+### D. Lint (wiki health check)
+
+When the user says "lint" or runs `/lint`:
 
 Check for:
-- [ ] หน้าที่ไม่มี inbound links (orphans)
-- [ ] ข้อมูลขัดแย้งกันระหว่างหน้า
-- [ ] Concepts ที่ถูก mention แต่ไม่มีหน้าของตัวเอง
-- [ ] Source pages ที่ยังไม่ได้ link ไป concept ไหนเลย
-- [ ] index.md ที่ไม่ครบ
-- [ ] หัวข้อที่ควรค้นหาเพิ่มเติม
+- [ ] Pages with no inbound links (orphans)
+- [ ] Conflicting information between pages
+- [ ] Concepts mentioned in 2+ pages but no dedicated page
+- [ ] Source pages not linked to any concept
+- [ ] index.md entries that are missing or stale
+- [ ] Topics worth researching further
 
 Output a health report as a markdown checklist.
 
@@ -235,21 +245,30 @@ Output a health report as a markdown checklist.
 # Index
 
 ## Sources (`wiki/sources/`)
-| หน้า | สรุปสั้น | Source file | วันที่ |
-|------|----------|-------------|--------|
+| Page | Summary | Source file | Date |
+|------|---------|-------------|------|
+| [[wiki/sources/slug\|Title]] | One-line summary | [[wiki/sources/slug]] | YYYY-MM-DD |
 
 ## Concepts (`wiki/concepts/`)
-| หน้า | สรุปสั้น | Tags |
-|------|----------|------|
+| Page | Summary | Tags |
+|------|---------|------|
+| [[wiki/concepts/slug\|Title]] | One-line summary | tag1, tag2 |
 
 ## Books (`wiki/books/`)
-| หน้า | ผู้แต่ง | Tags |
-|------|---------|------|
+| Page | Author | Tags |
+|------|--------|------|
+| [[wiki/books/slug\|Title]] | Author name | tag1, tag2 |
 
 ## Synthesis (`wiki/synthesis/`)
-| หน้า | สรุปสั้น | วันที่ |
-|------|----------|--------|
+| Page | Summary | Date |
+|------|---------|------|
+| [[wiki/synthesis/slug\|Title]] | One-line summary | YYYY-MM-DD |
 ```
+
+**Rules:**
+- Every "Page" column = Obsidian link to a `wiki/` page only
+- "Source file" column = `[[wiki/sources/slug]]` link (same wiki page) — to reach raw, open that page and click "Full source"
+- **index.md must never contain `[[raw/...]]` or `[...](raw/...)` links**
 
 ---
 
@@ -258,26 +277,83 @@ Output a health report as a markdown checklist.
 Each entry uses this prefix so it's grep-able:
 
 ```
-## [YYYY-MM-DD] ingest | ชื่อ source
-## [YYYY-MM-DD] query | ชื่อคำถาม
-## [YYYY-MM-DD] lint | สรุปผล
-## [YYYY-MM-DD] update | ชื่อหน้าที่อัปเดต
+## [YYYY-MM-DD] ingest | source title
+## [YYYY-MM-DD] query | question summary
+## [YYYY-MM-DD] lint | summary of findings
+## [YYYY-MM-DD] update | page name updated
 ```
 
 ---
 
-## Cross-linking Rules
+## Link Hierarchy Rules
 
-- Always use relative paths: `[[wiki/concepts/foo]]` (Obsidian wiki links) or `[foo](../concepts/foo.md)`.
+The system has exactly three layers. Links must only go **downward** — never skip a layer, never link sideways to `raw/`.
+
+```
+index.md
+    ↓ links to
+wiki/sources/*.md   wiki/concepts/*.md   wiki/books/*.md   wiki/synthesis/*.md
+    ↓ links to
+raw/clips/*.md   raw/notes/*.md   raw/books/*.md
+```
+
+### Layer 1 — index.md
+
+- The "Page" column in every table must be an Obsidian link to a **wiki page only**.
+  - Sources table:   `[[wiki/sources/slug|Title]]`
+  - Concepts table:  `[[wiki/concepts/slug|Title]]`
+  - Books table:     `[[wiki/books/slug|Title]]`
+  - Synthesis table: `[[wiki/synthesis/slug|Title]]`
+- The "Source file" column links to the **same `wiki/sources/` page** — `[[wiki/sources/slug]]` — so the reader can click through to find the raw link via "Full source" inside that page.
+- **index.md must never contain `[[raw/...]]` or `[...](raw/...)` links.**
+- Navigation path to raw: index → `wiki/sources/slug` → "Full source" → raw file.
+
+### Layer 2 — wiki/sources/*.md
+
+- Must contain exactly **one** "Full source" link pointing to the raw source file.
+  - Local file: `**Full source**: [[../../raw/path/to/file.md|Original file]]`
+  - External URL: `**Full source**: [Article title](https://...)`
+- All other links in the body must point to `wiki/concepts/` or `wiki/sources/` — not to `raw/`.
+
+### Layer 2 — wiki/concepts/*.md
+
+- Links in body must point to `wiki/sources/` or `wiki/concepts/` only.
+- Must never link directly to `raw/`.
+
+### Layer 2 — wiki/synthesis/*.md, wiki/books/*.md
+
+- Same rule as concepts: links go to other wiki pages only.
+- Never link to `raw/` directly.
+
+### Summary rule
+
+> **Only `wiki/sources/` pages may link to `raw/`. Everything else links to wiki pages.**
+
+---
+
+## Cross-linking Syntax
+
 - Prefer Obsidian `[[...]]` syntax for inter-wiki links so graph view works.
-- External URLs go in frontmatter `url:` field and in source citation sections only.
+- External URLs go in frontmatter `url:` field and in "Full source" citation only.
+
+---
+
+## Image Handling
+
+Markdown files from Obsidian Web Clipper may contain inline images (e.g. `![[raw/assets/img.png]]`).
+
+- Read the markdown text first in full.
+- If important diagrams or charts are referenced, Read the image files separately afterwards to gain additional context.
+- Do not attempt to read all images in one pass — prioritize text, then images where needed.
+- Locally stored images live in `raw/assets/`. Never modify them.
 
 ---
 
 ## Conventions
 
-- File names: lowercase, hyphens, no spaces. Thai transliterated or English. e.g. `cognitive-load.md`, `kahneman-thinking-fast-slow.md`
+- File names: lowercase, hyphens, no spaces. e.g. `cognitive-load.md`, `kahneman-thinking-fast-slow.md`
 - Dates: `YYYY-MM-DD` always.
 - Never delete raw source files.
 - Never overwrite a wiki page without reading it first — always merge, not replace.
-- If a source contradicts an existing claim, note both views in the concept page under a "ข้อถกเถียง / มุมมองที่ต่างกัน" section. Do not silently overwrite.
+- If a source contradicts an existing claim, note both views in the concept page under a **"Conflicting Views"** section. Do not silently overwrite.
+- Answers from queries that represent new synthesis (comparisons, analyses, discovered connections) should be filed as `wiki/synthesis/` pages — not left in chat history.

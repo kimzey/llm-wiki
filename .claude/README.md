@@ -1,309 +1,215 @@
-# .claude — คู่มือการใช้งาน
+# .claude — Configuration Guide
 
-โฟลเดอร์นี้คือ "สมองของ Claude Code" สำหรับ vault นี้
-ประกอบด้วย commands (คำสั่ง slash), skills (พฤติกรรมอัตโนมัติ), และ settings
+This folder is Claude Code's "brain" for this vault.
+It contains commands (slash commands), skills (automatic behaviors), and settings.
+
+For Thai documentation, see [README-th.md](README-th.md).
 
 ---
 
-## โครงสร้างไฟล์
+## File Structure
 
 ```
 .claude/
-├── README.md              ← ไฟล์นี้
-├── settings.json          ← ค่าตั้งต้นของโปรเจ็ค
-├── commands/              ← slash commands (/ingest, /query, ฯลฯ)
+├── README.md              ← this file (English)
+├── README-th.md           ← Thai version
+├── settings.json          ← project settings
+├── commands/              ← slash commands (/ingest, /query, etc.)
 │   ├── ingest.md
 │   ├── query.md
 │   ├── lint.md
 │   ├── status.md
+│   ├── research.md
 │   ├── new-concept.md
 │   ├── new-book.md
 │   ├── synthesis.md
 │   ├── note.md
 │   └── update.md
-└── skills/                ← พฤติกรรมที่ activate อัตโนมัติตาม context
+└── skills/                ← behaviors that activate automatically by context
     ├── wiki-ingest/
     ├── wiki-query/
     ├── wiki-lint/
-    └── wiki-status/
+    ├── wiki-status/
+    └── wiki-research/
 ```
 
 ---
 
-## Commands คืออะไร?
+## What are Commands?
 
-Commands คือ **คำสั่งที่พิมพ์ได้ทันที** โดยใช้ `/` นำหน้า
-Claude Code จะโหลดไฟล์ใน `commands/` แล้วรันตาม prompt ที่เขียนไว้
+Commands are **immediately invokable** using a `/` prefix.
+Claude Code loads the matching file from `commands/` and executes the prompt inside it.
 
 ```
-พิมพ์ใน Claude Code:  /ingest raw/clips/article.md
-Claude จะ:           อ่าน commands/ingest.md → ทำตาม steps ทั้งหมด
+Type in Claude Code:  /ingest raw/clips/article.md
+Claude will:          load commands/ingest.md → follow all steps
 ```
 
 ---
 
-## Skills คืออะไร?
+## What are Skills?
 
-Skills คือ **ชุดพฤติกรรมที่ Claude จะ activate อัตโนมัติ** เมื่อ context ตรง
-ไม่ต้องพิมพ์ slash — Claude อ่าน SKILL.md แล้วรู้เองว่าต้องทำอะไร
+Skills are **sets of behaviors Claude activates automatically** when context matches.
+No slash required — Claude reads SKILL.md and knows what to do.
 
-เช่น ถ้าพูดว่า "ingest ไฟล์นี้ให้หน่อย" → skill `wiki-ingest` จะเปิดใช้อัตโนมัติ
+e.g. saying "ingest this file" → skill `wiki-ingest` activates automatically.
 
 ---
 
-## Commands ทั้งหมด
+## All Commands
 
 ### `/ingest [path]`
-
-**ไฟล์:** `commands/ingest.md`
-
-เพิ่ม source ใหม่เข้า wiki ครบวงจร
+Add a new source into the wiki end-to-end.
+Accepts a single file or a folder path.
 
 ```
 /ingest raw/clips/article.md
-/ingest raw/books/chapter1.md
-/ingest raw/notes/2026-04-13-idea.md
+/ingest raw/notes/otel/
 ```
-
-**Claude จะทำ:**
-
-1. อ่าน source ทั้งหมด
-2. คุยสรุป 3–5 ประเด็นหลัก + ถามว่า focus ด้านไหน
-3. สร้าง `wiki/sources/[slug].md`
-4. สร้าง/อัปเดต concept pages ทุกตัวที่เจอใน source
-5. อัปเดต book page ถ้า source เป็นหนังสือ
-6. อัปเดต `index.md` และ `log.md`
-7. รายงานว่าแตะไฟล์ไหนบ้าง
-
-> ingest 1 ครั้งอาจแตะ 5–15 หน้า — ปกติ
 
 ---
 
-### `/query [คำถาม]`
-
-**ไฟล์:** `commands/query.md`
-
-ถามคำถาม research จาก wiki ที่สะสมไว้
+### `/query [question]`
+Ask a research question against the accumulated wiki.
 
 ```
-/query cognitive load theory คืออะไร
-/query เปรียบเทียบ System 1 กับ System 2 ของ Kahneman
-/query งานวิจัยไหนพูดถึง spaced repetition บ้าง
+/query what is cognitive load theory
+/query compare System 1 vs System 2
 ```
 
-**Claude จะทำ:**
+---
 
-1. อ่าน `index.md` หา pages ที่เกี่ยวข้อง
-2. อ่านหน้าเหล่านั้น + follow links ที่เกี่ยวข้อง
-3. ตอบเป็นภาษาไทย พร้อม cite `[[wiki/concepts/...]]`
-4. ถามว่า "ต้องการบันทึกเป็น synthesis page ไหม?"
+### `/research [topic]`
+Search the web to fill knowledge gaps in the wiki.
 
-> ถ้า wiki ยังว่าง Claude จะบอกว่าต้อง ingest source ก่อน
+```
+/research distributed tracing
+/research              ← runs /lint first to find gaps, then proposes topics
+```
 
 ---
 
 ### `/lint`
+Run a full health check on the wiki.
+Finds orphans, broken links, missing concepts, contradictions, stale content, and data gaps.
 
-**ไฟล์:** `commands/lint.md`
-
-ตรวจสุขภาพ wiki ทั้งหมด — หาปัญหาและแนะนำสิ่งที่ควรทำต่อ
-
-```
-/lint
-```
-
-**Claude จะตรวจ:**
-| จุดตรวจ | คืออะไร |
-|---------|---------|
-| Orphan pages | หน้าที่ไม่มีใครลิงก์มา |
-| Broken links | `[[link]]` ที่ชี้ไปหน้าที่ไม่มีอยู่ |
-| Missing concepts | concept ถูก mention 2+ ครั้งแต่ไม่มีหน้า |
-| Contradictions | ข้อมูลขัดแย้งกันระหว่างหน้า |
-| Stale content | หน้าที่ไม่ได้อัปเดตนาน > 60 วัน |
-| Empty sections | heading ที่ไม่มีเนื้อหา |
-| Data gaps | concept ที่มี source น้อยเกินไป |
-
-Output เป็น checklist — แล้วถามว่าจะแก้ไหนทันที
-
-> แนะนำ: รัน `/lint` ทุก 1–2 สัปดาห์
+> Recommended: run every 1–2 weeks.
 
 ---
 
 ### `/status`
+Show a dashboard of current wiki state: page counts, raw files pending ingestion, recent activity, suggested next actions.
 
-**ไฟล์:** `commands/status.md`
-
-ดู dashboard สรุปสถานะ wiki ปัจจุบัน
-
-```
-/status
-```
-
-**ได้ข้อมูล:**
-
-- จำนวนหน้าแยกตามประเภท (concepts, books, sources, synthesis)
-- จำนวน raw files แยกตามโฟลเดอร์
-- ไฟล์ใน `raw/` ที่ยังไม่ได้ ingest
-- 5 activities ล่าสุดจาก `log.md`
-- คำแนะนำ next action
-
-> เริ่มต้น session ใหม่ด้วย `/status` เสมอ เพื่อรู้ว่า wiki อยู่ตรงไหน
+> Start every new session with `/status`.
 
 ---
 
-### `/new-concept [ชื่อ concept]`
-
-**ไฟล์:** `commands/new-concept.md`
-
-สร้างหน้า concept เปล่าๆ โดยไม่ต้อง ingest source
+### `/new-concept [name]`
+Create a blank concept page without ingesting a source.
 
 ```
 /new-concept cognitive load
-/new-concept การเรียนรู้แบบ spaced repetition
-/new-concept ทฤษฎีแรงจูงใจภายใน
+/new-concept spaced repetition
 ```
-
-**ใช้เมื่อ:** รู้อยู่แล้วว่า concept คืออะไร อยากสร้างหน้าไว้รอก่อน แล้วค่อย ingest sources ทีหลัง
-
-**Claude จะทำ:**
-
-1. เช็คว่ามีหน้านี้อยู่แล้วไหม
-2. สร้าง `wiki/concepts/[slug].md` พร้อม frontmatter ครบ
-3. อัปเดต `index.md`
 
 ---
 
-### `/new-book [ชื่อหนังสือ]`
-
-**ไฟล์:** `commands/new-book.md`
-
-สร้างหน้าสรุปหนังสือ
+### `/new-book [title]`
+Create a book summary page.
 
 ```
 /new-book Thinking Fast and Slow
-/new-book ทำไมสมองถึงโง่
 /new-book Atomic Habits
 ```
 
-**Claude จะถาม:** ชื่อผู้แต่ง, ปีที่พิมพ์, โน้ตเบื้องต้น
-แล้วสร้าง `wiki/books/[slug].md` พร้อม structure ครบ รอ ingest แต่ละบททีหลัง
+---
+
+### `/synthesis [topic or question]`
+Deep analysis across multiple wiki sources, saved as a permanent synthesis page.
+
+```
+/synthesis compare learning theories
+/synthesis relationship between dopamine and motivation
+```
+
+Differs from `/query`: `/synthesis` always creates a permanent page, not just a chat reply.
 
 ---
 
-### `/synthesis [หัวข้อหรือคำถาม]`
-
-**ไฟล์:** `commands/synthesis.md`
-
-วิเคราะห์เชิงลึกจากหลาย sources แล้วบันทึกเป็นหน้าถาวร
+### `/note [text]`
+Save a quick note to `raw/notes/` for later ingestion.
 
 ```
-/synthesis เปรียบเทียบทฤษฎีการเรียนรู้แบบต่างๆ
-/synthesis งานวิจัยบอกว่าวิธีอ่านหนังสือแบบไหนดีที่สุด
-/synthesis ความสัมพันธ์ระหว่าง dopamine กับ motivation
+/note this paper on attention seems to contradict what I learned before
 ```
-
-**ต่างจาก `/query` ตรงที่:** `/synthesis` ตั้งใจสร้างหน้าถาวรเสมอ ไม่ใช่แค่ตอบในแชท
-
-**Claude จะทำ:**
-
-1. อ่านทุกหน้าที่เกี่ยวข้องใน wiki
-2. ถามว่าต้องการวิเคราะห์แบบไหน (เปรียบเทียบ / หา pattern / วิจารณ์ ฯลฯ)
-3. เขียน synthesis เชิงลึก
-4. บันทึกเป็น `wiki/synthesis/[slug].md`
 
 ---
 
-### `/note [ข้อความ]`
-
-**ไฟล์:** `commands/note.md`
-
-จด quick note ไว้ใน `raw/notes/` โดยไม่ต้อง ingest ทันที
+### `/update [page-path] [what to change]`
+Update an existing wiki page without ingesting a new source.
 
 ```
-/note อ่าน paper เรื่อง attention นี้แล้วรู้สึกว่าขัดกับที่เคยเรียนมา ต้องหาข้อมูลเพิ่ม
-/note บทความของ Cal Newport พูดถึง deep work ว่าต้องการ 4 ชั่วโมงต่อวัน
-/note ไอเดีย: ลอง link concept นี้กับ habit loop ดู
+/update wiki/concepts/cognitive-load.md add real-world examples
+/update wiki/books/atomic-habits.md revise chapter 3 summary
 ```
-
-**ใช้เมื่อ:** คิดอะไรขึ้นมาแต่ไม่อยากหยุด ingest ตอนนี้ — บันทึกไว้ก่อน ค่อย ingest ทีหลัง
-
-บันทึกเป็น `raw/notes/YYYY-MM-DD-[slug].md` พร้อมวันที่
 
 ---
 
-### `/update [path] [สิ่งที่จะเปลี่ยน]`
+## All Skills
 
-**ไฟล์:** `commands/update.md`
+Skills run **automatically** by context — no slash needed.
 
-อัปเดตหน้า wiki ที่มีอยู่แล้ว โดยไม่ต้อง ingest source ใหม่
-
-```
-/update wiki/concepts/cognitive-load.md เพิ่มตัวอย่างจากชีวิตประจำวัน
-/update wiki/books/atomic-habits.md แก้สรุปบทที่ 3 ใหม่
-/update wiki/concepts/dopamine.md เพิ่ม link ไปที่ motivation
-```
-
-**Claude จะ:** อ่านหน้านั้นก่อน → merge ข้อมูลใหม่เข้าไป → ไม่ลบของเดิมทิ้ง
+| Skill           | Activates when                              | What it does                          |
+|-----------------|---------------------------------------------|---------------------------------------|
+| `wiki-ingest`   | mention ingest / drop a file path           | full ingest workflow                  |
+| `wiki-query`    | ask any research question                   | search wiki → answer → offer synthesis|
+| `wiki-research` | mention research gap / web search needed    | search web → summarize → update wiki  |
+| `wiki-lint`     | mention lint / health check                 | check 7 points → checklist report     |
+| `wiki-status`   | mention status / what's in the wiki         | show current dashboard                |
 
 ---
 
-## Skills ทั้งหมด
+## Recommended Workflows
 
-Skills ทำงาน **อัตโนมัติ** ตาม context ไม่ต้องพิมพ์คำสั่งพิเศษ
-
-| Skill         | Activate เมื่อ                                     | ทำอะไร                             |
-| ------------- | -------------------------------------------------- | ---------------------------------- |
-| `wiki-ingest` | พูดถึง ingest / วาง file path / "เพิ่ม source นี้" | รัน ingest workflow ครบวงจร        |
-| `wiki-query`  | ถามคำถาม research ใดๆ                              | ค้น wiki → ตอบ → offer synthesis   |
-| `wiki-lint`   | พูดว่า lint / ตรวจ / health check                  | ตรวจ wiki 7 จุด → รายงาน checklist |
-| `wiki-status` | พูดว่า status / สถานะ / wiki มีอะไรบ้าง            | แสดง dashboard ปัจจุบัน            |
-
----
-
-## Workflow ที่แนะนำ
-
-### เริ่มต้น session ใหม่
-
+### Start a new session
 ```
 /status
 ```
 
-ดูว่า wiki อยู่ตรงไหน มีไฟล์ที่ยังไม่ ingest ไหม
-
-### ทุกครั้งที่ clip บทความใหม่
-
+### Every time you clip a new article
 ```
-1. Obsidian Web Clipper → บันทึกลง raw/clips/
-2. /ingest raw/clips/[ชื่อไฟล์].md
+1. Obsidian Web Clipper → save to raw/clips/
+2. /ingest raw/clips/filename.md
 ```
 
-### ทุกครั้งที่อยากรู้อะไร
-
+### When you want to know something
 ```
-/query [คำถาม]
+/query [question]
+```
+If wiki has the answer → immediate response.
+If not → Claude suggests what source to ingest.
+
+### Fill knowledge gaps
+```
+/research [topic]
 ```
 
-ถ้า wiki ตอบได้ → ได้คำตอบทันที
-ถ้าไม่มีข้อมูล → Claude จะแนะนำว่าต้อง ingest source อะไร
-
-### ตรวจสุขภาพ wiki (ทุก 1–2 สัปดาห์)
-
+### Wiki health check (every 1–2 weeks)
 ```
 /lint
 ```
 
-### อยากวิเคราะห์เชิงลึก
-
+### Deep analysis
 ```
-/synthesis [หัวข้อ]
+/synthesis [topic]
 ```
 
 ---
 
-## หมายเหตุทางเทคนิค
+## Technical Notes
 
-- **Commands** ถูก load จาก `commands/*.md` ทุกครั้งที่พิมพ์ `/command-name`
-- **Skills** ถูก load อัตโนมัติจาก `skills/*/SKILL.md` ตาม context matching
-- **settings.json** ตั้งค่า `effortLevel: high` — Claude จะใช้ความพยายามสูงสุดในทุก operation
-- แก้ไข command/skill ได้ตลอดเวลา — เปิดไฟล์ `.md` แล้วแก้ prompt ได้เลย
-- ถ้าอยากเพิ่ม command ใหม่ → สร้างไฟล์ `.md` ใน `commands/` ได้เลย
+- **Commands** are loaded from `commands/*.md` each time you type `/command-name`
+- **Skills** are loaded automatically from `skills/*/SKILL.md` by context matching
+- **settings.json** sets `effortLevel: high` — Claude applies maximum effort to every operation
+- Edit any command/skill at any time — open the `.md` file and change the prompt
+- Add new commands by creating a new `.md` file in `commands/`

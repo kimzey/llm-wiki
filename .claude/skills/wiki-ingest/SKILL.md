@@ -1,6 +1,6 @@
 ---
 name: wiki-ingest
-description: Ingest a new source into the research wiki. Reads the source, extracts key concepts, creates/updates all relevant wiki pages, and updates index + log. Thai-primary output.
+description: Ingest a new source into the research wiki. Reads the source, extracts key concepts, creates/updates all relevant wiki pages, and updates index + log. Wiki content is written in Thai.
 origin: user
 ---
 
@@ -8,78 +8,80 @@ origin: user
 
 Vault root: `/Users/kimzey/Desktop/local-valut/`
 
-## Steps (ทำตามลำดับ ห้ามข้าม)
+## Steps (follow in order — do not skip)
 
-### 1. อ่าน schema
+### 1. Read schema
 
-Read `CLAUDE.md` — ดูรูปแบบ frontmatter และ page templates ที่ถูกต้อง
+Read `CLAUDE.md` — check frontmatter format and page templates.
 
-### 2. อ่าน source
+### 2. Read source
 
-Read source file ทั้งหมด รวมถึงรูปภาพถ้ามี
+- Single file input → Read that file
+- Folder input → Glob `[folder]/**/*.md` → process each file sequentially through steps 3–7
+- If markdown contains inline images → Read text first, then Read images separately afterwards
 
-### 4. สร้าง Source Summary Page
+### 3. Create Source Summary Page
 
-สร้าง `wiki/sources/[slug].md` ตาม template ใน CLAUDE.md
+Create `wiki/sources/[slug].md` using the template in CLAUDE.md.
 
-- slug = ชื่อไฟล์ต้นฉบับ หรือ title แปลงเป็น lowercase-hyphens
-- ใส่ frontmatter ครบ (title, type, source_file, url, published, tags, related, created, updated)
-- **จำเป็น**: ต้องมีลิงก์กลับไปที่ raw source file ในเนื้อหา เพื่อให้อ่านรายละเอียดเต็มได้
-  - ใช้รูปแบบ: `**อ่านเต็ม**: [[../../raw/path/to/file.md|ไฟล์ต้นฉบับ]]`
-  - หรือถ้าเป็น external URL: `**อ่านเต็ม**: [URL](url)`
-  - วางไว้ด้านบนสุดของเนื้อหา หลังจาก frontmatter
+- slug = source filename or title converted to lowercase-hyphens
+- Include full frontmatter (title, type, source_file, url, published, tags, related, created, updated)
+- **Required**: include a back-link to the raw source file at the top of the content body
+  - Local file: `**Full source**: [[../../raw/path/to/file.md|Original file]]`
+  - External URL: `**Full source**: [URL](url)`
 
-### 5. อัปเดต Concept Pages
+### 4. Update Concept Pages
 
-สำหรับแต่ละ concept ที่พบใน source:
+For each concept found in the source:
 
 ```
-Glob wiki/concepts/ → เช็คว่ามีหน้าอยู่แล้วไหม
-  ถ้ามี  → Read หน้านั้น → เพิ่มข้อมูลใหม่, ระบุถ้าขัดแย้ง
-  ถ้าไม่มี → สร้างหน้าใหม่ตาม template ใน CLAUDE.md
+Glob wiki/concepts/ → check if page exists
+  exists     → Read it → merge new info, flag contradictions
+  not exists → create new page using template in CLAUDE.md
 ```
 
-ทุก concept page ต้องมี:
+Every concept page must have:
+- Back-link to source: `[[wiki/sources/[slug]]]`
+- If new info contradicts existing → add section "ข้อถกเถียง / มุมมองที่ต่างกัน" — never delete existing content
 
-- ลิงก์กลับไปที่ source: `[[wiki/sources/[slug]]]`
-- ถ้าข้อมูลใหม่ขัดแย้งกับเดิม → เพิ่ม section "ข้อถกเถียง / มุมมองที่ต่างกัน" ห้ามลบของเดิม
+### 5. Update Book Page (if source is a book or chapter)
 
-### 6. อัปเดต Book Page (ถ้า source คือหนังสือหรือบท)
+Read/Create `wiki/books/[slug].md` using the template in CLAUDE.md.
+Add new chapter summary under the "สรุปแต่ละบท" section.
 
-Read/Create `wiki/books/[slug].md` ตาม template ใน CLAUDE.md
-เพิ่มสรุปบทใหม่ใต้ section "สรุปแต่ละบท"
+### 6. Update index.md
 
-### 7. อัปเดต index.md
+Read `index.md` → add new rows to all relevant tables.
 
-Read `index.md` → เพิ่ม row ใหม่ใน table ที่เกี่ยวข้องทุกตาราง
+- "หน้า" column = `[[wiki/sources/slug|title]]` — always links to wiki page, never to raw
+- "Source file" column = `[[wiki/sources/slug]]` — same wiki page link
 
-### 8. Append log.md
+### 7. Append log.md
 
 ```
 ## [YYYY-MM-DD] ingest | [source title]
-- หน้าที่สร้างใหม่: [list]
-- หน้าที่อัปเดต: [list]
+- Created: [list]
+- Updated: [list]
 - Concepts: [list]
 ```
 
-### 9. รายงานผล
+### 8. Report results
 
 ```
-ingest เสร็จแล้ว
-สร้างใหม่: N หน้า
-อัปเดต: N หน้า
-รวม: [list of all touched files]
+Ingest complete.
+Created: N pages
+Updated: N pages
+All touched files: [list]
 ```
 
-## กฎห้ามทำ
+## Prohibited
 
-- ห้ามลบข้อมูลเดิมออกจาก concept page — ให้ merge เสมอ
-- ห้ามแก้ไขไฟล์ใน `raw/` — อ่านได้อย่างเดียว
-- ห้ามสร้างหน้าโดยไม่มี frontmatter
+- Never delete existing content from concept pages — always merge
+- Never modify files in `raw/` — read only
+- Never create a page without frontmatter
 
-## ข้อปฏิบัติจำเป็น
+## Required
 
-- **ทุก Source Summary Page ต้องมีลิงก์กลับไปที่ raw source**
-  - ใช้ blockquote หรือ heading แรกหลัง frontmatter
-  - รูปแบบ: `**อ่านเต็ม**: [[../../raw/path/to/file.md|ไฟล์ต้นฉบับ]]` หรือ `[ชื่อบทความ](url)`
-  - ทำให้อ่านรายละเอียดเต็มได้โดยตรง
+- Every Source Summary Page must have a back-link to the raw source
+  - Use a blockquote or first heading after frontmatter
+  - Format: `**Full source**: [[../../raw/path/to/file.md|Original file]]` or `[title](url)`

@@ -1,6 +1,6 @@
 ---
 name: wiki-status
-description: Show a quick dashboard of the wiki state — page counts, recent activity, empty sections, and suggested next actions.
+description: Show a quick dashboard of the wiki state — page counts, recent activity, raw files pending ingestion, and suggested next actions.
 origin: user
 ---
 
@@ -10,47 +10,51 @@ Vault root: `/Users/kimzey/Desktop/local-valut/`
 
 ## Steps
 
-### 1. นับหน้าทุกประเภท
+### 1. Count all pages by type
 ```
 Glob wiki/concepts/**/*.md → count
-Glob wiki/books/**/*.md → count
-Glob wiki/sources/**/*.md → count
+Glob wiki/books/**/*.md    → count
+Glob wiki/sources/**/*.md  → count
 Glob wiki/synthesis/**/*.md → count
-Glob raw/**/*.md → count (ยกเว้น .gitkeep)
+Glob raw/**/*.md           → count (exclude .gitkeep)
 ```
 
-### 2. อ่าน log.md
-แสดง 5 entries ล่าสุด
+### 2. Read log.md
+Show the 5 most recent entries.
 
-### 3. อ่าน index.md
-ตรวจว่า index ครบถ้วน
+### 3. Read index.md
+Check completeness — are all wiki pages listed?
 
-### 4. Output Dashboard
+### 4. Check raw/ for un-ingested files
+For each file in `raw/`, check whether a matching `wiki/sources/` page exists.
+List any raw files that have not been ingested yet.
+
+### 5. Output Dashboard
 
 ```markdown
 # Wiki Status — [YYYY-MM-DD HH:MM]
 
-## หน้าทั้งหมด
-| ประเภท | จำนวน |
-|--------|-------|
-| Concepts | N |
-| Books | N |
-| Sources | N |
-| Synthesis | N |
-| **รวม** | **N** |
+## Page counts
+| Type       | Count |
+|------------|-------|
+| Concepts   | N     |
+| Books      | N     |
+| Sources    | N     |
+| Synthesis  | N     |
+| **Total**  | **N** |
 
 ## Raw Sources
-| ประเภท | จำนวน |
+| Type   | Count |
 |--------|-------|
-| Clips | N |
-| Books | N |
-| Notes | N |
+| Clips  | N     |
+| Books  | N     |
+| Notes  | N     |
 
-## กิจกรรมล่าสุด (5 entries)
-[จาก log.md]
+## Recent Activity (5 entries)
+[from log.md]
 
-## สิ่งที่ควรทำต่อ
-- [ ] ถ้า raw มีไฟล์ที่ยังไม่ ingest → แสดงชื่อ
-- [ ] ถ้า wiki ว่างเปล่า → แนะนำให้เริ่ม ingest
-- [ ] ถ้า lint ยังไม่ได้รัน > 7 วัน → แนะนำ /lint
+## Suggested Next Actions
+- [ ] If raw/ has un-ingested files → list them
+- [ ] If wiki is empty → suggest starting with /ingest
+- [ ] If lint hasn't run in > 7 days → suggest /lint
 ```

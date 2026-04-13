@@ -10,72 +10,72 @@ Vault root: `/Users/kimzey/Desktop/local-valut/`
 
 ## Steps
 
-### 1. สำรวจ wiki ทั้งหมด
+### 1. Survey the entire wiki
 ```
 Read index.md
-Glob wiki/**/*.md → list หน้าจริงทั้งหมด
-เปรียบเทียบ → หาหน้าที่ไม่อยู่ใน index (missing entries)
+Glob wiki/**/*.md → list all actual pages
+Compare → find pages missing from index
 ```
 
-### 2. ตรวจสอบ 7 จุด
+### 2. Check 7 points
 
-#### A. Orphan Pages — หน้าที่ไม่มีใครลิงก์มาหา
-Read ทุกหน้า → grep หา `[[filename]]` → หน้าไหนไม่ถูก mention เลย?
+#### A. Orphan Pages — pages with no inbound links
+Read all pages → grep for `[[filename]]` → which pages are never mentioned?
 
-#### B. Broken Links — ลิงก์ที่ชี้ไปหน้าที่ไม่มีอยู่
-Grep pattern `\[\[wiki/.*\]\]` ในทุกหน้า → เช็คว่าไฟล์ปลายทางมีอยู่จริง
+#### B. Broken Links — links pointing to non-existent files
+Grep pattern `\[\[wiki/.*\]\]` in all pages → verify target files exist
 
-#### C. Missing Concept Pages — Concepts ที่ถูก mention แต่ไม่มีหน้าของตัวเอง
-Grep คำในหน้า sources/synthesis ที่น่าจะเป็น concept → เช็คว่ามีหน้าใน wiki/concepts/ ไหม
+#### C. Missing Concept Pages — concepts mentioned but without their own page
+Grep for terms in source/synthesis pages that look like concepts → check if `wiki/concepts/` page exists
 
-#### D. Contradictions — ข้อมูลขัดแย้งกัน
-อ่าน concept pages ที่มีหลาย sources → หาคำที่บ่งบอกความขัดแย้ง เช่น "ตรงข้าม", "แย้ง", "ต่างจาก"
+#### D. Contradictions — conflicting information
+Read concept pages with multiple sources → look for language indicating conflict: e.g. "ตรงข้าม", "แย้ง", "ต่างจาก"
 
-#### E. Stale Content — ข้อมูลที่อาจล้าสมัย
-ดู frontmatter `updated:` → หน้าที่ไม่ได้อัปเดตนานกว่า 60 วัน + มี source ใหม่กว่า
+#### E. Stale Content — potentially outdated information
+Check frontmatter `updated:` → pages not updated in 60+ days that have newer sources available
 
-#### F. Empty Sections — Sections ที่ว่างเปล่าในหน้าสำคัญ
-Read concept pages → หา sections ที่มีแต่ heading ไม่มีเนื้อหา
+#### F. Empty Sections — sections with no content body
+Read concept pages → find sections with only a heading and no content
 
-#### G. Data Gaps — หัวข้อที่ควรค้นหาเพิ่มเติม
-วิเคราะห์ concept pages → ถ้ามี concept ที่มี sources น้อยกว่า 2 → แนะนำสิ่งที่ควร ingest เพิ่ม
+#### G. Data Gaps — topics needing more sources
+Analyze concept pages → any concept with fewer than 2 sources → suggest what to ingest next
 
-### 3. Output รายงาน
+### 3. Output health report
 
 ```markdown
 # Wiki Health Report — [YYYY-MM-DD]
 
-## สรุป
+## Summary
 - Total pages: N
 - Issues found: N
 
 ## A. Orphan Pages
-- [ ] wiki/concepts/foo.md — ไม่มีใครลิงก์มา
+- [ ] wiki/concepts/foo.md — no inbound links
 
 ## B. Broken Links
-- [ ] wiki/sources/bar.md → [[wiki/concepts/missing]] ไม่มีไฟล์นี้
+- [ ] wiki/sources/bar.md → [[wiki/concepts/missing]] file not found
 
-## C. Concept Pages ที่ยังขาด
-- [ ] "X" — ถูก mention ใน 3 หน้าแต่ไม่มีหน้าของตัวเอง
+## C. Missing Concept Pages
+- [ ] "X" — mentioned in 3 pages but no dedicated page
 
-## D. ข้อมูลขัดแย้ง
-- [ ] wiki/concepts/baz.md — source A และ B ให้ข้อมูลต่างกัน
+## D. Contradictions
+- [ ] wiki/concepts/baz.md — source A and B give conflicting info
 
-## E. เนื้อหาที่อาจล้าสมัย
-- [ ] wiki/concepts/qux.md — ไม่ได้อัปเดต 90 วัน
+## E. Stale Content
+- [ ] wiki/concepts/qux.md — not updated in 90 days
 
-## F. Sections ว่างเปล่า
-- [ ] wiki/books/foo.md — section "คำวิจารณ์" ยังว่าง
+## F. Empty Sections
+- [ ] wiki/books/foo.md — section "Reviews" still empty
 
-## G. แนะนำ Sources ที่ควร ingest เพิ่ม
-- "X topic" — มีแค่ 1 source ควรหาเพิ่มอีก 2-3 ชิ้น
+## G. Suggested Sources to Ingest
+- "X topic" — only 1 source, recommend finding 2–3 more
 ```
 
 ### 4. Append log.md
 ```
-## [YYYY-MM-DD] lint | พบ N issues
+## [YYYY-MM-DD] lint | found N issues
 - Orphans: N, Broken links: N, Missing concepts: N
 ```
 
-### 5. ถาม user
-"ต้องการให้แก้ไข issues ไหนทันที?"
+### 5. Ask user
+"Which issues would you like to fix now?"

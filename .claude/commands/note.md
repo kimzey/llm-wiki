@@ -19,6 +19,6 @@ Steps:
 
    [note content]
    ```
-3. Confirm: "บันทึกแล้วที่ raw/notes/[filename].md — พิมพ์ `/ingest raw/notes/[filename].md` เมื่อต้องการเพิ่มลง wiki"
+3. Confirm: "Saved to raw/notes/[filename].md — run `/ingest raw/notes/[filename].md` when ready to add to wiki."
 
-If $ARGUMENTS is empty, ask: "ต้องการจดอะไร?"
+If $ARGUMENTS is empty, ask: "What would you like to note down?"

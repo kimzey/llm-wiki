@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "83831d105a5440cd",
+        "id": "77d9ef93be93ccca",
         "type": "tabs",
         "children": [
           {
-            "id": "88553cb704117af1",
+            "id": "a4c2af83d0c1ab69",
             "type": "leaf",
             "state": {
               "type": "graph",
@@ -176,8 +176,19 @@
       "bases:Create new base": false
     }
   },
-  "active": "88553cb704117af1",
+  "active": "a4c2af83d0c1ab69",
   "lastOpenFiles": [
+    "wiki/sources/otel-deep-dive-handbook.md",
+    "raw/notes/otel/OpenTelemetry — Deep Dive ฉบับ Part 2.md",
+    "wiki/concepts/observability.md",
+    "wiki/concepts/open-telemetry.md",
+    "wiki/concepts/context-propagation.md",
+    "wiki/concepts/distributed-tracing.md",
+    "wiki/sources/settextmappropagator-explained.md",
+    "wiki/sources/context-usercontext-vs-getspancontext.md",
+    "wiki/sources/otel-deep-dive-part-2.md",
+    "wiki/sources/otel-trace-propagation-migration-guide.md",
+    "wiki/sources/distributed-tracing-context-propagation.md",
     "raw/notes/arona/deepdive/INDEX.md",
     "raw/notes/arona/deepdive/04-security-and-maintenance.md",
     "raw/notes/arona/deepdive/03-retrieval-and-ai.md",
@@ -193,19 +204,8 @@
     "raw/notes/arona/learn/LEARN3.md",
     "raw/notes/arona/learn/LEARN14.md",
     "raw/notes/arona/learn/LEARN13.md",
-    "raw/notes/arona/learn/LEARN12.md",
-    "raw/notes/arona/learn/LEARN11.md",
-    "raw/notes/arona/learn/LEARN10.md",
-    "raw/notes/arona/learn/LEARN.md",
     "raw/notes/arona/learn",
     "raw/notes/arona/deepdive",
-    "raw/notes/arona/STATELESS_RAG_EXPLAINED.md",
-    "raw/notes/arona/SELLSUKI_RAG_ANALYSIS.md",
-    "raw/notes/arona/README.md",
-    "raw/notes/arona/RAG_RECOMMENDATION.md",
-    "raw/notes/arona/RAG_COMPREHENSIVE_GUIDE.md",
-    "raw/notes/arona/RAG_COMPARISON.md",
-    "raw/notes/arona/ARONA_VS_LANGCHAIN.md",
     "raw/notes/arona",
     "raw/notes/tool-rag",
     "raw/notes/rag-knowledge",

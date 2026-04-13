@@ -10,39 +10,39 @@ Vault root: `/Users/kimzey/Desktop/local-valut/`
 
 ## Steps
 
-### 1. อ่าน index.md
-Read `index.md` — หา pages ที่น่าจะเกี่ยวข้องกับคำถาม
+### 1. Read index.md
+Read `index.md` — find pages likely relevant to the question.
 
-### 2. อ่าน pages ที่เกี่ยวข้อง
-Read ทุกหน้าที่ระบุใน index แล้วดูว่า related links พาไปหาหน้าอื่นอีกไหม
-ลำดับความสำคัญ: concepts > synthesis > books > sources
+### 2. Read relevant pages
+Read every page identified in the index, then follow related links if they lead to more relevant content.
+Priority order: concepts > synthesis > books > sources
 
-### 3. ตอบคำถาม
-- ตอบเป็นภาษาไทยเป็นหลัก
-- cite ทุก claim ด้วย `[[wiki/concepts/foo]]` หรือ `(source: wiki/sources/bar.md)`
-- ถ้าไม่มีข้อมูลใน wiki → บอกตรงๆ ว่า "ยังไม่มีข้อมูลใน wiki — ต้องการ ingest source เพิ่มไหม?"
+### 3. Answer the question
+- Answer in Thai as the primary language
+- Cite every claim with `[[wiki/concepts/foo]]` or `(source: wiki/sources/bar.md)`
+- If the wiki has no information → say clearly: "ยังไม่มีข้อมูลใน wiki — ต้องการ ingest source เพิ่มไหม?"
 
-### 4. รูปแบบ output ตามประเภทคำถาม
-| ประเภทคำถาม | รูปแบบ |
-|------------|--------|
-| อธิบาย concept | prose + bullet points |
-| เปรียบเทียบ | markdown table |
-| สรุปหนังสือ | structured summary |
-| วิเคราะห์เชิงลึก | essay + synthesis page |
-| หา pattern | list + examples |
+### 4. Output format by question type
+| Question type       | Format                        |
+|---------------------|-------------------------------|
+| Explain concept     | prose + bullet points         |
+| Compare             | markdown table                |
+| Book summary        | structured summary            |
+| Deep analysis       | essay + synthesis page        |
+| Find pattern        | list + examples               |
 
-### 5. ถามว่าจะบันทึกไหม
-ทุกคำตอบที่ไม่ใช่ข้อมูลพื้นฐาน ให้ถาม:
+### 5. Ask to save
+For any non-trivial answer, ask:
 "ต้องการบันทึกคำตอบนี้เป็นหน้า synthesis ไหม?"
-ถ้าใช่ → สร้าง `wiki/synthesis/[slug].md` + อัปเดต index.md
+If yes → create `wiki/synthesis/[slug].md` + update index.md
 
 ### 6. Append log.md
 ```
-## [YYYY-MM-DD] query | [คำถามสั้นๆ]
+## [YYYY-MM-DD] query | [brief question]
 - Pages consulted: [list]
 - Synthesis created: yes/no
 ```
 
-## หมายเหตุ
-- คำตอบที่ดีจะ compound กันในอนาคต — ยิ่ง file เป็น synthesis มาก wiki ยิ่งฉลาดขึ้น
-- อย่า hallucinate — ถ้าไม่รู้จาก wiki ให้บอก
+## Notes
+- Good answers compound over time — the more things filed as synthesis, the smarter the wiki gets
+- Never hallucinate — if not in wiki, say so

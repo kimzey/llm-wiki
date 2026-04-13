@@ -13,10 +13,10 @@ Steps:
    - If no: proceed to create
 3. Create `wiki/concepts/[slug].md` using the template from CLAUDE.md
    - slug = concept name in lowercase-hyphens (transliterate Thai if needed)
-   - Fill frontmatter: title (Thai), type: concept, tags, created: today's date
-   - Leave sections as empty stubs for the user to fill, or ask if they want to fill them now
-4. Update index.md — add row to the Concepts table
-5. Append to log.md: `## [YYYY-MM-DD] update | สร้าง concept: [name]`
-6. Report: "สร้างหน้า [[wiki/concepts/[slug]]] แล้ว"
+   - Fill frontmatter: title (Thai preferred), type: concept, tags, created: today's date
+   - Leave sections as empty stubs
+4. Update index.md — add row to Concepts table: `[[wiki/concepts/slug|title]]`
+5. Append to log.md: `## [YYYY-MM-DD] update | created concept: [name]`
+6. Report: "Created [[wiki/concepts/[slug]]]"
 
-If $ARGUMENTS is empty, ask: "ชื่อ concept คืออะไร?"
+If $ARGUMENTS is empty, ask: "What is the concept name?"

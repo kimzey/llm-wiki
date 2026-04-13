@@ -9,13 +9,12 @@ Vault: /Users/kimzey/Desktop/local-valut/
 Steps:
 1. Read index.md to find all pages relevant to this topic
 2. Read those pages (concepts, books, sources)
-3. Ask the user: "ต้องการให้วิเคราะห์ในแง่ไหน? (เปรียบเทียบ / สรุปรวม / วิจารณ์ / หา pattern / อื่นๆ)"
-4. Synthesize a deep analysis drawing from multiple wiki pages
-5. Create `wiki/synthesis/[slug].md` using the synthesis template from CLAUDE.md
-   - Include the question/topic, full analysis, conclusions, and "หัวข้อที่ควรศึกษาต่อ"
+3. Synthesize a deep analysis drawing from multiple wiki pages
+4. Create `wiki/synthesis/[slug].md` using the synthesis template from CLAUDE.md
+   - Include the question/topic, full analysis, conclusions, and suggested further study
    - Cite all sources using [[wiki/page]] links
-6. Update index.md — add row to Synthesis table
-7. Append to log.md: `## [YYYY-MM-DD] synthesis | [topic]`
-8. Report: "สร้างหน้า [[wiki/synthesis/[slug]]] แล้ว"
+5. Update index.md — add row to Synthesis table: `[[wiki/synthesis/slug|title]]`
+6. Append to log.md: `## [YYYY-MM-DD] synthesis | [topic]`
+7. Report: "Created [[wiki/synthesis/[slug]]]"
 
-If $ARGUMENTS is empty, ask: "ต้องการวิเคราะห์หัวข้ออะไร?"
+If $ARGUMENTS is empty, ask: "What topic would you like to synthesize?"
