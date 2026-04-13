@@ -46,6 +46,13 @@
 - สร้าง concept pages: distributed-tracing, context-propagation, opentelemetry, w3c-trace-context, otel-baggage, otel-go-instrumentation
 - อัปเดต index.md (6 sources, 6 concepts)
 
+## [2026-04-13] ingest | raw/notes/rag-knowledge — RAG Agent Complete Knowledge (12 files)
+
+- สร้าง source pages: rag-knowledge-overview, rag-complete-knowledge, rag-glossary-data-prep, chunking-deepdive-complete, rag-vs-agent-explained, sellsuki-rag-diy-guide, rag-integration-guide-complete, rag-client-channels-complete (8 ไฟล์)
+- สร้าง concept pages: llm-large-language-model, ai-agent, agentic-rag (3 ไฟล์)
+- ครอบคลุมเนื้อหา: RAG & Agent knowledge base (12 docs, ~300 หน้า), LLM fundamentals, Prompt Engineering, Embedding, Vector Database, RAG pipeline, Advanced RAG (Hybrid Search, Re-ranking), Agent & Agentic RAG, Multi-Agent, Evaluation metrics, Production concerns, 10 วิธี Chunking, 14 ช่องทาง integration (LINE, Slack, Discord, etc.), MCP สำหรับ Claude Code/Cursor, DIY RAG สำหรับ Sellsuki
+- อัปเดต index.md (8 sources, 3 concepts ใหม่)
+
 ## [2026-04-13] setup | สร้าง wiki ครั้งแรก
 
 - สร้างโครงสร้าง directory ทั้งหมด

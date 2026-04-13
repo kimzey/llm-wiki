@@ -1,6 +1,6 @@
 # Index
 
-วันที่อัปเดตล่าสุด: 2026-04-13
+วันที่อัปเดตล่าสุด: 2026-04-13 (2)
 
 ---
 
@@ -45,6 +45,14 @@
 | [[wiki/sources/langchain-rag-guide\|LangChain, RAG & Sellsuki Knowledge Base — Deep Dive]] | LangChain Ecosystem ทั้ง 5 ตัว (LangChain, LangGraph, LangSmith, LangServe, Hub), RAG Pipeline ละเอียด, Chunking Strategies, Semantic Cache | [[wiki/sources/langchain-rag-guide]] | 2026-04-13 |
 | [[wiki/sources/llamaindex-deep-dive\|LlamaIndex & RAG Deep Dive — Sellsuki Knowledge Bot]] | LlamaIndex Ecosystem (LlamaHub, LlamaParse, LlamaTrace), 4 Chunking Strategies, Metadata Schema, ParadeDB Design, Hybrid Search | [[wiki/sources/llamaindex-deep-dive]] | 2026-04-13 |
 | [[wiki/sources/llamaindex-full-guide\|LlamaIndex Full Guide — Sellsuki RAG System]] | Full guide 7-phase checklist, Deliverables, Server Setup (FastAPI + Docker), TypeScript vs Python comparison, Full Architecture 8-step Query Flow | [[wiki/sources/llamaindex-full-guide]] | 2026-04-13 |
+| [[wiki/sources/rag-knowledge-overview\|RAG Agent Knowledge — Overview & Statistics]] | ภาพรวม 12 เอกสาร RAG Agent (~300 หน้า), reading paths 4 routes, quick reference table | [[wiki/sources/rag-knowledge-overview]] | 2026-04-13 |
+| [[wiki/sources/rag-complete-knowledge\|Complete RAG & Agent Knowledge Base]] | ครบทุก LLM, Prompt Engineering, Embedding, Vector DB, RAG, Advanced RAG, Agent, Agentic Patterns, Multi-Agent, Evaluation, Production | [[wiki/sources/rag-complete-knowledge]] | 2026-04-13 |
+| [[wiki/sources/rag-glossary-data-prep\|RAG Glossary & Data Preparation — Complete Guide]] | คำศัพท์ครบ + Data Prep: Core Concepts, Search (Cosine, BM25, Hybrid, Re-rank), Chunking, Index (HNSW, IVFFlat), Caching, Anti-abuse | [[wiki/sources/rag-glossary-data-prep]] | 2026-04-13 |
+| [[wiki/sources/chunking-deepdive-complete\|Chunking Deep Dive — ทุกวิธี + ข้อมูลจริง]] | 10 วิธี Chunking + Output จริง, database schema, linking chunks, best practices 2025, decision matrix, common mistakes | [[wiki/sources/chunking-deepdive-complete]] | 2026-04-13 |
+| [[wiki/sources/rag-vs-agent-explained\|RAG vs Agent — มันคืออะไร ต่างกันยังไง]] | อธิบายความแตกต่าง 5 levels, flow diagrams, comparison tables, spectrum, use cases สำหรับ Sellsuki | [[wiki/sources/rag-vs-agent-explained]] | 2026-04-13 |
+| [[wiki/sources/sellsuki-rag-diy-guide\|DIY — สร้าง RAG ตอบคำถาม Sellsuki]] | Use case (before/after), tech stack (ParadeDB, Dragonfly), implementation guide, แนวทางการทำ | [[wiki/sources/sellsuki-rag-diy-guide]] | 2026-04-13 |
+| [[wiki/sources/rag-integration-guide-complete\|RAG Agent Integration — Deploy แล้วต่ออะไรได้บ้าง]] | API Endpoints, MCP สำหรับ Claude Code/Cursor, Open Source Tools, 14 Use Cases (Chat, Search, Form, Report, Email, etc.) | [[wiki/sources/rag-integration-guide-complete]] | 2026-04-13 |
+| [[wiki/sources/rag-client-channels-complete\|RAG Agent — ช่องทางเชื่อมต่อทั้งหมด]] | 14 ช่องทาง (LINE, Slack, Discord, Web, Messenger, Teams, Telegram, WhatsApp, Mobile, Dashboard, Email, Voice, API) พร้อม code ตัวอย่าง | [[wiki/sources/rag-client-channels-complete]] | 2026-04-13 |
 
 ---
 
@@ -77,6 +85,9 @@
 | [[wiki/concepts/langchain-framework\|LangChain Framework]] | General-purpose LLM Framework: Chains, Agents, Memory, Retrievers — Ecosystem 5 ตัว (LangChain, LangGraph, LangSmith, LangServe, Hub), LCEL syntax, Redis Semantic Cache | langchain, rag, llm, agent, chain, lcel, python, typescript |
 | [[wiki/concepts/llamaindex-framework\|LlamaIndex Framework]] | Data Framework สำหรับ RAG: Index, Query, Retrieval — IngestionPipeline + Cache, LlamaParse (PDF ซับซ้อน), 300+ LlamaHub connectors | llamaindex, rag, llm, ingestion-pipeline, python, typescript, llamaparse |
 | [[wiki/concepts/rag-chunking-strategies\|RAG Chunking Strategies]] | วิธีแบ่ง chunks: Fixed-Size, Semantic, Markdown Header, Hierarchical/Parent-Child, Sentence Window — เปรียบเทียบ LangChain vs LlamaIndex | rag, chunking, llamaindex, langchain, semantic-split, hierarchical-split |
+| [[wiki/concepts/llm-large-language-model\|LLM — Large Language Model]] | โมเดล AI ทำนาย "คำถัดไป": Token, Context Window, Temperature, System Prompt, Hallucination, Grounding, Completion vs Chat | llm, ai, nlp, machine-learning, gpt, claude |
+| [[wiki/concepts/ai-agent\|AI Agent]] | ระบบ AI ตัดสินใจเอง: Agent Loop, Tool Selection, Decision Making, ReAct, Plan-and-Execute, Self-Reflection, RAG vs Agent vs Agentic RAG | agent, autonomous, decision-making, tool-calling, planning |
+| [[wiki/concepts/agentic-rag\|Agentic RAG]] | RAG + Agency: LLM เลือก search เอง, loop ได้, decision making 4 จุด, comparison กับ RAG ธรรมดา, implementation examples | rag, agent, agentic, decision-making, llm |
 
 ---
 
