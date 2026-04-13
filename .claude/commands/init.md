@@ -22,14 +22,6 @@ raw/assets/
 wiki/concepts/
 wiki/books/
 wiki/sources/
-wiki/sources/ai-context/
-wiki/sources/frameworks/
-wiki/sources/infrastructure/
-wiki/sources/langchain/
-wiki/sources/observability/
-wiki/sources/policy/
-wiki/sources/rag/
-wiki/sources/sellsuki/
 wiki/synthesis/
 wiki/canvas/
 wiki/bases/
@@ -79,15 +71,7 @@ vault/
 └── wiki/              ← LLM-generated wiki (read by human, written by LLM)
     ├── concepts/      ← concept pages (principles, theories, ideas)
     ├── books/         ← book summary pages
-    ├── sources/       ← per-source summary pages (categorized by topic)
-    │   ├── ai-context/
-    │   ├── frameworks/
-    │   ├── infrastructure/
-    │   ├── langchain/
-    │   ├── observability/
-    │   ├── policy/
-    │   ├── rag/
-    │   └── sellsuki/
+    ├── sources/       ← per-source summary pages (categorized by topic, auto-created)
     └── synthesis/     ← analyses, comparisons, cross-cutting essays
 \```
 
@@ -485,7 +469,7 @@ After completing all steps, show a summary:
 
 Directory structure:
   raw/clips/   raw/books/   raw/notes/   raw/assets/
-  wiki/concepts/   wiki/books/   wiki/sources/ (with category subdirs)   wiki/synthesis/
+  wiki/concepts/   wiki/books/   wiki/sources/ (categories auto-created as needed)   wiki/synthesis/
   .claude/commands/   .claude/skills/
 
 Files created:

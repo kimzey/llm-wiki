@@ -30,9 +30,12 @@ Follow the **wiki-ingest** skill exactly:
    - Track all moves for reporting
 4. Read the source file(s) in full — if processing a folder, process each file sequentially
 5. **Determine wiki category** for the source summary page:
-   - Analyze the raw file location and content
-   - Select appropriate category: `ai-context/`, `frameworks/`, `infrastructure/`, `langchain/`, `observability/`, `policy/`, `rag/`, `sellsuki/`
+   - First, check if raw file is in `raw/notes/{category}/` → use that category
+   - If not, analyze the raw file location and content to determine appropriate category
+   - **Flexible**: Create new categories as needed (e.g., `database/`, `security/`, `frontend/`)
+   - Use lowercase, hyphenated names for consistency
 6. Create wiki/sources/[category]/[slug].md for each source
+   - Create the category directory first if it doesn't exist: `mkdir -p wiki/sources/{category}/`
    - Use **obsidian-markdown** syntax: wikilinks `[[...]]`, callouts `> [!note]`, proper frontmatter property types
    - Note the `[[../../../raw/...]]` link (extra `../` due to subdirectory)
 6. For each concept found:

@@ -106,14 +106,22 @@ Create `wiki/sources/[category]/[slug].md` using the template in CLAUDE.md.
 
 - slug = source filename or title converted to lowercase-hyphens
 - **Determine category subdirectory** by analyzing the raw file location and content:
-  - `ai-context/` — AI context, Claude Code, agents, workflows
-  - `frameworks/` — RAG frameworks (Arona, Haystack, OpenRAG, Langflow)
-  - `infrastructure/` — networking, servers, devops
-  - `langchain/` — LangChain ecosystem (LangChain, LangGraph, LangSmith)
-  - `observability/` — tracing, monitoring, OTel
-  - `policy/` — company policies, HR documents
-  - `rag/` — RAG concepts, LlamaIndex, vector DBs, chunking
-  - `sellsuki/` — Sellsuki-specific documents
+  
+  **Smart defaults (if raw file is already in these subdirectories):**
+  - `raw/notes/ai-context/` → `ai-context/` — AI context, Claude Code, agents, workflows
+  - `raw/notes/frameworks/` → `frameworks/` — RAG frameworks (Arona, Haystack, OpenRAG, Langflow)
+  - `raw/notes/infrastructure/` → `infrastructure/` — networking, servers, devops
+  - `raw/notes/langchain/` → `langchain/` — LangChain ecosystem (LangChain, LangGraph, LangSmith)
+  - `raw/notes/observability/` → `observability/` — tracing, monitoring, OTel
+  - `raw/notes/policy/` → `policy/` — company policies, HR documents
+  - `raw/notes/rag/` → `rag/` — RAG concepts, LlamaIndex, vector DBs, chunking
+  - `raw/notes/sellsuki/` → `sellsuki/` — Sellsuki-specific documents
+  
+  **Flexible (create new categories as needed):**
+  - If raw file is in `raw/notes/{new-category}/` → create matching `wiki/sources/{new-category}/`
+  - If content doesn't fit existing categories → analyze topics → create meaningful category name
+  - Examples: `database/`, `security/`, `frontend/`, `mobile/`, `devops/`, etc.
+  - **Rule**: Use lowercase, hyphenated names (e.g., `machine-learning/` not `MachineLearning/`)
 - Include full frontmatter (title, type, source_file, url, published, tags, related, created, updated)
 - **Required**: include a back-link to the raw source file at the top of the content body
   - Local file: `**Full source**: [[../../../raw/path/to/file.md|Original file]]` (note the extra `../` due to subdirectory)

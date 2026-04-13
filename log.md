@@ -4,6 +4,16 @@
 
 ---
 
+## [2026-04-14] ingest | raw/inbox/bun-runtime.md — Bun Runtime Guide
+
+- **Categorize & Move**: bun-runtime.md → raw/notes/javascript/
+- สร้าง source pages: bun-runtime (1 ไฟล์ — wiki/sources/javascript/)
+- สร้าง concept pages: typescript-programming-language, javascript-runtime, package-manager (3 ไฟล์ใหม่)
+- ครอบคลุมเนื้อหา: Bun Runtime (JavaScript runtime ที่ทันสมัย), Native TypeScript Support (ไม่ต้อง compile), Built-in Package Manager (bun install เร็ว 30x), Built-in SQL Client, File I/O APIs (Bun.file, Bun.env, Bun.write), Performance comparison (Bun vs Node.js vs Deno), Hot Reload (--watch), Migration from Node.js, Clustering, Cron tasks
+- อัปเดต index.md (1 source ใหม่ใน javascript category, 3 concepts ใหม่)
+
+---
+
 ## [2026-04-14] ingest | raw/inbox/hr-policy.md — Sellsuki Corp HR Policy
 
 - **Categorize & Move**: hr-policy.md → raw/notes/policy/

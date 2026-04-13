@@ -1,6 +1,6 @@
 # Index
 
-วันที่อัปเดตล่าสุด: 2026-04-14 (15 — HR Policy added)
+วันที่อัปเดตล่าสุด: 2026-04-14 (19 — Bun Runtime + 3 Concepts added)
 
 ---
 
@@ -8,6 +8,7 @@
 
 | หน้า | สรุปสั้น | Source file | วันที่ |
 |------|----------|-------------|--------|
+| [[wiki/sources/javascript/bun-runtime\|Bun Runtime Guide]] | คู่มีบุนธรรม Bun Runtime - JavaScript runtime ทันสมัย เร็วกว่า Node.js 30 เท่า, native TypeScript support, built-in package manager, SQL client | [[wiki/sources/javascript/bun-runtime]] | 2026-04-14 |
 | [[wiki/sources/infrastructure/network-fundamentals\|พื้นฐาน Network & Infrastructure]] | อธิบายพื้นฐาน Network ตั้งแต่ศูนย์: IP Address, Port, DNS, NAT, Port Forwarding, VPN, Cloudflare Tunnel, SSL, Reverse Proxy, Docker Network, Firewall | [[wiki/sources/infrastructure/network-fundamentals]] | 2026-04-13 |
 | [[wiki/sources/infrastructure/homeserver-admin-knowledge\|Home Server Admin — ความรู้ที่ต้องรู้]] | คู่มือครอบคลุมทุกเรื่อง Home Server (NUC + Ubuntu + Docker): Linux, Docker, Security, Backup, Monitoring, Troubleshooting, Production Checklist | [[wiki/sources/infrastructure/homeserver-admin-knowledge]] | 2026-04-13 |
 | [[wiki/sources/observability/distributed-tracing-context-propagation\|Distributed Tracing & Context Propagation]] | ภาพรวมและ implementation ของ Distributed Tracing + Context Propagation ใน Go พร้อม OTel components ครบ | [[wiki/sources/observability/distributed-tracing-context-propagation]] | 2026-04-13 |
@@ -112,6 +113,9 @@
 
 | หน้า | สรุปสั้น | Tags |
 |------|----------|------|
+| [[wiki/concepts/typescript-programming-language\|TypeScript]] | Superset ของ JavaScript ที่เพิ่ม static typing - catch errors ตั้งแต่ dev time, type inference, generics, decorators | typescript, programming-language, javascript, type-system, microsoft |
+| [[wiki/concepts/javascript-runtime\|JavaScript Runtime]] | JavaScript runtime สำหรับ run code นอก browser - Node.js, Bun, Deno เปรียบเทียบ performance และ features | javascript, runtime, nodejs, bun, deno, v8-engine |
+| [[wiki/concepts/package-manager\|Package Manager]] | เครื่องมือจัดการ dependencies - npm, bun, yarn, pnpm เปรียบเทียบ performance และ use cases | npm, bun, dependency-management, javascript, yarn, pnpm |
 | [[wiki/concepts/ip-address-networking\|IP Address & Networking]] | IP Address 2 ประเภท (Public/Private), NAT, Private IP ranges, โครงสร้างเครือข่ายบ้าน | networking, ip-address, nat, home-server |
 | [[wiki/concepts/port-networking\|Port & Port Forwarding]] | Port คือประตูห้อง, Well-known ports, Port Forwarding (วิธีการ + ความเสี่ยง), เปรียบเทียบ 3 วิธีเข้า server | networking, port, port-forwarding, security |
 | [[wiki/concepts/dns\|DNS — Domain Name System]] | DNS แปลง domain เป็น IP, DNS Records, DNS ของ Home Server ผ่าน Cloudflare | networking, dns, domain, cloudflare |
