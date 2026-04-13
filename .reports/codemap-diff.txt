@@ -1,0 +1,49 @@
+Codemap Generation Report
+Generated: 2026-04-13
+Vault: /Users/kimzey/Desktop/local-valut
+
+=== STATUS: INITIAL GENERATION (no previous codemaps) ===
+
+FILES SCANNED
+  raw/notes/      128 markdown files (10 topic folders)
+  wiki/           12 pages (6 sources, 6 concepts)
+  .claude/        17 files (10 commands, 5 skills, settings, READMEs)
+  root            5 files (CLAUDE.md, index.md, log.md, .gitignore, README)
+  TOTAL           162 files
+
+CODEMAPS CREATED
+  docs/CODEMAPS/architecture.md   — 3-layer system diagram, data flow, link hierarchy
+  docs/CODEMAPS/operations.md     — 10 commands, 5 skills, ingest/query/lint workflows
+  docs/CODEMAPS/schema.md         — page types, frontmatter spec, index/log format, naming
+  docs/CODEMAPS/content-map.md    — current wiki inventory + raw notes not yet ingested
+  docs/CODEMAPS/dependencies.md   — Obsidian, git, qmd, agent config files
+
+NEW CONTENT SINCE LAST SCAN
+  (Initial scan — all files are new)
+
+  Notable recent activity (from log.md):
+  - 2026-04-13: setup — wiki initialized
+  - 2026-04-13: ingest — raw/notes/otel (6 files) → 6 sources + 6 concepts created
+
+ARCHITECTURE OBSERVATIONS
+  - Project type: Personal knowledge base (LLM Wiki pattern), not a software app
+  - No code files. No runtime. Pure markdown + git.
+  - 128 raw files not yet ingested (87% of raw notes unprocessed)
+  - Dominant domain so far: OpenTelemetry / Distributed Systems
+  - Dominant unprocessed domains: RAG, LLM frameworks (LangChain, LlamaIndex, OpenRAG, Arona)
+
+COVERAGE GAPS
+  - wiki/books/    — empty (no book sources ingested yet)
+  - wiki/synthesis/ — empty (no synthesis pages filed yet)
+  - Large raw folders pending: openrag/ (31 files), arona/ (29 files), LangChain/ (18 files)
+
+SUGGESTED NEXT ACTIONS
+  1. /ingest raw/notes/rag-knowledge  — foundational RAG theory (12 files)
+  2. /ingest raw/notes/LangChain      — LangChain framework (18 files)
+  3. /lint                            — health check after first batch of ingests
+  4. Consider /synthesis after ingesting 3+ related topics for cross-framework comparison
+
+STALENESS WARNINGS
+  None — initial generation.
+
+=== END REPORT ===
