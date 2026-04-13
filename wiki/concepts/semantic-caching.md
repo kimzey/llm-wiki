@@ -1,0 +1,111 @@
+---
+title: "Semantic Caching"
+type: concept
+tags: [caching, semantic, vector-search, redis, cost-optimization, rag]
+sources: [arona/README.md, arona/RAG_COMPARISON.md, arona/ARONA_GUIDE.md]
+related: [wiki/concepts/rag-retrieval-augmented-generation.md, wiki/concepts/hybrid-search-bm25-vector.md]
+created: 2026-04-13
+updated: 2026-04-13
+---
+
+## สรุปสั้น
+
+Semantic Caching คือการ cache คำตอบโดยใช้ vector similarity แทน exact string match ถ้าคำถามใหม่มีความหมายใกล้เคียงกับคำถามที่เคยตอบแล้ว (similarity ≥ 90%) ให้ส่งคำตอบเก่ากลับไปเลย โดยไม่ต้องเรียก LLM ใหม่
+
+## อธิบาย
+
+Exact match cache ธรรมดาจะ miss ถ้าผู้ใช้ถามด้วยถ้อยคำต่างกัน:
+- "ลาพักร้อนกี่วัน" ≠ "สิทธิ์ลาพักผ่อนประจำปีกี่วัน" (ในสายตา string comparison)
+- แต่สองคำถามนี้ต้องการ "คำตอบเดียวกัน"
+
+Semantic Cache แก้ปัญหาด้วยการ:
+1. แปลงคำถามเป็น embedding
+2. เปรียบเทียบ cosine similarity กับ embeddings ของคำถามที่เคยถามก่อน
+3. ถ้า similarity ≥ threshold → ส่งคำตอบเก่ากลับไป
+
+### Arona Implementation
+
+```typescript
+// เก็บคำถาม + คำตอบ + embedding
+await redis.hset(key, {
+  prompt: normalizedQuestion,    // คำถามที่ normalize แล้ว
+  response: aiResponse,          // คำตอบ
+  embedding: questionEmbedding   // vector ของคำถาม
+})
+
+// ค้นหาด้วย KNN (K-Nearest Neighbors)
+const result = await redis.call(
+  'FT.SEARCH', 'idx:cache',
+  '*=>[KNN 1 @embedding $vec AS score]',
+  'PARAMS', '2', 'vec', embeddingBuffer
+)
+
+// ตรวจสอบ threshold
+const similarity = 1 - parseFloat(result[2][0][1])  // score → similarity
+return similarity >= 0.9 ? cachedResponse : null     // 90% threshold
+```
+
+### Query Normalization (ก่อน Cache Lookup)
+
+Arona ใช้ small model (GPT OSS 20B) normalize คำถามก่อน:
+- ลบ filler words ("ช่วยบอกหน่อยนะครับ" → ตัดออก)
+- Canonicalize intent ("สร้าง route ยังไง" = "วิธีสร้าง route")
+- ไม่เกิน 12 คำ
+
+วิธีนี้ช่วยให้ semantic cache hit rate สูงขึ้นด้วย
+
+## ประเด็นสำคัญ
+
+### Multi-Layer Cache ใน Arona
+
+| Layer | Storage | TTL | วัตถุประสงค์ |
+|-------|---------|-----|-------------|
+| L1: LRU In-Memory | RAM | 30s–9hr | Burst traffic, exact/near-exact |
+| L2: Semantic Cache | DragonflyDB (Redis Vector) | 4hr | Semantic similarity ≥ 90% |
+| L3: Persistent Redis | DragonflyDB | 3hr–10hr | Exact match persistent |
+
+**Order ของการเช็ค:** L1 → L2 → L3 → AI call
+
+### ประสิทธิผล
+
+- Cache hit rate ของ Arona: 85%+ (รวมทุก layer)
+- LangChain ทั่วไป: ~70%
+- Semantic cache ช่วย hit คำถามที่ "คล้ายกันแต่ต่างคำ"
+
+### ข้อดี-ข้อเสีย
+
+**ข้อดี:**
+- ลดค่าใช้จ่าย LLM อย่างมีนัย
+- ลด latency (cache hit ~10ms vs cache miss ~1300ms)
+- ไม่ต้องการ exact match
+
+**ข้อเสีย:**
+- ต้องการ embedding generation ทุกคำถาม (cost เล็กน้อย)
+- TTL ที่ดีต้องหาเอง (ข้อมูลเปลี่ยนแค่ไหน?)
+- False positive อาจเกิดถ้า threshold ต่ำเกินไป
+
+### DragonflyDB (Redis-compatible + Vector)
+
+Arona ใช้ DragonflyDB แทน Redis ปกติเพราะ:
+- Redis-compatible API ใช้ code เดิมได้
+- รองรับ Vector Search (FT.SEARCH + KNN)
+- ประสิทธิภาพสูงกว่า Redis ในบาง workload
+
+## ตัวอย่าง
+
+```
+คำถาม 1: "ลาพักร้อนกี่วัน?" → AI ตอบ, เก็บ cache
+คำถาม 2: "ลาพักผ่อนประจำปีกี่วัน?" → similarity 0.94 ≥ 0.9 → cache hit!
+คำถาม 3: "สิทธิ์การลาของพนักงาน" → similarity 0.91 ≥ 0.9 → cache hit!
+คำถาม 4: "เงินเดือนได้เมื่อไหร่?" → similarity 0.32 < 0.9 → cache miss → AI call
+```
+
+## ความสัมพันธ์กับ concept อื่น
+
+- [[wiki/concepts/rag-retrieval-augmented-generation|RAG]] — ใช้ semantic cache เป็น optimization layer
+- [[wiki/concepts/hybrid-search-bm25-vector|Hybrid Search]] — vector similarity ใช้หลักการเดียวกัน
+
+## แหล่งที่มา
+
+- [[wiki/sources/arona-overview|Arona System Overview]]
+- [[wiki/sources/arona-rag-techniques|RAG Techniques & Comparison]]

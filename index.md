@@ -22,6 +22,14 @@
 | [[wiki/sources/ai-context-phase6\|AI Context Phase 6: Dispatch System]] | ระบบตัดสินใจของ Claude — ใครเลือก Skill/Agent/Command และทำไมถึงไม่ deterministic | [[wiki/sources/ai-context-phase6]] | 2026-04-13 |
 | [[wiki/sources/ai-context-phase7\|AI Context Phase 7: Global Agents + Practical Manual]] | Global Agents 10 ตัว, Auto Memory, Plan Mode, Context Window + 10 recipes + Troubleshooting | [[wiki/sources/ai-context-phase7]] | 2026-04-13 |
 | [[wiki/sources/ai-context-phase8\|AI Context Phase 8: Deterministic README Generator]] | ออกแบบระบบ AI gen README แบบ deterministic ด้วย Fixed Template + Data Extraction + Constraint Prompting | [[wiki/sources/ai-context-phase8]] | 2026-04-13 |
+| [[wiki/sources/arona-overview\|Arona — ระบบ RAG สำหรับ Elysia Documentation]] | Self-hosted RAG ด้วย ParadeDB + DragonflyDB + GPT OSS ราคา ~$21/เดือน: architecture, tech stack, 7-step request flow, caching 3 ชั้น | [[wiki/sources/arona-overview]] | 2026-04-13 |
+| [[wiki/sources/arona-rag-techniques\|Arona RAG — เทคนิคและการเปรียบเทียบแนวทาง]] | เปรียบเทียบ DIY/LangChain/LlamaIndex/Off-the-shelf + เทคนิค cost optimization: semantic cache, incremental index, hybrid search | [[wiki/sources/arona-rag-techniques]] | 2026-04-13 |
+| [[wiki/sources/arona-vs-langchain\|Arona vs LangChain]] | เปรียบเทียบ DIY vs Framework ทุกมิติ: latency, memory, throughput, security, maintainability — decision matrix | [[wiki/sources/arona-vs-langchain]] | 2026-04-13 |
+| [[wiki/sources/arona-tool-call-agent\|Arona — Tool Call และ Agent Loop]] | กลไก Tool Calling, Agent Loop, stop conditions, Flex Mode (exponential backoff retry) ใน Vercel AI SDK | [[wiki/sources/arona-tool-call-agent]] | 2026-04-13 |
+| [[wiki/sources/arona-stateless-rag\|Stateless RAG — ทำไม Arona ไม่ต้องการ Agent ที่ซับซ้อน]] | ปรัชญา stateless RAG: ไม่เก็บ session ที่ server, scale horizontal ง่าย, เหมาะกับ documentation search | [[wiki/sources/arona-stateless-rag]] | 2026-04-13 |
+| [[wiki/sources/arona-sellsuki-analysis\|วิเคราะห์ RAG สำหรับ Sellsuki]] | feasibility study ใช้ Arona เป็น internal KB สำหรับ HR policy + procedures ผ่าน LINE/Slack/Web | [[wiki/sources/arona-sellsuki-analysis]] | 2026-04-13 |
+| [[wiki/sources/arona-deepdive\|Arona Deep Dive — สถาปัตยกรรมและ Ingestion Pipeline]] | ชุดบทเรียน 4 ตอน: architecture, ingestion pipeline (Extract→Chunk→Plan→Embed→Save), retrieval, security | [[wiki/sources/arona-deepdive]] | 2026-04-13 |
+| [[wiki/sources/arona-learn-series\|Arona Learn Series — ชุดบทเรียน Ingest Pipeline]] | ชุดบทเรียน 14 ตอน เจาะลึก ingest service: chunking, planning (diff-aware), vectorization, storage | [[wiki/sources/arona-learn-series]] | 2026-04-13 |
 
 ---
 
@@ -43,6 +51,10 @@
 | [[wiki/concepts/ai-dispatch-system\|AI Dispatch System]] | กลไกตัดสินใจของ Claude — ไม่มี routing table, ใช้ language understanding อ่าน description เลือก Skill/Agent | dispatch, ai-behavior, non-deterministic |
 | [[wiki/concepts/deterministic-ai-generation\|Deterministic AI Generation]] | แนวทางให้ AI output เหมือนกันทุกครั้ง: Fixed Template + Data Extraction + Constraint Prompting | ai-generation, deterministic, prompt-engineering |
 | [[wiki/concepts/clean-architecture-go\|Clean Architecture in Go]] | สถาปัตยกรรม 4 layer (Entity → UseCase → Repository → Interface) สำหรับ Go microservices | clean-architecture, go, microservices, layered |
+| [[wiki/concepts/rag-retrieval-augmented-generation\|RAG — Retrieval-Augmented Generation]] | เทคนิค AI ค้นหาเอกสารก่อนตอบ: pipeline (Ingest→Retrieve→Generate), chunking, embedding, 3 approaches (DIY/Framework/SaaS) | rag, ai, retrieval, embeddings, vector-search |
+| [[wiki/concepts/hybrid-search-bm25-vector\|Hybrid Search — BM25 + Vector Search]] | รวม keyword search (BM25) กับ semantic search (cosine similarity) ในฐานข้อมูลเดียว: ParadeDB, scoring formula, ทำไมไม่ใช้ re-ranking | search, bm25, vector-search, paradedb, semantic |
+| [[wiki/concepts/semantic-caching\|Semantic Caching]] | cache คำตอบด้วย vector similarity ≥ 90% แทน exact match — ลด LLM cost + latency, DragonflyDB KNN | caching, semantic, vector-search, redis, cost-optimization |
+| [[wiki/concepts/stateless-rag-design\|Stateless RAG Design]] | ออกแบบ RAG ไม่เก็บ session ที่ server: horizontal scale ง่าย, เหมาะกับ documentation search, hybrid client-side history | stateless, rag, scaling, design-philosophy, architecture |
 
 ---
 

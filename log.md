@@ -4,6 +4,13 @@
 
 ---
 
+## [2026-04-13] ingest | raw/notes/arona — Arona RAG System (29 files)
+
+- สร้าง source pages: arona-overview, arona-rag-techniques, arona-vs-langchain, arona-tool-call-agent, arona-stateless-rag, arona-sellsuki-analysis, arona-deepdive, arona-learn-series (8 ไฟล์)
+- สร้าง concept pages: rag-retrieval-augmented-generation, hybrid-search-bm25-vector, semantic-caching, stateless-rag-design (4 ไฟล์)
+- ครอบคลุมเนื้อหา: RAG architecture, Hybrid Search (BM25+Vector), Semantic Caching, Stateless Design, Tool Calling, Agent Loop, Arona vs LangChain comparison, Sellsuki use case
+- อัปเดต index.md (8 sources, 4 concepts ใหม่)
+
 ## [2026-04-13] ingest | raw/notes/ai-context — AI-Assisted Development with Claude Code (8 files)
 
 - สร้าง source pages: ai-context-phase1 ถึง ai-context-phase8 (8 ไฟล์)

@@ -4,17 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "77d9ef93be93ccca",
+        "id": "38941270f4806675",
         "type": "tabs",
         "children": [
           {
-            "id": "a4c2af83d0c1ab69",
+            "id": "b0df7ad48d1ec15d",
             "type": "leaf",
             "state": {
-              "type": "graph",
+              "type": "empty",
               "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "icon": "lucide-file",
+              "title": "New tab"
             }
           }
         ]
@@ -176,8 +176,21 @@
       "bases:Create new base": false
     }
   },
-  "active": "a4c2af83d0c1ab69",
+  "active": "b0df7ad48d1ec15d",
   "lastOpenFiles": [
+    "wiki/sources/ai-context-phase1.md",
+    "wiki/concepts/stateless-rag-design.md",
+    "wiki/concepts/semantic-caching.md",
+    "wiki/concepts/hybrid-search-bm25-vector.md",
+    "wiki/sources/arona-learn-series.md",
+    "wiki/concepts/rag-retrieval-augmented-generation.md",
+    "wiki/sources/arona-deepdive.md",
+    "wiki/sources/arona-sellsuki-analysis.md",
+    "wiki/sources/arona-stateless-rag.md",
+    "wiki/sources/arona-tool-call-agent.md",
+    "wiki/sources/arona-rag-techniques.md",
+    "wiki/sources/arona-vs-langchain.md",
+    "wiki/sources/arona-overview.md",
     "wiki/concepts/clean-architecture-go.md",
     "wiki/concepts/deterministic-ai-generation.md",
     "wiki/concepts/ai-dispatch-system.md",
@@ -191,21 +204,8 @@
     "wiki/sources/ai-context-phase6.md",
     "wiki/sources/ai-context-phase5.md",
     "wiki/sources/ai-context-phase4.md",
-    "wiki/sources/ai-context-phase3.md",
-    "wiki/sources/ai-context-phase2.md",
-    "wiki/sources/ai-context-phase1.md",
-    "README.md",
-    "docs/CODEMAPS/dependencies.md",
-    "docs/CODEMAPS/content-map.md",
-    "docs/CODEMAPS/schema.md",
-    "docs/CODEMAPS/operations.md",
-    "docs/CODEMAPS/architecture.md",
     "docs/CODEMAPS",
     "docs",
-    "wiki/concepts/otel-go-instrumentation.md",
-    "raw/notes/otel/Distributed Tracing & Context Propagation.md",
-    "wiki/concepts/otel-baggage.md",
-    "wiki/concepts/w3c-trace-context.md",
     "raw/notes/arona/learn",
     "raw/notes/arona/deepdive",
     "raw/notes/arona",
