@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "9e7ff55673e9b525",
+        "id": "f743b997363be366",
         "type": "tabs",
         "children": [
           {
-            "id": "90d23bf6579df1fe",
+            "id": "c77e45817f92aedd",
             "type": "leaf",
             "state": {
               "type": "graph",
@@ -169,7 +169,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
@@ -188,8 +188,12 @@
       "remotely-save:Remotely Save": false
     }
   },
-  "active": "90d23bf6579df1fe",
+  "active": "c77e45817f92aedd",
   "lastOpenFiles": [
+    "Untitled.canvas",
+    "2026-04-14.md",
+    "wiki/synthesis/obsidian-skills-reference.md",
+    "index.md",
     "wiki/concepts/package-manager.md",
     "wiki/concepts/javascript-runtime.md",
     "wiki/concepts/typescript-programming-language.md",
@@ -217,11 +221,6 @@
     "raw/notes/frameworks/openrag/docs-lean/phase2-docling.md",
     "wiki/sources/frameworks/openrag-docling-parser.md",
     "wiki/sources/rag/rag-complete-guide-comprehensive.md",
-    "wiki/sources/rag/rag-complete-knowledge.md",
-    "wiki/sources/rag/rag-deep-dive-langchain.md",
-    "wiki/sources/rag/open-source-rag-platforms-research.md",
-    "wiki/sources/rag/open-source-rag-platforms-comparison.md",
-    "Untitled.canvas",
     "wiki/sources/sellsuki",
     "wiki/sources/rag",
     "wiki/sources/policy",
