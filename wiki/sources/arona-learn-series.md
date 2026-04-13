@@ -4,13 +4,13 @@ type: source
 source_file: raw/notes/arona/learn/LEARN.md
 url: ""
 published: 2026-04-13
-tags: [arona, ingestion, chunking, embedding, vectorization, learning]
+tags: [arona, ingestion, extraction, chunking, planning, diff-aware, embedding, vectorization, storage, paradedb, learning]
 related: [wiki/concepts/rag-retrieval-augmented-generation.md, wiki/sources/arona-deepdive.md, wiki/sources/arona-overview.md]
 created: 2026-04-13
 updated: 2026-04-13
 ---
 
-> **Full source**: [[../../raw/notes/arona/learn/LEARN.md|LEARN]] | [[../../raw/notes/arona/learn/LEARN2.md|LEARN2]] – [[../../raw/notes/arona/learn/LEARN14.md|LEARN14]]
+> **Full source**: [[../../raw/notes/arona/learn/LEARN.md|LEARN1]] | [[../../raw/notes/arona/learn/LEARN2.md|LEARN2]] | [[../../raw/notes/arona/learn/LEARN3.md|LEARN3]] | [[../../raw/notes/arona/learn/LEARN4.md|LEARN4]] | [[../../raw/notes/arona/learn/LEARN5.md|LEARN5]] | [[../../raw/notes/arona/learn/LEARN6.md|LEARN6]] | [[../../raw/notes/arona/learn/LEARN7.md|LEARN7]] | [[../../raw/notes/arona/learn/LEARN8.md|LEARN8]] | [[../../raw/notes/arona/learn/LEARN9.md|LEARN9]] | [[../../raw/notes/arona/learn/LEARN10.md|LEARN10]] | [[../../raw/notes/arona/learn/LEARN11.md|LEARN11]] | [[../../raw/notes/arona/learn/LEARN12.md|LEARN12]] | [[../../raw/notes/arona/learn/LEARN13.md|LEARN13]] | [[../../raw/notes/arona/learn/LEARN14.md|LEARN14]]
 
 ## สรุป
 

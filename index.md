@@ -1,6 +1,6 @@
 # Index
 
-วันที่อัปเดตล่าสุด: 2026-04-13 (3)
+วันที่อัปเดตล่าสุด: 2026-04-13 (4)
 
 ---
 
@@ -8,6 +8,7 @@
 
 | หน้า | สรุปสั้น | Source file | วันที่ |
 |------|----------|-------------|--------|
+| [[wiki/sources/homeserver-admin-knowledge\|Home Server Admin — ความรู้ที่ต้องรู้]] | คู่มือครอบคลุมทุกเรื่อง Home Server (NUC + Ubuntu + Docker): Linux, Docker, Security, Backup, Monitoring, Troubleshooting, Production Checklist | [[wiki/sources/homeserver-admin-knowledge]] | 2026-04-13 |
 | [[wiki/sources/distributed-tracing-context-propagation\|Distributed Tracing & Context Propagation]] | ภาพรวมและ implementation ของ Distributed Tracing + Context Propagation ใน Go พร้อม OTel components ครบ | [[wiki/sources/distributed-tracing-context-propagation]] | 2026-04-13 |
 | [[wiki/sources/otel-trace-propagation-migration-guide\|OTel Trace Propagation — Migration Guide]] | คู่มือ migration แก้ trace ขาดใน Go services (gRPC, HTTP) พร้อม diff-style code ทุกกรณี | [[wiki/sources/otel-trace-propagation-migration-guide]] | 2026-04-13 |
 | [[wiki/sources/opentelemetry-deep-dive\|OpenTelemetry — Deep Dive]] | คู่มือ Deep Dive ครบทุก layer ของ OTel: observability, 3 pillars, architecture, sampling, Jaeger | [[wiki/sources/opentelemetry-deep-dive]] | 2026-04-13 |
@@ -80,6 +81,11 @@
 
 | หน้า | สรุปสั้น | Tags |
 |------|----------|------|
+| [[wiki/concepts/docker-containers\|Docker Containers]] | Containerization technology สำหรับ deploy app: Image, Container, Docker Compose, Best Practices, Security, Monitoring | docker, containers, orchestration, devops |
+| [[wiki/concepts/linux-system-administration\|Linux System Administration]] | จัดการ Linux server ผ่าน command line: file management, permissions, processes, networking, systemd, troubleshooting | linux, sysadmin, command-line, ubuntu |
+| [[wiki/concepts/server-security\|Server Security]] | Security hardening ทีละชั้น: SSH hardening, Firewall (UFW), Fail2ban, Automatic Updates, SSL Certificates, Monitoring | security, hardening, ssh, firewall, fail2ban |
+| [[wiki/concepts/backup-strategy\|Backup Strategy]] | 3-2-1 backup rule: automated scripts, cloud sync (rclone), retention policies, disaster recovery, testing restores | backup, 3-2-1-rule, disaster-recovery, rclone |
+| [[wiki/concepts/systemd-services\|Systemd Services]] | Service management บน Ubuntu: systemctl, journalctl, custom services, timers, resource limits, troubleshooting | systemd, services, process-management, ubuntu |
 | [[wiki/concepts/distributed-tracing\|Distributed Tracing]] | ระบบติดตาม request ข้ามหลาย service — Trace, Span, TraceID, SpanID, waterfall view | distributed-tracing, microservices, jaeger |
 | [[wiki/concepts/context-propagation\|Context Propagation]] | กลไก inject/extract TraceID ข้าม service ผ่าน network header — TextMapPropagator, TextMapCarrier | context-propagation, textmappropagator, w3c |
 | [[wiki/concepts/opentelemetry\|OpenTelemetry]] | vendor-neutral framework สำหรับ traces, metrics, logs — 3 pillars of observability, OTel Collector | opentelemetry, observability, otel-collector |

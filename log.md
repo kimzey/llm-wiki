@@ -4,6 +4,13 @@
 
 ---
 
+## [2026-04-13] ingest | raw/notes/homeserver-knowledge — Home Server Admin
+
+- สร้าง source pages: homeserver-admin-knowledge (1 ไฟล์)
+- สร้าง concept pages: docker-containers, linux-system-administration, server-security, backup-strategy, systemd-services (5 ไฟล์)
+- ครอบคลุมเนื้อหา: Linux Command Line (files, permissions, processes, networking), Docker (containers, compose, images, volumes), Systemd (services, journalctl, timers), Security (SSH hardening, UFW, Fail2ban, automatic updates), Backup Strategy (3-2-1 rule, scripts, rclone, cloud sync), Log Management, Performance Tuning, Crontab, Environment Variables, Git for Config Management, SSL Certificates, Troubleshooting, Monitoring, Update Strategy, Gotchas, Production Checklist
+- อัปเดต index.md (1 source, 5 concepts ใหม่)
+
 ## [2026-04-13] ingest | raw/notes/Hetstack — Haystack Deep Dive (11 files)
 
 - สร้าง source pages: haystack-phase1-overview, haystack-phase2-indexing, haystack-phase3-retrieval, haystack-phase4-advanced, haystack-phase5-production, haystack-phase6-observability (6 ไฟล์ — grouped by phase)
