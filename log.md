@@ -4,6 +4,14 @@
 
 ---
 
+## [2026-04-13] ingest | raw/notes/Hetstack — Haystack Deep Dive (11 files)
+
+- สร้าง source pages: haystack-phase1-overview, haystack-phase2-indexing, haystack-phase3-retrieval, haystack-phase4-advanced, haystack-phase5-production, haystack-phase6-observability (6 ไฟล์ — grouped by phase)
+- สร้าง concept pages: haystack-framework, rag-evaluation (2 ไฟล์)
+- อัปเดต concept pages: hybrid-search-bm25-vector (เพิ่ม Haystack RRF implementation details)
+- ครอบคลุมเนื้อหา: Haystack 2.x architecture (Component-Pipeline-DocumentStore), Indexing/Query Pipeline, BM25+Semantic+Hybrid Search (RRF), Cross-encoder Ranker, Custom Components, Agent Systems, Conversational RAG, Evaluation (RAGAS/Faithfulness), Hayhooks API, Langfuse/OTel observability, Production stack
+- อัปเดต index.md (6 sources, 2 concepts ใหม่)
+
 ## [2026-04-13] ingest | raw/notes/central-component — Sellsuki Components Library (4 files)
 
 - สร้าง source pages: sellsuki-design-tokens-service, sellsuki-design-tokens-flow, sellsuki-design-tokens-reference, sellsuki-components-docs (4 ไฟล์)

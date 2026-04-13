@@ -34,6 +34,12 @@
 | [[wiki/sources/sellsuki-design-tokens-flow\|Sellsuki Design Tokens — Flow การทำงาน]] | อธิบาย separation of concerns: CSS Variables (runtime) vs TypeScript Types (devtime), checklist เพิ่ม token ใหม่ | [[wiki/sources/sellsuki-design-tokens-flow]] | 2026-04-13 |
 | [[wiki/sources/sellsuki-design-tokens-reference\|Sellsuki Design Tokens — Spacing System Reference]] | token reference ครบ: spacing 21 levels, border-radius 11, border-width 4 + migration guide จาก px + best practices | [[wiki/sources/sellsuki-design-tokens-reference]] | 2026-04-13 |
 | [[wiki/sources/sellsuki-components-docs\|Sellsuki Components — Service Documentation]] | Web Components Library (Lit+TS): architecture, 3 core systems (Theme/I18n/Toast), 30+ component catalog, usage guide | [[wiki/sources/sellsuki-components-docs]] | 2026-04-13 |
+| [[wiki/sources/haystack-phase1-overview\|Haystack Phase 1 — รู้จัก Haystack & Core Concepts]] | Haystack framework intro: Component-Pipeline-DocumentStore architecture, Haystack 2.x, Hello World RAG, เปรียบเทียบกับ LangChain/LlamaIndex | [[wiki/sources/haystack-phase1-overview]] | 2026-04-13 |
+| [[wiki/sources/haystack-phase2-indexing\|Haystack Phase 2 — Document Processing & Indexing Pipeline]] | File converters (PDF/HTML/DOCX), DocumentCleaner, DocumentSplitter (chunk strategies + overlap), Embedding models สำหรับไทย | [[wiki/sources/haystack-phase2-indexing]] | 2026-04-13 |
+| [[wiki/sources/haystack-phase3-retrieval\|Haystack Phase 3 — Embedding, Retrievers & Query Pipeline]] | BM25/Semantic/Hybrid Retrieval, DocumentJoiner(RRF), Cross-encoder Ranker, Metadata Filtering, PromptBuilder (Jinja2), Generators | [[wiki/sources/haystack-phase3-retrieval]] | 2026-04-13 |
+| [[wiki/sources/haystack-phase4-advanced\|Haystack Phase 4 — Advanced Features (Agents, Routers, Conversational RAG)]] | Custom Components (@component), Routers, Agent+ToolInvoker loop, Conversational RAG + history, Streaming, YAML serialization | [[wiki/sources/haystack-phase4-advanced]] | 2026-04-13 |
+| [[wiki/sources/haystack-phase5-production\|Haystack Phase 5 — Custom Components, Production & Integrations]] | FastAPI integration, RAG Evaluation (RAGAS), Caching, Ollama/Bedrock/Gemini/pgvector integrations, component selection guide | [[wiki/sources/haystack-phase5-production]] | 2026-04-13 |
+| [[wiki/sources/haystack-phase6-observability\|Haystack Phase 6 — API, Auth, Observability & Ecosystem]] | Hayhooks API serving, JWT/RBAC auth, Langfuse tracing, OTel, Prometheus+Grafana, Guardrails, Haystack vs LangChain ตรงๆ | [[wiki/sources/haystack-phase6-observability]] | 2026-04-13 |
 
 ---
 
@@ -61,6 +67,8 @@
 | [[wiki/concepts/stateless-rag-design\|Stateless RAG Design]] | ออกแบบ RAG ไม่เก็บ session ที่ server: horizontal scale ง่าย, เหมาะกับ documentation search, hybrid client-side history | stateless, rag, scaling, design-philosophy, architecture |
 | [[wiki/concepts/design-tokens\|Design Tokens]] | ค่า design decisions ในรูปตัวแปร CSS/TS: 2-tier architecture (Primitive→Semantic), Single Source of Truth, ทำให้แก้ค่าจากจุดเดียว | design-tokens, css-variables, design-system, frontend |
 | [[wiki/concepts/web-components-lit\|Web Components & Lit Framework]] | Web Standard สำหรับ custom elements ที่ใช้ได้ทุก framework: Shadow DOM, Reactive Properties, Context System, Slot Pattern | web-components, lit, shadow-dom, framework-agnostic |
+| [[wiki/concepts/haystack-framework\|Haystack Framework]] | Open-source Python framework สร้าง Production-ready AI Search & RAG Pipelines: Component-Pipeline-DocumentStore, type-safe, YAML serializable | haystack, rag, pipeline, nlp, deepset, python |
+| [[wiki/concepts/rag-evaluation\|RAG Evaluation]] | วัดคุณภาพ RAG 3 มิติ: Retrieval (Context Relevance, MRR), Generation (Faithfulness), End-to-end (Exact Match, SAS) — tools: RAGAS, Langfuse | rag, evaluation, faithfulness, ragas, llm-judge |
 
 ---
 

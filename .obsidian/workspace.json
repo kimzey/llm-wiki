@@ -4,17 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "0d2afc3cb73931b7",
+        "id": "9d61405fc77a5788",
         "type": "tabs",
         "children": [
           {
-            "id": "2a111bdfef43c74f",
+            "id": "ea630eead8502cdd",
             "type": "leaf",
             "state": {
-              "type": "empty",
+              "type": "graph",
               "state": {},
-              "icon": "lucide-file",
-              "title": "New tab"
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
             }
           }
         ]
@@ -90,7 +90,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "wiki/sources/ai-context-phase1.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -100,7 +99,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for ai-context-phase1"
+              "title": "Backlinks"
             }
           },
           {
@@ -109,12 +108,11 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "wiki/sources/ai-context-phase1.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from ai-context-phase1"
+              "title": "Outgoing links"
             }
           },
           {
@@ -152,13 +150,12 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "wiki/sources/ai-context-phase1.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of ai-context-phase1"
+              "title": "Outline"
             }
           },
           {
@@ -171,12 +168,12 @@
               "title": "Source Control"
             }
           }
-        ],
-        "currentTab": 5
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -190,8 +187,18 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "a7aed7e1bdb20ea9",
+  "active": "ea630eead8502cdd",
   "lastOpenFiles": [
+    "wiki/concepts/rag-evaluation.md",
+    "wiki/concepts/haystack-framework.md",
+    "index.md",
+    "wiki/sources/haystack-phase6-observability.md",
+    "wiki/sources/haystack-phase5-production.md",
+    "wiki/sources/haystack-phase4-advanced.md",
+    "wiki/sources/haystack-phase3-retrieval.md",
+    "wiki/sources/arona-learn-series.md",
+    "wiki/sources/haystack-phase2-indexing.md",
+    "wiki/sources/haystack-phase1-overview.md",
     "wiki/sources/ai-context-phase1.md",
     "wiki/concepts/web-components-lit.md",
     "wiki/concepts/design-tokens.md",
@@ -202,22 +209,12 @@
     "wiki/concepts/stateless-rag-design.md",
     "wiki/concepts/semantic-caching.md",
     "wiki/concepts/hybrid-search-bm25-vector.md",
-    "wiki/sources/arona-learn-series.md",
     "wiki/concepts/rag-retrieval-augmented-generation.md",
     "wiki/sources/arona-deepdive.md",
     "wiki/sources/arona-sellsuki-analysis.md",
     "wiki/sources/arona-stateless-rag.md",
     "wiki/sources/arona-tool-call-agent.md",
     "wiki/sources/arona-rag-techniques.md",
-    "wiki/sources/arona-vs-langchain.md",
-    "wiki/sources/arona-overview.md",
-    "wiki/concepts/clean-architecture-go.md",
-    "wiki/concepts/deterministic-ai-generation.md",
-    "wiki/concepts/ai-dispatch-system.md",
-    "wiki/concepts/ai-hooks-system.md",
-    "wiki/concepts/mcp-model-context-protocol.md",
-    "wiki/concepts/commands-and-skills.md",
-    "wiki/concepts/ai-agents-system.md",
     "docs/CODEMAPS",
     "docs",
     "raw/notes/arona/learn",

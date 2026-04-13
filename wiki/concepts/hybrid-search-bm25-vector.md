@@ -2,8 +2,8 @@
 title: "Hybrid Search — BM25 + Vector Search"
 type: concept
 tags: [search, bm25, vector-search, paradedb, full-text-search, semantic-search, pgvector]
-sources: [arona/README.md, arona/ARONA_GUIDE.md, arona/RAG_COMPARISON.md]
-related: [wiki/concepts/rag-retrieval-augmented-generation.md, wiki/concepts/semantic-caching.md]
+sources: [arona/README.md, arona/ARONA_GUIDE.md, arona/RAG_COMPARISON.md, haystack-phase3-embedding-retrieval.md, haystack-phase3-query-pipeline.md]
+related: [wiki/concepts/rag-retrieval-augmented-generation.md, wiki/concepts/semantic-caching.md, wiki/concepts/haystack-framework.md]
 created: 2026-04-13
 updated: 2026-04-13
 ---
@@ -106,13 +106,36 @@ Vector finds: docs ที่มีความหมาย "endpoint", "path", "
 Hybrid: รวมทั้งสองชุด, เรียงตาม combined score
 ```
 
+## Haystack Implementation
+
+Haystack implement Hybrid Search ด้วย **DocumentJoiner + Reciprocal Rank Fusion (RRF)**:
+```python
+pipeline.add_component("bm25_retriever",      InMemoryBM25Retriever(store, top_k=10))
+pipeline.add_component("embedding_retriever", InMemoryEmbeddingRetriever(store, top_k=10))
+pipeline.add_component("joiner", DocumentJoiner(
+    join_mode="reciprocal_rank_fusion",  # แนะนำ: ใช้ลำดับ ranking แทน raw score
+    top_k=5
+))
+```
+
+**join_mode options:**
+| mode | คำอธิบาย |
+|---|---|
+| `concatenate` | รวมทั้งหมด ไม่ปรับ score |
+| `merge` | เฉลี่ย score ของ doc ที่ซ้ำ |
+| `reciprocal_rank_fusion` | ใช้ลำดับ ranking — **แนะนำสุด** |
+
+หลัง Join สามารถต่อด้วย **TransformersSimilarityRanker** (cross-encoder) เพื่อ re-rank ให้แม่นยำขึ้นอีก
+
 ## ความสัมพันธ์กับ concept อื่น
 
-- [[wiki/concepts/rag-retrieval-augmented-generation|RAG]] — ขั้นตอน Retrieval ของ RAG pipeline
-- [[wiki/concepts/semantic-caching|Semantic Caching]] — cache ด้วย vector similarity คล้ายกัน
+- [[wiki/concepts/rag-retrieval-augmented-generation.md|RAG]] — ขั้นตอน Retrieval ของ RAG pipeline
+- [[wiki/concepts/semantic-caching.md|Semantic Caching]] — cache ด้วย vector similarity คล้ายกัน
+- [[wiki/concepts/haystack-framework.md|Haystack Framework]] — implementation ด้วย DocumentJoiner(RRF)
 
 ## แหล่งที่มา
 
-- [[wiki/sources/arona-overview|Arona System Overview]]
-- [[wiki/sources/arona-rag-techniques|RAG Techniques & Comparison]]
-- [[wiki/sources/arona-vs-langchain|Arona vs LangChain]]
+- [[wiki/sources/arona-overview.md|Arona System Overview]]
+- [[wiki/sources/arona-rag-techniques.md|RAG Techniques & Comparison]]
+- [[wiki/sources/arona-vs-langchain.md|Arona vs LangChain]]
+- [[wiki/sources/haystack-phase3-retrieval.md|Haystack Phase 3 — Embedding & Retrieval]]
