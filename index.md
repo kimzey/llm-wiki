@@ -1,6 +1,6 @@
 # Index
 
-วันที่อัปเดตล่าสุด: 2026-04-13 (5)
+วันที่อัปเดตล่าสุด: 2026-04-13 (7)
 
 ---
 
@@ -75,6 +75,23 @@
 | [[wiki/sources/multi-agent-deep-dive\|Multi-Agent Systems Deep Dive]] | สร้าง Agent หลายตัวทำงานร่วมกัน: patterns 5 แบบ, shared state, examples | [[wiki/sources/multi-agent-deep-dive]] | 2026-04-13 |
 | [[wiki/sources/deployment-deep-dive\|Deployment Deep Dive]] | Deploy Agent ขึ้น Cloud: LangServe, LangGraph Platform, FastAPI, Docker, CI/CD | [[wiki/sources/deployment-deep-dive]] | 2026-04-13 |
 | [[wiki/sources/advanced-rag-deep-dive\|Advanced RAG Deep Dive]] | Hybrid Search, Re-ranking, Multi-query และเทคนิคขั้นสูงทั้งหมด | [[wiki/sources/advanced-rag-deep-dive]] | 2026-04-13 |
+| [[wiki/sources/openrag-platform-overview\|OpenRAG Platform Overview & Architecture]] | OpenRAG open-source RAG platform: 5 services (Backend/Langflow/OpenSearch/Docling/Frontend), 2 data flows, access control, multi-LLM, Sellsuki use case | [[wiki/sources/openrag-platform-overview]] | 2026-04-13 |
+| [[wiki/sources/openrag-docling-parser\|OpenRAG — Docling AI Document Parser]] | Docling จาก IBM Research: AI-powered layout analysis (DocLayNet), table recognition (TableFormer), OCR, รองรับ PDF/DOCX/PPTX ข้อจำกัด | [[wiki/sources/openrag-docling-parser]] | 2026-04-13 |
+| [[wiki/sources/openrag-opensearch-vector-db\|OpenRAG — OpenSearch Vector Database]] | OpenSearch ทำ 4 อย่าง: Vector DB, Full-text Search, Semantic Search, Access Control — KNN disk_ann, Row-level Security ผ่าน DLS | [[wiki/sources/openrag-opensearch-vector-db]] | 2026-04-13 |
+| [[wiki/sources/openrag-langflow-workflow\|OpenRAG — Langflow Visual Workflow Engine]] | Langflow เป็น AI Pipeline Engine: 4 flows, Backend vs Langflow separation, tweaks API, streaming, auto-initialization | [[wiki/sources/openrag-langflow-workflow]] | 2026-04-13 |
+| [[wiki/sources/openrag-integration-scenarios\|OpenRAG — Integration Scenarios & Full Stack]] | Scenarios จริง: Ingest HR Policy, Employee Chat, Public API v1, Knowledge Filters, Google Drive Connector, Troubleshooting | [[wiki/sources/openrag-integration-scenarios]] | 2026-04-13 |
+| [[wiki/sources/openrag-config-cost-models\|OpenRAG — Configuration, Cost & Model Selection]] | config.yaml structure, LLM/Embedding models ครบ, cost ต่อเดือน (gpt-4o-mini ~$9), Ollama setup, decision framework, feature flags | [[wiki/sources/openrag-config-cost-models]] | 2026-04-13 |
+| [[wiki/sources/openrag-chunking-ingestion\|OpenRAG — Chunking System & Document Ingestion]] | Multi-layer chunking: Docling (page+table), SplitText, Token Batching — Best practices เอกสาร Tier 1/2/3, checklist go-live | [[wiki/sources/openrag-chunking-ingestion]] | 2026-04-13 |
+| [[wiki/sources/openrag-cache-analysis\|OpenRAG — Cache System Analysis]] | Built-in cache (utility only) vs Missing cache (Query/Embedding/LLM) — Impact analysis, 3 levels ของ cache implementation | [[wiki/sources/openrag-cache-analysis]] | 2026-04-13 |
+| [[wiki/sources/openrag-rag-spike-research\|RAG Spike Research — Vector DB & Chunking]] | Spike 2026-03-18: pgvector vs OpenSearch vs Qdrant, chunking strategies, metadata schema, findings จาก OpenRAG source code | [[wiki/sources/openrag-rag-spike-research]] | 2026-04-13 |
+| [[wiki/sources/openrag-document-update-guide\|OpenRAG — Document Update Guide]] | คู่มือ update เอกสาร: SHA256 hash deduplication, replace_duplicates, Delete-All-Reindex-All, 4 scenarios, weekly automation | [[wiki/sources/openrag-document-update-guide]] | 2026-04-13 |
+| [[wiki/sources/openrag-ingestion-paths\|OpenRAG — Ingestion Paths & Chunking Analysis]] | 2 paths (Langflow vs Backend Python), CharacterTextSplitter analysis, MD file behavior, component breakdown | [[wiki/sources/openrag-ingestion-paths]] | 2026-04-13 |
+| [[wiki/sources/openrag-access-control-rbac\|OpenRAG — Access Control & RBAC Deep Dive]] | DLS policy analysis, allowed_groups gap (ไม่ถูก enforce), RBAC patterns, 3 fix options (JWT groups/Webhook/User-only) | [[wiki/sources/openrag-access-control-rbac]] | 2026-04-13 |
+| [[wiki/sources/openrag-data-ingestion-channels\|OpenRAG — Data Ingestion Channels]] | 8 channels: UI/Server Path/S3/Google Drive/OneDrive/SharePoint/URL/REST API — webhook auto-sync, batch upload patterns | [[wiki/sources/openrag-data-ingestion-channels]] | 2026-04-13 |
+| [[wiki/sources/openrag-flow-payloads\|OpenRAG — Flow Payloads & Permission Architecture]] | 4 Langflow flows headers/body/tweaks, permission layers (Backend→Langflow→OpenSearch), bypass analysis | [[wiki/sources/openrag-flow-payloads]] | 2026-04-13 |
+| [[wiki/sources/openrag-organization-deployment\|OpenRAG — Organization Deployment Guide]] | 3-step setup, .env, Onboarding Wizard, role-based access patterns, maintenance schedule, go-live checklist | [[wiki/sources/openrag-organization-deployment]] | 2026-04-13 |
+| [[wiki/sources/openrag-sdk-reference\|OpenRAG SDK Reference]] | TypeScript/Python SDK 0.2.0 — OpenRAGClient sub-clients (chat/search/documents/settings/models/knowledgeFilters), streaming, update patterns | [[wiki/sources/openrag-sdk-reference]] | 2026-04-13 |
+| [[wiki/sources/open-source-rag-platforms-comparison\|Open Source RAG Platforms — Deep Dive Comparison]] | RAGFlow/Dify/AnythingLLM/Danswer/PrivateGPT/Kotaemon/Verba/Flowise/Langflow comparison: chunking, retrieval, architecture, decision guide | [[wiki/sources/open-source-rag-platforms-comparison]] | 2026-04-13 |
 
 ---
 
@@ -122,6 +139,10 @@
 | [[wiki/concepts/llm-large-language-model\|LLM — Large Language Model]] | โมเดล AI ทำนาย "คำถัดไป": Token, Context Window, Temperature, System Prompt, Hallucination, Grounding, Completion vs Chat | llm, ai, nlp, machine-learning, gpt, claude |
 | [[wiki/concepts/ai-agent\|AI Agent]] | ระบบ AI ตัดสินใจเอง: Agent Loop, Tool Selection, Decision Making, ReAct, Plan-and-Execute, Self-Reflection, RAG vs Agent vs Agentic RAG | agent, autonomous, decision-making, tool-calling, planning |
 | [[wiki/concepts/agentic-rag\|Agentic RAG]] | RAG + Agency: LLM เลือก search เอง, loop ได้, decision making 4 จุด, comparison กับ RAG ธรรมดา, implementation examples | rag, agent, agentic, decision-making, llm |
+| [[wiki/concepts/openrag-platform\|OpenRAG Platform]] | Open-Source RAG Platform ครบวงจร: 5 services, Document-level RBAC, Multi-LLM, Knowledge Filters, Evaluation built-in | openrag, rag, platform, self-hosted, langflow, opensearch |
+| [[wiki/concepts/docling-document-parser\|Docling Document Parser]] | AI Document Parser จาก IBM Research: DocLayNet layout analysis, TableFormer table recognition, OCR หลายภาษา | docling, document-parser, ocr, pdf, ibm-research |
+| [[wiki/concepts/langflow-visual-workflow\|Langflow Visual Workflow Builder]] | Open-Source Visual AI Workflow Builder: Drag-and-Drop pipeline, export เป็น API, built on LangChain, MCP integration | langflow, visual-workflow, pipeline, no-code, rag |
+| [[wiki/concepts/open-source-rag-platforms\|Open Source RAG Platforms]] | 3 ประเภท: Application (RAGFlow/Dify/AnythingLLM), Low-Code Builder (Flowise/Langflow), Framework (LangChain/LlamaIndex/Haystack) — comparison tables + decision guide | rag, open-source, ragflow, dify, anythingllm, comparison |
 
 ---
 

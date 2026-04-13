@@ -2,8 +2,8 @@
 title: "RAG Chunking Strategies"
 type: concept
 tags: [rag, chunking, llamaindex, langchain, semantic-split, hierarchical-split]
-sources: [rag-decision-guide.md, llamaindex-deep-dive.md, llamaindex-full-guide.md, langchain-llamaindex-deep-dive.md, langchain-rag-guide.md]
-related: [wiki/concepts/rag-retrieval-augmented-generation.md, wiki/concepts/llamaindex-framework.md, wiki/concepts/langchain-framework.md]
+sources: [rag-decision-guide.md, llamaindex-deep-dive.md, llamaindex-full-guide.md, langchain-llamaindex-deep-dive.md, langchain-rag-guide.md, chunking.md, spike-rag-research-summary.md]
+related: [wiki/concepts/rag-retrieval-augmented-generation.md, wiki/concepts/llamaindex-framework.md, wiki/concepts/langchain-framework.md, wiki/concepts/openrag-platform.md]
 created: 2026-04-13
 updated: 2026-04-13
 ---
@@ -269,9 +269,59 @@ chunk_overlap=64,  # 64 characters/tokens
 - [[wiki/concepts/llamaindex-framework|LlamaIndex]] — มี NodeParsers หลากหลายกว่า
 - [[wiki/concepts/langchain-framework|LangChain]] — มี TextSplitters พื้นฐานครบ
 
+---
+
+### OpenRAG Multi-Layer Chunking (Production Pattern)
+
+OpenRAG ใช้ chunking หลายชั้นซ้อนกัน:
+
+**Layer 1: Docling** (page-aware + table-aware)
+- แต่ละหน้า PDF = 1 chunk, แต่ละตาราง = 1 chunk แยก
+
+**Layer 2: SplitText (Langflow)** (recursive character, default chunk_size=1000, overlap=200)
+- ทำงานบน text ที่ผ่าน Docling มาแล้ว
+
+**Layer 3: Token Batching** (สำหรับ Embedding API)
+- จัดกลุ่ม chunks ≤ 8,000 tokens/batch ด้วย tiktoken
+
+**Config Priority:** Per-request tweaks > CHUNK_SIZE env > config.yaml
+
+**ค่า Default ตามประเภท (OpenRAG):**
+```
+Policy/Procedure:    chunk_size=1000, overlap=200
+FAQ/Q&A:            chunk_size=400,  overlap=50
+Technical Docs:      chunk_size=1500, overlap=300
+Product Catalog:     chunk_size=500,  overlap=100
+```
+
+**ข้อจำกัดสำคัญ:** Plain text chunking ไม่มี overlap, ไม่รองรับ semantic chunking, เปลี่ยน chunk_size หลัง index → ต้อง re-ingest ทั้งหมด
+
+**Splitter ที่ OpenRAG ใช้จริง: `CharacterTextSplitter`** (ไม่ใช่ Recursive)
+
+```python
+# SplitText node ใน Langflow (node ID: SplitText-QIKhg)
+CharacterTextSplitter(
+    chunk_size=1000,
+    chunk_overlap=200,
+    separator="\n",   # single separator เท่านั้น
+)
+```
+
+ข้อควรระวัง:
+- ตัด table กลาง (header กับ data rows อาจแยก chunk)
+- ตัด code block กลาง (` ```python ` กับ ` ``` ` อาจแยก)
+- LangChain เองแนะนำ `RecursiveCharacterTextSplitter` เป็น default
+
+แก้ได้: เปลี่ยน separator ใน Langflow UI จาก `\n` → `\n\n`
+
+---
+
 ## แหล่งที่มา
 
 - [[wiki/sources/rag-decision-guide|RAG Framework Decision Guide — Sellsuki]]
 - [[wiki/sources/llamaindex-deep-dive|LlamaIndex & RAG Deep Dive]]
 - [[wiki/sources/langchain-llamaindex-deep-dive|LangChain & LlamaIndex — Deep Dive Complete Guide]]
 - [[wiki/sources/langchain-rag-guide|LangChain, RAG & Sellsuki Knowledge Base]]
+- [[wiki/sources/openrag-chunking-ingestion|OpenRAG — Chunking System & Document Ingestion]]
+- [[wiki/sources/openrag-rag-spike-research|RAG Spike Research]]
+- [[wiki/sources/openrag-ingestion-paths|OpenRAG — Ingestion Paths & Chunking Analysis]]

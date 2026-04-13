@@ -96,3 +96,56 @@
 - อัปเดต concept pages: langchain-framework, ai-agent, agentic-rag (เพิ่ม sources จาก tutorial)
 - ครอบคลุมเนื้อหา: LangChain พื้นฐาน (Model, Messages, Prompt Templates), Tools & Agents (@tool decorator, bind_tools, create_agent, ReAct Loop), RAG pipeline (Load→Split→Embed→Store→Retrieve→Generate), LangGraph (State, Nodes, Edges, Checkpointing, Human-in-the-Loop), Advanced RAG (Hybrid Search, Re-ranking, Multi-query, Conversational RAG), Multi-Agent Systems (Supervisor, Handoff, Pipeline patterns), Evaluation (Phoenix, LangFuse, Rule-based, LLM-as-Judge), Deployment (LangServe, FastAPI, Docker, Cloud Deploy), Lang Ecosystem (LangChain, LangGraph, LangSmith, LangServe, LangChain.js)
 - อัปเดต index.md (16 sources ใหม่)
+
+## [2026-04-13] ingest | raw/notes/openrag — remaining files (round 2)
+
+- สร้าง source pages ใหม่ 8 ไฟล์:
+  - openrag-document-update-guide (จาก docs-lean/data-update-guide.md)
+  - openrag-ingestion-paths (จาก docs-lean/ingestion-flow-explained.md + ingestion-two-paths-explained.md + md-file-and-splitter-analysis.md)
+  - openrag-access-control-rbac (จาก docs-lean/openrag-allowed-groups-google.md + pipeline-and-rbac-deep-dive.md)
+  - openrag-data-ingestion-channels (จาก docs-lean/openrag-data-ingestion-guide.md)
+  - openrag-flow-payloads (จาก docs-lean/openrag-flows-payload-permission.md + openrag-langflow-flows-guide.md)
+  - openrag-organization-deployment (จาก docs-lean/openrag-organization-guide.md + org-rag-guide.md)
+  - openrag-sdk-reference (จาก docs-lean/sdk.md)
+  - open-source-rag-platforms-comparison (จาก open-rag-deep-dive.md)
+- สร้าง concept pages ใหม่ 1 ไฟล์:
+  - open-source-rag-platforms (RAGFlow, Dify, AnythingLLM, Danswer, PrivateGPT, Kotaemon — comparison tables)
+- อัปเดต concept pages:
+  - openrag-platform (เพิ่ม 8 Ingestion Channels, Document Update Mechanism, SDK overview, RBAC Gap analysis)
+  - rag-chunking-strategies (เพิ่ม CharacterTextSplitter analysis)
+- ครอบคลุมเนื้อหา: SHA256 hash deduplication, Delete-All-Reindex-All update mechanism, CharacterTextSplitter (separator="\n") analysis vs RecursiveCharacterTextSplitter, MD file table/code cutting issues, 2 ingestion paths (Langflow vs Backend Python), 8 ingestion channels (UI/S3/Google Drive/OneDrive/SharePoint/URL/REST API), 4 Langflow flows payload structure, DLS policy gap (allowed_groups ไม่ถูก enforce), 3 RBAC fix options, Organization setup (.env/Onboarding Wizard/maintenance), SDK 0.2.0 (TypeScript/Python), Open Source RAG platform comparison (3 types + decision guide)
+- ข้ามไฟล์ที่ซ้ำกัน (LangChain): langchain_basics.md, langchain_component_explained.md, langchain_full.md, langchain-llamaindex-deep-dive.md (เนื้อหาซ้ำกับ wiki ที่มีอยู่แล้ว)
+- อัปเดต index.md (8 sources + 1 concept ใหม่)
+
+## [2026-04-13] ingest | raw/notes/openrag — OpenRAG Platform (31 files)
+
+- สร้าง source pages ใหม่ 9 ไฟล์:
+  - openrag-platform-overview (จาก README + openrag_guide.md + phase1-overview.md)
+  - openrag-docling-parser (จาก phase2-docling.md)
+  - openrag-opensearch-vector-db (จาก phase3-opensearch.md)
+  - openrag-langflow-workflow (จาก phase4-langflow.md + openrag-backend-vs-langflow.md)
+  - openrag-integration-scenarios (จาก phase5-integration.md)
+  - openrag-config-cost-models (จาก advanced-config.md + cost-and-models.md)
+  - openrag-chunking-ingestion (จาก chunking.md + document-best-practices.md)
+  - openrag-cache-analysis (จาก openrag-cache-analysis.md)
+  - openrag-rag-spike-research (จาก spike-rag-research-summary.md)
+- สร้าง concept pages ใหม่ 3 ไฟล์:
+  - openrag-platform, docling-document-parser, langflow-visual-workflow
+- อัปเดต concept pages: rag-chunking-strategies (เพิ่ม OpenRAG multi-layer chunking), rag-retrieval-augmented-generation (เพิ่ม OpenRAG example)
+- ครอบคลุมเนื้อหา: OpenRAG architecture (5 services: FastAPI/Langflow/OpenSearch/Docling/Next.js), Document ingestion flow, Chat/Query flow, Access Control (RBAC + Document-level DLS), KNN vector search (disk_ann), Langflow Visual Workflow, multi-layer chunking (Docling page-aware + SplitText + Token Batching), cost analysis (gpt-4o-mini ~$9/เดือน/50 users), Ollama local LLM setup, config.yaml structure, Spike research (pgvector vs OpenSearch vs Qdrant), cache gap analysis
+- ไฟล์ที่ยังไม่ได้ ingest ใน folder นี้ (remaining): openrag-allowed-groups-google.md, pipeline-and-rbac-deep-dive.md, org-rag-guide.md, openrag-data-ingestion-guide.md, ingestion-two-paths-explained.md, sdk.md, open-rag-deep-dive.md, langchain_basics.md (LangChain files — likely overlap กับ wiki ที่มีอยู่)
+- อัปเดต index.md (9 sources + 3 concepts ใหม่)
+
+## [2026-04-13] ingest | raw/notes/openrag — complete large files (round 3)
+
+- อ่านส่วนที่เหลือของ 4 ไฟล์ขนาดใหญ่ที่อ่านได้ไม่ครบใน round 2:
+  - `openrag-langflow-flows-guide.md` (บรรทัด 200–1096) — 3 custom UI methods, OAuth flow, API Key setup, Custom Flow creation steps, React Chat App example, Python integration script
+  - `org-rag-guide.md` (บรรทัด 100–1215) — 5 ingestion methods, RAG usage via API, Public API v1 endpoints ครบ, Data-Level ACL (3 levels), Group management, LLM/Embedding selection, Chunk size guide, Backup & Recovery, Security checklist, Scaling, 5 enterprise use cases
+  - `pipeline-and-rbac-deep-dive.md` (บรรทัด 300–540) — Custom JWT enrichment code, Google Admin API requirements, Google Workspace integration step-by-step, RBAC checklist
+  - `sdk.md` (บรรทัด 230–1669) — Streaming patterns ครบ (ChatStream, text-only, finalText), Multi-turn conversation, Conversation management API, All parameter tables, Settings API, Knowledge Filters CRUD, Models API, Error handling hierarchy + retry pattern, 5 use cases, Complete Type Reference (Pydantic + TypeScript)
+- อัปเดต source pages:
+  - openrag-flow-payloads.md (เพิ่ม 3 custom UI methods + auth modes + custom flow creation)
+  - openrag-sdk-reference.md (เพิ่ม streaming patterns, conversation management, settings/models/error handling, type reference)
+  - openrag-organization-deployment.md (เพิ่ม 5 ingestion methods, permissions table, LLM/embedding selection, backup, security checklist, scaling, enterprise use cases)
+  - openrag-access-control-rbac.md (เพิ่ม Google Admin API code, Workspace integration steps, RBAC checklist)
+- ไม่ต้องอัปเดต index.md (ไม่มี page ใหม่ — เป็นการอัปเดต page ที่มีอยู่แล้ว)
