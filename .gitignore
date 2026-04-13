@@ -30,3 +30,6 @@
 
 # Logs
 *.log
+
+# Raw source files (personal notes, clips, books — not for version control)
+raw/
