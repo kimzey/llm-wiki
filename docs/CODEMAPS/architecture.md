@@ -1,4 +1,4 @@
-<!-- Generated: 2026-04-13 | Files scanned: 157 | Token estimate: ~600 -->
+<!-- Generated: 2026-04-14 | Files scanned: 271 | Token estimate: ~650 -->
 
 # Architecture — LLM Wiki
 
@@ -12,25 +12,28 @@ No runtime processes. No database. No API. Pure file system.
 ┌─────────────────────────────────────────────────────┐
 │  Layer 3 — Schema / Config                          │
 │  CLAUDE.md          ← master schema + workflows     │
-│  .claude/commands/  ← slash command triggers        │
-│  .claude/skills/    ← reusable skill implementations│
+│  .claude/commands/  ← slash command triggers (14)   │
+│  .claude/skills/    ← reusable skill impls (10)     │
+│  docs/CODEMAPS/     ← this file + 4 others          │
 └──────────────────────┬──────────────────────────────┘
                        │ LLM reads schema → operates on ↓
 ┌──────────────────────▼──────────────────────────────┐
 │  Layer 2 — Wiki (LLM-owned, human-read)             │
-│  wiki/concepts/     ← principle/theory pages        │
-│  wiki/sources/      ← per-source summary pages      │
-│  wiki/books/        ← book summary pages            │
-│  wiki/synthesis/    ← analyses, comparisons         │
-│  index.md           ← content catalog (LLM updates) │
-│  log.md             ← append-only operation log     │
+│  wiki/concepts/  (47)  ← principle/theory pages     │
+│  wiki/sources/   (94)  ← per-source summary pages   │
+│  wiki/books/     (0)   ← book summary pages         │
+│  wiki/synthesis/ (1)   ← analyses, comparisons      │
+│  wiki/canvas/    (0)   ← visual maps (.canvas)      │
+│  wiki/bases/     (0)   ← database views (.base)     │
+│  index.md              ← content catalog            │
+│  log.md                ← append-only operation log  │
 └──────────────────────┬──────────────────────────────┘
                        │ wiki pages link down to ↓
 ┌──────────────────────▼──────────────────────────────┐
 │  Layer 1 — Raw Sources (immutable, human-curated)   │
 │  raw/clips/         ← Obsidian Web Clipper articles │
 │  raw/books/         ← PDFs / book chapter notes     │
-│  raw/notes/         ← manual notes by topic folder  │
+│  raw/notes/  (130)  ← manual notes by topic folder  │
 │  raw/assets/        ← locally downloaded images     │
 └─────────────────────────────────────────────────────┘
 ```
@@ -43,7 +46,7 @@ human drops file → raw/notes/<topic>/
 /ingest <path>
     ↓
 LLM reads raw file(s)
-    ↓
+    ↓  [obsidian-cli: search for duplicates if Obsidian open]
 creates wiki/sources/<slug>.md
     ↓
 identifies concepts → creates/updates wiki/concepts/<slug>.md
@@ -60,7 +63,7 @@ appends to log.md
 ```
 index.md
     ↓ Obsidian [[links]] only
-wiki/sources/  wiki/concepts/  wiki/books/  wiki/synthesis/
+wiki/sources/  wiki/concepts/  wiki/books/  wiki/synthesis/  wiki/canvas/  wiki/bases/
     ↓ "Full source" link (sources only)
 raw/clips/  raw/notes/  raw/books/
 ```
@@ -69,7 +72,13 @@ raw/clips/  raw/notes/  raw/books/
 
 ## Tooling Stack
 
-- **Editor**: Obsidian (graph view, Dataview, Marp, Web Clipper)
-- **Agent**: Claude Code (CLI) — owns wiki/, never touches raw/
-- **VCS**: git (entire vault is a repo)
-- **Search**: index.md at current scale; qmd (optional) for larger scale
+| Tool | Role |
+|------|------|
+| Claude Code (CLI) | Agent — owns wiki/, reads raw/, never modifies raw/ |
+| Obsidian | Human-facing reader: graph view, Bases, Web Clipper |
+| git | Version control for entire vault |
+| defuddle (skill) | Extract clean markdown from web URLs |
+| obsidian-cli (skill) | Search/read vault via Obsidian socket API |
+| obsidian-markdown (skill) | Syntax guidelines for all wiki page writes |
+| json-canvas (skill) | Create .canvas visual maps in wiki/canvas/ |
+| obsidian-bases (skill) | Create .base database views in wiki/bases/ |

@@ -1,58 +1,71 @@
-<!-- Generated: 2026-04-13 | Files scanned: 157 | Token estimate: ~550 -->
+<!-- Generated: 2026-04-14 | Files scanned: 271 | Token estimate: ~900 -->
 
 # Content Map — LLM Wiki
 
-## Wiki Pages (12 total as of 2026-04-13)
+## Wiki Stats (as of 2026-04-14)
 
-### Sources (`wiki/sources/` — 6 pages)
+| Section | Count | Status |
+|---------|-------|--------|
+| `wiki/sources/` | 94 | Active |
+| `wiki/concepts/` | 47 | Active |
+| `wiki/books/` | 0 | Empty |
+| `wiki/synthesis/` | 1 | Active |
+| `wiki/canvas/` | 0 | Empty |
+| `wiki/bases/` | 0 | Empty |
 
-| Slug | Topic | Tags |
-|---|---|---|
-| `distributed-tracing-context-propagation` | OTel: Distributed Tracing + Context Propagation overview | distributed-tracing, grpc, go |
-| `otel-trace-propagation-migration-guide` | OTel: Migration guide for trace propagation (gRPC/HTTP) | migration, otelgrpc, otelhttp |
-| `opentelemetry-deep-dive` | OTel: Full deep dive (18 sections — all layers) | observability, architecture, jaeger |
-| `opentelemetry-deep-dive-part2` | OTel: TextMapCarrier, BatchSpanProcessor, Jaeger assembly | textmapcarrier, batchspanprocessor |
-| `fiber-context-otel-bug` | OTel: Bug — c.UserContext() vs getSpanContext() in Fiber | fiber, bug, otelfiber |
-| `settextmappropagator-explained` | OTel: SetTextMapPropagator every piece explained | textmappropagator, baggage |
+## Sources by Domain (`wiki/sources/` — 94 pages)
 
-### Concepts (`wiki/concepts/` — 6 pages)
+| Domain | Count | Key Topics |
+|--------|-------|------------|
+| OpenRAG platform | ~20 | Docling, OpenSearch, LangFlow, RBAC, SDK, chunking, caching |
+| LangChain (step-by-step) | 8 | basics→advanced RAG, LangGraph, LangSmith, multi-agent, deployment |
+| LangChain (deep dives) | 8 | advanced RAG, LangGraph deep dive, evaluation, full reference |
+| Haystack framework | 6 | phases 1–6 (intro→API, auth, observability) |
+| LlamaIndex | 5 | phases 1–4 + full guide |
+| AI coding context (.claude) | 8 | .claude structure, agents, commands, skills, dispatch, MCP |
+| Arona RAG system | 7 | architecture, ingestion, retrieval, tool-call agent, stateless RAG |
+| RAG theory (rag-knowledge) | 10 | pipeline, chunking, glossary, agent patterns, Sellsuki guides |
+| Tool-RAG comparisons | 5 | LangChain vs LlamaIndex, RAG decision guide |
+| OpenTelemetry | 6 | distributed tracing, context propagation, Go instrumentation |
+| Sellsuki design system | 4 | design tokens, components docs |
+| Linux/homeserver | 2 | admin knowledge, network fundamentals |
+| Synthesis | 1 | Obsidian skills reference |
 
-| Slug | One-liner |
-|---|---|
-| `distributed-tracing` | ระบบติดตาม request ข้ามหลาย service — Trace, Span, waterfall |
-| `context-propagation` | inject/extract TraceID ข้าม service — TextMapPropagator, TextMapCarrier |
-| `opentelemetry` | vendor-neutral framework: 3 pillars, OTel Collector, Sampling |
-| `w3c-trace-context` | traceparent header format (W3C RFC 2020) — Inject/Extract flow |
-| `otel-baggage` | W3C Baggage: cross-service metadata vs Span Attributes |
-| `otel-go-instrumentation` | Go OTel: otelgrpc, otelhttp, otelfiber, StatsHandler pattern |
+## Concepts by Domain (`wiki/concepts/` — 47 pages)
 
-## Raw Notes Inventory (128 files — NOT YET INGESTED)
+| Domain | Key Concepts |
+|--------|-------------|
+| RAG (14 tags) | `rag-retrieval-augmented-generation`, `agentic-rag`, `rag-evaluation`, `rag-chunking-strategies`, `hybrid-search-bm25-vector`, `semantic-caching`, `pgvector` |
+| LLM Frameworks | `langchain-framework`, `llamaindex-framework`, `langflow-visual-workflow`, `haystack-framework`, `lcel-langchain-expression-language`, `langsmith-tracing-evaluation` |
+| AI Agents | `ai-agent`, `ai-agents-system`, `ai-dispatch-system`, `ai-hooks-system`, `commands-and-skills`, `mcp-model-context-protocol`, `claude-code-ai-cli`, `deterministic-ai-generation` |
+| OpenTelemetry (6 tags) | `opentelemetry`, `distributed-tracing`, `context-propagation`, `w3c-trace-context`, `otel-baggage`, `otel-go-instrumentation` |
+| Networking (8 tags) | `ip-address-networking`, `port-networking`, `dns`, `vpn-tailscale`, `cloudflare-tunnel`, `ssl-tls`, `reverse-proxy` |
+| Infrastructure | `docker-containers`, `server-security`, `linux-system-administration`, `backup-strategy`, `systemd-services` |
+| LLM/General | `llm-large-language-model` |
+| Design System | `design-tokens`, `web-components-lit` |
+| OpenRAG | `openrag-platform`, `open-source-rag-platforms`, `docling-document-parser`, `stateless-rag-design`, `clean-architecture-go` |
 
-| Folder | Files | Domain |
-|---|---|---|
-| `raw/notes/openrag/` | 31 | OpenRAG system: Docling, OpenSearch, Langflow, RBAC, SDK |
-| `raw/notes/arona/` | 29 | Arona RAG: architecture, ingestion, retrieval, tool-call agent loop |
-| `raw/notes/LangChain/` | 18 | LangChain: basics → advanced RAG, LangGraph, LangSmith, multi-agent |
-| `raw/notes/rag-knowledge/` | 12 | RAG theory: chunking, glossary, agent patterns, Sellsuki analysis |
-| `raw/notes/Hetstack/` | 11 | Haystack: phases 1–6 (intro → API, auth, observability) |
-| `raw/notes/ai-context/` | 8 | AI coding context: .claude structure, agents, commands, skills, MCP |
-| `raw/notes/otel/` | 6 | **INGESTED** ✅ — OpenTelemetry notes |
-| `raw/notes/tool-rag/` | 5 | LangChain vs LlamaIndex deep dives, RAG decision guide |
-| `raw/notes/liamaindex/` | 4 | LlamaIndex: phases 1–4 |
-| `raw/notes/central-component/` | 4 | Design tokens: service, flow, docs |
+## Raw Notes Inventory (130 files)
 
-## Ingest Priority (suggested order)
-
-1. `raw/notes/rag-knowledge/` — foundational RAG theory, likely needed by other topics
-2. `raw/notes/LangChain/` — broad framework coverage
-3. `raw/notes/openrag/` — specific system (Sellsuki OpenRAG)
-4. `raw/notes/arona/` — specific system (Arona)
-5. `raw/notes/Hetstack/` + `liamaindex/` + `tool-rag/` — framework comparisons
-6. `raw/notes/ai-context/` — meta: AI tooling (lower priority)
-7. `raw/notes/central-component/` — design system (separate domain)
+| Folder | Files | Ingest Status |
+|--------|-------|---------------|
+| `raw/notes/openrag/docs-lean/` | ~25 | ✅ Ingested |
+| `raw/notes/openrag/` (root) | 6 | ✅ Ingested (batch just completed) |
+| `raw/notes/LangChain/` | 18 | ✅ Ingested |
+| `raw/notes/rag-knowledge/` | 12 | ✅ Ingested |
+| `raw/notes/arona/` | ~11 | ✅ Ingested |
+| `raw/notes/Hetstack/` | 11 | ✅ Ingested |
+| `raw/notes/ai-context/` | 8 | ✅ Ingested |
+| `raw/notes/otel/` | 6 | ✅ Ingested |
+| `raw/notes/tool-rag/` | 5 | ✅ Ingested |
+| `raw/notes/liamaindex/` | 4 | ✅ Ingested |
+| `raw/notes/central-component/` | 4 | ✅ Ingested |
+| `raw/notes/` (homeserver) | 2 | ✅ Ingested |
 
 ## Coverage Gaps
 
-- No `wiki/books/` pages yet
-- No `wiki/synthesis/` pages yet
-- Domain coverage: only OpenTelemetry (otel) so far; RAG, LLM frameworks entirely uningestted
+- `wiki/books/` — 0 pages; no book ingested yet
+- `wiki/canvas/` — 0 pages; no visual maps created yet
+- `wiki/bases/` — 0 pages; no database views created yet
+- `wiki/synthesis/` — only 1 page (obsidian-skills-reference); many query answers worth filing
+- Possible synthesis topics: RAG framework comparison, LangChain vs LlamaIndex decision guide, Sellsuki RAG architecture summary

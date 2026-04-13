@@ -1,49 +1,41 @@
-Codemap Generation Report
-Generated: 2026-04-13
-Vault: /Users/kimzey/Desktop/local-valut
+# Codemap Diff Report — 2026-04-14
 
-=== STATUS: INITIAL GENERATION (no previous codemaps) ===
+## Previous scan: 2026-04-13 | Current scan: 2026-04-14
 
-FILES SCANNED
-  raw/notes/      128 markdown files (10 topic folders)
-  wiki/           12 pages (6 sources, 6 concepts)
-  .claude/        17 files (10 commands, 5 skills, settings, READMEs)
-  root            5 files (CLAUDE.md, index.md, log.md, .gitignore, README)
-  TOTAL           162 files
+## Files Added/Changed Since Last Scan
 
-CODEMAPS CREATED
-  docs/CODEMAPS/architecture.md   — 3-layer system diagram, data flow, link hierarchy
-  docs/CODEMAPS/operations.md     — 10 commands, 5 skills, ingest/query/lint workflows
-  docs/CODEMAPS/schema.md         — page types, frontmatter spec, index/log format, naming
-  docs/CODEMAPS/content-map.md    — current wiki inventory + raw notes not yet ingested
-  docs/CODEMAPS/dependencies.md   — Obsidian, git, qmd, agent config files
+### wiki/sources/ — 6 → 94 (+88 pages)
+Domains added: OpenRAG, LangChain (full suite), LlamaIndex, Haystack,
+AI context (.claude), Arona RAG, RAG knowledge, Tool-RAG comparisons,
+Sellsuki design system, Linux/homeserver
 
-NEW CONTENT SINCE LAST SCAN
-  (Initial scan — all files are new)
+### wiki/concepts/ — 6 → 47 (+41 pages)
+New domains: RAG, LLM Frameworks, AI Agents, Networking, Infrastructure,
+Design System, OpenRAG, LangChain LCEL, LangSmith
 
-  Notable recent activity (from log.md):
-  - 2026-04-13: setup — wiki initialized
-  - 2026-04-13: ingest — raw/notes/otel (6 files) → 6 sources + 6 concepts created
+### wiki/synthesis/ — 0 → 1 (+1)
+Added: obsidian-skills-reference.md
 
-ARCHITECTURE OBSERVATIONS
-  - Project type: Personal knowledge base (LLM Wiki pattern), not a software app
-  - No code files. No runtime. Pure markdown + git.
-  - 128 raw files not yet ingested (87% of raw notes unprocessed)
-  - Dominant domain so far: OpenTelemetry / Distributed Systems
-  - Dominant unprocessed domains: RAG, LLM frameworks (LangChain, LlamaIndex, OpenRAG, Arona)
+### .claude/skills/ — 5 → 10 (+5)
+New: defuddle, json-canvas, obsidian-bases, obsidian-cli, obsidian-markdown
 
-COVERAGE GAPS
-  - wiki/books/    — empty (no book sources ingested yet)
-  - wiki/synthesis/ — empty (no synthesis pages filed yet)
-  - Large raw folders pending: openrag/ (31 files), arona/ (29 files), LangChain/ (18 files)
+### .claude/commands/ — 9 → 14 (+5)
+New: base.md, canvas.md, clip.md, init.md (+ skill integration updates)
 
-SUGGESTED NEXT ACTIONS
-  1. /ingest raw/notes/rag-knowledge  — foundational RAG theory (12 files)
-  2. /ingest raw/notes/LangChain      — LangChain framework (18 files)
-  3. /lint                            — health check after first batch of ingests
-  4. Consider /synthesis after ingesting 3+ related topics for cross-framework comparison
+### wiki/ directories added
+New: wiki/canvas/, wiki/bases/ (currently empty — ready for use)
 
-STALENESS WARNINGS
-  None — initial generation.
+## Architecture Changes
+- CLAUDE.md updated: added wiki/canvas/ and wiki/bases/ to layout
+- New workflows: Clip (D), visual map (canvas), database view (base)
+- obsidian-cli integration: vault search before concept creation
+- defuddle integration: clean web content extraction for /research
 
-=== END REPORT ===
+## Coverage Gaps (current)
+- wiki/books/ still empty
+- wiki/canvas/ still empty
+- wiki/bases/ still empty
+- wiki/synthesis/ — only 1 page; many analysis opportunities available
+
+## Staleness Warnings
+- None — all codemaps refreshed today

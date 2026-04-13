@@ -1,17 +1,19 @@
-<!-- Generated: 2026-04-13 | Files scanned: 157 | Token estimate: ~700 -->
+<!-- Generated: 2026-04-14 | Files scanned: 271 | Token estimate: ~750 -->
 
 # Schema — LLM Wiki
 
 ## Page Types & Locations
 
-| Type | Directory | When to create |
-|---|---|---|
-| `source` | `wiki/sources/` | One per raw source file |
-| `concept` | `wiki/concepts/` | One per idea/principle/framework that appears across sources |
-| `book` | `wiki/books/` | One per book (aggregate of chapter sources) |
-| `synthesis` | `wiki/synthesis/` | Analyses, comparisons, answers to big questions |
+| Type | Directory | Extension | When to create |
+|------|-----------|-----------|----------------|
+| `source` | `wiki/sources/` | `.md` | One per raw source file |
+| `concept` | `wiki/concepts/` | `.md` | One per idea/principle/framework across sources |
+| `book` | `wiki/books/` | `.md` | One per book (aggregates chapter sources) |
+| `synthesis` | `wiki/synthesis/` | `.md` | Analyses, comparisons, answers to big questions |
+| `canvas` | `wiki/canvas/` | `.canvas` | Visual knowledge maps (JSON Canvas format) |
+| `base` | `wiki/bases/` | `.base` | Obsidian Bases database views over frontmatter |
 
-## Frontmatter (all wiki pages)
+## Frontmatter (all wiki .md pages)
 
 ```yaml
 ---
@@ -32,13 +34,13 @@ Book pages also have: `author`, `year`
 
 ```markdown
 > **Full source**: [[../../raw/notes/folder/file.md|Original file]]
-  (or external URL)
+  (or external URL: **Full source**: [Title](https://...))
 
 ## สรุป          — what does this article cover?
 ## ประเด็นสำคัญ  — bullet points of key arguments
 ## ข้อมูลน่าสนใจ — notable data/evidence
 ## สิ่งขัดแย้ง   — contradictions with existing wiki
-## Concepts      — links to wiki/concepts/
+## Concepts      — [[wiki/concepts/slug|Name]] links
 ```
 
 ## Concept Page Structure
@@ -48,8 +50,9 @@ Book pages also have: `author`, `year`
 ## อธิบาย         — deeper explanation
 ## ประเด็นสำคัญ   — bullet points
 ## ตัวอย่าง       — examples / case studies
-## ความสัมพันธ์   — links to related concepts
-## แหล่งที่มา     — cite source pages used
+## ความสัมพันธ์   — [[wiki/concepts/slug|Name]] links
+## แหล่งที่มา     — [[wiki/sources/slug|Title]] links
+## จาก [Source]  — section added when updating from new source
 ```
 
 ## index.md Format
@@ -68,14 +71,21 @@ Book pages also have: `author`, `year`
 
 ## Synthesis (`wiki/synthesis/`)
 | Page | Summary | Date |
+
+## Canvas (`wiki/canvas/`)
+| Page | Topic | Date |
+
+## Bases (`wiki/bases/`)
+| Page | Description | Date |
 ```
 
 **Critical rule**: index.md "Source file" column → `[[wiki/sources/slug]]` (NOT raw/ path)
+**Critical rule**: index.md never contains `[[raw/...]]` or `[...](raw/...)` links
 
 ## Language Rules
 
 | Content | Language |
-|---|---|
+|---------|---------|
 | Wiki body text (สรุป, อธิบาย, etc.) | Thai primary |
 | Technical terms, proper nouns, titles | English |
 | Frontmatter keys | English |
@@ -84,9 +94,17 @@ Book pages also have: `author`, `year`
 
 ## Naming Conventions
 
-- File names: `lowercase-with-hyphens.md`
+- File names: `lowercase-with-hyphens.md` (or `.canvas`, `.base`)
 - Dates: `YYYY-MM-DD` always
 - Obsidian links: `[[wiki/concepts/slug|Display Name]]`
 - Never modify raw/ files
 - Never overwrite wiki page without reading first — always merge
 - Contradictions → add **"Conflicting Views"** section, never silently overwrite
+
+## Obsidian-Markdown Requirements (use `obsidian-markdown` skill)
+
+- Wikilinks: `[[wiki/concepts/slug|Title]]` — not plain markdown links
+- Callouts: `> [!note]`, `> [!warning]`, `> [!tip]` — not blockquotes
+- Frontmatter types: `tags` must be YAML list `[tag1, tag2]`, dates as `YYYY-MM-DD`
+- Canvas files: JSON format per json-canvas spec — use `json-canvas` skill
+- Base files: YAML format per obsidian-bases spec — use `obsidian-bases` skill
