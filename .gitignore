@@ -1,0 +1,32 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+._*
+
+# Obsidian
+.obsidian/workspace
+.obsidian/workspace-mobile
+.obsidian/workspace.json
+
+# Claude Code
+.claude/cache/
+.claude/sessions/
+.claude/tmp/
+
+# Temporary files
+*.tmp
+*.temp
+~$*
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
