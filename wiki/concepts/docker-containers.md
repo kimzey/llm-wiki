@@ -1,9 +1,11 @@
 ---
 title: "Docker Containers"
 type: concept
-tags: [docker, containers, orchestration, devops]
-sources: [wiki/sources/homeserver-admin-knowledge.md]
-related: []
+tags: [docker, containers, orchestration, devops, networking]
+sources: [wiki/sources/homeserver-admin-knowledge.md, network-fundamentals.md]
+related:
+  - wiki/concepts/reverse-proxy.md
+  - wiki/concepts/ip-address-networking.md
 created: 2026-04-13
 updated: 2026-04-13
 ---
@@ -71,6 +73,34 @@ docker volume ls              # ดู volumes
 docker network ls             # ดู networks
 docker network connect network_name container    # เชื่อม container เข้า network
 ```
+
+### Docker Network
+
+Docker Network คือ virtual network ที่ container ใช้คุยกัน — แยก isolated จาก host network และ network อื่น
+
+```
+เครื่อง NUC (192.168.1.100)
+├── Docker Network "homelab" (172.20.0.0/16)
+│   ├── homeassistant  → 172.20.0.2
+│   ├── adguardhome    → 172.20.0.3
+│   ├── nginx-proxy    → 172.20.0.4
+│   ├── n8n            → 172.20.0.5
+│   ├── postgres       → 172.20.0.6
+│   └── agent          → 172.20.0.7
+```
+
+**Container ใน network เดียวกัน** คุยกันได้โดยตรงผ่านชื่อ container:
+```yaml
+# ใน docker-compose ของ n8n
+environment:
+  DATABASE_URL: postgresql://user:pass@postgres:5432/db
+  #                                        ↑
+  #                               ใช้ชื่อ container แทน IP ได้เลย
+```
+
+**Container ต่าง network** = คุยกันไม่ได้โดยตรง ✅ (isolation)
+
+Docker ใช้ Private IP range `172.16.0.0–172.31.255.255` สำหรับ internal networks
 
 ## ตัวอย่าง / กรณีศึกษา
 

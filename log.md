@@ -4,6 +4,14 @@
 
 ---
 
+## [2026-04-13] ingest | raw/notes/network-fundamentals — พื้นฐาน Network & Infrastructure
+
+- สร้าง source pages: network-fundamentals (1 ไฟล์)
+- สร้าง concept pages: ip-address-networking, port-networking, dns, vpn-tailscale, cloudflare-tunnel, ssl-tls, reverse-proxy (7 ไฟล์ใหม่)
+- อัปเดต concept pages: docker-containers (เพิ่ม Docker Network section + sources/related), server-security (เพิ่ม security levels comparison + related links) (2 ไฟล์)
+- ครอบคลุมเนื้อหา: IP Address (Public/Private, Private ranges 192.168/10/172.16/100.64), Port & Well-known Ports, DNS, NAT, Port Forwarding (วิธีการ + ความเสี่ยง), 3 วิธีเข้า server จากนอกบ้าน, Tailscale Mesh VPN (WireGuard), Cloudflare Tunnel (Reverse Tunnel), SSL/HTTPS (Let's Encrypt + Cloudflare), Reverse Proxy (Nginx), Docker Network isolation, UFW Firewall, Security level comparison (2-10/10)
+- อัปเดต index.md (1 source ใหม่, 7 concepts ใหม่)
+
 ## [2026-04-13] ingest | raw/notes/homeserver-knowledge — Home Server Admin
 
 - สร้าง source pages: homeserver-admin-knowledge (1 ไฟล์)

@@ -1,9 +1,13 @@
 ---
 title: "Server Security"
 type: concept
-tags: [security, hardening, ssh, firewall, fail2ban]
-sources: [wiki/sources/homeserver-admin-knowledge.md]
-related: []
+tags: [security, hardening, ssh, firewall, fail2ban, ufw, port-forwarding, vpn, cloudflare]
+sources: [wiki/sources/homeserver-admin-knowledge.md, network-fundamentals.md]
+related:
+  - wiki/concepts/vpn-tailscale.md
+  - wiki/concepts/cloudflare-tunnel.md
+  - wiki/concepts/port-networking.md
+  - wiki/concepts/ssl-tls.md
 created: 2026-04-13
 updated: 2026-04-13
 ---
@@ -308,6 +312,34 @@ sudo certbot certificates
 | Tailscale | VPN + SSH | ⭐⭐ Medium |
 | AppArmor | MAC (file access control) | ⭐⭐⭐ Advanced |
 | SELinux | Advanced MAC | ⭐⭐⭐⭐ Expert |
+
+## ระดับความปลอดภัยตาม Access Method
+
+```
+ระดับความปลอดภัย (1-10)
+
+Port Forwarding แบบเปิดดิบ     [██░░░░░░░░] 2/10
+Port Forward + Strong Password  [████░░░░░░] 4/10
+Cloudflare Tunnel               [████████░░] 8/10
+Tailscale VPN                   [█████████░] 9/10
+Cloudflare + Tailscale ด้วยกัน  [██████████] 10/10
+```
+
+**Setup ที่แนะนำ (10/10):**
+```
+SSH (admin ใช้)     → Tailscale VPN ✅
+Web Services        → Cloudflare Tunnel ✅
+Database            → ไม่เปิดออกนอกเลย ✅
+Docker network      → Isolated network ✅
+UFW Firewall        → บล็อก port ที่ไม่ต้องการ ✅
+```
+
+## ความสัมพันธ์กับ concept อื่น
+
+- **[[wiki/concepts/vpn-tailscale|VPN & Tailscale]]** — วิธีปลอดภัยแทน Port Forwarding สำหรับ SSH
+- **[[wiki/concepts/cloudflare-tunnel|Cloudflare Tunnel]]** — วิธีปลอดภัยแทน Port Forwarding สำหรับ Web Services
+- **[[wiki/concepts/port-networking|Port & Port Forwarding]]** — Port Forwarding เป็น access method ที่เสี่ยงที่สุด
+- **[[wiki/concepts/ssl-tls|SSL/TLS & HTTPS]]** — HTTPS บังคับใช้เมื่อ expose services ออกอินเทอร์เน็ต
 
 ## แหล่งเรียนรู้เพิ่มเติม
 

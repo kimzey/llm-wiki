@@ -1,6 +1,6 @@
 # Index
 
-วันที่อัปเดตล่าสุด: 2026-04-13 (4)
+วันที่อัปเดตล่าสุด: 2026-04-13 (5)
 
 ---
 
@@ -8,6 +8,7 @@
 
 | หน้า | สรุปสั้น | Source file | วันที่ |
 |------|----------|-------------|--------|
+| [[wiki/sources/network-fundamentals\|พื้นฐาน Network & Infrastructure]] | อธิบายพื้นฐาน Network ตั้งแต่ศูนย์: IP Address, Port, DNS, NAT, Port Forwarding, VPN, Cloudflare Tunnel, SSL, Reverse Proxy, Docker Network, Firewall | [[wiki/sources/network-fundamentals]] | 2026-04-13 |
 | [[wiki/sources/homeserver-admin-knowledge\|Home Server Admin — ความรู้ที่ต้องรู้]] | คู่มือครอบคลุมทุกเรื่อง Home Server (NUC + Ubuntu + Docker): Linux, Docker, Security, Backup, Monitoring, Troubleshooting, Production Checklist | [[wiki/sources/homeserver-admin-knowledge]] | 2026-04-13 |
 | [[wiki/sources/distributed-tracing-context-propagation\|Distributed Tracing & Context Propagation]] | ภาพรวมและ implementation ของ Distributed Tracing + Context Propagation ใน Go พร้อม OTel components ครบ | [[wiki/sources/distributed-tracing-context-propagation]] | 2026-04-13 |
 | [[wiki/sources/otel-trace-propagation-migration-guide\|OTel Trace Propagation — Migration Guide]] | คู่มือ migration แก้ trace ขาดใน Go services (gRPC, HTTP) พร้อม diff-style code ทุกกรณี | [[wiki/sources/otel-trace-propagation-migration-guide]] | 2026-04-13 |
@@ -81,9 +82,16 @@
 
 | หน้า | สรุปสั้น | Tags |
 |------|----------|------|
-| [[wiki/concepts/docker-containers\|Docker Containers]] | Containerization technology สำหรับ deploy app: Image, Container, Docker Compose, Best Practices, Security, Monitoring | docker, containers, orchestration, devops |
+| [[wiki/concepts/ip-address-networking\|IP Address & Networking]] | IP Address 2 ประเภท (Public/Private), NAT, Private IP ranges, โครงสร้างเครือข่ายบ้าน | networking, ip-address, nat, home-server |
+| [[wiki/concepts/port-networking\|Port & Port Forwarding]] | Port คือประตูห้อง, Well-known ports, Port Forwarding (วิธีการ + ความเสี่ยง), เปรียบเทียบ 3 วิธีเข้า server | networking, port, port-forwarding, security |
+| [[wiki/concepts/dns\|DNS — Domain Name System]] | DNS แปลง domain เป็น IP, DNS Records, DNS ของ Home Server ผ่าน Cloudflare | networking, dns, domain, cloudflare |
+| [[wiki/concepts/vpn-tailscale\|VPN & Tailscale]] | Tailscale Mesh VPN ด้วย WireGuard, Tailnet IP 100.64.x.x, เปรียบเทียบกับ Cloudflare Tunnel | vpn, tailscale, wireguard, networking |
+| [[wiki/concepts/cloudflare-tunnel\|Cloudflare Tunnel]] | Reverse Tunnel ซ่อน IP บ้าน, outbound connection, SSL อัตโนมัติ, ความปลอดภัย 8/10 | cloudflare, tunnel, networking, security |
+| [[wiki/concepts/ssl-tls\|SSL/TLS & HTTPS]] | เข้ารหัส traffic, SSL Certificate, Let's Encrypt, Cloudflare SSL, HTTP vs HTTPS | ssl, tls, https, security, certificate |
+| [[wiki/concepts/reverse-proxy\|Reverse Proxy]] | Nginx routing ตาม domain, แก้ปัญหา port 443 อันเดียวสำหรับหลาย services, Nginx Proxy Manager | reverse-proxy, nginx, networking, https |
+| [[wiki/concepts/docker-containers\|Docker Containers]] | Containerization technology สำหรับ deploy app: Image, Container, Docker Compose, Docker Network isolation, Best Practices | docker, containers, orchestration, devops, networking |
 | [[wiki/concepts/linux-system-administration\|Linux System Administration]] | จัดการ Linux server ผ่าน command line: file management, permissions, processes, networking, systemd, troubleshooting | linux, sysadmin, command-line, ubuntu |
-| [[wiki/concepts/server-security\|Server Security]] | Security hardening ทีละชั้น: SSH hardening, Firewall (UFW), Fail2ban, Automatic Updates, SSL Certificates, Monitoring | security, hardening, ssh, firewall, fail2ban |
+| [[wiki/concepts/server-security\|Server Security]] | Security hardening ทีละชั้น: SSH hardening, Firewall (UFW), Fail2ban, Automatic Updates, security levels 1-10 per method | security, hardening, ssh, firewall, fail2ban |
 | [[wiki/concepts/backup-strategy\|Backup Strategy]] | 3-2-1 backup rule: automated scripts, cloud sync (rclone), retention policies, disaster recovery, testing restores | backup, 3-2-1-rule, disaster-recovery, rclone |
 | [[wiki/concepts/systemd-services\|Systemd Services]] | Service management บน Ubuntu: systemctl, journalctl, custom services, timers, resource limits, troubleshooting | systemd, services, process-management, ubuntu |
 | [[wiki/concepts/distributed-tracing\|Distributed Tracing]] | ระบบติดตาม request ข้ามหลาย service — Trace, Span, TraceID, SpanID, waterfall view | distributed-tracing, microservices, jaeger |
