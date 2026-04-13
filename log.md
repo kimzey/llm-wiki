@@ -4,6 +4,12 @@
 
 ---
 
+## [2026-04-13] ingest | raw/notes/ai-context — AI-Assisted Development with Claude Code (8 files)
+
+- สร้าง source pages: ai-context-phase1 ถึง ai-context-phase8 (8 ไฟล์)
+- สร้าง concept pages: claude-code-ai-cli, ai-agents-system, commands-and-skills, mcp-model-context-protocol, ai-hooks-system, ai-dispatch-system, deterministic-ai-generation, clean-architecture-go
+- อัปเดต index.md (8 sources, 8 concepts ใหม่)
+
 ## [2026-04-13] ingest | raw/notes/otel — OpenTelemetry & Distributed Tracing (6 files)
 
 - สร้าง source pages: distributed-tracing-context-propagation, otel-trace-propagation-migration-guide, opentelemetry-deep-dive, opentelemetry-deep-dive-part2, fiber-context-otel-bug, settextmappropagator-explained
