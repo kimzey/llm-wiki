@@ -4,6 +4,11 @@
 
 ---
 
+## [2026-04-13] query | central-component คืออะไร — Sellsuki Web Components Library
+
+- ตอบคำถามจาก: wiki/concepts/web-components-lit, wiki/concepts/design-tokens, wiki/sources/sellsuki-components-docs
+- ครอบคลุม: Tech Stack, 3 Core Systems (Theme/I18n/Toast), Design Tokens, Shadow DOM, Component Catalog
+
 ## [2026-04-13] ingest | raw/notes/network-fundamentals — พื้นฐาน Network & Infrastructure
 
 - สร้าง source pages: network-fundamentals (1 ไฟล์)
