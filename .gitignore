@@ -6,10 +6,14 @@
 # Thumbnails
 ._*
 
-# Obsidian
+# Obsidian — workspace state
 .obsidian/workspace
 .obsidian/workspace-mobile
 .obsidian/workspace.json
+
+# Obsidian — compiled plugin code & themes (reinstallable, may contain secrets)
+.obsidian/plugins/
+.obsidian/themes/
 
 # Claude Code
 .claude/cache/
