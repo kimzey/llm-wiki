@@ -39,10 +39,14 @@ claude
 /status
 ```
 
-### 3. Drop a source and ingest it
+### 3. Clip or drop a source and ingest it
 
-Save any article, note, or PDF excerpt into `raw/notes/` or `raw/clips/`, then:
+**From a URL** (recommended):
+```
+/clip https://example.com/article
+```
 
+**From a local file** (dropped into raw/ manually):
 ```
 /ingest raw/clips/article.md
 /ingest raw/notes/topic-folder/
@@ -67,7 +71,7 @@ vault/
 ├── log.md             ← append-only operation log
 │
 ├── raw/               ← SOURCE OF TRUTH — never modified by LLM
-│   ├── clips/         ← web articles (Obsidian Web Clipper)
+│   ├── clips/         ← web articles (Obsidian Web Clipper or /clip)
 │   ├── books/         ← book files, PDFs, chapter notes
 │   ├── notes/         ← manual notes organized by topic folder
 │   └── assets/        ← locally downloaded images
@@ -76,7 +80,9 @@ vault/
 │   ├── concepts/      ← concept/principle pages
 │   ├── books/         ← book summary pages
 │   ├── sources/       ← per-source summary pages
-│   └── synthesis/     ← analyses, comparisons, big-picture essays
+│   ├── synthesis/     ← analyses, comparisons, big-picture essays
+│   ├── canvas/        ← visual knowledge maps (.canvas)
+│   └── bases/         ← Obsidian Bases database views (.base)
 │
 └── .claude/           ← Claude Code configuration
     ├── commands/      ← slash commands
@@ -91,10 +97,13 @@ vault/
 | ----------------------- | ---------------------------------------------------------- |
 | `/status`               | Dashboard: page counts, pending raw files, recent activity |
 | `/ingest [path]`        | Add a source — creates wiki pages, updates index + log     |
+| `/clip [url]`           | Clip a URL to raw/clips/ via defuddle, then offer ingest   |
 | `/query [question]`     | Answer a question from the wiki                            |
-| `/research [topic]`     | Web search to fill wiki gaps                               |
+| `/research [topic]`     | Web search to fill wiki gaps (uses defuddle for URLs)      |
 | `/lint`                 | Health check: orphans, contradictions, missing concepts    |
 | `/synthesis [topic]`    | Deep analysis → permanent synthesis page                   |
+| `/canvas [topic]`       | Create a visual knowledge map (.canvas) for a topic        |
+| `/base [name]`          | Create an Obsidian Bases database view (.base)             |
 | `/new-concept [name]`   | Create a concept page without a source                     |
 | `/new-book [title]`     | Create a book summary page                                 |
 | `/update [page] [what]` | Update an existing wiki page                               |
@@ -113,6 +122,12 @@ vault/
 
 ### Clipping an article
 
+**Direct from URL (recommended):**
+```
+/clip https://example.com/article
+```
+
+**Via Obsidian Web Clipper:**
 ```
 1. Use Obsidian Web Clipper → saves to raw/clips/
 2. /ingest raw/clips/article.md
@@ -142,6 +157,20 @@ vault/
 
 ```
 /synthesis [question]
+```
+
+### Visualize a knowledge area
+
+```
+/canvas [topic]
+```
+
+### Browse wiki as a database
+
+```
+/base sources     ← table of all sources
+/base concepts    ← card gallery of all concepts
+/base all         ← full wiki dashboard
 ```
 
 ---
@@ -175,6 +204,15 @@ This vault works best with **Obsidian** as your reader:
 5. In Settings → Files and links → set attachment folder to `raw/assets/`
 
 Use **Graph View** to see which concepts are connected, which pages are hubs, and which are orphans.
+
+**New capabilities with installed skills:**
+
+| Feature | How to use |
+|---------|-----------|
+| Canvas | `/canvas [topic]` → opens as visual map in Obsidian Canvas view |
+| Bases | `/base [name]` → opens as table/card view in Obsidian Bases |
+| Web clip | `/clip [url]` → uses `defuddle` CLI (install: `npm install -g defuddle`) |
+| CLI control | `obsidian-cli` — requires Obsidian open; install via `brew install obsidian-cli` |
 
 ---
 

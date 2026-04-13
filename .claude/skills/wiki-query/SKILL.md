@@ -10,13 +10,22 @@ Vault root: `/Users/kimzey/Desktop/local-valut/`
 
 ## Steps
 
-### 1. Read index.md
+### 1. Find relevant pages
 
-Read `index.md` — find pages likely relevant to the question.
+First, read `index.md` to identify pages likely relevant to the question.
+
+Then, if Obsidian is open, supplement with full-text search:
+
+```
+obsidian search query="[key terms from question]" limit=10 vault="local-valut"
+```
+
+- obsidian search finds content not listed in index (body text, not just titles)
+- If Obsidian is not open → index.md + Grep fallback
 
 ### 2. Read relevant pages
 
-Read every page identified in the index, then follow related links if they lead to more relevant content.
+Read every page identified in step 1, then follow related links if they lead to more relevant content.
 Priority order: concepts > synthesis > books > sources > raw
 
 ### 3. Answer the question
@@ -39,7 +48,11 @@ Priority order: concepts > synthesis > books > sources > raw
 
 For any non-trivial answer, ask:
 "ต้องการบันทึกคำตอบนี้เป็นหน้า synthesis ไหม?"
-If yes → create `wiki/synthesis/[slug].md` + update index.md
+If yes → create `wiki/synthesis/[slug].md` using **obsidian-markdown** syntax:
+- Use callouts `> [!note]` / `> [!warning]` to highlight key findings
+- Use wikilinks `[[...]]` for all cross-references
+- Fill all frontmatter fields correctly
+Then update index.md + append log.md
 
 ### 6. Append log.md
 
@@ -53,3 +66,4 @@ If yes → create `wiki/synthesis/[slug].md` + update index.md
 
 - Good answers compound over time — the more things filed as synthesis, the smarter the wiki gets
 - Never hallucinate — if not in wiki, say so
+- obsidian-cli steps are **optional** — always fallback to index.md + Grep if Obsidian is not open

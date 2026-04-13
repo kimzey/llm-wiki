@@ -13,6 +13,7 @@ For Thai documentation, see [README-th.md](README-th.md).
 .claude/
 ├── README.md              ← this file (English)
 ├── README-th.md           ← Thai version
+├── plan.md                ← implementation plan for skill updates
 ├── settings.json          ← project settings
 ├── commands/              ← slash commands (/ingest, /query, etc.)
 │   ├── ingest.md
@@ -20,17 +21,25 @@ For Thai documentation, see [README-th.md](README-th.md).
 │   ├── lint.md
 │   ├── status.md
 │   ├── research.md
+│   ├── clip.md            ← NEW: clip URL → raw/clips/
+│   ├── canvas.md          ← NEW: create visual knowledge map
+│   ├── base.md            ← NEW: create Obsidian Bases view
 │   ├── new-concept.md
 │   ├── new-book.md
 │   ├── synthesis.md
 │   ├── note.md
 │   └── update.md
 └── skills/                ← behaviors that activate automatically by context
-    ├── wiki-ingest/
-    ├── wiki-query/
-    ├── wiki-lint/
-    ├── wiki-status/
-    └── wiki-research/
+    ├── wiki-ingest/       ← ingest workflow (uses obsidian-markdown + obsidian-cli)
+    ├── wiki-query/        ← query workflow (uses obsidian-cli search)
+    ├── wiki-lint/         ← lint workflow (uses obsidian-cli backlinks)
+    ├── wiki-status/       ← status dashboard (uses obsidian-cli tags)
+    ├── wiki-research/     ← research workflow (uses defuddle)
+    ├── defuddle/          ← extract clean markdown from URLs
+    ├── json-canvas/       ← create/edit .canvas files
+    ├── obsidian-bases/    ← create/edit .base database views
+    ├── obsidian-cli/      ← interact with Obsidian via CLI
+    └── obsidian-markdown/ ← write proper Obsidian Flavored Markdown
 ```
 
 ---
@@ -61,6 +70,8 @@ e.g. saying "ingest this file" → skill `wiki-ingest` activates automatically.
 ### `/ingest [path]`
 Add a new source into the wiki end-to-end.
 Accepts a single file or a folder path.
+Uses **obsidian-markdown** syntax for all created pages.
+Optionally uses **obsidian-cli** to verify files if Obsidian is open.
 
 ```
 /ingest raw/clips/article.md
@@ -71,6 +82,7 @@ Accepts a single file or a folder path.
 
 ### `/query [question]`
 Ask a research question against the accumulated wiki.
+Uses **obsidian-cli** search for full-text matching if Obsidian is open.
 
 ```
 /query what is cognitive load theory
@@ -81,6 +93,7 @@ Ask a research question against the accumulated wiki.
 
 ### `/research [topic]`
 Search the web to fill knowledge gaps in the wiki.
+Uses **defuddle** to read web pages cleanly instead of WebFetch.
 
 ```
 /research distributed tracing
@@ -89,9 +102,19 @@ Search the web to fill knowledge gaps in the wiki.
 
 ---
 
+### `/clip [url]`
+Clip a web page to `raw/clips/` using defuddle, then optionally ingest it.
+
+```
+/clip https://example.com/article
+```
+
+---
+
 ### `/lint`
 Run a full health check on the wiki.
 Finds orphans, broken links, missing concepts, contradictions, stale content, and data gaps.
+Optionally uses **obsidian-cli** backlinks for more accurate orphan detection.
 
 > Recommended: run every 1–2 weeks.
 
@@ -99,8 +122,31 @@ Finds orphans, broken links, missing concepts, contradictions, stale content, an
 
 ### `/status`
 Show a dashboard of current wiki state: page counts, raw files pending ingestion, recent activity, suggested next actions.
+Optionally shows tag stats via **obsidian-cli** if Obsidian is open.
 
 > Start every new session with `/status`.
+
+---
+
+### `/canvas [topic]`
+Create a visual knowledge map (`.canvas` file) for a topic, using wiki pages as nodes.
+
+```
+/canvas RAG pipeline
+/canvas machine learning fundamentals
+```
+
+---
+
+### `/base [name]`
+Create an Obsidian Bases database view (`.base` file) for wiki content.
+
+```
+/base sources     ← table of all sources
+/base concepts    ← card gallery of all concepts
+/base books       ← book library table
+/base all         ← full wiki dashboard
+```
 
 ---
 
@@ -147,6 +193,7 @@ Save a quick note to `raw/notes/` for later ingestion.
 
 ### `/update [page-path] [what to change]`
 Update an existing wiki page without ingesting a new source.
+Uses **obsidian-markdown** syntax for edits.
 
 ```
 /update wiki/concepts/cognitive-load.md add real-world examples
@@ -159,13 +206,18 @@ Update an existing wiki page without ingesting a new source.
 
 Skills run **automatically** by context — no slash needed.
 
-| Skill           | Activates when                              | What it does                          |
-|-----------------|---------------------------------------------|---------------------------------------|
-| `wiki-ingest`   | mention ingest / drop a file path           | full ingest workflow                  |
-| `wiki-query`    | ask any research question                   | search wiki → answer → offer synthesis|
-| `wiki-research` | mention research gap / web search needed    | search web → summarize → update wiki  |
-| `wiki-lint`     | mention lint / health check                 | check 7 points → checklist report     |
-| `wiki-status`   | mention status / what's in the wiki         | show current dashboard                |
+| Skill              | Activates when                            | What it does                              |
+|--------------------|-------------------------------------------|-------------------------------------------|
+| `wiki-ingest`      | mention ingest / drop a file path         | full ingest workflow + obsidian-markdown  |
+| `wiki-query`       | ask any research question                 | search wiki → answer → offer synthesis    |
+| `wiki-research`    | mention research gap / web search needed  | defuddle URLs → summarize → update wiki   |
+| `wiki-lint`        | mention lint / health check               | check 7 points → checklist report         |
+| `wiki-status`      | mention status / what's in the wiki       | show current dashboard + tag stats        |
+| `defuddle`         | user provides a URL to read               | extract clean markdown from web page      |
+| `obsidian-markdown`| creating/editing any .md wiki page        | ensure correct Obsidian syntax            |
+| `obsidian-cli`     | search vault / verify files / backlinks   | interact with running Obsidian instance   |
+| `json-canvas`      | working with .canvas files                | create/edit visual canvases               |
+| `obsidian-bases`   | working with .base files                  | create/edit database views                |
 
 ---
 
@@ -176,7 +228,13 @@ Skills run **automatically** by context — no slash needed.
 /status
 ```
 
-### Every time you clip a new article
+### Clip a web article and ingest it
+```
+/clip https://example.com/article
+→ Claude clips to raw/clips/ and asks if you want to ingest
+```
+
+### Every time you clip via Obsidian Web Clipper
 ```
 1. Obsidian Web Clipper → save to raw/clips/
 2. /ingest raw/clips/filename.md
@@ -204,6 +262,16 @@ If not → Claude suggests what source to ingest.
 /synthesis [topic]
 ```
 
+### Visualize a knowledge area
+```
+/canvas [topic]
+```
+
+### Browse wiki as database
+```
+/base sources     or     /base all
+```
+
 ---
 
 ## Technical Notes
@@ -211,5 +279,6 @@ If not → Claude suggests what source to ingest.
 - **Commands** are loaded from `commands/*.md` each time you type `/command-name`
 - **Skills** are loaded automatically from `skills/*/SKILL.md` by context matching
 - **settings.json** sets `effortLevel: high` — Claude applies maximum effort to every operation
+- **obsidian-cli** steps are always optional with fallback — they require Obsidian to be open
 - Edit any command/skill at any time — open the `.md` file and change the prompt
 - Add new commands by creating a new `.md` file in `commands/`

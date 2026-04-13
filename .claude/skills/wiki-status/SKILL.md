@@ -29,7 +29,17 @@ Check completeness — are all wiki pages listed?
 For each file in `raw/`, check whether a matching `wiki/sources/` page exists.
 List any raw files that have not been ingested yet.
 
-### 5. Output Dashboard
+### 5. Tag stats (obsidian-cli if available)
+```
+If Obsidian is open:
+  obsidian tags sort=count counts vault="local-valut"
+  → show top 10 tags in the vault
+
+If Obsidian is not open:
+  skip tag section
+```
+
+### 6. Output Dashboard
 
 ```markdown
 # Wiki Status — [YYYY-MM-DD HH:MM]
@@ -50,8 +60,14 @@ List any raw files that have not been ingested yet.
 | Books  | N     |
 | Notes  | N     |
 
+## Top Tags (if available)
+[from obsidian-cli tags — only shown if Obsidian is open]
+
 ## Recent Activity (5 entries)
 [from log.md]
+
+## Pending Ingestion
+[raw/ files with no matching wiki/sources/ page]
 
 ## Suggested Next Actions
 - [ ] If raw/ has un-ingested files → list them

@@ -14,7 +14,8 @@ Steps:
 3. Create `wiki/concepts/[slug].md` using the template from CLAUDE.md
    - slug = concept name in lowercase-hyphens (transliterate Thai if needed)
    - Fill frontmatter: title (Thai preferred), type: concept, tags, created: today's date
-   - Leave sections as empty stubs
+   - Use **obsidian-markdown** syntax: wikilinks `[[...]]` for cross-links, callouts for key points
+   - Leave content sections as empty stubs — ready to fill on next ingest
 4. Update index.md — add row to Concepts table: `[[wiki/concepts/slug|title]]`
 5. Append to log.md: `## [YYYY-MM-DD] update | created concept: [name]`
 6. Report: "Created [[wiki/concepts/[slug]]]"

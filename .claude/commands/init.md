@@ -23,6 +23,8 @@ wiki/concepts/
 wiki/books/
 wiki/sources/
 wiki/synthesis/
+wiki/canvas/
+wiki/bases/
 docs/CODEMAPS/
 .reports/
 .claude/commands/
@@ -31,6 +33,11 @@ docs/CODEMAPS/
 .claude/skills/wiki-lint/
 .claude/skills/wiki-status/
 .claude/skills/wiki-research/
+.claude/skills/defuddle/
+.claude/skills/json-canvas/
+.claude/skills/obsidian-bases/
+.claude/skills/obsidian-cli/
+.claude/skills/obsidian-markdown/
 ```
 
 ---
@@ -424,6 +431,9 @@ Copy or recreate these command files (each follows the same format as this file)
 - `new-book.md` — `/new-book [title]`
 - `note.md` — `/note [text]`
 - `update.md` — `/update [page] [what]`
+- `clip.md` — `/clip [url]`
+- `canvas.md` — `/canvas [topic]`
+- `base.md` — `/base [name]`
 - `init.md` — `/init [name]` (this file)
 
 ---

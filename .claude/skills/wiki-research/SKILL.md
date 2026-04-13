@@ -22,23 +22,37 @@ Use WebSearch to find:
 - Information that contradicts or updates existing wiki content
 - Examples and case studies still missing from the wiki
 
-### 3. Summarize findings
+### 3. Read web pages (use defuddle)
+
+For each URL found in step 2, read its content using **defuddle** (not WebFetch):
+
+```bash
+defuddle parse <url> --md
+```
+
+- defuddle removes navigation, ads, and clutter → cleaner markdown, fewer tokens
+- **Exception**: URLs ending in `.md` → use WebFetch directly (already markdown)
+- **Exception**: URLs behind login/paywall → skip or note as inaccessible
+
+### 4. Summarize findings
 
 Respond in Thai:
 - What was found (2–5 points)
 - Whether it contradicts anything in the current wiki
-- URLs worth ingesting
+- URLs worth ingesting as raw sources
 
-### 4. Ask user
+### 5. Ask user
 
 "ต้องการให้อัปเดต wiki ด้วยข้อมูลนี้เลยไหม?"
 - Yes → update relevant concept pages + append log.md
 - No → done
 
-### 5. Append log.md (if updated)
+If user wants to ingest a URL as a full source → suggest `/clip [url]` to save it to raw/clips/ first
+
+### 6. Append log.md (if updated)
 
 ```
-## [YYYY-MM-DD] query | research: [topic]
+## [YYYY-MM-DD] research | [topic]
 - Sources searched: [URLs]
 - Pages updated: [list]
 ```
@@ -48,3 +62,5 @@ Respond in Thai:
 - Never hallucinate URLs — use WebSearch for real results
 - If nothing better than existing content is found → say so clearly
 - Images on web pages → describe as text only, do not download
+- defuddle requires the `defuddle` CLI to be installed (`npm install -g defuddle`)
+  - If not installed → fallback to WebFetch

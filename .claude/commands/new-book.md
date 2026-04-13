@@ -13,6 +13,7 @@ Steps:
 3. Create `wiki/books/[slug].md` using the template from CLAUDE.md
    - slug = book title in lowercase-hyphens
    - Fill frontmatter: title, type: book, author, year, created: today's date
+   - Use **obsidian-markdown** syntax: wikilinks `[[...]]` for concept cross-links, callouts for key quotes
 4. If there's a raw source file for this book in raw/books/, ask if they want to ingest it now
 5. Update index.md — add row to Books table: `[[wiki/books/slug|title]]`
 6. Append to log.md: `## [YYYY-MM-DD] update | created book: [title]`

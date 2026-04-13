@@ -20,10 +20,21 @@ Compare → find pages missing from index
 ### 2. Check 7 points
 
 #### A. Orphan Pages — pages with no inbound links
-Read all pages → grep for `[[filename]]` → which pages are never mentioned?
+
+Preferred (if Obsidian is open):
+```
+obsidian backlinks file="[slug]" vault="local-valut"
+→ pages with 0 backlinks = orphans
+```
+
+Fallback (if Obsidian is not open):
+```
+Grep pattern \[\[.*slug.*\]\] across all wiki pages
+→ which pages are never mentioned?
+```
 
 #### B. Broken Links — links pointing to non-existent files
-Grep pattern `\[\[wiki/.*\]\]` in all pages → verify target files exist
+Grep pattern `\[\[wiki/.*\]\]` in all pages → verify target files exist via Glob
 
 #### C. Missing Concept Pages — concepts mentioned but without their own page
 Grep for terms in source/synthesis pages that look like concepts → check if `wiki/concepts/` page exists
@@ -79,3 +90,6 @@ Analyze concept pages → any concept with fewer than 2 sources → suggest what
 
 ### 5. Ask user
 "Which issues would you like to fix now?"
+
+## Notes
+- obsidian-cli backlinks step is **optional** — fallback to Grep if Obsidian is not open

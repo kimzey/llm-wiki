@@ -14,7 +14,7 @@ local-valut/
 ├── index.md           ← content catalog (LLM updates on every ingest)
 ├── log.md             ← append-only operation log
 ├── raw/               ← source documents — NEVER modify these
-│   ├── clips/         ← web articles clipped via Obsidian Web Clipper
+│   ├── clips/         ← web articles clipped via Obsidian Web Clipper or /clip
 │   ├── books/         ← book files, PDFs, or chapter notes
 │   ├── notes/         ← manual notes typed by the user
 │   └── assets/        ← locally downloaded images
@@ -22,7 +22,9 @@ local-valut/
     ├── concepts/      ← concept pages (principles, theories, ideas)
     ├── books/         ← book summary pages
     ├── sources/       ← per-source summary pages
-    └── synthesis/     ← analyses, comparisons, cross-cutting essays
+    ├── synthesis/     ← analyses, comparisons, cross-cutting essays
+    ├── canvas/        ← visual knowledge maps (.canvas files)
+    └── bases/         ← Obsidian Bases database views (.base files)
 ```
 
 ---
@@ -187,6 +189,20 @@ updated: YYYY-MM-DD
 
 ---
 
+## Available Skills & Tools
+
+The following skills are available to Claude for use in all workflows:
+
+| Skill | When to use |
+|-------|-------------|
+| `obsidian-markdown` | Creating or editing ANY `.md` wiki page — ensures correct wikilinks, callouts, frontmatter |
+| `obsidian-cli` | Search vault, verify files, check backlinks — requires Obsidian to be open; always has fallback |
+| `defuddle` | Reading a web URL — cleaner than WebFetch, removes nav/ads. Use `defuddle parse <url> --md` |
+| `json-canvas` | Creating `.canvas` visual knowledge maps in `wiki/canvas/` |
+| `obsidian-bases` | Creating `.base` database views in `wiki/bases/` |
+
+---
+
 ## Workflows
 
 ### A. Ingest (add a new source)
@@ -194,13 +210,16 @@ updated: YYYY-MM-DD
 When the user says "ingest [filename]" or provides a path to `raw/`:
 
 1. Read the source file in full. If a folder is given, Glob all `.md` files and process each sequentially.
-2. Create a **source summary page** in `wiki/sources/`.
+2. Create a **source summary page** in `wiki/sources/` using **obsidian-markdown** syntax (wikilinks, callouts, proper frontmatter).
 3. Identify concepts mentioned — for each:
+   - If Obsidian is open: `obsidian search query="[concept]"` to check for duplicates.
+   - If Obsidian is not open: Glob `wiki/concepts/` to check.
    - If a concept page exists → update it with new info, note if it contradicts previous claims.
-   - If no concept page exists → create one.
+   - If no concept page exists → create one using **obsidian-markdown** syntax.
 4. If source is a book chapter → update or create the **book page** in `wiki/books/`.
 5. Update `index.md` — add new rows to all relevant tables.
 6. Append an entry to `log.md`.
+7. Optionally verify with `obsidian read file="[slug]"` if Obsidian is open.
 
 A single ingest may touch 5–15 wiki pages. That is expected and correct.
 
@@ -209,9 +228,10 @@ A single ingest may touch 5–15 wiki pages. That is expected and correct.
 When the user asks a question:
 
 1. Read `index.md` to find relevant pages.
-2. Read those pages in full.
-3. Synthesize an answer with citations (link to wiki pages).
-4. Ask: "Would you like to save this answer as a synthesis page?" — if yes, file it.
+2. If Obsidian is open: `obsidian search query="[terms]"` for full-text search across the vault.
+3. Read those pages in full.
+4. Synthesize an answer with citations (link to wiki pages).
+5. Ask: "Would you like to save this answer as a synthesis page?" — if yes, file it using **obsidian-markdown** syntax.
 
 ### C. Research (fill gaps via web search)
 
@@ -219,16 +239,26 @@ When the user says "research [topic]" or runs `/research`:
 
 1. Check `index.md` for existing coverage of the topic.
 2. Use WebSearch to find authoritative sources filling the gap.
-3. Summarize findings (2–5 points) and note conflicts with existing wiki content.
-4. Ask: "Would you like to update the wiki with this information?" — if yes, update relevant concept pages.
-5. Append an entry to `log.md`.
+3. Read each URL using **defuddle**: `defuddle parse <url> --md` (fallback to WebFetch if not installed).
+4. Summarize findings (2–5 points) and note conflicts with existing wiki content.
+5. Ask: "Would you like to update the wiki with this information?" — if yes, update relevant concept pages.
+6. Append an entry to `log.md`.
 
-### D. Lint (wiki health check)
+### D. Clip (save a web page as a raw source)
+
+When the user provides a URL to clip or runs `/clip [url]`:
+
+1. Run `defuddle parse <url> --md` to extract clean content.
+2. Also extract `title`, `description`, `domain` metadata.
+3. Write to `raw/clips/[slug].md` with frontmatter header.
+4. Ask: "ต้องการ ingest เข้า wiki เลยไหม?"
+
+### E. Lint (wiki health check)
 
 When the user says "lint" or runs `/lint`:
 
 Check for:
-- [ ] Pages with no inbound links (orphans)
+- [ ] Pages with no inbound links (orphans) — use `obsidian backlinks` if available, else Grep
 - [ ] Conflicting information between pages
 - [ ] Concepts mentioned in 2+ pages but no dedicated page
 - [ ] Source pages not linked to any concept
@@ -263,6 +293,16 @@ Output a health report as a markdown checklist.
 | Page | Summary | Date |
 |------|---------|------|
 | [[wiki/synthesis/slug\|Title]] | One-line summary | YYYY-MM-DD |
+
+## Canvas (`wiki/canvas/`)
+| Page | Topic | Date |
+|------|-------|------|
+| [[wiki/canvas/slug\|Title]] | Visual map of X | YYYY-MM-DD |
+
+## Bases (`wiki/bases/`)
+| Page | Description | Date |
+|------|-------------|------|
+| [[wiki/bases/slug\|Title]] | Database view of X | YYYY-MM-DD |
 ```
 
 **Rules:**
