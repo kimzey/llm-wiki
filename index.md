@@ -30,6 +30,10 @@
 | [[wiki/sources/arona-sellsuki-analysis\|วิเคราะห์ RAG สำหรับ Sellsuki]] | feasibility study ใช้ Arona เป็น internal KB สำหรับ HR policy + procedures ผ่าน LINE/Slack/Web | [[wiki/sources/arona-sellsuki-analysis]] | 2026-04-13 |
 | [[wiki/sources/arona-deepdive\|Arona Deep Dive — สถาปัตยกรรมและ Ingestion Pipeline]] | ชุดบทเรียน 4 ตอน: architecture, ingestion pipeline (Extract→Chunk→Plan→Embed→Save), retrieval, security | [[wiki/sources/arona-deepdive]] | 2026-04-13 |
 | [[wiki/sources/arona-learn-series\|Arona Learn Series — ชุดบทเรียน Ingest Pipeline]] | ชุดบทเรียน 14 ตอน เจาะลึก ingest service: chunking, planning (diff-aware), vectorization, storage | [[wiki/sources/arona-learn-series]] | 2026-04-13 |
+| [[wiki/sources/sellsuki-design-tokens-service\|Sellsuki Design Tokens Service — Complete Documentation]] | สถาปัตยกรรม 2 ระบบคู่ขนาน (CSS Variables + TS Types), data flow dev/build/runtime, troubleshooting, real-world examples | [[wiki/sources/sellsuki-design-tokens-service]] | 2026-04-13 |
+| [[wiki/sources/sellsuki-design-tokens-flow\|Sellsuki Design Tokens — Flow การทำงาน]] | อธิบาย separation of concerns: CSS Variables (runtime) vs TypeScript Types (devtime), checklist เพิ่ม token ใหม่ | [[wiki/sources/sellsuki-design-tokens-flow]] | 2026-04-13 |
+| [[wiki/sources/sellsuki-design-tokens-reference\|Sellsuki Design Tokens — Spacing System Reference]] | token reference ครบ: spacing 21 levels, border-radius 11, border-width 4 + migration guide จาก px + best practices | [[wiki/sources/sellsuki-design-tokens-reference]] | 2026-04-13 |
+| [[wiki/sources/sellsuki-components-docs\|Sellsuki Components — Service Documentation]] | Web Components Library (Lit+TS): architecture, 3 core systems (Theme/I18n/Toast), 30+ component catalog, usage guide | [[wiki/sources/sellsuki-components-docs]] | 2026-04-13 |
 
 ---
 
@@ -55,6 +59,8 @@
 | [[wiki/concepts/hybrid-search-bm25-vector\|Hybrid Search — BM25 + Vector Search]] | รวม keyword search (BM25) กับ semantic search (cosine similarity) ในฐานข้อมูลเดียว: ParadeDB, scoring formula, ทำไมไม่ใช้ re-ranking | search, bm25, vector-search, paradedb, semantic |
 | [[wiki/concepts/semantic-caching\|Semantic Caching]] | cache คำตอบด้วย vector similarity ≥ 90% แทน exact match — ลด LLM cost + latency, DragonflyDB KNN | caching, semantic, vector-search, redis, cost-optimization |
 | [[wiki/concepts/stateless-rag-design\|Stateless RAG Design]] | ออกแบบ RAG ไม่เก็บ session ที่ server: horizontal scale ง่าย, เหมาะกับ documentation search, hybrid client-side history | stateless, rag, scaling, design-philosophy, architecture |
+| [[wiki/concepts/design-tokens\|Design Tokens]] | ค่า design decisions ในรูปตัวแปร CSS/TS: 2-tier architecture (Primitive→Semantic), Single Source of Truth, ทำให้แก้ค่าจากจุดเดียว | design-tokens, css-variables, design-system, frontend |
+| [[wiki/concepts/web-components-lit\|Web Components & Lit Framework]] | Web Standard สำหรับ custom elements ที่ใช้ได้ทุก framework: Shadow DOM, Reactive Properties, Context System, Slot Pattern | web-components, lit, shadow-dom, framework-agnostic |
 
 ---
 

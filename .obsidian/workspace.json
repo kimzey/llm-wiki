@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "38941270f4806675",
+        "id": "0d2afc3cb73931b7",
         "type": "tabs",
         "children": [
           {
-            "id": "b0df7ad48d1ec15d",
+            "id": "2a111bdfef43c74f",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -90,6 +90,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "wiki/sources/ai-context-phase1.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -99,7 +100,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks"
+              "title": "Backlinks for ai-context-phase1"
             }
           },
           {
@@ -108,11 +109,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "wiki/sources/ai-context-phase1.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links"
+              "title": "Outgoing links from ai-context-phase1"
             }
           },
           {
@@ -150,20 +152,31 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "wiki/sources/ai-context-phase1.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline"
+              "title": "Outline of ai-context-phase1"
+            }
+          },
+          {
+            "id": "2176ab490ac239bf",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {},
+              "icon": "git-pull-request",
+              "title": "Source Control"
             }
           }
-        ]
+        ],
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -173,12 +186,19 @@
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
-      "bases:Create new base": false
+      "bases:Create new base": false,
+      "obsidian-git:Open Git source control": false
     }
   },
-  "active": "b0df7ad48d1ec15d",
+  "active": "a7aed7e1bdb20ea9",
   "lastOpenFiles": [
     "wiki/sources/ai-context-phase1.md",
+    "wiki/concepts/web-components-lit.md",
+    "wiki/concepts/design-tokens.md",
+    "wiki/sources/sellsuki-components-docs.md",
+    "wiki/sources/sellsuki-design-tokens-reference.md",
+    "wiki/sources/sellsuki-design-tokens-flow.md",
+    "wiki/sources/sellsuki-design-tokens-service.md",
     "wiki/concepts/stateless-rag-design.md",
     "wiki/concepts/semantic-caching.md",
     "wiki/concepts/hybrid-search-bm25-vector.md",
@@ -198,12 +218,6 @@
     "wiki/concepts/mcp-model-context-protocol.md",
     "wiki/concepts/commands-and-skills.md",
     "wiki/concepts/ai-agents-system.md",
-    "wiki/concepts/claude-code-ai-cli.md",
-    "wiki/sources/ai-context-phase8.md",
-    "wiki/sources/ai-context-phase7.md",
-    "wiki/sources/ai-context-phase6.md",
-    "wiki/sources/ai-context-phase5.md",
-    "wiki/sources/ai-context-phase4.md",
     "docs/CODEMAPS",
     "docs",
     "raw/notes/arona/learn",

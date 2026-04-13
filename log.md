@@ -4,6 +4,13 @@
 
 ---
 
+## [2026-04-13] ingest | raw/notes/central-component — Sellsuki Components Library (4 files)
+
+- สร้าง source pages: sellsuki-design-tokens-service, sellsuki-design-tokens-flow, sellsuki-design-tokens-reference, sellsuki-components-docs (4 ไฟล์)
+- สร้าง concept pages: design-tokens, web-components-lit (2 ไฟล์)
+- ครอบคลุมเนื้อหา: Design Tokens 2-tier architecture, CSS Variables vs TypeScript Types, Sellsuki spacing system reference (21 levels), Web Components + Lit Framework, 3 Core Systems (Theme/I18n/Toast), Component catalog 30+
+- อัปเดต index.md (4 sources, 2 concepts ใหม่)
+
 ## [2026-04-13] ingest | raw/notes/arona — Arona RAG System (29 files)
 
 - สร้าง source pages: arona-overview, arona-rag-techniques, arona-vs-langchain, arona-tool-call-agent, arona-stateless-rag, arona-sellsuki-analysis, arona-deepdive, arona-learn-series (8 ไฟล์)
