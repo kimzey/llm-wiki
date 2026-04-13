@@ -71,6 +71,6 @@ Phase 5 เจาะลึก Settings Cascade (3 ระดับ), Hook Lifecyc
 
 ## Concepts ที่เกี่ยวข้อง
 
-- [[wiki/concepts/claude-code-ai-cli.md|Claude Code AI CLI]]
-- [[wiki/concepts/ai-hooks-system.md|AI Hooks System]]
-- [[wiki/concepts/clean-architecture-go.md|Clean Architecture in Go]]
+- [[wiki/concepts/claude-code-ai-cli|Claude Code AI CLI]]
+- [[wiki/concepts/ai-hooks-system|AI Hooks System]]
+- [[wiki/concepts/clean-architecture-go|Clean Architecture in Go]]

@@ -106,4 +106,4 @@ rag_chain = (
 
 ## Concepts ที่เกี่ยวข้อง
 
-- [[wiki/concepts/agentic-rag.md|Agentic RAG]]
+- [[wiki/concepts/agentic-rag|Agentic RAG]]

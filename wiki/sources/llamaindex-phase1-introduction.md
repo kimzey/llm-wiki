@@ -51,6 +51,6 @@ updated: 2026-04-13
 
 ## Concepts ที่เกี่ยวข้อง
 
-- [[wiki/concepts/llamaindex-framework.md|LlamaIndex Framework]]
-- [[wiki/concepts/rag-retrieval-augmented-generation.md|RAG — Retrieval-Augmented Generation]]
-- [[wiki/concepts/llm-large-language-model.md|LLM — Large Language Model]]
+- [[wiki/concepts/llamaindex-framework|LlamaIndex Framework]]
+- [[wiki/concepts/rag-retrieval-augmented-generation|RAG — Retrieval-Augmented Generation]]
+- [[wiki/concepts/llm-large-language-model|LLM — Large Language Model]]

@@ -2,10 +2,10 @@
 title: "Open Source RAG Platforms"
 type: concept
 tags: [rag, open-source, ragflow, dify, anythingllm, danswer, privatgpt, langflow, flowise, comparison]
-sources: [open-rag-deep-dive.md]
+sources: [wiki/sources/open-source-rag-platforms-comparison, wiki/sources/openrag-platform-overview, wiki/sources/open-source-rag-platforms-research]
 related: [wiki/concepts/rag-retrieval-augmented-generation.md, wiki/concepts/openrag-platform.md, wiki/concepts/langflow-visual-workflow.md, wiki/concepts/langchain-framework.md, wiki/concepts/llamaindex-framework.md]
 created: 2026-04-13
-updated: 2026-04-13
+updated: 2026-04-14
 ---
 
 ## สรุปสั้น
@@ -120,6 +120,18 @@ Production enterprise + compliance      → Haystack / เขียนเอง
 - [[wiki/concepts/langchain-framework|LangChain]] — Framework (Type C)
 - [[wiki/concepts/llamaindex-framework|LlamaIndex]] — Framework (Type C) — chunking ครบที่สุด
 
+## เปรียบเทียบ RAGFlow vs Dify vs AnythingLLM vs Flowise (2026)
+
+| | RAGFlow | Dify | AnythingLLM | Flowise |
+|--|---------|------|-------------|---------|
+| RAG ซับซ้อน | ⭐⭐⭐ (RAPTOR, self-RAG) | ⭐⭐ | ⭐ | ⭐⭐ |
+| ใช้งานง่าย | ⭐ | ⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐ |
+| Agent support | ⭐⭐ | ⭐⭐⭐ | ⭐ | ⭐⭐ |
+| Complex docs | ⭐⭐⭐ | ⭐⭐ | ⭐ | ⭐ |
+
+Decision: เอกสาร PDF ซับซ้อน → RAGFlow · Ship เร็ว → Dify · Non-tech team → AnythingLLM · Custom workflows → Flowise
+
 ## แหล่งที่มา
 
 - [[wiki/sources/open-source-rag-platforms-comparison|Open Source RAG Platforms Comparison]]
+- [[wiki/sources/open-source-rag-platforms-research|Open Source RAG Platforms Research 2026]]

@@ -103,5 +103,5 @@ INGESTION_TIMEOUT=3600       # 60 นาที — timeout สำหรับ in
 - ปรับ flow ใน Langflow UI ได้โดยไม่ต้อง restart หรือแก้โค้ด
 
 ## Concepts ที่เกี่ยวข้อง
-- [[wiki/concepts/langflow-visual-workflow.md|Langflow Visual Workflow]]
-- [[wiki/concepts/openrag-platform.md|OpenRAG Platform]]
+- [[wiki/concepts/langflow-visual-workflow|Langflow Visual Workflow]]
+- [[wiki/concepts/openrag-platform|OpenRAG Platform]]

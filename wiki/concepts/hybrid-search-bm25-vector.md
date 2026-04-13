@@ -129,14 +129,14 @@ pipeline.add_component("joiner", DocumentJoiner(
 
 ## ความสัมพันธ์กับ concept อื่น
 
-- [[wiki/concepts/rag-retrieval-augmented-generation.md|RAG]] — ขั้นตอน Retrieval ของ RAG pipeline
-- [[wiki/concepts/semantic-caching.md|Semantic Caching]] — cache ด้วย vector similarity คล้ายกัน
-- [[wiki/concepts/haystack-framework.md|Haystack Framework]] — implementation ด้วย DocumentJoiner(RRF)
+- [[wiki/concepts/rag-retrieval-augmented-generation|RAG]] — ขั้นตอน Retrieval ของ RAG pipeline
+- [[wiki/concepts/semantic-caching|Semantic Caching]] — cache ด้วย vector similarity คล้ายกัน
+- [[wiki/concepts/haystack-framework|Haystack Framework]] — implementation ด้วย DocumentJoiner(RRF)
 
 ## แหล่งที่มา
 
-- [[wiki/sources/arona-overview.md|Arona System Overview]]
-- [[wiki/sources/arona-rag-techniques.md|RAG Techniques & Comparison]]
+- [[wiki/sources/arona-overview|Arona System Overview]]
+- [[wiki/sources/arona-rag-techniques|RAG Techniques & Comparison]]
 
 ## จาก Sellsuki RAG Agent Plan v2
 
@@ -172,5 +172,5 @@ for rank, row in enumerate(vec_results):
 ```
 
 - [[wiki/sources/sellsuki-agent-plan-v2|Sellsuki RAG Agent Plan v2]]
-- [[wiki/sources/arona-vs-langchain.md|Arona vs LangChain]]
-- [[wiki/sources/haystack-phase3-retrieval.md|Haystack Phase 3 — Embedding & Retrieval]]
+- [[wiki/sources/arona-vs-langchain|Arona vs LangChain]]
+- [[wiki/sources/haystack-phase3-retrieval|Haystack Phase 3 — Embedding & Retrieval]]

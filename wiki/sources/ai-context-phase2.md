@@ -48,6 +48,6 @@ entity → repository interface → mock → GORM impl → use case → wire use
 
 ## Concepts ที่เกี่ยวข้อง
 
-- [[wiki/concepts/ai-agents-system.md|AI Agents System]]
-- [[wiki/concepts/commands-and-skills.md|Commands and Skills]]
-- [[wiki/concepts/mcp-model-context-protocol.md|MCP Model Context Protocol]]
+- [[wiki/concepts/ai-agents-system|AI Agents System]]
+- [[wiki/concepts/commands-and-skills|Commands and Skills]]
+- [[wiki/concepts/mcp-model-context-protocol|MCP Model Context Protocol]]

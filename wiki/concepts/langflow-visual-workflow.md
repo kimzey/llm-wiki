@@ -2,7 +2,7 @@
 title: "Langflow — Visual AI Workflow Builder"
 type: concept
 tags: [langflow, visual-workflow, pipeline, no-code, rag, ai-agent, drag-and-drop]
-sources: [phase4-langflow.md, openrag-backend-vs-langflow.md]
+sources: [wiki/sources/openrag-langflow-workflow, wiki/sources/langflow-custom-component-guide, wiki/sources/open-source-rag-platforms-comparison]
 related: [wiki/concepts/openrag-platform.md, wiki/concepts/ai-agents-system.md, wiki/concepts/langchain-framework.md]
 created: 2026-04-13
 updated: 2026-04-13
@@ -46,9 +46,9 @@ Langflow ทำงานแบบ flow-based:
 ```
 
 ## ความสัมพันธ์กับ concept อื่น
-- [[wiki/concepts/openrag-platform.md|OpenRAG]] — ใช้ Langflow เป็น AI pipeline engine
-- [[wiki/concepts/langchain-framework.md|LangChain]] — Langflow built on LangChain components
-- [[wiki/concepts/ai-agents-system.md|AI Agents]] — Langflow รองรับ Agent nodes
+- [[wiki/concepts/openrag-platform|OpenRAG]] — ใช้ Langflow เป็น AI pipeline engine
+- [[wiki/concepts/langchain-framework|LangChain]] — Langflow built on LangChain components
+- [[wiki/concepts/ai-agents-system|AI Agents]] — Langflow รองรับ Agent nodes
 
 ## แหล่งที่มา
 - phase4-langflow.md (OpenRAG Phase 4 documentation)

@@ -2,7 +2,7 @@
 title: "Docker Containers"
 type: concept
 tags: [docker, containers, orchestration, devops, networking]
-sources: [wiki/sources/homeserver-admin-knowledge.md, network-fundamentals.md]
+sources: [wiki/sources/homeserver-admin-knowledge, wiki/sources/network-fundamentals]
 related:
   - wiki/concepts/reverse-proxy.md
   - wiki/concepts/ip-address-networking.md

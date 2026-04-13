@@ -72,4 +72,4 @@ def warm_up(self):
 
 ## Concepts ที่เกี่ยวข้อง
 
-- [[wiki/concepts/haystack-framework.md|Haystack Framework]]
+- [[wiki/concepts/haystack-framework|Haystack Framework]]

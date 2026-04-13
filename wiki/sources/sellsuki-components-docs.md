@@ -70,5 +70,5 @@ npm install @sellsuki-org/sellsuki-components
 
 ## Concepts ที่เกี่ยวข้อง
 
-- [[wiki/concepts/design-tokens.md|Design Tokens]]
-- [[wiki/concepts/web-components-lit.md|Web Components & Lit Framework]]
+- [[wiki/concepts/design-tokens|Design Tokens]]
+- [[wiki/concepts/web-components-lit|Web Components & Lit Framework]]

@@ -102,5 +102,5 @@ OPENSEARCH_PASSWORD=At_Least_8_Chars_Upper_Lower_Number!
 - OIDC integration: JWT ของ user ถูกส่งไป OpenSearch → apply DLS filter อัตโนมัติ
 
 ## Concepts ที่เกี่ยวข้อง
-- [[wiki/concepts/hybrid-search-bm25-vector.md|Hybrid Search BM25 + Vector]]
-- [[wiki/concepts/openrag-platform.md|OpenRAG Platform]]
+- [[wiki/concepts/hybrid-search-bm25-vector|Hybrid Search BM25 + Vector]]
+- [[wiki/concepts/openrag-platform|OpenRAG Platform]]

@@ -93,5 +93,5 @@ docker run --gpus all -p 5001:5001 quay.io/docling-project/docling-serve:latest-
 - ไม่รวมอยู่ใน docker-compose.yml ต้องรันแยก
 
 ## Concepts ที่เกี่ยวข้อง
-- [[wiki/concepts/docling-document-parser.md|Docling Document Parser]]
-- [[wiki/concepts/openrag-platform.md|OpenRAG Platform]]
+- [[wiki/concepts/docling-document-parser|Docling Document Parser]]
+- [[wiki/concepts/openrag-platform|OpenRAG Platform]]

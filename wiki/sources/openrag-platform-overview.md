@@ -85,7 +85,7 @@ docker run -d -p 5001:5001 quay.io/docling-project/docling-serve:latest
 - OpenRAG เป็น framework สำหรับ self-hosted RAG แบบ complete platform ต่างจาก LangChain/LlamaIndex ที่เป็น library building blocks
 
 ## Concepts ที่เกี่ยวข้อง
-- [[wiki/concepts/openrag-platform.md|OpenRAG Platform]]
-- [[wiki/concepts/rag-retrieval-augmented-generation.md|RAG]]
-- [[wiki/concepts/langflow-visual-workflow.md|Langflow]]
-- [[wiki/concepts/docling-document-parser.md|Docling]]
+- [[wiki/concepts/openrag-platform|OpenRAG Platform]]
+- [[wiki/concepts/rag-retrieval-augmented-generation|RAG]]
+- [[wiki/concepts/langflow-visual-workflow|Langflow]]
+- [[wiki/concepts/docling-document-parser|Docling]]

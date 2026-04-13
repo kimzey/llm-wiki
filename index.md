@@ -1,6 +1,6 @@
 # Index
 
-วันที่อัปเดตล่าสุด: 2026-04-14 (13)
+วันที่อัปเดตล่าสุด: 2026-04-14 (14 — post-lint fixes)
 
 ---
 
@@ -93,7 +93,6 @@
 | [[wiki/sources/openrag-sdk-reference\|OpenRAG SDK Reference]] | TypeScript/Python SDK 0.2.0 — OpenRAGClient sub-clients (chat/search/documents/settings/models/knowledgeFilters), streaming, update patterns | [[wiki/sources/openrag-sdk-reference]] | 2026-04-13 |
 | [[wiki/sources/open-source-rag-platforms-comparison\|Open Source RAG Platforms — Deep Dive Comparison]] | RAGFlow/Dify/AnythingLLM/Danswer/PrivateGPT/Kotaemon/Verba/Flowise/Langflow comparison: chunking, retrieval, architecture, decision guide | [[wiki/sources/open-source-rag-platforms-comparison]] | 2026-04-13 |
 | [[wiki/sources/sellsuki-rag-complete-guide\|Sellsuki RAG Agent - Complete Implementation Guide]] | คู่มือ RAG Agent สำหรับ Sellsuki ครบวงจร: Data Prep, Chunking/Embedding, pgvector, LangChain/LlamaIndex/ADK/DIY, FastAPI Agent, Deployment, 6-week timeline, cost ~$20-70/เดือน | [[wiki/sources/sellsuki-rag-complete-guide]] | 2026-04-14 |
-| [[wiki/sources/sellsuki-agent-guide-06\|Sellsuki RAG Agent Guide (06)]] | สำเนาของ Sellsuki RAG Complete Guide — เนื้อหาเหมือนกันทุกประการ | [[wiki/sources/sellsuki-agent-guide-06]] | 2026-04-14 |
 | [[wiki/sources/sellsuki-agent-plan-v2\|Sellsuki RAG Agent Plan v2 (Optimized)]] | Plan v2 อ้างอิง Elysia case: 3 strategies (Enterprise/Balanced/Cost Killer), hybrid search BM25+Vector, semantic cache, diff-based indexing, multi-provider LLM fallback, ลด cost เหลือ $12-25/เดือน | [[wiki/sources/sellsuki-agent-plan-v2]] | 2026-04-14 |
 | [[wiki/sources/rag-complete-guide-comprehensive\|RAG คู่มือฉบับสมบูรณ์]] | RAG pipeline 8 ขั้นตอน, chunking 7 แบบ, embedding models, vector stores, retrieval methods, framework comparison (LangChain/LlamaIndex/Haystack), deployment, RAGAS evaluation, แนะนำตามสถานการณ์ | [[wiki/sources/rag-complete-guide-comprehensive]] | 2026-04-14 |
 | [[wiki/sources/rag-deep-dive-langchain\|RAG Deep Dive — LangChain]] | Deep dive RAG ด้วย LangChain: Document Loaders, Chunking strategies, Embedding, Vector Stores, Advanced Retrievers (Multi-Query/ParentDoc/SelfQuery/Reranking/Ensemble), Conversational RAG, RAG Agent ด้วย LangGraph, Evaluation LangSmith | [[wiki/sources/rag-deep-dive-langchain]] | 2026-04-14 |
@@ -102,6 +101,9 @@
 | [[wiki/sources/langchain-basics-openrag\|LangChain พื้นฐาน — คู่มือฉบับสมบูรณ์]] | Tutorial มือใหม่ครบ 10 บท: LLM, Prompt, Chain, Parser, Memory, Document Loader, Vector Store+RAG, Tools+Agent, Callbacks, Cache | [[wiki/sources/langchain-basics-openrag]] | 2026-04-14 |
 | [[wiki/sources/openrag-langchain-llamaindex-deepdive\|LangChain & LlamaIndex — Deep Dive (OpenRAG)]] | Deep dive เปรียบเทียบ LangChain vs LlamaIndex 10 Building Blocks แต่ละ framework, IngestionPipeline+cache, Retrievers+Reranking, QueryEngine types | [[wiki/sources/openrag-langchain-llamaindex-deepdive]] | 2026-04-14 |
 | [[wiki/sources/rag-advanced-evaluation-deepdive\|Advanced Evaluation Deep Dive — LLM-as-Judge]] | LLM-as-Judge pattern ครบ: Single/Multi-dimension grading, Pairwise comparison, RAG Triad, Agent evaluators, LangSmith integration, CI/CD pipeline, Pitfalls+Best Practices | [[wiki/sources/rag-advanced-evaluation-deepdive]] | 2026-04-14 |
+| [[wiki/sources/vector-db-comparison-research\|Vector Database Comparison Research 2026]] | Benchmark pgvector/Qdrant/Pinecone/ChromaDB: latency, QPS, scalability limits, pgvector ขีดจำกัด 1M vectors, pgvector 0.7.0 improvements, decision matrix | [[wiki/sources/vector-db-comparison-research]] | 2026-04-14 |
+| [[wiki/sources/docling-deep-dive-research\|Docling Deep Dive — Granite-Docling & Benchmarks]] | Granite-Docling-258M (March 2025): DocTags markup, vision+language model, benchmark vs LlamaParse/Unstructured, LangChain/LlamaIndex integrations | [[wiki/sources/docling-deep-dive-research]] | 2026-04-14 |
+| [[wiki/sources/open-source-rag-platforms-research\|Open Source RAG Platforms Research 2026]] | เปรียบเทียบ RAGFlow vs Dify vs AnythingLLM vs Flowise: RAG sophistication, ease of use, agent support, complex docs, decision guide | [[wiki/sources/open-source-rag-platforms-research]] | 2026-04-14 |
 
 ---
 
@@ -156,6 +158,12 @@
 | [[wiki/concepts/pgvector\|pgvector — Vector Search บน PostgreSQL]] | PostgreSQL extension สำหรับ vector search: HNSW/IVFFlat index, cosine/L2/dot distance, metadata filtering ด้วย SQL WHERE, เทียบกับ Pinecone/ChromaDB/Qdrant | pgvector, vector-database, postgresql, embeddings, rag |
 | [[wiki/concepts/lcel-langchain-expression-language\|LCEL — LangChain Expression Language]] | Syntax `|` เชื่อม components แบบ pipe: Runnable interface, RunnablePassthrough/Lambda/Parallel, .assign(), .bind() | langchain, lcel, chain, pipe-operator, runnable, composability |
 | [[wiki/concepts/langsmith-tracing-evaluation\|LangSmith — Tracing & Evaluation Platform]] | Observability + Evaluation platform ของ LangChain: automatic tracing, evaluator contract, dataset management, CI/CD integration | langsmith, observability, tracing, evaluation, llm-judge, ci-cd |
+| [[wiki/concepts/vector-database\|Vector Database]] | ฐานข้อมูลสำหรับ vector embeddings: HNSW/IVFFlat index, cosine similarity, เปรียบเทียบ pgvector/Pinecone/Qdrant/Weaviate/ChromaDB/OpenSearch | vector-database, embeddings, similarity-search, rag, hnsw |
+| [[wiki/concepts/embedding\|Embedding — แปลงข้อความเป็น Vector]] | แปลงข้อความเป็น float array หลายมิติ: text-embedding-3-small, BGE-M3, cosine similarity, multilingual, batch embedding | embedding, vector, nlp, semantic-search, rag |
+| [[wiki/concepts/tool-calling\|Tool Calling]] | กลไกให้ LLM เรียก function ภายนอก: schema JSON, @tool decorator, ToolNode, parallel calls, stop conditions | tool-calling, function-calling, agent, llm, langchain |
+| [[wiki/concepts/prompt-engineering\|Prompt Engineering]] | ออกแบบ prompt ให้ LLM: zero-shot, few-shot, Chain-of-Thought, role prompting, constraint prompting, output format control | prompt-engineering, llm, few-shot, chain-of-thought, rag |
+| [[wiki/concepts/api-design\|API Design]] | ออกแบบ REST API สำหรับ RAG Agent: FastAPI endpoints, authentication, error format, streaming, health check | api, rest, fastapi, design, http, endpoints |
+| [[wiki/concepts/api-integration\|API Integration]] | เชื่อม RAG Agent กับ 14 channels: LINE, Slack, Web, Mobile, Discord, Teams, MCP — 1 Agent N Channels pattern | api-integration, line, slack, webhook, rest-api, channels |
 
 ---
 
@@ -171,4 +179,4 @@
 
 | หน้า | สรุปสั้น | วันที่ |
 |------|----------|--------|
-| _(ยังว่างอยู่)_ | | |
+| [[wiki/synthesis/obsidian-skills-reference\|Obsidian & Claude Skills Reference]] | อธิบาย 5 skills ใหม่ (defuddle, json-canvas, obsidian-bases, obsidian-cli, obsidian-markdown) — แต่ละตัวทำอะไร เมื่อไหรใช้ | 2026-04-14 |

@@ -105,8 +105,8 @@ const color = parseVariables(
 
 ## ความสัมพันธ์กับ concept อื่น
 
-- [[wiki/concepts/design-tokens.md|Design Tokens]] — CSS variables จาก design tokens ใช้ใน Shadow DOM ของ Web Components ผ่าน `var(--ssk-*)`
+- [[wiki/concepts/design-tokens|Design Tokens]] — CSS variables จาก design tokens ใช้ใน Shadow DOM ของ Web Components ผ่าน `var(--ssk-*)`
 
 ## แหล่งที่มา
 
-- [[wiki/sources/sellsuki-components-docs.md|Sellsuki Components — Service Documentation]]
+- [[wiki/sources/sellsuki-components-docs|Sellsuki Components — Service Documentation]]

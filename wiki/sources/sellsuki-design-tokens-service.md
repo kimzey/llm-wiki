@@ -53,4 +53,4 @@ Category: spacing | radius | border | space (primitives)
 
 ## Concepts ที่เกี่ยวข้อง
 
-- [[wiki/concepts/design-tokens.md|Design Tokens]]
+- [[wiki/concepts/design-tokens|Design Tokens]]

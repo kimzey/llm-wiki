@@ -69,14 +69,14 @@ Claude Code ทำงานในรูปแบบ CLI ที่อ่านไ
 
 ## ความสัมพันธ์กับ concept อื่น
 
-- [[wiki/concepts/ai-agents-system.md|AI Agents System]] — Agent definitions อยู่ใน `.claude/agents/`
-- [[wiki/concepts/ai-hooks-system.md|AI Hooks System]] — Hook configurations ใน settings.json
-- [[wiki/concepts/commands-and-skills.md|Commands and Skills]] — Slash commands และ AI-detected skills
-- [[wiki/concepts/mcp-model-context-protocol.md|MCP Model Context Protocol]] — External service integration ผ่าน settings.local.json
+- [[wiki/concepts/ai-agents-system|AI Agents System]] — Agent definitions อยู่ใน `.claude/agents/`
+- [[wiki/concepts/ai-hooks-system|AI Hooks System]] — Hook configurations ใน settings.json
+- [[wiki/concepts/commands-and-skills|Commands and Skills]] — Slash commands และ AI-detected skills
+- [[wiki/concepts/mcp-model-context-protocol|MCP Model Context Protocol]] — External service integration ผ่าน settings.local.json
 
 ## แหล่งที่มา
 
-- [[wiki/sources/ai-context-phase1.md|Phase 1: โครงสร้าง .claude]]
-- [[wiki/sources/ai-context-phase3.md|Phase 3: .opencode, MCP, Security]]
-- [[wiki/sources/ai-context-phase5.md|Phase 5: Deep Dive]]
-- [[wiki/sources/ai-context-phase7.md|Phase 7: Global Agents + Practical Manual]]
+- [[wiki/sources/ai-context-phase1|Phase 1: โครงสร้าง .claude]]
+- [[wiki/sources/ai-context-phase3|Phase 3: .opencode, MCP, Security]]
+- [[wiki/sources/ai-context-phase5|Phase 5: Deep Dive]]
+- [[wiki/sources/ai-context-phase7|Phase 7: Global Agents + Practical Manual]]

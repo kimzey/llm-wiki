@@ -62,6 +62,6 @@ Determinism = Fixed Template + Extracted Data + Minimal AI Creativity
 
 ## Concepts ที่เกี่ยวข้อง
 
-- [[wiki/concepts/deterministic-ai-generation.md|Deterministic AI Generation]]
-- [[wiki/concepts/claude-code-ai-cli.md|Claude Code AI CLI]]
-- [[wiki/concepts/commands-and-skills.md|Commands and Skills]]
+- [[wiki/concepts/deterministic-ai-generation|Deterministic AI Generation]]
+- [[wiki/concepts/claude-code-ai-cli|Claude Code AI CLI]]
+- [[wiki/concepts/commands-and-skills|Commands and Skills]]

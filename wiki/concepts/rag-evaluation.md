@@ -2,7 +2,7 @@
 title: "RAG Evaluation"
 type: concept
 tags: [rag, evaluation, faithfulness, ragas, metrics, llm-judge, context-relevance]
-sources: [haystack-phase5-custom-production.md, haystack-phase5-integrations.md, haystack-phase6-api-auth-observability.md]
+sources: [wiki/sources/haystack-phase5-production, wiki/sources/haystack-phase6-observability, wiki/sources/rag-advanced-evaluation-deepdive]
 related: [wiki/concepts/rag-retrieval-augmented-generation.md, wiki/concepts/haystack-framework.md, wiki/concepts/semantic-caching.md]
 created: 2026-04-13
 updated: 2026-04-13
@@ -100,13 +100,13 @@ Langfuse ทำ tracing + evaluation รวมกัน:
 
 ## ความสัมพันธ์กับ concept อื่น
 
-- [[wiki/concepts/rag-retrieval-augmented-generation.md|RAG]] — evaluation เป็นส่วนสำคัญของ RAG lifecycle
-- [[wiki/concepts/haystack-framework.md|Haystack Framework]] — built-in evaluators + RAGAS integration
+- [[wiki/concepts/rag-retrieval-augmented-generation|RAG]] — evaluation เป็นส่วนสำคัญของ RAG lifecycle
+- [[wiki/concepts/haystack-framework|Haystack Framework]] — built-in evaluators + RAGAS integration
 
 ## แหล่งที่มา
 
-- [[wiki/sources/haystack-phase5-production.md|Haystack Phase 5 — Custom Components, Production & Integrations]]
-- [[wiki/sources/haystack-phase6-observability.md|Haystack Phase 6 — API, Auth & Observability]]
+- [[wiki/sources/haystack-phase5-production|Haystack Phase 5 — Custom Components, Production & Integrations]]
+- [[wiki/sources/haystack-phase6-observability|Haystack Phase 6 — API, Auth & Observability]]
 
 ## จาก RAG คู่มือฉบับสมบูรณ์
 

@@ -2,7 +2,7 @@
 title: "Reverse Proxy"
 type: concept
 tags: [reverse-proxy, nginx, networking, home-server, infrastructure, https]
-sources: [network-fundamentals.md]
+sources: [wiki/sources/network-fundamentals, wiki/sources/homeserver-admin-knowledge]
 related:
   - wiki/concepts/ssl-tls.md
   - wiki/concepts/cloudflare-tunnel.md

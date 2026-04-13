@@ -116,6 +116,6 @@ curl POST /v1/documents/ingest  -F "file=@hr_policy_2025.pdf"
 - Embedding model ชื่อถูก sanitize ใน OpenSearch field name: `text-embedding-3-small` → `chunk_embedding_text_embedding_3_small`
 
 ## Concepts ที่เกี่ยวข้อง
-- [[wiki/concepts/rag-chunking-strategies.md|RAG Chunking Strategies]]
-- [[wiki/concepts/openrag-platform.md|OpenRAG Platform]]
-- [[wiki/concepts/docling-document-parser.md|Docling]]
+- [[wiki/concepts/rag-chunking-strategies|RAG Chunking Strategies]]
+- [[wiki/concepts/openrag-platform|OpenRAG Platform]]
+- [[wiki/concepts/docling-document-parser|Docling]]

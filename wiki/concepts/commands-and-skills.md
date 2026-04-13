@@ -77,11 +77,11 @@ description: Scaffold a complete new feature for the domain named $ARGUMENTS.
 
 ## ความสัมพันธ์กับ concept อื่น
 
-- [[wiki/concepts/ai-dispatch-system.md|AI Dispatch System]] — กลไกที่ Claude ตัดสินใจว่าจะเรียก Skill หรือ Command หรือ Agent
-- [[wiki/concepts/ai-agents-system.md|AI Agents System]] — Skill สามารถ spawn Agent ได้ผ่าน Task tool, แต่ Agent ไม่สามารถเรียก Skill ได้
+- [[wiki/concepts/ai-dispatch-system|AI Dispatch System]] — กลไกที่ Claude ตัดสินใจว่าจะเรียก Skill หรือ Command หรือ Agent
+- [[wiki/concepts/ai-agents-system|AI Agents System]] — Skill สามารถ spawn Agent ได้ผ่าน Task tool, แต่ Agent ไม่สามารถเรียก Skill ได้
 
 ## แหล่งที่มา
 
-- [[wiki/sources/ai-context-phase2.md|Phase 2: Agents, Commands, Skills]]
-- [[wiki/sources/ai-context-phase4.md|Phase 4: Bindings]]
-- [[wiki/sources/ai-context-phase6.md|Phase 6: Dispatch System]]
+- [[wiki/sources/ai-context-phase2|Phase 2: Agents, Commands, Skills]]
+- [[wiki/sources/ai-context-phase4|Phase 4: Bindings]]
+- [[wiki/sources/ai-context-phase6|Phase 6: Dispatch System]]

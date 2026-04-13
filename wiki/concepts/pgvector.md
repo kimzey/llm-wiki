@@ -2,7 +2,7 @@
 title: "pgvector — Vector Search บน PostgreSQL"
 type: concept
 tags: [pgvector, vector-database, postgresql, embeddings, rag, vector-search]
-sources: [Sellsuki RAG Agent - Complete Implementation Guide.md]
+sources: [wiki/sources/sellsuki-rag-complete-guide, wiki/sources/openrag-rag-spike-research]
 related: [wiki/concepts/rag-retrieval-augmented-generation.md, wiki/concepts/rag-chunking-strategies.md, wiki/concepts/agentic-rag.md]
 created: 2026-04-14
 updated: 2026-04-14

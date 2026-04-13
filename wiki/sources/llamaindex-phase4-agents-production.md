@@ -139,7 +139,7 @@ updated: 2026-04-13
 
 ## Concepts ที่เกี่ยวข้อง
 
-- [[wiki/concepts/llamaindex-framework.md|LlamaIndex Framework]]
-- [[wiki/concepts/ai-agent.md|AI Agent]]
-- [[wiki/concepts/agentic-rag.md|Agentic RAG]]
-- [[wiki/concepts/rag-evaluation.md|RAG Evaluation]]
+- [[wiki/concepts/llamaindex-framework|LlamaIndex Framework]]
+- [[wiki/concepts/ai-agent|AI Agent]]
+- [[wiki/concepts/agentic-rag|Agentic RAG]]
+- [[wiki/concepts/rag-evaluation|RAG Evaluation]]

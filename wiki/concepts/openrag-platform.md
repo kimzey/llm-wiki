@@ -99,11 +99,11 @@ Google Drive Connector เก็บ `allowed_groups` ถูกต้องตอ
 **วิธีแก้**: เพิ่ม `groups` claim ใน JWT + อัพเดท DLS policy (ดู openrag-access-control-rbac)
 
 ## ความสัมพันธ์กับ concept อื่น
-- [[wiki/concepts/rag-retrieval-augmented-generation.md|RAG]] — OpenRAG implement RAG pattern ครบวงจร
-- [[wiki/concepts/langflow-visual-workflow.md|Langflow]] — AI pipeline engine ใน OpenRAG
-- [[wiki/concepts/docling-document-parser.md|Docling]] — document parser ใน OpenRAG
-- [[wiki/concepts/hybrid-search-bm25-vector.md|Hybrid Search]] — search strategy ที่ OpenSearch ใช้
-- [[wiki/concepts/semantic-caching.md|Semantic Caching]] — ยังขาดอยู่ใน OpenRAG (ดู openrag-cache-analysis)
+- [[wiki/concepts/rag-retrieval-augmented-generation|RAG]] — OpenRAG implement RAG pattern ครบวงจร
+- [[wiki/concepts/langflow-visual-workflow|Langflow]] — AI pipeline engine ใน OpenRAG
+- [[wiki/concepts/docling-document-parser|Docling]] — document parser ใน OpenRAG
+- [[wiki/concepts/hybrid-search-bm25-vector|Hybrid Search]] — search strategy ที่ OpenSearch ใช้
+- [[wiki/concepts/semantic-caching|Semantic Caching]] — ยังขาดอยู่ใน OpenRAG (ดู openrag-cache-analysis)
 
 ## แหล่งที่มา
 - [[wiki/sources/openrag-platform-overview|OpenRAG Platform Overview]]

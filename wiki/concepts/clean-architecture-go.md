@@ -101,10 +101,10 @@ TypeSpec (.tsp) → OpenAPI (openapi.yaml) → Go Fiber interface (spec.gen.go)
 
 ## ความสัมพันธ์กับ concept อื่น
 
-- [[wiki/concepts/claude-code-ai-cli.md|Claude Code AI CLI]] — rules/architecture.md บอก Clean Architecture rules ให้ AI
+- [[wiki/concepts/claude-code-ai-cli|Claude Code AI CLI]] — rules/architecture.md บอก Clean Architecture rules ให้ AI
 
 ## แหล่งที่มา
 
-- [[wiki/sources/ai-context-phase1.md|Phase 1: Rules — กฎสถาปัตยกรรม]]
-- [[wiki/sources/ai-context-phase2.md|Phase 2: Developer Agent workflow]]
-- [[wiki/sources/ai-context-phase5.md|Phase 5: Source Code Map]]
+- [[wiki/sources/ai-context-phase1|Phase 1: Rules — กฎสถาปัตยกรรม]]
+- [[wiki/sources/ai-context-phase2|Phase 2: Developer Agent workflow]]
+- [[wiki/sources/ai-context-phase5|Phase 5: Source Code Map]]

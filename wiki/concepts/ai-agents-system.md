@@ -77,13 +77,13 @@ planner, architect, code-reviewer, tdd-guide, security-reviewer, build-error-res
 
 ## ความสัมพันธ์กับ concept อื่น
 
-- [[wiki/concepts/ai-dispatch-system.md|AI Dispatch System]] — Claude ตัดสินใจว่าจะ spawn agent หรือทำเอง
-- [[wiki/concepts/commands-and-skills.md|Commands and Skills]] — Command/Skill ทำงานใน main session; Agent ทำงานใน subprocess
-- [[wiki/concepts/mcp-model-context-protocol.md|MCP]] — Agent ใช้ MCP tools ผ่าน tools list ใน YAML
+- [[wiki/concepts/ai-dispatch-system|AI Dispatch System]] — Claude ตัดสินใจว่าจะ spawn agent หรือทำเอง
+- [[wiki/concepts/commands-and-skills|Commands and Skills]] — Command/Skill ทำงานใน main session; Agent ทำงานใน subprocess
+- [[wiki/concepts/mcp-model-context-protocol|MCP]] — Agent ใช้ MCP tools ผ่าน tools list ใน YAML
 
 ## แหล่งที่มา
 
-- [[wiki/sources/ai-context-phase2.md|Phase 2: Agents, Commands, Skills]]
-- [[wiki/sources/ai-context-phase4.md|Phase 4: Bindings]]
-- [[wiki/sources/ai-context-phase5.md|Phase 5: Deep Dive]]
-- [[wiki/sources/ai-context-phase7.md|Phase 7: Global Agents + Practical Manual]]
+- [[wiki/sources/ai-context-phase2|Phase 2: Agents, Commands, Skills]]
+- [[wiki/sources/ai-context-phase4|Phase 4: Bindings]]
+- [[wiki/sources/ai-context-phase5|Phase 5: Deep Dive]]
+- [[wiki/sources/ai-context-phase7|Phase 7: Global Agents + Practical Manual]]

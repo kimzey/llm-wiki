@@ -2,7 +2,7 @@
 title: "Systemd Services"
 type: concept
 tags: [systemd, services, process-management, ubuntu]
-sources: [wiki/sources/homeserver-admin-knowledge.md]
+sources: [wiki/sources/homeserver-admin-knowledge, wiki/sources/network-fundamentals]
 related: []
 created: 2026-04-13
 updated: 2026-04-13

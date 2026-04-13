@@ -2,7 +2,7 @@
 title: "SSL/TLS & HTTPS"
 type: concept
 tags: [ssl, tls, https, security, certificate, networking, cloudflare, home-server]
-sources: [network-fundamentals.md]
+sources: [wiki/sources/network-fundamentals, wiki/sources/homeserver-admin-knowledge]
 related:
   - wiki/concepts/cloudflare-tunnel.md
   - wiki/concepts/reverse-proxy.md

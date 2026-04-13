@@ -2,7 +2,7 @@
 title: "Backup Strategy"
 type: concept
 tags: [backup, 3-2-1-rule, disaster-recovery, rclone]
-sources: [wiki/sources/homeserver-admin-knowledge.md]
+sources: [wiki/sources/homeserver-admin-knowledge, wiki/sources/network-fundamentals]
 related: []
 created: 2026-04-13
 updated: 2026-04-13

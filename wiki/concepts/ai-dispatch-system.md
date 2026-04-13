@@ -89,10 +89,10 @@ Use subagent_type: "Developer"
 
 ## ความสัมพันธ์กับ concept อื่น
 
-- [[wiki/concepts/ai-agents-system.md|AI Agents System]] — Agent ถูกเลือกผ่าน dispatch
-- [[wiki/concepts/commands-and-skills.md|Commands and Skills]] — Command/Skill เป็น entry points ที่มีระดับ determinism ต่างกัน
+- [[wiki/concepts/ai-agents-system|AI Agents System]] — Agent ถูกเลือกผ่าน dispatch
+- [[wiki/concepts/commands-and-skills|Commands and Skills]] — Command/Skill เป็น entry points ที่มีระดับ determinism ต่างกัน
 
 ## แหล่งที่มา
 
-- [[wiki/sources/ai-context-phase4.md|Phase 4: Bindings]]
-- [[wiki/sources/ai-context-phase6.md|Phase 6: Dispatch System]]
+- [[wiki/sources/ai-context-phase4|Phase 4: Bindings]]
+- [[wiki/sources/ai-context-phase6|Phase 6: Dispatch System]]

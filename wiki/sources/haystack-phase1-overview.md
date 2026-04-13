@@ -53,5 +53,5 @@ DocumentStore → BM25Retriever → PromptBuilder → OpenAIGenerator
 
 ## Concepts ที่เกี่ยวข้อง
 
-- [[wiki/concepts/haystack-framework.md|Haystack Framework]]
-- [[wiki/concepts/rag-retrieval-augmented-generation.md|RAG — Retrieval-Augmented Generation]]
+- [[wiki/concepts/haystack-framework|Haystack Framework]]
+- [[wiki/concepts/rag-retrieval-augmented-generation|RAG — Retrieval-Augmented Generation]]

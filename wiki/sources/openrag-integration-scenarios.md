@@ -91,5 +91,5 @@ POST /knowledge-filter
 - Langflow Flow ID เก็บใน .env และ auto-update เมื่อ import flow ใหม่
 
 ## Concepts ที่เกี่ยวข้อง
-- [[wiki/concepts/openrag-platform.md|OpenRAG Platform]]
-- [[wiki/concepts/rag-retrieval-augmented-generation.md|RAG]]
+- [[wiki/concepts/openrag-platform|OpenRAG Platform]]
+- [[wiki/concepts/rag-retrieval-augmented-generation|RAG]]

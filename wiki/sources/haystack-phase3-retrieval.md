@@ -64,6 +64,6 @@ Query ─┬→ BM25Retriever ──┬→ DocumentJoiner(RRF) → PromptBuilder
 
 ## Concepts ที่เกี่ยวข้อง
 
-- [[wiki/concepts/haystack-framework.md|Haystack Framework]]
-- [[wiki/concepts/hybrid-search-bm25-vector.md|Hybrid Search — BM25 + Vector Search]]
-- [[wiki/concepts/rag-retrieval-augmented-generation.md|RAG — Retrieval-Augmented Generation]]
+- [[wiki/concepts/haystack-framework|Haystack Framework]]
+- [[wiki/concepts/hybrid-search-bm25-vector|Hybrid Search — BM25 + Vector Search]]
+- [[wiki/concepts/rag-retrieval-augmented-generation|RAG — Retrieval-Augmented Generation]]

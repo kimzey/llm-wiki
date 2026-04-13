@@ -97,9 +97,9 @@ fi
 
 ## ความสัมพันธ์กับ concept อื่น
 
-- [[wiki/concepts/claude-code-ai-cli.md|Claude Code AI CLI]] — Hook configs อยู่ใน settings.json
+- [[wiki/concepts/claude-code-ai-cli|Claude Code AI CLI]] — Hook configs อยู่ใน settings.json
 
 ## แหล่งที่มา
 
-- [[wiki/sources/ai-context-phase1.md|Phase 1: โครงสร้าง .claude]]
-- [[wiki/sources/ai-context-phase5.md|Phase 5: Deep Dive — Hook Lifecycle]]
+- [[wiki/sources/ai-context-phase1|Phase 1: โครงสร้าง .claude]]
+- [[wiki/sources/ai-context-phase5|Phase 5: Deep Dive — Hook Lifecycle]]

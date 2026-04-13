@@ -57,6 +57,6 @@ Phase 4 อธิบายความสัมพันธ์ระหว่า
 
 ## Concepts ที่เกี่ยวข้อง
 
-- [[wiki/concepts/ai-agents-system.md|AI Agents System]]
-- [[wiki/concepts/commands-and-skills.md|Commands and Skills]]
-- [[wiki/concepts/ai-dispatch-system.md|AI Dispatch System]]
+- [[wiki/concepts/ai-agents-system|AI Agents System]]
+- [[wiki/concepts/commands-and-skills|Commands and Skills]]
+- [[wiki/concepts/ai-dispatch-system|AI Dispatch System]]

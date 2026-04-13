@@ -94,8 +94,8 @@ Replace {{placeholders}} with extracted data.
 
 ## ความสัมพันธ์กับ concept อื่น
 
-- [[wiki/concepts/commands-and-skills.md|Commands and Skills]] — implement เป็น Skill + Command คู่
+- [[wiki/concepts/commands-and-skills|Commands and Skills]] — implement เป็น Skill + Command คู่
 
 ## แหล่งที่มา
 
-- [[wiki/sources/ai-context-phase8.md|Phase 8: README Generator]]
+- [[wiki/sources/ai-context-phase8|Phase 8: README Generator]]

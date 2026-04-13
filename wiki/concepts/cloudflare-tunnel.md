@@ -2,7 +2,7 @@
 title: "Cloudflare Tunnel"
 type: concept
 tags: [cloudflare, tunnel, reverse-tunnel, networking, home-server, security, infrastructure]
-sources: [network-fundamentals.md]
+sources: [wiki/sources/network-fundamentals, wiki/sources/homeserver-admin-knowledge]
 related:
   - wiki/concepts/ip-address-networking.md
   - wiki/concepts/port-networking.md

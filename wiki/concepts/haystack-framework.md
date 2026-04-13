@@ -103,16 +103,16 @@ Legal docs:     split_length=300-500 words
 
 ## ความสัมพันธ์กับ concept อื่น
 
-- [[wiki/concepts/rag-retrieval-augmented-generation.md|RAG]] — Haystack คือ framework หลักสำหรับ implement RAG
-- [[wiki/concepts/hybrid-search-bm25-vector.md|Hybrid Search]] — Haystack implement ด้วย DocumentJoiner(RRF)
-- [[wiki/concepts/rag-evaluation.md|RAG Evaluation]] — built-in evaluators + RAGAS integration
-- [[wiki/concepts/opentelemetry.md|OpenTelemetry]] — Haystack รองรับ OTel tracing built-in
+- [[wiki/concepts/rag-retrieval-augmented-generation|RAG]] — Haystack คือ framework หลักสำหรับ implement RAG
+- [[wiki/concepts/hybrid-search-bm25-vector|Hybrid Search]] — Haystack implement ด้วย DocumentJoiner(RRF)
+- [[wiki/concepts/rag-evaluation|RAG Evaluation]] — built-in evaluators + RAGAS integration
+- [[wiki/concepts/opentelemetry|OpenTelemetry]] — Haystack รองรับ OTel tracing built-in
 
 ## แหล่งที่มา
 
-- [[wiki/sources/haystack-phase1-overview.md|Haystack Phase 1 — Overview & Core Concepts]]
-- [[wiki/sources/haystack-phase2-indexing.md|Haystack Phase 2 — Document Processing & Indexing]]
-- [[wiki/sources/haystack-phase3-retrieval.md|Haystack Phase 3 — Embedding & Retrieval]]
-- [[wiki/sources/haystack-phase4-advanced.md|Haystack Phase 4 — Advanced Features]]
-- [[wiki/sources/haystack-phase5-production.md|Haystack Phase 5 — Production & Integrations]]
-- [[wiki/sources/haystack-phase6-observability.md|Haystack Phase 6 — API, Auth & Observability]]
+- [[wiki/sources/haystack-phase1-overview|Haystack Phase 1 — Overview & Core Concepts]]
+- [[wiki/sources/haystack-phase2-indexing|Haystack Phase 2 — Document Processing & Indexing]]
+- [[wiki/sources/haystack-phase3-retrieval|Haystack Phase 3 — Embedding & Retrieval]]
+- [[wiki/sources/haystack-phase4-advanced|Haystack Phase 4 — Advanced Features]]
+- [[wiki/sources/haystack-phase5-production|Haystack Phase 5 — Production & Integrations]]
+- [[wiki/sources/haystack-phase6-observability|Haystack Phase 6 — API, Auth & Observability]]

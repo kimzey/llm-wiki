@@ -2,7 +2,7 @@
 title: "DNS — Domain Name System"
 type: concept
 tags: [networking, dns, domain, home-server, infrastructure, cloudflare]
-sources: [network-fundamentals.md]
+sources: [wiki/sources/network-fundamentals, wiki/sources/homeserver-admin-knowledge]
 related:
   - wiki/concepts/ip-address-networking.md
   - wiki/concepts/cloudflare-tunnel.md

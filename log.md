@@ -216,3 +216,30 @@
 ## [2026-04-14] query | Arona คืออะไร รายละเอียดเป็นยังไง ทำอะไรได้บ้าง
 - Pages consulted: wiki/sources/arona-overview, wiki/sources/arona-tool-call-agent, wiki/sources/arona-stateless-rag
 - Synthesis created: no
+
+## [2026-04-14] lint | found 17 issues — ALL FIXED
+- Orphans: 1 → fixed (synthesis/obsidian-skills-reference added to index.md)
+- Broken links: 6 → fixed (สร้าง concept pages: vector-database, embedding, tool-calling, prompt-engineering, api-design, api-integration)
+- Missing concepts: 3 → fixed (same as broken links)
+- Contradictions: 0 — none found
+- Stale content: 0 — all pages recent
+- Empty sections: 0 — none found
+- Data gaps: fixed (networking concepts frontmatter → reference 2 wiki sources; docling/pgvector/open-source-rag-platforms → web research + 3 new source pages)
+- Index gap: fixed (synthesis table updated)
+- Duplicate source: fixed (deleted sellsuki-agent-guide-06.md, removed from index)
+- Style issues: fixed (removed .md extension from all wikilinks across wiki/)
+
+## [2026-04-14] ingest | vector-db-comparison-research (web research)
+- สร้าง: raw/notes/vector-db-research-2026.md
+- สร้าง: wiki/sources/vector-db-comparison-research.md
+- อัปเดต: wiki/concepts/vector-database.md (เพิ่ม benchmark table, pgvector 0.7.0 improvements)
+
+## [2026-04-14] ingest | docling-deep-dive-research (web research)
+- สร้าง: raw/notes/docling-research-2026.md
+- สร้าง: wiki/sources/docling-deep-dive-research.md
+- อัปเดต: wiki/concepts/docling-document-parser.md (เพิ่ม Granite-Docling-258M, benchmark table)
+
+## [2026-04-14] ingest | open-source-rag-platforms-research (web research)
+- สร้าง: raw/notes/open-source-rag-platforms-research-2026.md
+- สร้าง: wiki/sources/open-source-rag-platforms-research.md
+- อัปเดต: wiki/concepts/open-source-rag-platforms.md (เพิ่ม RAGFlow/Dify/AnythingLLM/Flowise comparison table)

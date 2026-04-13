@@ -95,10 +95,10 @@ PO agent เรียก mcp__jira__create_issue (type: Epic)
 
 ## ความสัมพันธ์กับ concept อื่น
 
-- [[wiki/concepts/ai-agents-system.md|AI Agents System]] — Agent ใช้ MCP ผ่าน tools list ใน YAML
-- [[wiki/concepts/claude-code-ai-cli.md|Claude Code AI CLI]] — MCP เปิดใช้ผ่าน settings.local.json
+- [[wiki/concepts/ai-agents-system|AI Agents System]] — Agent ใช้ MCP ผ่าน tools list ใน YAML
+- [[wiki/concepts/claude-code-ai-cli|Claude Code AI CLI]] — MCP เปิดใช้ผ่าน settings.local.json
 
 ## แหล่งที่มา
 
-- [[wiki/sources/ai-context-phase3.md|Phase 3: .opencode, MCP, Security]]
-- [[wiki/sources/ai-context-phase5.md|Phase 5: Deep Dive]]
+- [[wiki/sources/ai-context-phase3|Phase 3: .opencode, MCP, Security]]
+- [[wiki/sources/ai-context-phase5|Phase 5: Deep Dive]]

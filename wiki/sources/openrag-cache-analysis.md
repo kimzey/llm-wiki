@@ -89,5 +89,5 @@ TTL expiry → default 1 ชั่วโมง
 - Arona (wiki ก่อนหน้า) มี Semantic Cache ด้วย DragonflyDB ส่วน OpenRAG ยังไม่มี — OpenRAG เน้น features ครบกว่าแต่ optimization ยังด้อยกว่า
 
 ## Concepts ที่เกี่ยวข้อง
-- [[wiki/concepts/semantic-caching.md|Semantic Caching]]
-- [[wiki/concepts/openrag-platform.md|OpenRAG Platform]]
+- [[wiki/concepts/semantic-caching|Semantic Caching]]
+- [[wiki/concepts/openrag-platform|OpenRAG Platform]]

@@ -132,4 +132,4 @@ pip install -U langchain-chroma langchain-google-genai rank_bm25
 
 ## Concepts ที่เกี่ยวข้อง
 
-- [[wiki/concepts/agentic-rag.md|Agentic RAG]]
+- [[wiki/concepts/agentic-rag|Agentic RAG]]

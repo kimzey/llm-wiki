@@ -45,6 +45,6 @@ Repository ─────────→ Entity
 
 ## Concepts ที่เกี่ยวข้อง
 
-- [[wiki/concepts/claude-code-ai-cli.md|Claude Code AI CLI]]
-- [[wiki/concepts/ai-hooks-system.md|AI Hooks System]]
-- [[wiki/concepts/commands-and-skills.md|Commands and Skills]]
+- [[wiki/concepts/claude-code-ai-cli|Claude Code AI CLI]]
+- [[wiki/concepts/ai-hooks-system|AI Hooks System]]
+- [[wiki/concepts/commands-and-skills|Commands and Skills]]

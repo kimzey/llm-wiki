@@ -81,6 +81,6 @@ updated: 2026-04-13
 
 ## Concepts ที่เกี่ยวข้อง
 
-- [[wiki/concepts/llamaindex-framework.md|LlamaIndex Framework]]
-- [[wiki/concepts/rag-chunking-strategies.md|RAG Chunking Strategies]]
-- [[wiki/concepts/rag-retrieval-augmented-generation.md|RAG — Retrieval-Augmented Generation]]
+- [[wiki/concepts/llamaindex-framework|LlamaIndex Framework]]
+- [[wiki/concepts/rag-chunking-strategies|RAG Chunking Strategies]]
+- [[wiki/concepts/rag-retrieval-augmented-generation|RAG — Retrieval-Augmented Generation]]

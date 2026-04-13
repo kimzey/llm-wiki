@@ -2,7 +2,7 @@
 title: "IP Address & Networking"
 type: concept
 tags: [networking, ip-address, nat, public-ip, private-ip, home-server, infrastructure]
-sources: [network-fundamentals.md]
+sources: [wiki/sources/network-fundamentals, wiki/sources/homeserver-admin-knowledge]
 related:
   - wiki/concepts/port-networking.md
   - wiki/concepts/dns.md

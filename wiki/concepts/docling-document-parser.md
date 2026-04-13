@@ -2,10 +2,10 @@
 title: "Docling — AI Document Parser"
 type: concept
 tags: [docling, document-parser, ocr, pdf, ibm-research, rag, layout-analysis]
-sources: [phase2-docling.md]
+sources: [wiki/sources/openrag-docling-parser, wiki/sources/openrag-chunking-ingestion, wiki/sources/docling-deep-dive-research]
 related: [wiki/concepts/openrag-platform.md, wiki/concepts/rag-chunking-strategies.md, wiki/concepts/rag-retrieval-augmented-generation.md]
 created: 2026-04-13
-updated: 2026-04-13
+updated: 2026-04-14
 ---
 
 ## สรุปสั้น
@@ -54,9 +54,27 @@ docker run --gpus all -p 5001:5001 quay.io/docling-project/docling-serve:latest-
 ```
 
 ## ความสัมพันธ์กับ concept อื่น
-- [[wiki/concepts/openrag-platform.md|OpenRAG]] — ใช้ Docling เป็น document parser หลัก
-- [[wiki/concepts/rag-chunking-strategies.md|RAG Chunking]] — Docling output (page/table chunks) เป็น input ให้ chunking layer ต่อ
-- [[wiki/concepts/rag-retrieval-augmented-generation.md|RAG]] — Docling อยู่ใน Ingestion phase ของ RAG pipeline
+- [[wiki/concepts/openrag-platform|OpenRAG]] — ใช้ Docling เป็น document parser หลัก
+- [[wiki/concepts/rag-chunking-strategies|RAG Chunking]] — Docling output (page/table chunks) เป็น input ให้ chunking layer ต่อ
+- [[wiki/concepts/rag-retrieval-augmented-generation|RAG]] — Docling อยู่ใน Ingestion phase ของ RAG pipeline
+
+## Granite-Docling-258M (อัปเดต 2025)
+
+รุ่นใหม่ล่าสุดจาก IBM Research — single model รวม vision + language:
+- ขนาด ~258M parameters (compact, รันได้ local)
+- ใช้ **DocTags** markup language แยก text จาก structure
+- Outputs: DocTags → Markdown / JSON / HTML
+- ปรับปรุงกว่ารุ่นก่อน: layout, OCR, code, equations, tables ทุกด้าน
+
+**Benchmark vs คู่แข่ง (2025):**
+
+| Tool | จุดเด่น |
+|------|---------|
+| **Docling** | ดีที่สุดสำหรับ structured PDFs (tables, multi-column) |
+| LlamaParse | ดีกว่าสำหรับ scanned docs คุณภาพต่ำ |
+| Unstructured.io | Format support หลากหลายที่สุด |
 
 ## แหล่งที่มา
-- phase2-docling.md (OpenRAG Phase 2 documentation)
+- [[wiki/sources/openrag-docling-parser|OpenRAG — Docling AI Document Parser]]
+- [[wiki/sources/openrag-chunking-ingestion|OpenRAG — Chunking System & Document Ingestion]]
+- [[wiki/sources/docling-deep-dive-research|Docling Deep Dive Research (Granite-Docling 2025)]]

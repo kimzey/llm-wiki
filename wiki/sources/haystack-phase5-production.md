@@ -58,5 +58,5 @@ Enterprise: AWS Bedrock / Google Vertex AI
 
 ## Concepts ที่เกี่ยวข้อง
 
-- [[wiki/concepts/haystack-framework.md|Haystack Framework]]
-- [[wiki/concepts/rag-evaluation.md|RAG Evaluation]]
+- [[wiki/concepts/haystack-framework|Haystack Framework]]
+- [[wiki/concepts/rag-evaluation|RAG Evaluation]]

@@ -2,7 +2,7 @@
 title: "Server Security"
 type: concept
 tags: [security, hardening, ssh, firewall, fail2ban, ufw, port-forwarding, vpn, cloudflare]
-sources: [wiki/sources/homeserver-admin-knowledge.md, network-fundamentals.md]
+sources: [wiki/sources/homeserver-admin-knowledge, wiki/sources/network-fundamentals]
 related:
   - wiki/concepts/vpn-tailscale.md
   - wiki/concepts/cloudflare-tunnel.md

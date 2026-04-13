@@ -109,5 +109,5 @@ Per-request tweaks > Environment Variables > config.yaml defaults
 - Config สามารถแก้ผ่าน API ได้: `PUT /settings` (ไม่ต้อง restart)
 
 ## Concepts ที่เกี่ยวข้อง
-- [[wiki/concepts/openrag-platform.md|OpenRAG Platform]]
-- [[wiki/concepts/llm-large-language-model.md|LLM]]
+- [[wiki/concepts/openrag-platform|OpenRAG Platform]]
+- [[wiki/concepts/llm-large-language-model|LLM]]

@@ -97,12 +97,12 @@ size: none | xxs | xs | sm | md | lg | xl | 2xl | ... | 15xl | full
 
 ## ความสัมพันธ์กับ concept อื่น
 
-- [[wiki/concepts/web-components-lit.md|Web Components & Lit Framework]] — design tokens ใช้เป็น CSS variables ใน Shadow DOM ของ Web Components
+- [[wiki/concepts/web-components-lit|Web Components & Lit Framework]] — design tokens ใช้เป็น CSS variables ใน Shadow DOM ของ Web Components
 - Design tokens เป็นส่วนหนึ่งของ Design System ที่ใหญ่กว่า (colors, typography, animation ก็เป็น token)
 
 ## แหล่งที่มา
 
-- [[wiki/sources/sellsuki-design-tokens-service.md|Sellsuki Design Tokens Service — Complete Documentation]]
-- [[wiki/sources/sellsuki-design-tokens-flow.md|Sellsuki Design Tokens — Flow การทำงาน]]
-- [[wiki/sources/sellsuki-design-tokens-reference.md|Sellsuki Design Tokens — Spacing System Reference]]
-- [[wiki/sources/sellsuki-components-docs.md|Sellsuki Components — Service Documentation]]
+- [[wiki/sources/sellsuki-design-tokens-service|Sellsuki Design Tokens Service — Complete Documentation]]
+- [[wiki/sources/sellsuki-design-tokens-flow|Sellsuki Design Tokens — Flow การทำงาน]]
+- [[wiki/sources/sellsuki-design-tokens-reference|Sellsuki Design Tokens — Spacing System Reference]]
+- [[wiki/sources/sellsuki-components-docs|Sellsuki Components — Service Documentation]]

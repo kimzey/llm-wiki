@@ -85,6 +85,6 @@ Hybrid:    Query → [VectorSearch + KeywordSearch] → RRF Rank Fusion → LLM
 - Hybrid Search ด้วย pgvector ต้องเขียน SQL เอง รวม `tsvector` กับ vector search
 
 ## Concepts ที่เกี่ยวข้อง
-- [[wiki/concepts/rag-retrieval-augmented-generation.md|RAG]]
-- [[wiki/concepts/hybrid-search-bm25-vector.md|Hybrid Search]]
-- [[wiki/concepts/rag-chunking-strategies.md|RAG Chunking Strategies]]
+- [[wiki/concepts/rag-retrieval-augmented-generation|RAG]]
+- [[wiki/concepts/hybrid-search-bm25-vector|Hybrid Search]]
+- [[wiki/concepts/rag-chunking-strategies|RAG Chunking Strategies]]

@@ -106,5 +106,5 @@ load_dotenv()
 
 ## Concepts ที่เกี่ยวข้อง
 
-- [[wiki/concepts/ai-agent.md|AI Agent]]
-- [[wiki/concepts/agentic-rag.md|Agentic RAG]]
+- [[wiki/concepts/ai-agent|AI Agent]]
+- [[wiki/concepts/agentic-rag|Agentic RAG]]

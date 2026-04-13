@@ -56,6 +56,6 @@ mcp__<server-name>__<tool-name>
 
 ## Concepts ที่เกี่ยวข้อง
 
-- [[wiki/concepts/mcp-model-context-protocol.md|MCP Model Context Protocol]]
-- [[wiki/concepts/ai-hooks-system.md|AI Hooks System]]
-- [[wiki/concepts/claude-code-ai-cli.md|Claude Code AI CLI]]
+- [[wiki/concepts/mcp-model-context-protocol|MCP Model Context Protocol]]
+- [[wiki/concepts/ai-hooks-system|AI Hooks System]]
+- [[wiki/concepts/claude-code-ai-cli|Claude Code AI CLI]]

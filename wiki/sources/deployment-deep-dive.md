@@ -119,5 +119,5 @@ CMD ["uvicorn", "server:app", "--host", "0.0.0.0", "--port", "8000"]
 
 ## Concepts ที่เกี่ยวข้อง
 
-- [[wiki/concepts/ai-agent.md|AI Agent]]
-- [[wiki/concepts/agentic-rag.md|Agentic RAG]]
+- [[wiki/concepts/ai-agent|AI Agent]]
+- [[wiki/concepts/agentic-rag|Agentic RAG]]

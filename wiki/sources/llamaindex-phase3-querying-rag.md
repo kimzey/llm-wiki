@@ -108,7 +108,7 @@ updated: 2026-04-13
 
 ## Concepts ที่เกี่ยวข้อง
 
-- [[wiki/concepts/llamaindex-framework.md|LlamaIndex Framework]]
-- [[wiki/concepts/rag-evaluation.md|RAG Evaluation]]
-- [[wiki/concepts/hybrid-search-bm25-vector.md|Hybrid Search — BM25 + Vector Search]]
-- [[wiki/concepts/agentic-rag.md|Agentic RAG]]
+- [[wiki/concepts/llamaindex-framework|LlamaIndex Framework]]
+- [[wiki/concepts/rag-evaluation|RAG Evaluation]]
+- [[wiki/concepts/hybrid-search-bm25-vector|Hybrid Search — BM25 + Vector Search]]
+- [[wiki/concepts/agentic-rag|Agentic RAG]]
