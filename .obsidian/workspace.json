@@ -4,17 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "f743b997363be366",
+        "id": "bfd0663ca0e70608",
         "type": "tabs",
         "children": [
           {
-            "id": "c77e45817f92aedd",
+            "id": "c661eb6bc1205524",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "type": "markdown",
+              "state": {
+                "file": "wiki/sources/rag/rag-decision-guide.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "rag-decision-guide"
             }
           }
         ]
@@ -90,6 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "wiki/sources/rag/rag-decision-guide.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -99,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks"
+              "title": "Backlinks for rag-decision-guide"
             }
           },
           {
@@ -108,11 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "wiki/sources/rag/rag-decision-guide.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links"
+              "title": "Outgoing links from rag-decision-guide"
             }
           },
           {
@@ -188,43 +194,44 @@
       "remotely-save:Remotely Save": false
     }
   },
-  "active": "c77e45817f92aedd",
+  "active": "c661eb6bc1205524",
   "lastOpenFiles": [
+    "wiki/sources/agents/agent-patterns-reference.md",
+    "wiki/sources/agents/react-agent-pattern.md",
+    "wiki/sources/agents/agent-fundamentals.md",
+    "wiki/sources/agents/tool-calls-function-calling.md",
+    "wiki/sources/agents/llm-basics.md",
+    "wiki/sources/agents/learning-path-llm-agents.md",
+    "wiki/sources/agents",
+    "raw/notes/ai/agents/tool-calls.md",
+    "raw/notes/ai/agents/react-agent.md",
+    "raw/notes/ai/agents/agent-patterns.md",
+    "raw/notes/ai/agents/agent-fundamentals.md",
+    "raw/notes/ai/agents/README.md",
+    "raw/notes/ai/agents/00-llm-basics.md",
+    "raw/notes/ai/agents",
+    "raw/notes/ai",
+    "raw/inbox/spike-rag/tool-calls.md",
+    "raw/inbox/spike-rag/README.md",
+    "raw/inbox/spike-rag/react-agent.md",
+    "raw/inbox/spike-rag/agent-patterns.md",
+    "raw/inbox/spike-rag/agent-fundamentals.md",
+    "raw/inbox/spike-rag/00-llm-basics.md",
+    "raw/inbox/spike-rag",
+    "wiki/sources/rag/rag-complete-knowledge.md",
+    "wiki/sources/rag/rag-complete-guide-comprehensive.md",
+    "wiki/sources/rag/rag-client-channels-complete.md",
+    "log.md",
+    "raw/notes/tech/runtimes/bun-runtime.md",
+    "CLAUDE.md",
     "Untitled.canvas",
     "2026-04-14.md",
     "wiki/synthesis/obsidian-skills-reference.md",
-    "index.md",
-    "wiki/concepts/package-manager.md",
-    "wiki/concepts/javascript-runtime.md",
-    "wiki/concepts/typescript-programming-language.md",
-    "wiki/sources/javascript/bun-runtime.md",
     "wiki/sources/javascript",
-    "raw/notes/javascript/bun-runtime.md",
     "raw/notes/javascript",
-    "raw/inbox/bun-runtime.md",
-    "wiki/concepts/hot-reload.md",
     "wiki/concepts/package-manager.md.tmp.94106.1776111043038",
-    "wiki/concepts/typescript.md",
-    "wiki/sources/infrastructure/bun-runtime.md",
-    "raw/notes/tech/runtimes/bun-runtime.md",
     "raw/notes/tech/runtimes",
     "raw/notes/tech",
-    "raw/notes/frameworks/openrag/docs-lean/openrag-allowed-groups-google.md",
-    "wiki/sources/frameworks/openrag-access-control-rbac.md",
-    "raw/notes/frameworks/openrag/docs-lean/chunking.md",
-    "wiki/sources/frameworks/openrag-chunking-ingestion.md",
-    "raw/notes/frameworks/openrag/docs-lean/spike-rag-research-summary.md",
-    "wiki/sources/frameworks/openrag-rag-spike-research.md",
-    "wiki/sources/frameworks/openrag-langchain-llamaindex-deepdive.md",
-    "raw/notes/frameworks/openrag/docs-lean/phase3-opensearch.md",
-    "wiki/sources/frameworks/openrag-opensearch-vector-db.md",
-    "raw/notes/frameworks/openrag/docs-lean/phase2-docling.md",
-    "wiki/sources/frameworks/openrag-docling-parser.md",
-    "wiki/sources/rag/rag-complete-guide-comprehensive.md",
-    "wiki/sources/sellsuki",
-    "wiki/sources/rag",
-    "wiki/sources/policy",
-    "wiki/sources/observability",
-    "wiki/sources/langchain"
+    "wiki/sources/sellsuki"
   ]
 }

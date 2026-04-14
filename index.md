@@ -1,6 +1,6 @@
 # Index
 
-วันที่อัปเดตล่าสุด: 2026-04-14 (19 — Bun Runtime + 3 Concepts added)
+วันที่อัปเดตล่าสุด: 2026-04-14 (25 — 6 LLM Agent Guides added)
 
 ---
 
@@ -106,6 +106,12 @@
 | [[wiki/sources/rag/docling-deep-dive-research\|Docling Deep Dive — Granite-Docling & Benchmarks]] | Granite-Docling-258M (March 2025): DocTags markup, vision+language model, benchmark vs LlamaParse/Unstructured, LangChain/LlamaIndex integrations | [[wiki/sources/rag/docling-deep-dive-research]] | 2026-04-14 |
 | [[wiki/sources/rag/open-source-rag-platforms-research\|Open Source RAG Platforms Research 2026]] | เปรียบเทียบ RAGFlow vs Dify vs AnythingLLM vs Flowise: RAG sophistication, ease of use, agent support, complex docs, decision guide | [[wiki/sources/rag/open-source-rag-platforms-research]] | 2026-04-14 |
 | [[wiki/sources/sellsuki/sellsuki-hr-policy\|Sellsuki Corp HR Policy]] | นโยบายฝ่ายทรัพยากรบุคคล: WFA, ECL, Pet-CEO Day, Quantum Nap Time, Meeting Combat Resolution, Holographic Dress Code, Breakup Relief Fund | [[wiki/sources/sellsuki/sellsuki-hr-policy]] | 2026-04-14 |
+| [[wiki/sources/agents/learning-path-llm-agents\|Learning Path: LLM Agents]] | เอกสารแนะนำเส้นทางการเรียนรู้ LLM Agents ตั้งแต่พื้นฐานจนถึง production-ready: 5 ระดับ, learning outcomes, ความต้องการพื้นฐาน | [[wiki/sources/agents/learning-path-llm-agents]] | 2026-04-14 |
+| [[wiki/sources/agents/llm-basics\|LLM Basics — พื้นฐานก่อนเรียน Agent]] | พื้นฐาน LLM: ทำงานยังไง, tokens, context window, prompting, RAG, ทำไมต้องมี Agent — ครอบคลุมทุกสิ่งที่ต้องรู้ก่อนศึกษา Agents | [[wiki/sources/agents/llm-basics]] | 2026-04-14 |
+| [[wiki/sources/agents/tool-calls-function-calling\|Tool Calls / Function Calling]] | กลไกที่ทำให้ LLM เรียกใช้ functions ภายนอกได้: API flow, tool definition, parallel calls, Anthropic vs OpenAI, error handling | [[wiki/sources/agents/tool-calls-function-calling]] | 2026-04-14 |
+| [[wiki/sources/agents/agent-fundamentals\|Agent Fundamentals — ทุกอย่างที่ต้องรู้]] | LLM Agents ครบถ้วน: 4 เสาหลัก (Memory/Planning/Tools/Action), 6 failure modes, system prompts, production concerns (observability, guardrails, cost) | [[wiki/sources/agents/agent-fundamentals]] | 2026-04-14 |
+| [[wiki/sources/agents/react-agent-pattern\|ReAct Agent — ความรู้ฉบับสมบูรณ์]] | ReAct (Reasoning + Acting) pattern อย่างละเอียด: loop, components, implementation, benchmarks, use cases, pros/cons | [[wiki/sources/agents/react-agent-pattern]] | 2026-04-14 |
+| [[wiki/sources/agents/agent-patterns-reference\|Agent Patterns — คู่มืออ่านเข้าใจทุก Pattern]] | คู่มืออ้างอิง 22 agent patterns 4 หมวด: Single-Agent Reasoning (CoT, ReAct, ToT), RAG-Specific (Self-RAG, CRAG), Tool-Use, Multi-Agent | [[wiki/sources/agents/agent-patterns-reference]] | 2026-04-14 |
 
 ---
 

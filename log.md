@@ -4,6 +4,21 @@
 
 ---
 
+## [2026-04-14] ingest | raw/inbox/spike-rag/ — LLM Agents Learning Path (6 files)
+
+- **Categorize & Move**: spike-rag/ (6 files) → raw/notes/ai/agents/
+- สร้าง source pages: learning-path-llm-agents, llm-basics, tool-calls-function-calling, agent-fundamentals, react-agent-pattern, agent-patterns-reference (6 ไฟล์ — wiki/sources/agents/)
+- ครอบคลุมเนื้อหา: 
+  - **learning-path**: เส้นทางเรียนรู้ 5 ระดับ (LLM Basics → Tool Calls → Agent Fundamentals → ReAct → Agent Patterns), learning outcomes, prerequisites
+  - **llm-basics**: LLM ทำงานยังไง (autoregressive), tokens, context window, prompting (zero/few-shot, CoT, temperature), RAG 2 phases (indexing + retrieval), embeddings, vector search, Agent evolution (4 levels)
+  - **tool-calls**: Tool Calls API flow, tool definition structure, parallel calls, Anthropic vs OpenAI APIs, error handling, frameworks (LangChain, LlamaIndex), Tool Call vs Agent relationship
+  - **agent-fundamentals**: Agent definition, 4 pillars (Memory/Planning/Tools/Action), context window management, 6 failure modes, system prompts, production concerns (observability, guardrails, HITL, cost control), evaluation metrics
+  - **react-agent**: ReAct pattern (Thought → Action → Observation), components (Memory/LLM/Tool Registry/Executor), pros/cons, related patterns (CoT, Plan-and-Execute, Reflexion, ToT), implementations (LangChain, LangGraph, LlamaIndex, raw API), benchmark comparison
+  - **agent-patterns**: 22 patterns 4 หมวด: Single-Agent Reasoning (CoT, ReAct, Reflexion, Plan-and-Execute, ReWOO, ToT, GoT, LATS), RAG-Specific (Self-RAG, CRAG, Agentic RAG, Modular RAG), Tool-Use (Function Calling, Toolformer, Computer Use), Multi-Agent (Orchestrator-Worker, Debate, CrewAI, AutoGen, Swarm, MemGPT), decision framework
+- อัปเดต index.md (6 sources ใหม่ใน agents category)
+
+---
+
 ## [2026-04-14] ingest | raw/inbox/bun-runtime.md — Bun Runtime Guide
 
 - **Categorize & Move**: bun-runtime.md → raw/notes/javascript/
