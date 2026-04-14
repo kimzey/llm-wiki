@@ -1,9 +1,9 @@
 ---
 title: "Prompt Engineering — ออกแบบคำสั่งให้ LLM"
 type: concept
-tags: [prompt-engineering, llm, few-shot, chain-of-thought, system-prompt, rag]
-sources: [wiki/sources/rag-complete-knowledge, wiki/sources/step1-langchain-basics, wiki/sources/ai-context-phase8]
-related: [wiki/concepts/llm-large-language-model, wiki/concepts/deterministic-ai-generation, wiki/concepts/ai-agent]
+tags: [prompt-engineering, llm, few-shot, chain-of-thought, system-prompt, rag, meta-prompting, apo]
+sources: [wiki/sources/rag-complete-knowledge, wiki/sources/step1-langchain-basics, wiki/sources/ai-context-phase8, wiki/sources/ai-engineering/advanced-techniques, wiki/sources/ai-engineering/context-prompt-engineering]
+related: [wiki/concepts/llm-large-language-model, wiki/concepts/deterministic-ai-generation, wiki/concepts/ai-agent, wiki/concepts/context-engineering]
 created: 2026-04-14
 updated: 2026-04-14
 ---
@@ -105,8 +105,53 @@ template = """ตอบเป็น JSON เท่านั้น ตาม sche
 - [[wiki/concepts/deterministic-ai-generation|Deterministic AI Generation]] — Constraint Prompting เป็นหนึ่งใน 3 เทคนิคหลัก
 - [[wiki/concepts/ai-agent|AI Agent]] — System prompt ใน agent กำหนดบทบาท, tools ที่ใช้, และ stopping conditions
 
+## Advanced Techniques (เพิ่มเติมจาก 08_advanced_techniques.md)
+
+### Meta-Prompting
+ใช้ LLM เขียน prompt ที่ดีที่สุดสำหรับงาน แทนที่จะเขียนเอง:
+```python
+META_PROMPT = """คุณเป็นผู้เชี่ยวชาญด้าน Prompt Engineering
+สร้าง prompt ที่ดีที่สุดสำหรับงานนี้:
+งาน: {task_description}
+ส่ง prompt เท่านั้น ไม่ต้องอธิบาย"""
+```
+
+### Automatic Prompt Optimization (APO)
+วนรอบอัตโนมัติ:
+1. evaluate prompt บน test set
+2. ถ้า score ต่ำ → ให้ LLM วิเคราะห์ failure
+3. ให้ LLM แก้ prompt
+4. ทดสอบ prompt ใหม่ → ทำซ้ำจนได้ score ที่พอใจ
+
+### Structured Output — 2 วิธี
+
+**JSON Mode**: ระบุ schema ใน prompt → validate ด้วย Pydantic
+```python
+class ProductReview(BaseModel):
+    sentiment: Literal["positive", "negative", "neutral", "mixed"]
+    score: int  # 1-10
+    pros: list[str]
+    cons: list[str]
+```
+
+**Tool-forced Extraction**: บังคับให้โมเดลใช้ tool เพื่อส่ง structured output
+```python
+response = client.messages.create(
+    tool_choice={"type": "any"},  # บังคับใช้ tool
+    ...
+)
+```
+
+### Constitutional AI Prompting
+```python
+# Step 1: สร้างคำตอบ → Step 2: วิจารณ์ตาม constitution → Step 3: แก้ไข
+CONSTITUTION = "ตอบอย่างซื่อสัตย์, ไม่สร้างเนื้อหาอันตราย, ยอมรับความไม่แน่นอน"
+```
+
 ## แหล่งที่มา
 
 - [[wiki/sources/rag/rag-complete-knowledge|Complete RAG & Agent Knowledge Base]]
 - [[wiki/sources/langchain/steplangchain-basics|Step 1: LangChain พื้นฐาน]]
 - [[wiki/sources/ai-context/ai-context-phase8|AI Context Phase 8: Deterministic README Generator]]
+- [[wiki/sources/ai-engineering/advanced-techniques|Advanced Techniques — เทคนิคขั้นสูง AI Engineering]]
+- [[wiki/sources/ai-engineering/context-prompt-engineering|Context & Prompt Engineering — คู่มือฉบับสมบูรณ์]]

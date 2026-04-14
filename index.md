@@ -1,6 +1,6 @@
 # Index
 
-วันที่อัปเดตล่าสุด: 2026-04-14 (25 — 6 LLM Agent Guides added)
+วันที่อัปเดตล่าสุด: 2026-04-14 (35 — 10 AI Engineering Notes added)
 
 ---
 
@@ -112,6 +112,16 @@
 | [[wiki/sources/agents/agent-fundamentals\|Agent Fundamentals — ทุกอย่างที่ต้องรู้]] | LLM Agents ครบถ้วน: 4 เสาหลัก (Memory/Planning/Tools/Action), 6 failure modes, system prompts, production concerns (observability, guardrails, cost) | [[wiki/sources/agents/agent-fundamentals]] | 2026-04-14 |
 | [[wiki/sources/agents/react-agent-pattern\|ReAct Agent — ความรู้ฉบับสมบูรณ์]] | ReAct (Reasoning + Acting) pattern อย่างละเอียด: loop, components, implementation, benchmarks, use cases, pros/cons | [[wiki/sources/agents/react-agent-pattern]] | 2026-04-14 |
 | [[wiki/sources/agents/agent-patterns-reference\|Agent Patterns — คู่มืออ่านเข้าใจทุก Pattern]] | คู่มืออ้างอิง 22 agent patterns 4 หมวด: Single-Agent Reasoning (CoT, ReAct, ToT), RAG-Specific (Self-RAG, CRAG), Tool-Use, Multi-Agent | [[wiki/sources/agents/agent-patterns-reference]] | 2026-04-14 |
+| [[wiki/sources/ai-engineering/context-prompt-engineering\|Context & Prompt Engineering]] | คู่มือ Context Engineering และ Prompt Engineering ฉบับสมบูรณ์: Context Window, External Memory, RAG, Compaction, Isolation, Zero-shot, Few-shot, CoT, ReAct | [[wiki/sources/ai-engineering/context-prompt-engineering]] | 2026-04-14 |
+| [[wiki/sources/ai-engineering/llm-fundamentals\|LLM Fundamentals]] | พื้นฐาน LLM, Transformer Architecture, Self-Attention, Tokenization, Temperature/Sampling, Training Stages (Pre-training→SFT→RLHF→Constitutional AI) | [[wiki/sources/ai-engineering/llm-fundamentals]] | 2026-04-14 |
+| [[wiki/sources/ai-engineering/agent-systems\|Agent Systems]] | ระบบ AI Agent ฉบับสมบูรณ์: Agent Loop, ReAct, Plan-and-Execute, Reflection, Multi-Agent Patterns, Tool Design, Human-in-the-Loop, Observability | [[wiki/sources/ai-engineering/agent-systems]] | 2026-04-14 |
+| [[wiki/sources/rag/rag-systems-complete\|RAG Systems Complete]] | RAG Pipeline ฉบับสมบูรณ์: Indexing+Query phases, Chunking 4 แบบ, Hybrid Search, Reranking, HyDE, Query Expansion, RAGAS Evaluation | [[wiki/sources/rag/rag-systems-complete]] | 2026-04-14 |
+| [[wiki/sources/ai-engineering/fine-tuning\|Fine-Tuning]] | Fine-tuning โมเดล AI: เมื่อไรควรใช้ vs RAG vs Prompt Engineering, LoRA, QLoRA, Instruction Tuning, Data Prep, Training Parameters | [[wiki/sources/ai-engineering/fine-tuning]] | 2026-04-14 |
+| [[wiki/sources/ai-engineering/evaluation-testing\|Evaluation & Testing]] | การวัดคุณภาพ AI: BLEU, ROUGE, BERTScore, LLM-as-Judge, Golden Dataset, Regression Testing, A/B Testing, Production Monitoring | [[wiki/sources/ai-engineering/evaluation-testing]] | 2026-04-14 |
+| [[wiki/sources/ai-engineering/production-deployment\|Production Deployment]] | Deploy AI สู่ Production: API Design, Rate Limiting, Multi-layer Caching, Error Handling, Security, Cost Management, Horizontal Scaling | [[wiki/sources/ai-engineering/production-deployment]] | 2026-04-14 |
+| [[wiki/sources/ai-engineering/advanced-techniques\|Advanced Techniques]] | เทคนิคขั้นสูง: Meta-Prompting, APO, Constitutional AI, GraphRAG, RAPTOR, Mixture of Agents, Structured Output, KV Cache Optimization | [[wiki/sources/ai-engineering/advanced-techniques]] | 2026-04-14 |
+| [[wiki/sources/ai-engineering/security-safety\|Security & Safety]] | ความปลอดภัย AI: Direct/Indirect Prompt Injection, Jailbreaking, PII Handling, Access Control ใน RAG, Audit Logging, Red Team Testing | [[wiki/sources/ai-engineering/security-safety]] | 2026-04-14 |
+| [[wiki/sources/ai-engineering/cost-optimization\|Cost Optimization]] | ลดต้นทุน AI: LLM Routing, Multi-level Caching, Prompt Caching, Token Optimization, Batch API (50% ถูกกว่า), Roadmap ประหยัด 30-90% | [[wiki/sources/ai-engineering/cost-optimization]] | 2026-04-14 |
 
 ---
 
@@ -172,7 +182,13 @@
 | [[wiki/concepts/vector-database\|Vector Database]] | ฐานข้อมูลสำหรับ vector embeddings: HNSW/IVFFlat index, cosine similarity, เปรียบเทียบ pgvector/Pinecone/Qdrant/Weaviate/ChromaDB/OpenSearch | vector-database, embeddings, similarity-search, rag, hnsw |
 | [[wiki/concepts/embedding\|Embedding — แปลงข้อความเป็น Vector]] | แปลงข้อความเป็น float array หลายมิติ: text-embedding-3-small, BGE-M3, cosine similarity, multilingual, batch embedding | embedding, vector, nlp, semantic-search, rag |
 | [[wiki/concepts/tool-calling\|Tool Calling]] | กลไกให้ LLM เรียก function ภายนอก: schema JSON, @tool decorator, ToolNode, parallel calls, stop conditions | tool-calling, function-calling, agent, llm, langchain |
-| [[wiki/concepts/prompt-engineering\|Prompt Engineering]] | ออกแบบ prompt ให้ LLM: zero-shot, few-shot, Chain-of-Thought, role prompting, constraint prompting, output format control | prompt-engineering, llm, few-shot, chain-of-thought, rag |
+| [[wiki/concepts/prompt-engineering\|Prompt Engineering]] | ออกแบบ prompt ให้ LLM: zero-shot, few-shot, Chain-of-Thought, role prompting, constraint prompting, Meta-Prompting, APO, Structured Output | prompt-engineering, llm, few-shot, chain-of-thought, rag |
+| [[wiki/concepts/fine-tuning\|Fine-Tuning]] | การปรับแต่งโมเดล AI เฉพาะทาง: เมื่อไรควรใช้ vs RAG, LoRA, QLoRA, SFT, Data Preparation, Catastrophic Forgetting | fine-tuning, lora, rlhf, sft, training, llm |
+| [[wiki/concepts/context-engineering\|Context Engineering]] | การจัดการ Context Window: External Memory, RAG+Dynamic Filters, Context Compaction, Context Isolation — ต่างจาก Prompt Engineering | context-engineering, context-window, memory, rag |
+| [[wiki/concepts/llm-evaluation\|LLM Evaluation]] | การประเมินระบบ AI: BLEU, ROUGE, BERTScore, LLM-as-Judge, Golden Dataset, Regression Testing, A/B Testing, Red Teaming | evaluation, testing, bleu, rouge, llm-as-judge |
+| [[wiki/concepts/ai-production-deployment\|AI Production Deployment]] | Architecture และ best practices สำหรับ Deploy AI: Rate Limiting, Caching, Error Handling, Security, Scaling, Monitoring | deployment, production, fastapi, infrastructure |
+| [[wiki/concepts/prompt-injection\|Prompt Injection]] | การโจมตีระบบ AI: Direct/Indirect Injection, Jailbreaking, PII Handling, Access Control, Audit Logging, Red Team | security, prompt-injection, jailbreaking, pii |
+| [[wiki/concepts/ai-cost-optimization\|AI Cost Optimization]] | กลยุทธ์ลดต้นทุน AI: LLM Routing, Multi-level Caching, Prompt Caching, Token Optimization, Batch API | cost-optimization, caching, model-routing, batch-processing |
 | [[wiki/concepts/api-design\|API Design]] | ออกแบบ REST API สำหรับ RAG Agent: FastAPI endpoints, authentication, error format, streaming, health check | api, rest, fastapi, design, http, endpoints |
 | [[wiki/concepts/api-integration\|API Integration]] | เชื่อม RAG Agent กับ 14 channels: LINE, Slack, Web, Mobile, Discord, Teams, MCP — 1 Agent N Channels pattern | api-integration, line, slack, webhook, rest-api, channels |
 | [[wiki/concepts/work-from-anywhere\|Work From Anywhere (WFA)]] | นโยบายการทำงานจากที่ไหนก็ได้ในกาแล็กซี่ โควต้า 999 ปีต่อปี (ไม่รวมวันหยุด) | remote-work, hr-policy, flexible-work |

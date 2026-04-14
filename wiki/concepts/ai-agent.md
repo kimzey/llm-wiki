@@ -1,11 +1,11 @@
 ---
 title: "AI Agent — ระบบ AI ที่ตัดสินใจเอง"
 type: concept
-tags: [agent, ai, llm, autonomous, decision-making]
-sources: [wiki/sources/rag-complete-knowledge, wiki/sources/rag-vs-agent-explained, step2-tools-agents.md, step4-langgraph-tutorial.md, step6-multi-agent-tutorial.md, langgraph-deep-dive.md, multi-agent-deep-dive.md]
-related: [wiki/concepts/llm-large-language-model, wiki/concepts/rag-retrieval-augmented-generation, wiki/concepts/agentic-rag]
+tags: [agent, ai, llm, autonomous, decision-making, react, planning, multi-agent]
+sources: [wiki/sources/rag-complete-knowledge, wiki/sources/rag-vs-agent-explained, step2-tools-agents.md, step4-langgraph-tutorial.md, step6-multi-agent-tutorial.md, langgraph-deep-dive.md, multi-agent-deep-dive.md, wiki/sources/ai-engineering/agent-systems]
+related: [wiki/concepts/llm-large-language-model, wiki/concepts/rag-retrieval-augmented-generation, wiki/concepts/agentic-rag, wiki/concepts/tool-calling]
 created: 2026-04-13
-updated: 2026-04-13
+updated: 2026-04-14
 ---
 
 ## สรุปสั้น
@@ -214,7 +214,51 @@ Phase 3: Full Agent (อนาคต)
 - [[wiki/concepts/agentic-rag|Agentic RAG]] — Agent ที่ใช้ RAG เป็น tool หลัก
 - [[wiki/concepts/tool-calling|Tool Calling]] — กลไกที่ Agent ใช้เรียก external functions
 
+## Agent Architecture Patterns (เพิ่มเติม)
+
+### Reflection Agent
+```
+Agent รันงาน → ตรวจสอบผลตัวเอง → ปรับปรุง → รันใหม่
+เช่น: เขียนโค้ด → รัน → Error! → อ่าน error → แก้โค้ด → รันใหม่ ✓
+```
+
+### Self-Consistency
+```
+รันหลายรอบ (Temperature สูง) → เลือกคำตอบ majority vote
+รอบ 1: A, รอบ 2: A, รอบ 3: B, รอบ 4: A → เลือก A (3/4)
+ดีสำหรับ: โจทย์คณิตศาสตร์, การให้เหตุผล
+```
+
+### Multi-Agent Patterns
+
+**Supervisor-Worker**:
+```
+[Supervisor Agent] วิเคราะห์งาน, มอบหมาย, รวมผล
+    /         |          \
+[Research] [Analysis] [Writing]
+```
+
+**Pipeline**: Agent A → ผล → Agent B → ผล → Agent C
+**Debate/Adversarial**: Agent A โต้แย้ง Agent B → Judge Agent ตัดสิน
+
+## Human-in-the-Loop
+
+ระดับความอันตรายของ Actions:
+- **Level 1 — Read-only**: ค้นหาข้อมูล, อ่านไฟล์ → ทำได้เลย
+- **Level 2 — Reversible**: สร้างเอกสาร, ส่งข้อความ internal → log ไว้
+- **Level 3 — Irreversible**: ส่งอีเมลภายนอก, ลบข้อมูล, ชำระเงิน → ต้องขอ approval
+
+## Observability สำหรับ Agent
+
+สิ่งที่ต้อง log ทุก step:
+- `trace_id` เชื่อมทุก action ใน task เดียว
+- `tool` ที่เรียก + `params` + `tokens_used`
+- `latency_ms` + `success` ของแต่ละ action
+
+Metrics สำคัญ: Task Success Rate, Tool Call Count per task (ยิ่งน้อยยิ่งดี), Human Intervention Rate
+
 ## แหล่งที่มา
 
 - Complete RAG & Agent Knowledge Base
 - RAG vs Agent — Explained
+- [[wiki/sources/ai-engineering/agent-systems|Agent Systems — ระบบ AI Agent ฉบับสมบูรณ์]]

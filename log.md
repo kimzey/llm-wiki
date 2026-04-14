@@ -4,6 +4,40 @@
 
 ---
 
+## [2026-04-14] ingest | AI Engineering Complete Notes (11 files → 10 wiki sources + 6 new concepts)
+
+- **Move**: raw/inbox/ → raw/notes/ai-engineering/ (10 files) + raw/notes/rag/ (1 file)
+- **Duplicates**: AI_Engineering_Complete_Guide.md + context_and_prompt_engineering.md — same content, created 1 wiki page เท่านั้น
+
+**Source pages created** (wiki/sources/ai-engineering/ + wiki/sources/rag/):
+- context-prompt-engineering.md (from AI_Engineering_Complete_Guide.md)
+- llm-fundamentals.md (from 02_llm_fundamentals.md)
+- agent-systems.md (from 03_agent_systems.md)
+- rag-systems-complete.md → wiki/sources/rag/ (from 04_rag_systems.md)
+- fine-tuning.md (from 05_fine_tuning.md)
+- evaluation-testing.md (from 06_evaluation_testing.md)
+- production-deployment.md (from 07_production_deployment.md)
+- advanced-techniques.md (from 08_advanced_techniques.md)
+- security-safety.md (from 09_security_safety.md)
+- cost-optimization.md (from 10_cost_optimization.md)
+
+**Concept pages created** (new):
+- wiki/concepts/fine-tuning.md
+- wiki/concepts/context-engineering.md
+- wiki/concepts/llm-evaluation.md
+- wiki/concepts/ai-production-deployment.md
+- wiki/concepts/prompt-injection.md
+- wiki/concepts/ai-cost-optimization.md
+
+**Concept pages updated** (merged, no existing content deleted):
+- wiki/concepts/llm-large-language-model.md — added Transformer architecture, Sampling Parameters, Training Stages, ข้อจำกัด
+- wiki/concepts/ai-agent.md — added Reflection Agent, Self-Consistency, Multi-Agent Patterns, Human-in-the-Loop, Observability
+- wiki/concepts/prompt-engineering.md — added Meta-Prompting, APO, Structured Output, Constitutional AI Prompting
+
+- อัปเดต index.md (10 sources ใหม่, 7 concepts ใหม่/updated)
+
+---
+
 ## [2026-04-14] ingest | raw/inbox/spike-rag/ — LLM Agents Learning Path (6 files)
 
 - **Categorize & Move**: spike-rag/ (6 files) → raw/notes/ai/agents/
