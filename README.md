@@ -244,4 +244,8 @@ Or copy the `.claude/` folder from this vault into your new directory, then run 
 - Primary language: Thai for wiki content, English for config and code
 - See `.claude/README.md` for full command and skill documentation
 
-Ref : https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f#file-llm-wiki-md
+Ref :
+
+- https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f#file-llm-wiki-md
+
+- https://github.com/kepano/obsidian-skills#
