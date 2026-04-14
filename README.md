@@ -4,6 +4,8 @@ A personal knowledge base maintained by Claude Code — following the **LLM Wiki
 
 The LLM writes and maintains the wiki. You source, explore, and ask questions.
 
+![alt text](image.png)
+
 ---
 
 ## What is this?
@@ -42,11 +44,13 @@ claude
 ### 3. Clip or drop a source and ingest it
 
 **From a URL** (recommended):
+
 ```
 /clip https://example.com/article
 ```
 
 **From a local file** (dropped into raw/ manually):
+
 ```
 /ingest raw/clips/article.md
 /ingest raw/notes/topic-folder/
@@ -123,11 +127,13 @@ vault/
 ### Clipping an article
 
 **Direct from URL (recommended):**
+
 ```
 /clip https://example.com/article
 ```
 
 **Via Obsidian Web Clipper:**
+
 ```
 1. Use Obsidian Web Clipper → saves to raw/clips/
 2. /ingest raw/clips/article.md
@@ -207,11 +213,11 @@ Use **Graph View** to see which concepts are connected, which pages are hubs, an
 
 **New capabilities with installed skills:**
 
-| Feature | How to use |
-|---------|-----------|
-| Canvas | `/canvas [topic]` → opens as visual map in Obsidian Canvas view |
-| Bases | `/base [name]` → opens as table/card view in Obsidian Bases |
-| Web clip | `/clip [url]` → uses `defuddle` CLI (install: `npm install -g defuddle`) |
+| Feature     | How to use                                                                       |
+| ----------- | -------------------------------------------------------------------------------- |
+| Canvas      | `/canvas [topic]` → opens as visual map in Obsidian Canvas view                  |
+| Bases       | `/base [name]` → opens as table/card view in Obsidian Bases                      |
+| Web clip    | `/clip [url]` → uses `defuddle` CLI (install: `npm install -g defuddle`)         |
 | CLI control | `obsidian-cli` — requires Obsidian open; install via `brew install obsidian-cli` |
 
 ---
